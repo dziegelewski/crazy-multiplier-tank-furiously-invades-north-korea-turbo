@@ -1,0 +1,5 @@
+class Duel {
+	constructor() {
+		
+	}
+}
