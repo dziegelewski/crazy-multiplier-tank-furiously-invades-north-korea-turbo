@@ -1,10 +1,11 @@
-import random from 'lodash/random';
-import times from 'lodash/times';
+import random from "lodash/random";
+import times from "lodash/times";
 
 class Challenge {
-	constructor(factors = this.generateFactors()) {
-		this.factors = factors;
+	constructor({ level, numberOfFactors = 2 } = {}) {
+		this.numberOfFactors = numberOfFactors;
 		this.userInput = [];
+		this.factors = this.generateFactors();
 
 		this.maxTime = 5;
 		this.time = this.maxTime;
@@ -12,8 +13,8 @@ class Challenge {
 		this.isActive = true;
 	}
 
-	generateFactors(numberOfFactors = 2) {
-		return [ ...times(numberOfFactors, () => random(1,5)) ];
+	generateFactors() {
+		return [...times(this.numberOfFactors, () => random(1, 5))];
 	}
 
 	input(value) {
@@ -25,35 +26,31 @@ class Challenge {
 
 	validateInput(value) {
 		if (Number.isInteger(value) && value >= 0 && value <= 9) {
-				return true;
+			return true;
 		} else {
-			throw new TypeError(`User input ${value} is not a single digit`)
+			throw new TypeError(`User input ${value} is not a single digit`);
 		}
 	}
 
 	onInputReady() {
-			const userAnswer = this.convertInput(this.userInput);
-			this.userInput = [];
-			this.attempt(userAnswer);
+		const userAnswer = this.convertInput(this.userInput);
+		this.userInput = [];
+		this.attempt(userAnswer);
 	}
 
 	attempt(answer) {
 		if (answer === this.solution) {
-
 		}
 	}
 
-
-
 	convertInput(arrayOfNumbers) {
-		return parseInt(arrayOfNumbers.join(''));
+		return parseInt(arrayOfNumbers.join(""));
 	}
-
 
 	get solution() {
 		return this.factors.reduce((total, factor) => {
 			return total * factor;
-		}, 1) 
+		}, 1);
 	}
 
 	get blanks() {

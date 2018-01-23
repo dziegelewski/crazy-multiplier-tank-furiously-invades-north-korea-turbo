@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"get",
+				"get\tget"
+			],
+			[
+				"ge",
+				"generateFactors"
+			],
+			[
+				"spl",
+				"splittedSolution"
+			],
+			[
+				"hardCha",
+				"hardChallenge"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"use",
+				"userInput"
+			],
+			[
+				"us",
+				"userInput"
+			],
+			[
+				"b",
+				"blanksToFill"
+			],
+			[
+				"Te",
+				"testChallenge"
+			],
+			[
 				"expected",
 				"expectedResult"
 			],
@@ -168,14 +212,6 @@
 				"PUT_ITEM_OFF"
 			],
 			[
-				"get",
-				"getUsedItem"
-			],
-			[
-				"use",
-				"usedMelee"
-			],
-			[
 				"Redu",
 				"ReducerLife"
 			],
@@ -246,10 +282,6 @@
 			[
 				"font",
 				"font-family"
-			],
-			[
-				"b",
-				"BrowserRouter"
 			],
 			[
 				"view",
@@ -482,43 +514,23 @@
 			[
 				"distribute",
 				"distributeOneCard"
-			],
-			[
-				"last",
-				"lastLived\tnum "
-			],
-			[
-				"all",
-				"allYears\tnum "
-			],
-			[
-				"inv",
-				"inventor"
-			],
-			[
-				"su",
-				"supporting\t? "
-			],
-			[
-				"toLo",
-				"toLowerCase\tfn "
-			],
-			[
-				"tr",
-				"treasury"
-			],
-			[
-				"gold",
-				"goldContainer\t? "
-			],
-			[
-				"tre",
-				"treasureHouse\t{} "
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"contents": "const express = require('express');\nconst app = express();\n",
+			"file": "/home/grzegorz/Desktop/node/e.js",
+			"file_size": 0,
+			"file_write_time": 131591050563147887,
+			"settings":
+			{
+				"buffer_size": 59,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -528,9 +540,21 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "prett",
+		"last_filter": "pre",
 		"selected_items":
 		[
+			[
+				"pre",
+				"JsPrettier: Format Code"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"r",
+				"File: Rename"
+			],
 			[
 				"prett",
 				"JsPrettier: Format Code"
@@ -558,10 +582,6 @@
 			[
 				"packag",
 				"Preferences: Browse Packages"
-			],
-			[
-				"r",
-				"File: Rename"
 			],
 			[
 				"CO",
@@ -666,11 +686,36 @@
 	},
 	"expanded_folders":
 	[
-		"/home/grzegorz/Desktop/tank"
+		"/home/grzegorz/Desktop/tank",
+		"/home/grzegorz/Desktop/tank/config",
+		"/home/grzegorz/Desktop/tank/node_modules",
+		"/home/grzegorz/Desktop/tank/node_modules/lodash",
+		"/home/grzegorz/Desktop/tank/test",
+		"/home/grzegorz/Desktop/tank/test/unit",
+		"/home/grzegorz/Desktop/tank/test/unit/specs"
 	],
 	"file_history":
 	[
+		"/home/grzegorz/Desktop/node/q.js",
+		"/home/grzegorz/Desktop/node/tadeusz",
+		"/home/grzegorz/Desktop/node/mateusz",
+		"/home/grzegorz/Desktop/node/mateusz.gz",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
+		"/home/grzegorz/Desktop/tank/src/Challenge.js",
+		"/home/grzegorz/Desktop/tank/src/Duel.js",
+		"/home/grzegorz/Desktop/tank/src/App.vue",
+		"/home/grzegorz/Desktop/tank/src/components/MagickBar.vue",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/MagickBar.spec.js",
+		"/home/grzegorz/Desktop/tank/node_modules/lodash/times.js",
 		"/home/grzegorz/Desktop/tank/src/main.js",
+		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/HelloWorld.spec.js",
+		"/home/grzegorz/Desktop/tank/test/unit/index.js",
+		"/home/grzegorz/Desktop/tank/src/components/HelloWorld.vue",
+		"/home/grzegorz/Desktop/tank/package-lock.json",
+		"/home/grzegorz/Desktop/tank/package.json",
+		"/home/grzegorz/Desktop/tank/src/router/index.js",
+		"/home/grzegorz/Desktop/tank/node_modules/chai/karma.conf.js",
 		"/home/grzegorz/Desktop/Lambro/src/components/Regeneration.jsx",
 		"/home/grzegorz/Desktop/Lambro/src/reducers/reducers_shortcut.js",
 		"/home/grzegorz/Desktop/Lambro/node_modules/crypto-browserify/helpers.js",
@@ -778,30 +823,11 @@
 		"/home/grzegorz/Desktop/WeatherApp/src/components/chart.js",
 		"/home/grzegorz/Desktop/WeatherApp/node_modules/asap/package.json",
 		"/home/grzegorz/.config/sublime-text-3/Packages/User/JavaScript (Babel).sublime-settings",
-		"/home/grzegorz/projects/woblink/web/js/cart.js",
-		"/etc/modprobe.d/iwlwifi.conf",
-		"/home/grzegorz/Desktop/BookApp/README.md",
-		"/home/grzegorz/Desktop/BookApp/src/reducers/reducer_books.js",
-		"/home/grzegorz/Desktop/BookApp/src/reducers/reducer_active_book.js",
-		"/home/grzegorz/Desktop/BookApp/src/reducers/index.js",
-		"/home/grzegorz/Desktop/BookApp/src/actions/index.js",
-		"/home/grzegorz/Desktop/BookApp/src/components/book.js",
-		"/home/grzegorz/Desktop/BookApp/src/containers/book-details.js",
-		"/home/grzegorz/Desktop/BookApp/src/containers/book-list.js",
-		"/home/grzegorz/Desktop/BookApp/src/components/app.js",
-		"/home/grzegorz/Desktop/BookApp/src/components/book-list.js",
-		"/home/grzegorz/Desktop/BookApp/src/components/selected-book.js",
-		"/home/grzegorz/Desktop/BookApp/node_modules/redux/dist/redux.js",
-		"/home/grzegorz/Desktop/BookApp/node_modules/react-redux/dist/react-redux.js",
-		"/home/grzegorz/Desktop/BookApp/node_modules/react-dom/dist/react-dom.js",
-		"/home/grzegorz/Desktop/GhostKingApp/src/index.js",
-		"/home/grzegorz/Desktop/GhostKingApp/package.json",
-		"/home/grzegorz/Desktop/GhostKingApp/cfg/test.js",
-		"/home/grzegorz/Desktop/GhostKingApp/cfg/dist.js"
+		"/home/grzegorz/projects/woblink/web/js/cart.js"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -815,6 +841,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getTemplate",
+			"Template",
+			"template",
+			"response",
+			"request",
+			"fs",
+			"factors",
+			"sinon",
+			"call",
+			"new TestChallenge()",
+			"inputReady",
+			"factors",
+			"blanks",
+			"5",
+			"loadsh",
+			"click",
+			"num",
+			"chai",
+			"HelloWorld"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -832,8 +877,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/grzegorz/Desktop/node/e.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 59,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -893,6 +967,38 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"challe",
+				"src/Challenge.js"
+			],
+			[
+				"app",
+				"src/App.vue"
+			],
+			[
+				"magick",
+				"test/unit/specs/MagickBar.spec.js"
+			],
+			[
+				"karma.js",
+				"test/unit/karma.conf.js"
+			],
+			[
+				"packag",
+				"package.json"
+			],
+			[
+				"packa",
+				"package-lock.json"
+			],
+			[
+				"hellow",
+				"src/components/HelloWorld.vue"
+			],
+			[
+				"app.v",
+				"src/App.vue"
+			],
 			[
 				"regene",
 				"src/components/Regeneration.jsx"
@@ -1018,10 +1124,6 @@
 				"src/components/Mercenary.jsx"
 			],
 			[
-				"packa",
-				"package.json"
-			],
-			[
 				"times",
 				"node_modules/lodash/times.js"
 			],
@@ -1044,10 +1146,6 @@
 			[
 				"main.",
 				"src/components/Main.jsx"
-			],
-			[
-				"packag",
-				"package.json"
 			],
 			[
 				"assign",
@@ -1380,30 +1478,6 @@
 			[
 				"react-redux.js",
 				"node_modules/react-redux/dist/react-redux.js"
-			],
-			[
-				"reac.",
-				"node_modules/react/dist/react.js"
-			],
-			[
-				"app.",
-				"src/components/app.js"
-			],
-			[
-				"bundle.js",
-				"node_modules/ajv/scripts/bundle.js"
-			],
-			[
-				"buybox.v",
-				"woblink/src/Woblink/Products/ProductWebBundle/Resources/public/js/vuecomponents/buybox.vue"
-			],
-			[
-				"prompt",
-				"src/prompt.vue"
-			],
-			[
-				"menu",
-				"src/Menu.vue"
 			]
 		],
 		"width": 0.0
@@ -1433,8 +1507,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 274.0,
+	"side_bar_visible": false,
+	"side_bar_width": 50.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

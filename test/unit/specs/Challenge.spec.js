@@ -1,13 +1,17 @@
-import Challenge from "@/Challenge";
+import Challenge from "@/classes/Challenge";
 import times from "lodash/times";
 import sinon from "sinon";
 
 function easyChallenge() {
-	return new Challenge([5, 5])
+	return new Challenge({
+		factors: [5, 5]
+	})
 }
 
 function hardChallenge() {
-	return new Challenge([100, 10, 10])
+		return new Challenge({
+		factors: [10, 100, 10]
+	})
 }
 
 
