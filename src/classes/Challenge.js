@@ -2,19 +2,27 @@ import random from "lodash/random";
 import times from "lodash/times";
 
 class Challenge {
-	constructor({ level, numberOfFactors = 2 } = {}) {
+	constructor({ level = 1, numberOfFactors = 2, timeout = 5000, factors } = {}) {
+
+		this.level = level;
 		this.numberOfFactors = numberOfFactors;
-		this.userInput = [];
-		this.factors = this.generateFactors();
+		this.timeout = timeout;
 
-		this.maxTime = 5;
-		this.time = this.maxTime;
-
+		this.factors = factors || this.generateFactors();
 		this.isActive = true;
+		this.userInput = [];
 	}
 
 	generateFactors() {
-		return [...times(this.numberOfFactors, () => random(1, 5))];
+		return [...times(this.numberOfFactors, () => this.generateSingleFactor() )];
+	}
+
+	generateSingleFactor() {
+		const level = this.level + 3;
+
+		const factorMin = Math.floor(level / 2);
+		const factorMax = Math.ceil(level * 1.5);
+		return random(factorMin, factorMax);
 	}
 
 	input(value) {
@@ -22,6 +30,10 @@ class Challenge {
 			this.userInput.push(value);
 			if (this.inputReady) this.onInputReady();
 		}
+	}
+
+	undo() {
+		this.userInput.pop();
 	}
 
 	validateInput(value) {
