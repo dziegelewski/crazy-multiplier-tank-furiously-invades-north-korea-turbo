@@ -27,20 +27,26 @@
 		return value === DELETE || value === BACKSPACE;
 	}
 	
+	import { mapMutations } from 'vuex';
 
 	export default {
 		name: 'KeyboardListener',
 		methods: {
+
+			...mapMutations([
+				'userInput',
+				'userUndo',
+			]),
 
 			registerKeydown(e) {
 				const value = e.which;
 
 				if (isDigitOrNumpad(value)) {
 					const translatedValue = this.translateValue(value);
-					this.$store.commit('userInput', translatedValue);
+					this.userInput(translatedValue);
 				}
 				else if (isUndoButton(value)) {
-					this.$store.commit('userUndo');
+					this.userUndo();
 				}
 			},
 

@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"b",
+				"battlefield"
+			],
+			[
+				"foe",
+				"foeLevel"
+			],
+			[
+				"fa",
+				"factorMax"
+			],
+			[
+				"gene",
+				"generateSingleFactor"
+			],
+			[
+				"is",
+				"isUndoButton"
+			],
+			[
+				"tra",
+				"translateValue"
+			],
+			[
+				"NU",
+				"NUMPAD9"
+			],
+			[
+				"NUM",
+				"NUMPAD0"
+			],
+			[
+				"DI",
+				"DIGIT0"
+			],
+			[
+				"map",
+				"mapMutations"
+			],
+			[
 				"get",
 				"get\tget"
 			],
@@ -38,10 +78,6 @@
 			[
 				"us",
 				"userInput"
-			],
-			[
-				"b",
-				"blanksToFill"
 			],
 			[
 				"Te",
@@ -120,10 +156,6 @@
 				"enemyDamage"
 			],
 			[
-				"is",
-				"isDead"
-			],
-			[
 				"sta",
 				"stateAfterStrike"
 			],
@@ -180,10 +212,6 @@
 				"class"
 			],
 			[
-				"map",
-				"mapStateToProps"
-			],
-			[
 				"mone",
 				"moneyChange"
 			],
@@ -226,10 +254,6 @@
 			[
 				"he",
 				"height"
-			],
-			[
-				"tra",
-				"transition"
 			],
 			[
 				"life",
@@ -490,43 +514,16 @@
 			[
 				"inl",
 				"inline-block"
-			],
-			[
-				"pos",
-				"position"
-			],
-			[
-				"wi",
-				"width"
-			],
-			[
-				"fi",
-				"figure\tTag"
-			],
-			[
-				"i",
-				"innerHTML"
-			],
-			[
-				"pi",
-				"pickedCard\tnum "
-			],
-			[
-				"distribute",
-				"distributeOneCard"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "const express = require('express');\nconst app = express();\n",
-			"file": "/home/grzegorz/Desktop/node/e.js",
-			"file_size": 0,
-			"file_write_time": 131591050563147887,
+			"file": "src/classes/Battlefield.js",
 			"settings":
 			{
-				"buffer_size": 59,
+				"buffer_size": 234,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -540,9 +537,13 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "pre",
+		"last_filter": "re",
 		"selected_items":
 		[
+			[
+				"re",
+				"File: Rename"
+			],
 			[
 				"pre",
 				"JsPrettier: Format Code"
@@ -565,10 +566,6 @@
 			],
 			[
 				"ren",
-				"File: Rename"
-			],
-			[
-				"re",
 				"File: Rename"
 			],
 			[
@@ -688,26 +685,38 @@
 	[
 		"/home/grzegorz/Desktop/tank",
 		"/home/grzegorz/Desktop/tank/config",
-		"/home/grzegorz/Desktop/tank/node_modules",
-		"/home/grzegorz/Desktop/tank/node_modules/lodash",
-		"/home/grzegorz/Desktop/tank/test",
-		"/home/grzegorz/Desktop/tank/test/unit",
-		"/home/grzegorz/Desktop/tank/test/unit/specs"
+		"/home/grzegorz/Desktop/tank/src",
+		"/home/grzegorz/Desktop/tank/static",
+		"/home/grzegorz/Desktop/tank/test"
 	],
 	"file_history":
 	[
+		"/home/grzegorz/Desktop/tank/src/components/GameApp.vue",
+		"/home/grzegorz/Desktop/tank/log",
+		"/home/grzegorz/Desktop/tank/src/components/KeyboardListener.vue",
+		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
+		"/home/grzegorz/Desktop/tank/src/components/MainInput.vue",
+		"/home/grzegorz/Desktop/tank/src/store/index.js",
+		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Foe.spec.js",
+		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Battlefield.spec.js",
+		"/home/grzegorz/Desktop/tank/.git/info/exclude",
+		"/home/grzegorz/Desktop/tank/index.html",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
+		"/home/grzegorz/Desktop/tank/src/App.vue",
+		"/home/grzegorz/Desktop/tank/src/main.js",
+		"/home/grzegorz/Desktop/tank/src/components/Events.vue",
+		"/home/grzegorz/Desktop/node/e.js",
 		"/home/grzegorz/Desktop/node/q.js",
 		"/home/grzegorz/Desktop/node/tadeusz",
 		"/home/grzegorz/Desktop/node/mateusz",
 		"/home/grzegorz/Desktop/node/mateusz.gz",
-		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
 		"/home/grzegorz/Desktop/tank/src/Challenge.js",
 		"/home/grzegorz/Desktop/tank/src/Duel.js",
-		"/home/grzegorz/Desktop/tank/src/App.vue",
 		"/home/grzegorz/Desktop/tank/src/components/MagickBar.vue",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/MagickBar.spec.js",
 		"/home/grzegorz/Desktop/tank/node_modules/lodash/times.js",
-		"/home/grzegorz/Desktop/tank/src/main.js",
 		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/HelloWorld.spec.js",
 		"/home/grzegorz/Desktop/tank/test/unit/index.js",
@@ -809,21 +818,7 @@
 		"/home/grzegorz/Desktop/Lambro/node_modules/babel-helper-builder-react-jsx/lib/index.js",
 		"/tmp/.fr-84dG0Y/Readme.txt",
 		"/tmp/.fr-VwYEEt/downloader.sh",
-		"/home/grzegorz/Desktop/Lambro/src/components/Copyright.js",
-		"/home/grzegorz/Desktop/Lambro/src/styles/variables.scss",
-		"/home/grzegorz/Desktop/Lambro/src/styles/App.css",
-		"/home/grzegorz/Desktop/Lambro/.editorconfig",
-		"/home/grzegorz/Desktop/Lambro/.babelrc",
-		"/home/grzegorz/bundle.js",
-		"/home/grzegorz/Desktop/Lambro/src/components/Main.js",
-		"/home/grzegorz/Desktop/Lambro/src/components/item.js",
-		"/home/grzegorz/Desktop/Lambro/src/images/shield3.svg",
-		"/home/grzegorz/Desktop/GhostKing/src/images/shield2.svg",
-		"/home/grzegorz/Desktop/WeatherApp/src/components/app.js",
-		"/home/grzegorz/Desktop/WeatherApp/src/components/chart.js",
-		"/home/grzegorz/Desktop/WeatherApp/node_modules/asap/package.json",
-		"/home/grzegorz/.config/sublime-text-3/Packages/User/JavaScript (Babel).sublime-settings",
-		"/home/grzegorz/projects/woblink/web/js/cart.js"
+		"/home/grzegorz/Desktop/Lambro/src/components/Copyright.js"
 	],
 	"find":
 	{
@@ -841,6 +836,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"foe",
+			"Foe",
+			"foe",
+			"Foe",
+			"foe",
+			"Foe",
+			"Duel",
+			"Challenge",
+			"input",
+			"timeout",
+			"isAc",
+			"playerI",
+			"userInput",
+			"KeyboardWidget",
+			"App",
+			"app",
+			"App",
+			"KeyboardListener",
+			"Events",
+			"lev",
+			"userInput",
+			"factors",
 			"getTemplate",
 			"Template",
 			"template",
@@ -882,19 +899,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/grzegorz/Desktop/node/e.js",
+					"file": "src/classes/Battlefield.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 59,
+						"buffer_size": 234,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								59,
-								59
+								80,
+								80
 							]
 						],
 						"settings":
@@ -968,8 +985,28 @@
 		"selected_items":
 		[
 			[
+				"chall",
+				"src/classes/Challenge.js"
+			],
+			[
 				"challe",
-				"src/Challenge.js"
+				"test/unit/specs/Challenge.spec.js"
+			],
+			[
+				"keybo",
+				"src/components/KeyboardListener.vue"
+			],
+			[
+				"index.js",
+				"src/store/index.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"challen",
+				"src/classes/Challenge.js"
 			],
 			[
 				"app",
@@ -1190,10 +1227,6 @@
 			[
 				"lif",
 				"src/components/Lifebar.jsx"
-			],
-			[
-				"inde",
-				"src/index.js"
 			],
 			[
 				"life",
@@ -1420,10 +1453,6 @@
 				"src/consts.js"
 			],
 			[
-				"index.js",
-				"src/index.js"
-			],
-			[
 				"item.sx",
 				"src/components/Item.jsx"
 			],
@@ -1466,18 +1495,6 @@
 			[
 				"reac-",
 				"node_modules/react-dom/dist/react-dom.js"
-			],
-			[
-				"redux",
-				"node_modules/redux/dist/redux.js"
-			],
-			[
-				"react-rout",
-				"node_modules/react-router-dom/umd/react-router-dom.js"
-			],
-			[
-				"react-redux.js",
-				"node_modules/react-redux/dist/react-redux.js"
 			]
 		],
 		"width": 0.0
@@ -1507,8 +1524,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 50.0,
+	"side_bar_visible": true,
+	"side_bar_width": 155.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
