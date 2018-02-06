@@ -9,7 +9,7 @@
 
 <script>
 
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 	import range from 'lodash/range';
 	export default {
@@ -21,7 +21,7 @@ import { mapMutations } from 'vuex';
 		},
 
 		methods: {
-			...mapMutations([
+			...mapActions([
 	      'userInput'
 	    ]),
 		}

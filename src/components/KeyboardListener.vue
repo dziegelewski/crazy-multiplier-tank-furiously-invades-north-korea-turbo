@@ -3,20 +3,21 @@
 </template>
 
 <script>
-	const DIGIT0 = 48;
-	const DIGIT9 = 57;
-	const NUMPAD0 = 96;
-	const NUMPAD9 = 105;
+	const DIGIT_0 = 48;
+	const DIGIT_9 = 57;
+	
+	const NUMPAD_0 = 96;
+	const NUMPAD_9 = 105;
 
 	const DELETE = 46;
 	const BACKSPACE = 8;
 
 	function isDigit(value) {
-		return value >= DIGIT0 && value <= DIGIT9;
+		return value >= DIGIT_0 && value <= DIGIT_9;
 	}
 
 	function isNumpad(value) {
-		return value >= NUMPAD0 && value <= NUMPAD9;
+		return value >= NUMPAD_0 && value <= NUMPAD_9;
 	}
 
 	function isDigitOrNumpad(value) {
@@ -27,15 +28,18 @@
 		return value === DELETE || value === BACKSPACE;
 	}
 	
-	import { mapMutations } from 'vuex';
+	import { mapMutations, mapActions } from 'vuex';
 
 	export default {
 		name: 'KeyboardListener',
 		methods: {
 
 			...mapMutations([
-				'userInput',
 				'userUndo',
+			]),
+
+			...mapActions([
+				'userInput',
 			]),
 
 			registerKeydown(e) {
@@ -52,10 +56,10 @@
 
 			translateValue(value) {
 				if (isDigit(value)) {
-					return value - DIGIT0;
+					return value - DIGIT_0;
 				}
 				else if (isNumpad(value)) {
-					return value - NUMPAD0
+					return value - NUMPAD_0
 				}
 			}
 		},

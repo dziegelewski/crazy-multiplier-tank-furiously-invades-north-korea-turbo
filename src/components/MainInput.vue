@@ -1,13 +1,11 @@
 <template>
 	<div>
 		<h1>
-			<span v-for="blank in blanks">
-				<template v-if="userAnswer[blank -1] !== undefined">
-					{{ userAnswer[blank -1] }}
-				</template>
-				<template v-else>
-					_
-				</template>
+			<span
+				v-for="letter in inputLetters"
+				class="letter"
+			>
+			{{ letter }}
 			</span>
 		</h1>
 		
@@ -22,8 +20,7 @@
 
 		computed: {
 			...mapGetters([
-				'blanks',
-				'userAnswer',
+				'inputLetters',
 			]),
 		}
 
@@ -31,5 +28,10 @@
 </script>
 
 <style>
+.letter {
+	width: 30px;
+	margin: 0 1px;
+	display: inline-block;
+}
 
 </style>

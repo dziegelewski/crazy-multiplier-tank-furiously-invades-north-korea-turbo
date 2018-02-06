@@ -82,19 +82,6 @@ describe("Challenge", () => {
 			});
 
 		})
-
-		it("should call onInputReady() when all blanks are filled", () => {
-			const challenge = hardChallenge();
-			const blanksToFill = challenge.blanks;
-
-			sinon.spy(challenge, "onInputReady");
-
-			times(blanksToFill, () => {
-				challenge.input(1);
-			});
-
-			expect(challenge.onInputReady).to.have.been.calledOnce;
-		});
 	});
 
 	describe("#onInputReady", () => {
@@ -103,20 +90,6 @@ describe("Challenge", () => {
 			challenge.input(1);
 			challenge.input(1);
 			challenge.input(1);
-		})
-
-		it('should call attempt() with correct value', () => {
-			const challenge = easyChallenge();
-			sinon.spy(challenge, "attempt");
-			challenge.factors = [3, 3];
-
-			const solution = challenge.solution;
-			const splittedSolution = solution.toString().split('');
-			splittedSolution.forEach(int => {
-				challenge.input(parseInt(int));
-			})
-
-			expect(challenge.attempt).to.have.been.calledWith(solution);
 		})
 	});
 

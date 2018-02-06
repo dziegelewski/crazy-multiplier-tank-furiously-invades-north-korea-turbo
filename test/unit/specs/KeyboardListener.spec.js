@@ -3,8 +3,8 @@ import sinon from 'sinon';
 
 import KeyboardListener from '@/components/KeyboardListener.vue';
 
-const DIGIT0 = 48;
-const NUMPAD0 = 96;
+const DIGIT_0 = 48;
+const NUMPAD_0 = 96;
 const BACKSPACE = 8;
 const DELETE = 46;
 const CHAR_A = 65;
@@ -22,7 +22,7 @@ wrapper.setMethods({
 const sandbox = sinon.sandbox.create();
 
 describe('KeyboardListener.vue', () => {
-	 afterEach(function() {
+	 beforeEach(function() {
 		 	sandbox.restore();
     });
 
@@ -38,7 +38,7 @@ describe('KeyboardListener.vue', () => {
 
 	 it('triggers userInput if a digit or a numpad is pressed', () => {
 	 		sandbox.spy(wrapper.vm, 'userInput');
-	 		wrapper.trigger('keydown', { which: DIGIT0 });
+	 		wrapper.trigger('keydown', { which: DIGIT_0 });
 	 		expect(wrapper.vm.userInput.called).to.be.true;
 	 })
 

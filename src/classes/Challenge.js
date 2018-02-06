@@ -2,13 +2,14 @@ import random from "lodash/random";
 import times from "lodash/times";
 
 class Challenge {
-	constructor({ level = 1, numberOfFactors = 2, timeout = 5000, factors } = {}) {
+	constructor({ level = 1, numberOfFactors = 2, timeout = 5000, factors, prize } = {}) {
 
 		this.level = level;
 		this.numberOfFactors = numberOfFactors;
 		this.timeout = timeout;
 
 		this.factors = factors || this.generateFactors();
+		this.prize = prize || this.calculatePrize();
 		this.isActive = true;
 		this.userInput = [];
 	}
@@ -25,10 +26,13 @@ class Challenge {
 		return random(factorMin, factorMax);
 	}
 
+	calculatePrize() {
+		return this.level * 100;
+	}
+
 	input(value) {
-		if (this.validateInput(value)) {
+		if (this.validateInput(value) && !this.inputFull) {
 			this.userInput.push(value);
-			if (this.inputReady) this.onInputReady();
 		}
 	}
 
@@ -44,19 +48,18 @@ class Challenge {
 		}
 	}
 
-	onInputReady() {
-		const userAnswer = this.convertInput(this.userInput);
-		this.userInput = [];
-		this.attempt(userAnswer);
-	}
-
-	attempt(answer) {
-		if (answer === this.solution) {
-		}
-	}
-
 	convertInput(arrayOfNumbers) {
 		return parseInt(arrayOfNumbers.join(""));
+	}
+
+
+	attempt() {
+		const userAnswer = this.convertInput(this.userInput);
+		return userAnswer === this.solution;
+	}
+
+	restart() {
+		this.userInput = [];
 	}
 
 	get solution() {
@@ -69,7 +72,7 @@ class Challenge {
 		return this.solution.toString().length;
 	}
 
-	get inputReady() {
+	get inputFull() {
 		return this.userInput.length === this.blanks;
 	}
 }
