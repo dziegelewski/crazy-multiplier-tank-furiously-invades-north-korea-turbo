@@ -1,17 +1,36 @@
 <template>
 	<div>
-		<h1>{{ difficultyLevel }}</h1>
-		<button @click="nextChallenge">Next challenge!</button>
+
+		<button
+			v-if="isPrelude"
+			@click="beginGame"
+		>
+		<h1>-- BEGIN --</h1>
+		</button>
+	
+		<h2>Province... {{ province }}</h2>
+		<h2>Foe... {{ foe }}</h2>
+
+		<button v-if="foe" @click="throwChallenge">Next challenge!</button>
+
+		<button @click="sendFoe">send Foe!</button>
 	</div>
 </template>
 
 <script>
-	import { mapState, mapGetters, mapMutations } from 'vuex';
+	import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 	export default {
 		computed: {
 			...mapState([
-				'difficultyLevel'
+				'difficultyLevel',
+				'foe',
+				'province',
+				'stage',
 			]),
+
+			isPrelude() {
+				return !this.stage
+			},
 
 			...mapGetters([
 				'factors'
@@ -19,8 +38,13 @@
 		},
 		methods: {
 			...mapMutations([
-				'nextChallenge'
-			])
+				'throwChallenge',
+				'sendFoe',
+			]),
+
+			...mapActions([
+				'beginGame',
+			]),
 		}
 
 	}

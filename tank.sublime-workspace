@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"input",
+				"inputFull"
+			],
+			[
+				"res",
+				"restartChallenge"
+			],
+			[
 				"us",
 				"userInput"
 			],
@@ -284,10 +292,6 @@
 				"setState"
 			],
 			[
-				"input",
-				"input-group"
-			],
-			[
 				"cla",
 				"className"
 			],
@@ -510,20 +514,16 @@
 			[
 				"car",
 				"cardsOnBoard\t[] "
-			],
-			[
-				"cu",
-				"cursor"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/home/grzegorz/Desktop/text",
+			"file": "src/store/index.js",
 			"settings":
 			{
-				"buffer_size": 2743,
+				"buffer_size": 1727,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -686,31 +686,44 @@
 		"/home/grzegorz/Desktop/tank",
 		"/home/grzegorz/Desktop/tank/config",
 		"/home/grzegorz/Desktop/tank/src",
+		"/home/grzegorz/Desktop/tank/src/assets",
+		"/home/grzegorz/Desktop/tank/src/classes",
+		"/home/grzegorz/Desktop/tank/src/components",
+		"/home/grzegorz/Desktop/tank/src/store",
 		"/home/grzegorz/Desktop/tank/static",
 		"/home/grzegorz/Desktop/tank/test"
 	],
 	"file_history":
 	[
+		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
+		"/home/grzegorz/Desktop/tank/src/components/GameApp.vue",
+		"/home/grzegorz/Desktop/tank/src/components/TheQuestion.vue",
+		"/home/grzegorz/Desktop/tank/src/components/ScoresCounter.vue",
+		"/home/grzegorz/Desktop/tank/src/components/MainInput.vue",
+		"/home/grzegorz/Desktop/tank/src/components/DeveloperPanel.vue",
+		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
+		"/home/grzegorz/Desktop/node/n.js",
+		"/home/grzegorz/Desktop/node/tex.js",
+		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
+		"/home/grzegorz/Desktop/tank/src/components/KeyboardListener.vue",
+		"/home/grzegorz/Desktop/tank/test/unit/coverage/lcov-report/src/App.vue.html",
+		"/home/grzegorz/Desktop/tank/package.json",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
+		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
+		"/home/grzegorz/Desktop/tank/node_modules/chai/karma.conf.js",
+		"/home/grzegorz/Desktop/text",
 		"/home/grzegorz/Desktop/Sass info",
 		"/home/grzegorz/Desktop/tank/src/classes/Battlefield.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/KeyboardListener.spec.js",
-		"/home/grzegorz/Desktop/tank/src/components/KeyboardListener.vue",
 		"/home/grzegorz/Desktop/tank/.git/info/exclude",
 		"/home/grzegorz/Desktop/tank/node_modules/vue/dist/vue.common.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/KeyboardWidget.spec.js",
-		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
-		"/home/grzegorz/Desktop/tank/package.json",
 		"/home/grzegorz/Desktop/tank/package-lock.json",
 		"/home/grzegorz/Desktop/tank/src/store/index.js",
 		"/home/grzegorz/Desktop/tank/log",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/Foe.spec.js",
-		"/home/grzegorz/Desktop/tank/src/components/GameApp.vue",
-		"/home/grzegorz/Desktop/tank/src/components/MainInput.vue",
-		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
-		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/Battlefield.spec.js",
 		"/home/grzegorz/Desktop/tank/index.html",
-		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
 		"/home/grzegorz/Desktop/tank/src/App.vue",
 		"/home/grzegorz/Desktop/tank/src/main.js",
 		"/home/grzegorz/Desktop/tank/src/components/Events.vue",
@@ -724,12 +737,10 @@
 		"/home/grzegorz/Desktop/tank/src/components/MagickBar.vue",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/MagickBar.spec.js",
 		"/home/grzegorz/Desktop/tank/node_modules/lodash/times.js",
-		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/HelloWorld.spec.js",
 		"/home/grzegorz/Desktop/tank/test/unit/index.js",
 		"/home/grzegorz/Desktop/tank/src/components/HelloWorld.vue",
 		"/home/grzegorz/Desktop/tank/src/router/index.js",
-		"/home/grzegorz/Desktop/tank/node_modules/chai/karma.conf.js",
 		"/home/grzegorz/Desktop/Lambro/src/components/Regeneration.jsx",
 		"/home/grzegorz/Desktop/Lambro/src/reducers/reducers_shortcut.js",
 		"/home/grzegorz/Desktop/Lambro/node_modules/crypto-browserify/helpers.js",
@@ -811,18 +822,11 @@
 		"/home/grzegorz/Downloads/magic-shield(1).svg",
 		"/home/grzegorz/Desktop/Lambro/src/styles/Garrison.scss",
 		"/home/grzegorz/Desktop/Lambro/node_modules/lodash/remove.js",
-		"/home/grzegorz/Desktop/Lambro/src/forge.js",
-		"/home/grzegorz/Desktop/WeatherApp/src/containers/search_bar.js",
-		"/home/grzegorz/Desktop/WeatherApp/src/actions/index.js",
-		"/home/grzegorz/Desktop/WeatherApp/src/containers/weather_table.js",
-		"/home/grzegorz/Desktop/WeatherApp/src/reducers/reducer_weather.js",
-		"/home/grzegorz/Desktop/WeatherApp/src/reducers/index.js",
-		"/home/grzegorz/Desktop/WeatherApp/src/index.js",
-		"/home/grzegorz/Desktop/Lambro/node_modules/redux/dist/redux.js"
+		"/home/grzegorz/Desktop/Lambro/src/forge.js"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -836,6 +840,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"userIn",
+			"TheQuestion",
+			"userAnswer",
+			"userIn",
+			"state",
+			"this",
+			"DeveloperPanel",
+			"alert",
+			"inputFull",
+			"MainInput",
+			"rest",
+			"userAn",
+			"solution",
+			"startChallenge",
+			"onInput",
+			"attempt",
 			"lek na st",
 			"NUMPAD9",
 			"DIGIT9",
@@ -922,27 +942,28 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/grzegorz/Desktop/text",
+					"file": "src/store/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2743,
+						"buffer_size": 1727,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1842,
-								1842
+								1271,
+								1271
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 594.0,
+						"translation.y": 1026.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -953,7 +974,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -998,7 +1019,7 @@
 	"project": "tank",
 	"replace":
 	{
-		"height": 56.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1008,16 +1029,52 @@
 		"selected_items":
 		[
 			[
-				"keyboardli",
-				"src/components/KeyboardListener.vue"
+				"maini",
+				"src/components/MainInput.vue"
+			],
+			[
+				"index.",
+				"src/store/index.js"
+			],
+			[
+				"mainin",
+				"src/components/MainInput.vue"
+			],
+			[
+				"keyboa",
+				"src/components/KeyboardWidget.vue"
 			],
 			[
 				"keybo",
-				"src/components/KeyboardWidget.vue"
+				"src/components/KeyboardListener.vue"
+			],
+			[
+				"foe.js",
+				"src/classes/Foe.js"
+			],
+			[
+				"app.",
+				"test/unit/coverage/lcov-report/src/App.vue.html"
+			],
+			[
+				"challenge",
+				"test/unit/specs/Challenge.spec.js"
+			],
+			[
+				"karma.co",
+				"test/unit/karma.conf.js"
 			],
 			[
 				"packa",
 				"package.json"
+			],
+			[
+				"challe",
+				"src/classes/Challenge.js"
+			],
+			[
+				"keyboardli",
+				"src/components/KeyboardListener.vue"
 			],
 			[
 				"pac",
@@ -1034,10 +1091,6 @@
 			[
 				"chall",
 				"src/classes/Challenge.js"
-			],
-			[
-				"challe",
-				"test/unit/specs/Challenge.spec.js"
 			],
 			[
 				"index.js",
@@ -1230,10 +1283,6 @@
 			[
 				"merge.j",
 				"node_modules/lodash/merge.js"
-			],
-			[
-				"index.",
-				"src/index.js"
 			],
 			[
 				"item",
@@ -1490,34 +1539,6 @@
 			[
 				"item.sx",
 				"src/components/Item.jsx"
-			],
-			[
-				"actions/s",
-				"src/actions/index.js"
-			],
-			[
-				"ene",
-				"src/components/Enemy.jsx"
-			],
-			[
-				"actions/ind",
-				"src/actions/index.js"
-			],
-			[
-				"redux.",
-				"node_modules/redux/dist/redux.js"
-			],
-			[
-				"item.jsx",
-				"src/components/Item.jsx"
-			],
-			[
-				"copyr",
-				"src/components/Copyright.jsx"
-			],
-			[
-				"copyri",
-				"src/components/Copyright.jsx"
 			]
 		],
 		"width": 0.0
@@ -1547,8 +1568,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 62.0,
+	"side_bar_visible": true,
+	"side_bar_width": 50.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
