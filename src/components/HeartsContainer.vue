@@ -14,10 +14,10 @@
 			hearts: {
 				type: Number,
 				required: true,
-			}
-		}
+			},
+		},
 
-	}
+	};
 </script>
 
 <style scoped>
@@ -26,9 +26,10 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
-		background: black;
 		display: inline-block;
 		margin: 0 10px;
+		background-image: url('../assets/heart.png');
+		background-size: 100% 100%;
 	}
 
 </style>

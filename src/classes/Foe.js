@@ -3,55 +3,83 @@ import { nonNegative } from "@/utils/functions";
 import sample from "lodash/sample";
 
 class Foe {
-	constructor({ level = 1, kind = randomKind() } = {}) {
-		this.level = level;
-		this.hearts = kind.hearts;
-		this.name = kind.name;
-	}
+  constructor({ level = 1, kind = randomKind() } = {}) {
+    this.level = level;
+    this.hearts = kind.hearts;
+    this.type = kind.type;
+  }
 
-	throwChallenge() {
-		const { level } = this;
-		return new Challenge({
-			level
-		});
-	}
+  throwChallenge() {
+    const { level } = this;
+    return new Challenge({
+      level,
+    });
+  }
 
-	hurt(damage = 1) {
-		this.hearts = nonNegative(this.hearts - damage);
-	}
+  hurt(damage = 1) {
+    this.hearts = nonNegative(this.hearts - damage);
+  }
 
-	get isDefeated() {
-		return this.hearts === 0;
-	}
+  get isDefeated() {
+    return this.hearts === 0;
+  }
 }
 
-const randomKind = () => {
-	return sample([
-		{
-			name: "Destro",
-			hearts: 2
-		},
-		{
-			name: "Nixxo",
-			hearts: 1
-		},
-		{
-			name: "Huffer",
-			hearts: 1
-		},
-		{
-			name: "Tanqo",
-			hearts: 1
-		},
-		{
-			name: "Flyer",
-			hearts: 1
-		},
-		{
-			name: "Joomper",
-			hearts: 1
-		}
-	]);
-};
+function randomKind() {
+  return sample([
+    {
+      type: "van1",
+      hearts: 1,
+    },
+    {
+      type: "van2",
+      hearts: 1,
+    },
+    {
+      type: "tank1",
+      hearts: 1,
+    },
+    {
+      type: "tank2",
+      hearts: 3,
+    },
+    {
+      type: "tank3",
+      hearts: 4,
+    },
+    {
+      type: "missle1",
+      hearts: 1,
+    },
+    {
+      type: "missle2",
+      hearts: 1,
+    },
+    {
+      type: "atom1",
+      hearts: 1,
+    },
+    {
+      type: "atom2",
+      hearts: 1,
+    },
+    {
+      type: "cosmic1",
+      hearts: 1,
+    },
+    {
+      type: "cosmic2",
+      hearts: 1,
+    },
+    {
+      type: "hammer1",
+      hearts: 1,
+    },
+    // {
+    //  type: 'chairman1',
+    //  hearts: 9,
+    // }
+  ]);
+}
 
 export default Foe;

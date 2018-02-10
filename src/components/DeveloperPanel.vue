@@ -5,7 +5,7 @@
 			v-if="isPrelude"
 			@click="beginGame"
 		>
-		<h1>-- BEGIN --</h1>
+		<!-- <h1>-- BEGIN --</h1> -->
 		</button>
 	
 		<h2>Province... {{ province }}</h2>
@@ -19,6 +19,7 @@
 
 <script>
 	import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
+
 	export default {
 		computed: {
 			...mapState([
@@ -29,12 +30,12 @@
 			]),
 
 			isPrelude() {
-				return !this.stage
+				return !this.stage;
 			},
 
 			...mapGetters([
-				'factors'
-			])
+				'factors',
+			]),
 		},
 		methods: {
 			...mapMutations([
@@ -45,7 +46,7 @@
 			...mapActions([
 				'beginGame',
 			]),
-		}
+		},
 
-	}
+	};
 </script>

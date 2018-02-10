@@ -3,6 +3,8 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex';
+
 	const DIGIT_0 = 48;
 	const DIGIT_9 = 57;
 	
@@ -28,18 +30,14 @@
 		return value === DELETE || value === BACKSPACE;
 	}
 	
-	import { mapMutations, mapActions } from 'vuex';
 
 	export default {
 		name: 'KeyboardListener',
 		methods: {
 
-			...mapMutations([
-				'userUndo',
-			]),
-
 			...mapActions([
 				'userInput',
+				'userUndo',
 			]),
 
 			registerKeydown(e) {
@@ -48,8 +46,7 @@
 				if (isDigitOrNumpad(value)) {
 					const translatedValue = this.translateValue(value);
 					this.userInput(translatedValue);
-				}
-				else if (isUndoButton(value)) {
+				}			else if (isUndoButton(value)) {
 					this.userUndo();
 				}
 			},
@@ -57,28 +54,22 @@
 			translateValue(value) {
 				if (isDigit(value)) {
 					return value - DIGIT_0;
+				}	else if (isNumpad(value)) {
+					return value - NUMPAD_0;
 				}
-				else if (isNumpad(value)) {
-					return value - NUMPAD_0
-				}
-			}
+				return Error('Value must be a digit or a numpad');
+			},
 		},
 
 		created() {
-			window.addEventListener('keydown', e => {
-
+			window.addEventListener('keydown', (e) => {
 				if (e.which === BACKSPACE) {
 					e.preventDefault();
 				}
 
-				this.registerKeydown(e)
-			})
-
+				this.registerKeydown(e);
+			});
 		},
 
-	}
+	};
 </script>
-
-<style>
-
-</style>

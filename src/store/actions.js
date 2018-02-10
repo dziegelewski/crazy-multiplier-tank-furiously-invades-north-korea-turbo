@@ -2,92 +2,97 @@ import Province from '@/classes/Province';
 import { wait } from '@/utils/functions';
 
 export default {
-	userInput({ state, commit, getters, dispatch }, number) {
-		const { challenge } = state;
-		if (challenge) {
-			commit('updateAnswer', number);
+  userInput({ state, commit, getters, dispatch }, number) {
+    const { challenge } = state;
+    if (challenge) {
+      commit('updateAnswer', number);
 
-			if (challenge.inputFull) {
-				challenge.attempt() ? dispatch('challengeBeated') : dispatch('challengeFailed');	
-			}
-		}
-	},
+      if (challenge.inputFull) {
+        challenge.attempt() ? dispatch('challengeBeated') : dispatch('challengeFailed');
+      }
+    }
+  },
 
-	beginGame({ dispatch }) {
-		dispatch('enterProvince', 1);
-	},
+  userUndo({ commit }) {
+    commit('undoAnswer');
+  },
 
-	enterNextProvince({ state, dispatch }) {
-		dispatch('enterProvince', state.lastEnteredProvince + 1);
-	},
+  beginGame({ dispatch }) {
+    dispatch('enterProvince', 1);
+  },
 
-	enterProvince({ commit, dispatch }, provinceNumber) {
-		const province = new Province(provinceNumber);
-		commit('changeProvince', province);
-		dispatch('sendFoe');
-	},
+  enterNextProvince({ state, dispatch }) {
+    dispatch('enterProvince', state.lastEnteredProvince + 1);
+  },
 
-	sendFoe({ state, commit, dispatch }) {
-		if (!state.province) return;
+  enterProvince({ commit, dispatch }, provinceNumber) {
+    const province = new Province(provinceNumber);
+    commit('changeProvince', province);
+    dispatch('sendFoe');
+  },
 
-		const foe = state.province.sendFoe();
-		commit('looseGuardian');
-		commit('changeFoe', foe);
-		dispatch('throwChallenge');
-	},
+  sendFoe({ state, commit, dispatch }) {
+    if (!state.province) return;
 
-	throwChallenge({ state, commit }) {
-		if (!state.foe) return;
+    const foe = state.province.sendFoe();
+    commit('looseGuardian');
+    commit('changeFoe', foe);
+    dispatch('throwChallenge');
+  },
 
-		const challenge = state.foe.throwChallenge();
-		commit('changeChallenge', challenge);
-	},
+  throwChallenge({ state, commit }) {
+    if (!state.foe) return;
 
-	async challengeBeated({ state, commit, dispatch }) {
-		const score = state.challenge.prize;
-		commit('scored', score);
-		commit('hitFoe');
+    const challenge = state.foe.throwChallenge();
+    commit('changeChallenge', challenge);
+  },
 
-		commit('changeChallenge', null);
+  async challengeBeated({ state, commit, dispatch }) {
+    const score = state.challenge.prize;
+    commit('scored', score);
+    commit('hitFoe');
 
-		await wait(200);
+    commit('changeChallenge', null);
 
-		if (state.foe.isDefeated) {
-			dispatch('foeDefeated');
-		} else {
-			dispatch('throwChallenge');
-		}
-	},
+    await wait(200);
 
-	foeDefeated({ state, commit, dispatch }) {
-		commit('changeFoe', null);
+    if (state.foe.isDefeated) {
+      dispatch('foeDefeated');
+    } else {
+      dispatch('throwChallenge');
+    }
+  },
 
-		if (state.province.isCleared) {
-			dispatch('provinceCleared');
-		} else {
-			dispatch('sendFoe');
-		}
-	},
+  foeDefeated({ state, commit, dispatch }) {
+    commit('changeFoe', null);
 
-	provinceCleared({ dispatch, commit }) {
+    if (state.province.isCleared) {
+      dispatch('provinceCleared');
+    } else {
+      dispatch('sendFoe');
+    }
+  },
+
+  provinceCleared({ dispatch }) {
 		// commit('changeProvince', null);
 
 		// Good opportunity for optional prize
-		dispatch('enterNextProvince');
-	},
+    dispatch('enterNextProvince');
+  },
 
-	challengeFailed({ state, commit, dispatch }) {
+  challengeFailed({ state, commit, dispatch }) {
 		// LOOSING HEARTS TEMPORALY TURNED OFF
-		// commit('looseHeart'); 
+		// commit('looseHeart');
 
-		if (state.heroHearts) {
-			commit('restartChallenge');
-		} else {
-			dispatch('gameOver');
-		}
-	},
+    if (state.heroHearts) {
+      commit('restartChallenge');
+    } else {
+      dispatch('gameOver');
+    }
+  },
 
-	gameOver() {
-		alert('Game over');
-	}
-}
+  gameOver() {
+    // eslint-disable-next-line
+    alert('Game over');
+  },
+};

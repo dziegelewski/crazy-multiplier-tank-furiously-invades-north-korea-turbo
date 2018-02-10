@@ -1,54 +1,48 @@
 <template>
   <div class="app">
 
-    <DeveloperPanel />
 
-    <TheQuestion />
+    <GameInfo />
+    <BattleGround />
 
-    <MainInput />
-    
-    <KeyboardListener />
     <KeyboardWidget />
-
-    <ScoresCounter />
-
-    <HeartsContainer v-if="foe" :hearts="foe.hearts" style="background: lime;" />
-    <HeartsContainer :hearts="heroHearts" style="background: #FFA4A4;" />
-
+    <KeyboardListener />
   </div>
 </template>
 
 <script>
-import KeyboardListener from '@/components/KeyboardListener';
-import KeyboardWidget from '@/components/KeyboardWidget';
-import MainInput from '@/components/MainInput';
-import DeveloperPanel from '@/components/DeveloperPanel';
-import TheQuestion from '@/components/TheQuestion';
-import ScoresCounter from '@/components/ScoresCounter';
-import HeartsContainer from '@/components/HeartsContainer';
-
-import { mapState } from 'vuex';
+  import BattleGround from '@/components/BattleGround';
+  import KeyboardWidget from '@/components/KeyboardWidget';
+  import KeyboardListener from '@/components/KeyboardListener';
+  import GameInfo from '@/components/GameInfo';
+  import { mapActions } from 'vuex';
 
 export default {
   name: 'GameApp',
   components: {
-    KeyboardListener,
+    BattleGround,
     KeyboardWidget,
-    MainInput,
-    DeveloperPanel,
-    ScoresCounter,
-    TheQuestion,
-    HeartsContainer,
+    KeyboardListener,
+    GameInfo,
   },
-  computed: {
-    ...mapState([
-      'foe',
-      'heroHearts',
+
+  methods: {
+    ...mapActions([
+      'beginGame',
     ]),
-  }
+  },
+  mounted() {
+    this.beginGame();
+  },
 };
 </script>
 
 <style>
+body {
+  background: #C6C0C0;
+  margin: 0 auto;
+  max-width: 600px;
+
+}
 
 </style>

@@ -4,6 +4,74 @@
 		"selected_items":
 		[
 			[
+				"max-",
+				"max-width"
+			],
+			[
+				"flex",
+				"flex-wrap"
+			],
+			[
+				"foco",
+				"focusKeyboardInput"
+			],
+			[
+				"mo",
+				"mobileKeyboardInput"
+			],
+			[
+				"u",
+				"userUndo"
+			],
+			[
+				"i",
+				"imgSrc"
+			],
+			[
+				"pro",
+				"provinceNumber"
+			],
+			[
+				"a",
+				"actions"
+			],
+			[
+				"ch",
+				"changeChallenge"
+			],
+			[
+				"chall",
+				"challengeFailed"
+			],
+			[
+				"en",
+				"enterNextProvince"
+			],
+			[
+				"provi",
+				"provinceCleared"
+			],
+			[
+				"is",
+				"isCleared"
+			],
+			[
+				"foe",
+				"foeDefeated"
+			],
+			[
+				"cha",
+				"challenge"
+			],
+			[
+				"t",
+				"throwChallenge"
+			],
+			[
+				"ne",
+				"nextStage"
+			],
+			[
 				"input",
 				"inputFull"
 			],
@@ -20,16 +88,8 @@
 				"wrapper"
 			],
 			[
-				"ch",
-				"challenge"
-			],
-			[
 				"b",
 				"battlefield"
-			],
-			[
-				"foe",
-				"foeLevel"
 			],
 			[
 				"fa",
@@ -38,10 +98,6 @@
 			[
 				"gene",
 				"generateSingleFactor"
-			],
-			[
-				"is",
-				"isUndoButton"
 			],
 			[
 				"tra",
@@ -144,10 +200,6 @@
 				"mercenariesNumber"
 			],
 			[
-				"mo",
-				"modifiedState"
-			],
-			[
 				"item",
 				"itemType"
 			],
@@ -190,10 +242,6 @@
 			[
 				"e",
 				"enemyMaxHealth"
-			],
-			[
-				"en",
-				"enemyCurrentHealth"
 			],
 			[
 				"con",
@@ -240,10 +288,6 @@
 				"hireMercenary"
 			],
 			[
-				"a",
-				"attack"
-			],
-			[
 				"ho",
 				"hover-effect"
 			],
@@ -278,10 +322,6 @@
 			[
 				"inli",
 				"inline-block"
-			],
-			[
-				"ne",
-				"nextItemId"
 			],
 			[
 				"we",
@@ -380,10 +420,6 @@
 				"prompt\t? "
 			],
 			[
-				"pro",
-				"prompt\t[] "
-			],
-			[
 				"prompt",
 				"promptLength"
 			],
@@ -432,10 +468,6 @@
 				"transition"
 			],
 			[
-				"max-",
-				"max-width"
-			],
-			[
 				"animatio",
 				"animationDelay\tnum "
 			],
@@ -482,49 +514,158 @@
 			[
 				"cre",
 				"createElement"
-			],
-			[
-				"move",
-				"movesFactor"
-			],
-			[
-				"be",
-				"beatedValue\tnum "
-			],
-			[
-				"cards",
-				"cardsOnBoard\t[] "
-			],
-			[
-				"find",
-				"findIndex\tfn "
-			],
-			[
-				"card",
-				"cardsOnBoard\t[] "
-			],
-			[
-				"se",
-				"selector\tfn "
-			],
-			[
-				"unf",
-				"unflipTime\tnum "
-			],
-			[
-				"car",
-				"cardsOnBoard\t[] "
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/store/index.js",
+			"file": "src/store/actions.js",
 			"settings":
 			{
-				"buffer_size": 1727,
+				"buffer_size": 1987,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/GameApp.vue",
+			"settings":
+			{
+				"buffer_size": 781,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/GameInfo.vue",
+			"settings":
+			{
+				"buffer_size": 758,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".eslintrc.js",
+			"settings":
+			{
+				"buffer_size": 1259,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/ProvinceInfo.vue",
+			"settings":
+			{
+				"buffer_size": 242,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/Province.js",
+			"settings":
+			{
+				"buffer_size": 860,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/BattleGround.vue",
+			"settings":
+			{
+				"buffer_size": 661,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/FoeZone.vue",
+			"settings":
+			{
+				"buffer_size": 616,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/TankZone.vue",
+			"settings":
+			{
+				"buffer_size": 290,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/TheQuestion.vue",
+			"settings":
+			{
+				"buffer_size": 429,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/DeveloperPanel.vue",
+			"settings":
+			{
+				"buffer_size": 757,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/KeyboardListener.vue",
+			"settings":
+			{
+				"buffer_size": 1320,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<template>\n\t<div class=\"keyboard-widget\">\n\t   <button\n\t   v-for=\"key in keys\"\n\t   class=\"keyboard-widget__key\"\n\t   @click=\"userInput(key)\">\n\t     {{ key }}\n\t   </button>\n\t   <button\n\t\t\tclass=\"keyboard-widget__key keyboard-widget__key--backspace\"\n\t\t\t@click=\"userUndo\"\n\t   >\n\t   \tBACKSPACE\n\t   </button>\n\t</div>\n\n</template>\n\n<script>\n\nimport { mapActions } from 'vuex';\n\n\timport range from 'lodash/range';\n\texport default {\n\t\tname: 'KeyboardWidget',\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\tkeys: range(0,10)\n\t\t\t}\n\t\t},\n\n\t\tmethods: {\n\t\t\t...mapActions([\n\t      'userInput',\n\t      'userUndo',\n\t    ]),\n\t\t}\n\t}\n</script>\n\n<style>\n\t.keyboard-widget {\n\t\tposition: fixed;\n\t\tbottom: 0;\n\t\twidth: 100vw;\n\t\theight: 30vw;\n\t\tmin-height: 200px;\n\t\tdisplay: flex;\n\t\tflex-wrap: wrap;\n\t\t@media (min-width: 600px) {\n\t\t\tdisplay: none;\n\t\t}\n\t}\n\n\t.keyboard-widget__key {\n\t\tdisplay: flex;\n\t\tflex: 1;\n\t\tmax-width: 60px;\n\t\tmax-height: 30px;\n\t}\n\n\t.keyboard-widget__key--backspace {\n\t\t\n\t}\n\n</style>",
+			"file": "src/components/KeyboardWidget.vue",
+			"file_size": 912,
+			"file_write_time": 131627004326905924,
+			"settings":
+			{
+				"buffer_size": 955,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 3201,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/Challenge.js",
+			"settings":
+			{
+				"buffer_size": 1600,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 541,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/HeartsContainer.vue",
+			"settings":
+			{
+				"buffer_size": 462,
 				"line_ending": "Unix"
 			}
 		}
@@ -537,32 +678,64 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "ins",
+		"last_filter": "re",
 		"selected_items":
 		[
 			[
-				"ins",
+				"re",
+				"File: Rename"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"in",
 				"Package Control: Install Package"
 			],
 			[
-				"re",
-				"File: Rename"
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
 			],
 			[
 				"pre",
 				"JsPrettier: Format Code"
 			],
 			[
-				"remo",
-				"Package Control: Remove Package"
+				"pasc",
+				"Convert Case: PascalCase"
+			],
+			[
+				"came",
+				"Convert Case: camelCase"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"colo",
+				"Color Picker"
+			],
+			[
+				"prett",
+				"JsPrettier: Format Code"
 			],
 			[
 				"r",
 				"File: Rename"
 			],
 			[
-				"prett",
-				"JsPrettier: Format Code"
+				"remo",
+				"Package Control: Remove Package"
 			],
 			[
 				"insta",
@@ -571,10 +744,6 @@
 			[
 				"ren",
 				"File: Rename"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			],
 			[
 				"PACKA",
@@ -625,14 +794,6 @@
 				"File: Rename"
 			],
 			[
-				"colo",
-				"Color Picker"
-			],
-			[
-				"in",
-				"Package Control: Install Package"
-			],
-			[
 				"rena",
 				"File: Rename"
 			],
@@ -649,16 +810,8 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
 				"html tw",
 				"Set Syntax: HTML (Twig)"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			]
 		],
 		"width": 497.0
@@ -686,22 +839,49 @@
 		"/home/grzegorz/Desktop/tank",
 		"/home/grzegorz/Desktop/tank/config",
 		"/home/grzegorz/Desktop/tank/src",
-		"/home/grzegorz/Desktop/tank/src/assets",
 		"/home/grzegorz/Desktop/tank/src/classes",
 		"/home/grzegorz/Desktop/tank/src/components",
-		"/home/grzegorz/Desktop/tank/src/store",
 		"/home/grzegorz/Desktop/tank/static",
-		"/home/grzegorz/Desktop/tank/test"
+		"/home/grzegorz/Desktop/tank/test",
+		"/home/grzegorz/Desktop/tank/test/unit"
 	],
 	"file_history":
 	[
-		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
-		"/home/grzegorz/Desktop/tank/src/components/GameApp.vue",
-		"/home/grzegorz/Desktop/tank/src/components/TheQuestion.vue",
-		"/home/grzegorz/Desktop/tank/src/components/ScoresCounter.vue",
-		"/home/grzegorz/Desktop/tank/src/components/MainInput.vue",
-		"/home/grzegorz/Desktop/tank/src/components/DeveloperPanel.vue",
+		"/home/grzegorz/Desktop/tank/src/components/GameInfo.vue",
+		"/home/grzegorz/.config/sublime-text-3/Packages/vue-syntax-highlight/.gitignore",
+		"/home/grzegorz/Desktop/tank/src/components/TankZone.vue",
+		"/home/grzegorz/.config/sublime-text-3/Packages/vue-syntax-highlight/dif.diff",
+		"/home/grzegorz/.config/sublime-text-3/Packages/vue-syntax-highlight/Vue Component.sublime-syntax",
+		"/home/grzegorz/Desktop/tank/src/components/BattleGround.vue",
+		"/home/grzegorz/Desktop/crazy-multiplier-tank-furiously-invades-north-korea/javascript.js",
+		"/home/grzegorz/Desktop/tank/build/webpack.base.conf.js",
+		"/home/grzegorz/Desktop/tank/build/vue-loader.conf.js",
+		"/home/grzegorz/Desktop/tank/src/components/FoeZone.vue",
 		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
+		"/home/grzegorz/Desktop/tank/test/unit/coverage/lcov-report/classes/Battlefield.js.html",
+		"/home/grzegorz/Desktop/crazy-multiplier-tank-furiously-invades-north-korea/index.html",
+		"/home/grzegorz/Desktop/tank/src/components/HeartsContainer.vue",
+		"/home/grzegorz/Desktop/text",
+		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Province.spec.js",
+		"/home/grzegorz/Desktop/tank/src/classes/Province.js",
+		"/home/grzegorz/Desktop/tank/src/components/GameApp.vue",
+		"/home/grzegorz/Desktop/tank/src/components/DeveloperPanel.vue",
+		"/home/grzegorz/Desktop/tank/src/store/index.js",
+		"/home/grzegorz/Desktop/tank/src/store/state.js",
+		"/home/grzegorz/Desktop/tank/src/store/mutations.js",
+		"/home/grzegorz/Desktop/tank/src/store/getters.js",
+		"/home/grzegorz/Desktop/tank/src/utils/functions.js",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Foe.spec.js",
+		"/home/grzegorz/Desktop/tank/test/unit/index.js",
+		"/home/grzegorz/Desktop/tank/.editorconfig",
+		"/home/grzegorz/Desktop/tank/src/components/ScoresCounter.vue",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/functions.spec.js",
+		"/home/grzegorz/Desktop/tank/config/index.js",
+		"/home/grzegorz/Desktop/Skills",
+		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
+		"/home/grzegorz/Desktop/tank/src/components/TheQuestion.vue",
+		"/home/grzegorz/Desktop/tank/src/components/MainInput.vue",
 		"/home/grzegorz/Desktop/node/n.js",
 		"/home/grzegorz/Desktop/node/tex.js",
 		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
@@ -709,9 +889,7 @@
 		"/home/grzegorz/Desktop/tank/test/unit/coverage/lcov-report/src/App.vue.html",
 		"/home/grzegorz/Desktop/tank/package.json",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
-		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
 		"/home/grzegorz/Desktop/tank/node_modules/chai/karma.conf.js",
-		"/home/grzegorz/Desktop/text",
 		"/home/grzegorz/Desktop/Sass info",
 		"/home/grzegorz/Desktop/tank/src/classes/Battlefield.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/KeyboardListener.spec.js",
@@ -719,9 +897,7 @@
 		"/home/grzegorz/Desktop/tank/node_modules/vue/dist/vue.common.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/KeyboardWidget.spec.js",
 		"/home/grzegorz/Desktop/tank/package-lock.json",
-		"/home/grzegorz/Desktop/tank/src/store/index.js",
 		"/home/grzegorz/Desktop/tank/log",
-		"/home/grzegorz/Desktop/tank/test/unit/specs/Foe.spec.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/Battlefield.spec.js",
 		"/home/grzegorz/Desktop/tank/index.html",
 		"/home/grzegorz/Desktop/tank/src/App.vue",
@@ -738,7 +914,6 @@
 		"/home/grzegorz/Desktop/tank/test/unit/specs/MagickBar.spec.js",
 		"/home/grzegorz/Desktop/tank/node_modules/lodash/times.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/HelloWorld.spec.js",
-		"/home/grzegorz/Desktop/tank/test/unit/index.js",
 		"/home/grzegorz/Desktop/tank/src/components/HelloWorld.vue",
 		"/home/grzegorz/Desktop/tank/src/router/index.js",
 		"/home/grzegorz/Desktop/Lambro/src/components/Regeneration.jsx",
@@ -799,30 +974,7 @@
 		"/home/grzegorz/Desktop/Lambro/src/reducers/reducer_mercenaries.js",
 		"/home/grzegorz/Desktop/Lambro/src/components/Lifebar.jsx",
 		"/home/grzegorz/Desktop/Lambro/src/reducers/reducer_stats.js",
-		"/home/grzegorz/Desktop/Lambro/src/reducers/reducer_life.js",
-		"/home/grzegorz/Desktop/Lambro/.gitignore",
-		"/home/grzegorz/Desktop/Lambro/src/functions.js",
-		"/home/grzegorz/Desktop/Lambro/node_modules/lodash/reduceRight.js",
-		"/home/grzegorz/Desktop/Lambro/src/reducers/reducer_money.js",
-		"/home/grzegorz/Desktop/Lambro/src/reducers/reducers.js",
-		"/home/grzegorz/Desktop/Lambro/node_modules/lodash/cloneDeep.js",
-		"/home/grzegorz/Desktop/Lambro/node_modules/lodash/lodash.js",
-		"/home/grzegorz/Desktop/Lambro/node_modules/argparse/lib/action.js",
-		"/home/grzegorz/Desktop/Lambro/node_modules/clone/clone.js",
-		"/home/grzegorz/Desktop/Lambro/src/components/Castle.jsx",
-		"/home/grzegorz/Desktop/Lambro/.eslintrc",
-		"/home/grzegorz/Desktop/Lambro/src/components/Enemy.jsx",
-		"/home/grzegorz/Desktop/Lambro/node_modules/num2fraction/index.js",
-		"/home/grzegorz/Desktop/Lambro/src/components/Copyright.jsx",
-		"/home/grzegorz/Desktop/Lambro/src/images/warlock-hood.svg",
-		"/home/grzegorz/Desktop/Lambro/src/images/brutal-helm.svg",
-		"/home/grzegorz/Desktop/Lambro/src/images/diablo-skull.svg",
-		"/home/grzegorz/Desktop/Lambro/src/Tavern.js",
-		"/home/grzegorz/Desktop/Lambro/src/components/Garrison.jsx",
-		"/home/grzegorz/Downloads/magic-shield(1).svg",
-		"/home/grzegorz/Desktop/Lambro/src/styles/Garrison.scss",
-		"/home/grzegorz/Desktop/Lambro/node_modules/lodash/remove.js",
-		"/home/grzegorz/Desktop/Lambro/src/forge.js"
+		"/home/grzegorz/Desktop/Lambro/src/reducers/reducer_life.js"
 	],
 	"find":
 	{
@@ -840,6 +992,63 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"TankZone",
+			"KeyboardListener",
+			"vueLoader",
+			"import",
+			"FoeZone",
+			"ass",
+			"name",
+			"hearts",
+			"lastEn",
+			"enterNextP",
+			"changePro",
+			"enterPro",
+			"last",
+			"mutations",
+			"stage",
+			"province",
+			"changePr",
+			"enterPr",
+			"enterPro",
+			"enterNext",
+			"provinc",
+			"nonN",
+			"actions",
+			"visitedProvince",
+			"enterNext",
+			"sendFo",
+			"',",
+			"'",
+			"looseGuardian",
+			"nextSt",
+			"resta",
+			"wonCh",
+			"hit",
+			"Cf",
+			"hallenge",
+			"stage",
+			"sendFoe",
+			"enterNe",
+			"nextCh",
+			"nextSt",
+			"enterNe",
+			"provin",
+			"stage",
+			"sendFo",
+			"makeItHarder",
+			"sendFoe",
+			"difficultyLevel",
+			"battlefield",
+			"Battlefield",
+			"battlefield",
+			"Battlefield",
+			"battlefield",
+			"Battlefield",
+			"nextCha",
+			"positiveValue",
+			"nextChallenge",
+			"Challenge",
 			"userIn",
 			"TheQuestion",
 			"userAnswer",
@@ -910,16 +1119,7 @@
 			"factors",
 			"sinon",
 			"call",
-			"new TestChallenge()",
-			"inputReady",
-			"factors",
-			"blanks",
-			"5",
-			"loadsh",
-			"click",
-			"num",
-			"chai",
-			"HelloWorld"
+			"new TestChallenge()"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -937,24 +1137,168 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 14,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/store/index.js",
+					"file": "src/store/actions.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1727,
+						"buffer_size": 1987,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1271,
-								1271
+								440,
+								440
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 126.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/components/GameApp.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 781,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vue Syntax Highlight/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/components/GameInfo.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 758,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								264,
+								264
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": ".eslintrc.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								388,
+								388
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/components/ProvinceInfo.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								167,
+								167
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/classes/Province.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 860,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								507,
+								507
 							]
 						],
 						"settings":
@@ -963,10 +1307,328 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1026.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/components/BattleGround.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								131,
+								47
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vue Syntax Highlight/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/components/FoeZone.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/components/TankZone.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								252,
+								252
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/components/TheQuestion.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/components/DeveloperPanel.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 757,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								118,
+								118
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/components/KeyboardListener.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1320,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1320,
+								1320
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 793.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/components/KeyboardWidget.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 955,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								155,
+								155
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3201,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1993,
+								1993
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 649.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/classes/Challenge.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1600,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								435,
+								477
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/components/HeartsContainer.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								419,
+								372
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
 					"type": "text"
 				}
 			]
@@ -1029,6 +1691,110 @@
 		"selected_items":
 		[
 			[
+				"packa",
+				"package.json"
+			],
+			[
+				"eslintr",
+				".eslintrc.js"
+			],
+			[
+				"battle",
+				"src/components/BattleGround.vue"
+			],
+			[
+				"foezo",
+				"src/components/FoeZone.vue"
+			],
+			[
+				"tankzo",
+				"src/components/TankZone.vue"
+			],
+			[
+				"vue-lo",
+				"build/vue-loader.conf.js"
+			],
+			[
+				"webpac",
+				"build/webpack.base.conf.js"
+			],
+			[
+				"battlefie",
+				"test/unit/coverage/lcov-report/classes/Battlefield.js.html"
+			],
+			[
+				"keyboa",
+				"src/components/KeyboardWidget.vue"
+			],
+			[
+				"key",
+				"src/components/KeyboardWidget.vue"
+			],
+			[
+				"provin",
+				"src/classes/Province.js"
+			],
+			[
+				"foe",
+				"src/classes/Foe.js"
+			],
+			[
+				"heart",
+				"src/components/HeartsContainer.vue"
+			],
+			[
+				"foez",
+				"src/components/FoeZone.vue"
+			],
+			[
+				"hearts",
+				"src/components/HeartsContainer.vue"
+			],
+			[
+				"provi",
+				"src/classes/Province.js"
+			],
+			[
+				"prov",
+				"test/unit/specs/Province.spec.js"
+			],
+			[
+				"provie",
+				"test/unit/specs/Province.spec.js"
+			],
+			[
+				"kar",
+				"test/unit/karma.conf.js"
+			],
+			[
+				"func",
+				"src/utils/functions.js"
+			],
+			[
+				"foe.s",
+				"test/unit/specs/Foe.spec.js"
+			],
+			[
+				"province",
+				"test/unit/specs/Province.spec.js"
+			],
+			[
+				"foespec",
+				"test/unit/specs/Foe.spec.js"
+			],
+			[
+				"index.js",
+				"config/index.js"
+			],
+			[
+				"scores",
+				"src/components/ScoresCounter.vue"
+			],
+			[
+				"editor",
+				".editorconfig"
+			],
+			[
 				"maini",
 				"src/components/MainInput.vue"
 			],
@@ -1039,10 +1805,6 @@
 			[
 				"mainin",
 				"src/components/MainInput.vue"
-			],
-			[
-				"keyboa",
-				"src/components/KeyboardWidget.vue"
 			],
 			[
 				"keybo",
@@ -1063,10 +1825,6 @@
 			[
 				"karma.co",
 				"test/unit/karma.conf.js"
-			],
-			[
-				"packa",
-				"package.json"
 			],
 			[
 				"challe",
@@ -1091,10 +1849,6 @@
 			[
 				"chall",
 				"src/classes/Challenge.js"
-			],
-			[
-				"index.js",
-				"src/store/index.js"
 			],
 			[
 				"inde",
@@ -1349,10 +2103,6 @@
 				"src/styles/Enemy.scss"
 			],
 			[
-				"func",
-				"src/functions.js"
-			],
-			[
 				"comm",
 				"src/styles/common.scss"
 			],
@@ -1451,94 +2201,6 @@
 			[
 				"mer",
 				"src/components/Mercenary.jsx"
-			],
-			[
-				"mercei",
-				"src/reducers/reducer_mercenaries.js"
-			],
-			[
-				"reducers_s",
-				"src/reducers/reducer_stats.js"
-			],
-			[
-				"reducer_me",
-				"src/reducers/reducer_mercenaries.js"
-			],
-			[
-				"reducer_mo",
-				"src/reducers/reducer_money.js"
-			],
-			[
-				"action/i",
-				"node_modules/num2fraction/index.js"
-			],
-			[
-				"reducers_me",
-				"src/reducers/reducer_mercenaries.js"
-			],
-			[
-				"actions/",
-				"src/actions/index.js"
-			],
-			[
-				"inve",
-				"src/components/Inventory.jsx"
-			],
-			[
-				"merc",
-				"src/components/Mercenary.jsx"
-			],
-			[
-				"item.sc",
-				"src/styles/Item.scss"
-			],
-			[
-				"main",
-				"src/components/Main.jsx"
-			],
-			[
-				"reducer_mer",
-				"src/reducers/reducer_mercenaries.js"
-			],
-			[
-				"tav",
-				"src/Tavern.js"
-			],
-			[
-				"mai",
-				"src/components/Main.jsx"
-			],
-			[
-				"garri",
-				"src/components/Garrison.jsx"
-			],
-			[
-				"garr",
-				"src/styles/Garrison.scss"
-			],
-			[
-				"cop",
-				"src/components/Copyright.jsx"
-			],
-			[
-				"reducers/in",
-				"src/reducers/index.js"
-			],
-			[
-				"invent",
-				"src/components/Inventory.jsx"
-			],
-			[
-				"lodash/rem",
-				"node_modules/lodash/remove.js"
-			],
-			[
-				"con",
-				"src/consts.js"
-			],
-			[
-				"item.sx",
-				"src/components/Item.jsx"
 			]
 		],
 		"width": 0.0
@@ -1569,7 +2231,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 50.0,
+	"side_bar_width": 267.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -22,9 +22,9 @@
 			...mapGetters([
 				'inputLetters',
 			]),
-		}
+		},
 
-	}
+	};
 </script>
 
 <style>

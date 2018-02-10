@@ -3,7 +3,7 @@
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
 
-var webpackConfig = require('../../build/webpack.test.conf')
+const webpackConfig = require('../../build/webpack.test.conf');
 
 module.exports = function (config) {
   config.set({
@@ -12,26 +12,27 @@ module.exports = function (config) {
     //    http://karma-runner.github.io/0.13/config/browsers.html
     // 2. add it to the `browsers` array below.
     browsers: ['ChromeHeadless'],
+    browserDisconnectTimeout: 3600 * 1000,
     frameworks: ['mocha', 'sinon-chai', 'phantomjs-shim'],
     reporters: ['notify', 'spec', 'coverage'],
     files: ['./index.js'],
     preprocessors: {
-      './index.js': ['webpack', 'sourcemap']
+      './index.js': ['webpack', 'sourcemap'],
     },
     webpack: webpackConfig,
     webpackMiddleware: {
-      noInfo: true
+      noInfo: true,
     },
     coverageReporter: {
       dir: './coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
-        { type: 'text-summary' }
-      ]
+        { type: 'text-summary' },
+      ],
     },
     notifyReporter: {
       reportEachFailure: true,
       reportSuccess: true,
-    }
-  })
-}
+    },
+  });
+};

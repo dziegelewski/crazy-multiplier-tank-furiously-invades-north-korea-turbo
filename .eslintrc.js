@@ -24,6 +24,17 @@ module.exports = {
   },
   // add your custom rules here
   rules: {
+    'no-tabs': 0,
+    'indent': 0,
+    'import/no-dynamic-require': 0,
+    'quotes': 0,
+    'global-require': 0,
+    'class-methods-use-this': 0,
+    "no-use-before-define": ["error", { "functions": false }],
+    'no-unused-expressions': ['error', {
+      "allowTernary": true,
+      "allowShortCircuit": true,
+    }],
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       js: 'never',
