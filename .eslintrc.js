@@ -35,6 +35,7 @@ module.exports = {
       "allowTernary": true,
       "allowShortCircuit": true,
     }],
+    'no-confusing-arrow': 0,
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       js: 'never',

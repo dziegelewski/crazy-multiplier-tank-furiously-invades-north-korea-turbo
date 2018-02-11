@@ -24,7 +24,7 @@
 		name: 'KeyboardWidget',
 		data() {
 			return {
-				keys: range(0, 10),
+				keys: [...range(1, 10), 0],
 			};
 		},
 
@@ -38,31 +38,43 @@
 </script>
 
 <style lang="scss">
+	@import 'src/assets/shared';
 	.keyboard-widget {
 		position: fixed;
 		bottom: 0;
-		width: 100vw;
-		height: 30vw;
-		min-height: 200px;
+		max-width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		@media (min-width: 600px) {
+		justify-content: space-between;
+		@media (min-width: 700px) {
 			display: none;
 		}
+		display: none;
 
 		&__key {
 			display: flex;
 			flex: 1;
-			max-width: 60px;
-			max-height: 30px;
+			height: 50px;
+			background: white;
+			background-image: url('../assets/key.png');
+			background-size: 100% 100%;
+			color: black;
+			border: 4px solid black;
+			border: none;
+			border-radius: 5px;
+			justify-content: center;
+			align-items: center;
+			font-size: $medium-font;
+			min-width: 19%;
+			max-width: 19%;
+			margin: 1vh 0;
+			// transition: all 100ms;
+
+			&:active {
+				color: white;
+				background: black;
+			}
 		}
-	}
-
-	.keyboard-widget__key {
-	}
-
-	.keyboard-widget__key--backspace {
-		
 	}
 
 </style>

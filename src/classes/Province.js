@@ -8,8 +8,7 @@ class Province {
 
     this.number = number;
     this.name = northKoreaProvinces[number - 1];
-    this.guardians = Math.floor(number * 1.5) + 4;
-    this.guardians = 1;
+    this.defenders = Math.floor(number * 1.5) + 4;
   }
 
   sendFoe() {
@@ -19,12 +18,12 @@ class Province {
     });
   }
 
-  looseGuardian() {
-    this.guardians = nonNegative(this.guardians - 1);
+  looseDefender() {
+    this.defenders = nonNegative(this.defenders - 1);
   }
 
   get isCleared() {
-    return !this.guardians;
+    return !this.defenders;
   }
 }
 

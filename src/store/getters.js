@@ -31,4 +31,12 @@ export default {
   nextProvince(state) {
     return state.visitedProvince + 1;
   },
+
+  isPlayMode(state) {
+    return state.mode === 'play';
+  },
+
+  isMenuMode(state) {
+    return state.mode === 'menu';
+  },
 };

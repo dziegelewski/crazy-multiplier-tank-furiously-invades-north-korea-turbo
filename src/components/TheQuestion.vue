@@ -1,17 +1,17 @@
 <template>
-	<div v-if="challenge">
-		<h1>{{ question }}</h1>
-		<MainInput />
+	<div class="the-question" v-if="challenge">
+		<p class="the-question__question">{{ question }}</p>
+		<TheInput class="the-question__input" :fields="userAnswer" :blanks="blanks" />
 	</div>
 </template>
 
 <script>
 	import { mapState, mapGetters } from 'vuex';
-	import MainInput from '@/components/MainInput';
+	import TheInput from '@/components/TheInput';
 
 	export default {
 		components: {
-			MainInput,
+			TheInput,
 		},
 		computed: {
 			...mapState([
@@ -20,6 +20,8 @@
 
 			...mapGetters([
 				'factors',
+				'userAnswer',
+				'blanks',
 			]),
 
 			question() {
@@ -28,3 +30,22 @@
 		},
 	};
 </script>
+
+<style lang="scss" scoped>
+	@import 'src/assets/shared';
+	
+	.the-question {
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+
+		&__question {
+			@extend %big-font;
+		}
+
+		&__input {
+			margin: 0 auto;
+		}
+	}
+	
+</style>

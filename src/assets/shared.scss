@@ -1,0 +1,13 @@
+$score-color: green;
+$medium-font: 30px;
+$big-font: 60px;
+
+%medium-font {
+	font-size: $medium-font;
+}
+
+%big-font {
+	font-size: $big-font;
+	font-weight: bold;
+}
+

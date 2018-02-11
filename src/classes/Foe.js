@@ -4,15 +4,18 @@ import sample from "lodash/sample";
 
 class Foe {
   constructor({ level = 1, kind = randomKind() } = {}) {
+    const { hearts, type, numberOfFactors = 2 } = kind;
     this.level = level;
-    this.hearts = kind.hearts;
-    this.type = kind.type;
+    this.hearts = hearts;
+    this.type = type;
+    this.displayHearts = hearts > 1;
+    this.numberOfFactors = numberOfFactors;
   }
 
   throwChallenge() {
-    const { level } = this;
     return new Challenge({
-      level,
+      level: this.level,
+      numberOfFactors: this.numberOfFactors,
     });
   }
 
@@ -57,19 +60,23 @@ function randomKind() {
     },
     {
       type: "atom1",
-      hearts: 1,
+      hearts: 2,
+      isNuke: true,
     },
     {
       type: "atom2",
-      hearts: 1,
+      hearts: 2,
+      isNuke: true,
     },
     {
       type: "cosmic1",
       hearts: 1,
+      numberOfFactors: 3,
     },
     {
       type: "cosmic2",
-      hearts: 1,
+      hearts: 2,
+      numberOfFactors: 3,
     },
     {
       type: "hammer1",

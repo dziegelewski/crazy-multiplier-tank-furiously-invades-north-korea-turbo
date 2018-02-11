@@ -1,5 +1,5 @@
 <template>
-	<h1 style="color: green;">{{ score }}</h1>
+	<p class="scores">{{ score }}</p>
 </template>
 
 <script>
@@ -13,3 +13,12 @@
 		},
 	};
 </script>
+
+<style lang="scss" scoped>
+	@import 'src/assets/shared';
+	.scores {
+		font-size: $medium-font;
+		color: $score-color;
+
+	}
+</style>

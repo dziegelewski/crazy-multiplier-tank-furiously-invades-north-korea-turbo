@@ -8,9 +8,25 @@ import actions from '@/store/actions';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state,
   mutations,
   getters,
   actions,
 });
+
+export default store;
+
+/* eslint-disable */
+if (process.env.NODE_ENV !== 'production') {
+	document.addEventListener('keydown', (e) => {
+		switch(e.key) {
+			case 'a':
+				store.dispatch('challengeBeated');
+				break;
+			break;
+			case 'b':
+				break;
+		}
+	})
+}

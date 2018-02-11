@@ -13,11 +13,14 @@ export default {
     }
   },
 
-  userUndo({ commit }) {
-    commit('undoAnswer');
+  userUndo({ state, commit }) {
+    if (!state.challenge.inputFull) {
+      commit('undoAnswer');
+    }
   },
 
-  beginGame({ dispatch }) {
+  beginGame({ commit, dispatch }) {
+    commit('changeMode', 'play');
     dispatch('enterProvince', 1);
   },
 
@@ -35,7 +38,7 @@ export default {
     if (!state.province) return;
 
     const foe = state.province.sendFoe();
-    commit('looseGuardian');
+    commit('looseDefender');
     commit('changeFoe', foe);
     dispatch('throwChallenge');
   },
@@ -48,13 +51,13 @@ export default {
   },
 
   async challengeBeated({ state, commit, dispatch }) {
+    await wait(200);
     const score = state.challenge.prize;
     commit('scored', score);
     commit('hitFoe');
 
     commit('changeChallenge', null);
 
-    await wait(200);
 
     if (state.foe.isDefeated) {
       dispatch('foeDefeated');
@@ -73,16 +76,19 @@ export default {
     }
   },
 
-  provinceCleared({ dispatch }) {
+  async provinceCleared({ dispatch }) {
 		// commit('changeProvince', null);
+    await wait(3000);
 
 		// Good opportunity for optional prize
     dispatch('enterNextProvince');
   },
 
-  challengeFailed({ state, commit, dispatch }) {
+  async challengeFailed({ state, commit, dispatch }) {
 		// LOOSING HEARTS TEMPORALY TURNED OFF
 		// commit('looseHeart');
+
+    await wait(1000);
 
     if (state.heroHearts) {
       commit('restartChallenge');

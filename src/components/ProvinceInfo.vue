@@ -1,6 +1,6 @@
 <template>
 	<div v-if="province">
-		<h1>{{ province.name }}</h1>
+		<p class="province-info">{{ province.name }} {{ province.defenders }}</p>
 	</div>
 </template>
 
@@ -17,6 +17,11 @@
 	};
 </script>
 
-<style >
+<style lang="scss">
+	@import 'src/assets/shared';
+
+	.province-info {
+		@extend %medium-font;
+	}
 
 </style>

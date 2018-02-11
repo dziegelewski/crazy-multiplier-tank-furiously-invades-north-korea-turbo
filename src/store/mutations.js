@@ -33,8 +33,8 @@ export default {
 
 	//
 
-  looseGuardian(state) {
-    state.province.looseGuardian();
+  looseDefender(state) {
+    state.province.looseDefender();
   },
 
   changeProvince(state, province) {
@@ -48,5 +48,9 @@ export default {
 
   changeFoe(state, foe) {
     state.foe = foe;
+  },
+
+  changeMode(state, mode) {
+    state.mode = mode;
   },
 };
