@@ -19,7 +19,7 @@ export default store;
 
 /* eslint-disable */
 if (process.env.NODE_ENV !== 'production') {
-	document.addEventListener('keydown', (e) => {
+	document.addEventListener('keydown', e => {
 		switch(e.key) {
 			case 'a':
 				store.dispatch('challengeBeated');

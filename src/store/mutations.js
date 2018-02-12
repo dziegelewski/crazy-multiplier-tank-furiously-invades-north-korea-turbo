@@ -17,7 +17,7 @@ export default {
     state.score += score;
   },
 
-  hitFoe(state) {
+  foeLoosesHeart(state) {
     state.foe.hurt();
   },
 
@@ -27,7 +27,7 @@ export default {
 		state.challenge.restart();
   },
 
-  looseHeart(state) {
+  heroLoosesHeart(state) {
     state.heroHearts = nonNegative(state.heroHearts - 1);
   },
 

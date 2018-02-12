@@ -8,15 +8,17 @@
 		
 		<Vehicle
 			v-if="isPlayMode"
-			:who="playerName"
+			:model="playerName"
 			class="battle-ground__vehicle battle-ground__vehicle--left"
 		/>
 
-		<Vehicle
-			v-if="foe"
-			:who="foeName"
-			class="battle-ground__vehicle battle-ground__vehicle--right"
-		/>
+		<transition name="arrive">
+			<Vehicle
+				v-if="foe"
+				:model="foeName"
+				class="battle-ground__vehicle battle-ground__vehicle--right"
+			/>
+		</transition>
 
 		<GrassLeaves class="battle-ground__grass-leaves" />
 	</div>
@@ -55,7 +57,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	@import 'src/assets/shared';
 
 	.battle-ground {
@@ -80,7 +82,17 @@
 		&__grass-leaves {
 			position: absolute;
 			bottom: -90px;
-			
+		}
+
+		.arrive {
+			&-enter-active {
+				transition: transform .5s;
+				transform: translateX(0px);
+			}
+
+			&-enter {
+				transform: translateX(300px);
+			}
 		}
 	}
 </style>
