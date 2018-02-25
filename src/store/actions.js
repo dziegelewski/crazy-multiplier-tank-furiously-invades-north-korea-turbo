@@ -11,13 +11,17 @@ export default {
   async enterProvince({ commit, dispatch }, provinceNumber) {
     const province = new Province(provinceNumber);
     commit('changeProvince', province);
+    const message = `Stage ${province.number}. ${province.name}`;
+    await dispatch('displayMessage', message);
     await wait(1000);
     dispatch('sendFoe');
   },
 
-  async provinceCleared({ dispatch }) {
+  async provinceCleared({ state, dispatch }) {
 		// commit('changeProvince', null);
-    await wait(3000);
+    await wait(1000);
+    const message = `${state.province.name} cleared`;
+    await dispatch('displayMessage', message);
 
 		// Good opportunity for optional prize
     dispatch('enterNextProvince');
@@ -153,6 +157,12 @@ export default {
     if (!state.challenge.inputFull) {
       commit('undoAnswer');
     }
+  },
+
+  async displayMessage({ commit, mutation }, message, duration = 3000) {
+    commit('changeMessage', message);
+    await wait(duration);
+    commit('changeMessage', null);
   },
 
 };

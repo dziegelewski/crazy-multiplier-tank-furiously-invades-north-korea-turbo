@@ -24,7 +24,7 @@
 		text-align: center;
 
 		&__message {
-			@extend %big-font;
+			@extend %medium-font;
 		}
 
 	}

@@ -128,17 +128,6 @@
 			bottom: 0;
 		}
 
-		.arrive {
-			&-enter-active {
-				transition: transform .5s;
-				transform: translateX(0px);
-			}
-
-			&-enter {
-				transform: translateX(300px);
-			}
-		}
-
 		.bullet {
 	    width: 10px;
 	    height: 10px;

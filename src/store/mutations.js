@@ -12,6 +12,7 @@ export default {
     state.province = null;
     state.foe = null;
     state.challenge = null;
+    state.message = null;
   },
 
   updateAnswer(state, number) {
@@ -73,5 +74,9 @@ export default {
 
   changeMode(state, mode) {
     state.mode = mode;
+  },
+
+  changeMessage(state, data) {
+    state.message = data;
   },
 };

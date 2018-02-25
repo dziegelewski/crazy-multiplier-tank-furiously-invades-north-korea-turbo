@@ -10,4 +10,6 @@ export default {
   province: null,
   foe: null,
   challenge: null,
+
+  message: null,
 };
