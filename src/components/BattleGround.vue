@@ -1,30 +1,26 @@
 <template>
 	<div class="battle-ground">
 
-
-<!-- 		<TankZone class="battle-ground__half" />
-		<FoeZone class="battle-ground__half" /> -->
-		<!-- <IncomingPrize /> -->
 		<div class="battle-ground__center">
 			<VehicleSprite
 				v-if="isPlayMode"
-				id="heroVehicle"
+				id="hero-vehicle"
 				:model="playerName"
 				class="battle-ground__vehicle battle-ground__vehicle--left"
 			/>
 
-			<div class="bullet bullet--hero" />
+			<div class="bullet bullet--hero" id="hero-bullet"/>
 
 			<transition name="arrive">
 				<VehicleSprite
 					v-if="foe"
-					id="foeVehicle"
+					id="foe-vehicle"
 					:model="foeName"
 					class="battle-ground__vehicle battle-ground__vehicle--right"
 				/>
 			</transition>
 
-			<div class="bullet bullet--foe" />
+			<div class="bullet bullet--foe" id="foe-bullet" />
 
 		</div>
 
@@ -71,22 +67,20 @@
 			heroShots(bulletId) {
 				this.shot({
 					bulletId,
-					shooter: this.$el.querySelector('#heroVehicle'),
-					target: this.$el.querySelector('#foeVehicle'),
-					bullet: this.$el.querySelector('.bullet--hero'),
 					diretion: 'right',
-					onHit: () => eventBus.$emit('gotcha', bulletId),
+					shooter: this.$el.querySelector('#hero-vehicle'),
+					target: this.$el.querySelector('#foe-vehicle'),
+					bullet: this.$el.querySelector('#hero-bullet'),
 				});
 			},
 
 			foeShots(bulletId) {
 				this.shot({
 					bulletId,
-					shooter: this.$el.querySelector('#foeVehicle'),
-					target: this.$el.querySelector('#heroVehicle'),
-					bullet: this.$el.querySelector('.bullet--foe'),
-					diretion: 'left',
-					onHit: () => eventBus.$emit('gotcha', bulletId),					
+					diretion: 'left',				
+					shooter: this.$el.querySelector('#foe-vehicle'),
+					target: this.$el.querySelector('#hero-vehicle'),
+					bullet: this.$el.querySelector('#foe-bullet'),
 				});
 			},
 		},
@@ -151,9 +145,16 @@
 	    border-radius: 50%;
 	    background: black;
 	    bottom: 40px;
-	    left: 125px;
 	    position: absolute;
 	    display: none;
+
+	    &--hero {
+	    	left: 125px;
+	    }
+
+	    &--foe {
+	    	right: 125px;
+	    }
 	  }
 	}
 </style>

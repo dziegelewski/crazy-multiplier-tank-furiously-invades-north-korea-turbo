@@ -1,66 +1,33 @@
 import audio from '@/utils/audio';
-export default function shot({ shooter, target, bullet, diretion, onHit, onMiss }) {
+import eventBus from '@/utils/eventBus';
+import { oppositeDirection, byDirection, showElement, hideElement } from '@/utils/functions';
+import { collisionDetector, elementTranslate } from '@/utils/collision';
 
+const BULLET_STARTING_POSITION = 0;
+const DIRECTION_ATTR = 'data-direction';
+
+export default function shot({ bulletId, shooter, target, bullet, diretion }) {
 	if (!shooter || !target || !bullet) return;
 
-	const oppositeDirection = diretion === 'right' ? 'left' : 'right';
+	const bulletSpeed = byDirection(15, diretion);
+	const moveBullet = elementTranslate(bullet, BULLET_STARTING_POSITION);
+	const detectCollision = collisionDetector(bullet, target, diretion);
+
+	showElement(bullet);
 	audio('shot');
-	function getBulletPosition() {
-		return bullet.getBoundingClientRect().left;
-	}
-
-	function getTargetPosition() {
-		return target.getBoundingClientRect()[oppositeDirection];
-	}
-
-	function comparePositions() {
-		if (diretion === 'right') {
-			return getBulletPosition() > getTargetPosition();
-		} else if (diretion === 'left') {
-			return getBulletPosition() < getTargetPosition();
-		}
-	}
-
-	function withDirection(value, diretion) {
-		return value * (diretion === 'right' ? 1 : -1)
-	}
-
-	const bulletStartingPosition = 0;
-	let bulletPosition = bulletStartingPosition;
-	moveBullet(bulletPosition);
-	bullet.style.display = 'block';
-	const bulletSpeed = 15 * (diretion === 'right' ? 1 : -1);
-
-	if (diretion === 'right') {
-		bullet.style.left = '125px';
-		bullet.style.right = 'auto';
-	} else {
-		bullet.style.left = 'auto';
-		bullet.style.right = '125px';
-	}
-
-	function moveBullet(position) {
-		bullet.style.transform = `translateX(${position}px)`;
-	}
-
-	function bulletGotTarget() {
-		moveBullet(bulletPosition = bulletStartingPosition);
-		bullet.style.display = 'none';
-		audio('hit');
-		onHit();
-	}
-
-	function bulletMissesTarget() {
-		onMiss();
-	}
 
 	(function loop() {
-		moveBullet(bulletPosition += bulletSpeed);
-		if (comparePositions()) {
-			bulletGotTarget();
+		moveBullet(bulletSpeed);
+		if (detectCollision()) {
+			shotSuccess(bullet, bulletId);
 		} else {
 			setTimeout(loop, 10);
 		}
 	})()
+}
 
-};
+function shotSuccess(bullet, bulletId) {
+	hideElement(bullet);
+	audio('hit');
+	eventBus.$emit('gotcha', bulletId);
+}
