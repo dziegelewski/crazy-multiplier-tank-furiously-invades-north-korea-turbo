@@ -3,8 +3,6 @@
 
     <ScoresCounter class="play-view__score" />
 
-    <TheQuestion class="play-view__question" />
-    <!-- <TheMessage class="play-view__message" /> -->
 
 		<HeartsContainer
 			:hearts="heroHearts"
@@ -19,6 +17,8 @@
 
     <ProvinceInfo class="play-view__province-info"/>
 
+    <TheQuestion class="play-view__question" />
+    <!-- <TheMessage class="play-view__message" /> -->
 	</div>
 </template>
 
@@ -65,7 +65,7 @@
 
 		&__question {
 			position: absolute;
-			top: 25%;
+			bottom: 0;
 		}
 
 		&__message {
@@ -75,13 +75,13 @@
 
 		&__province-info {
 			position: absolute;
-			bottom: 10%;
+			top: 10%;
 			right: 10%;
 		}
 
 		&__hearts {
 			position: absolute;
-			top: 40%;
+			bottom: 10%;
 			$hearts-shift: 5%;
 
 			&--hero {

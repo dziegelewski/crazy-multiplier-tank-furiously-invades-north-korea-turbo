@@ -5,20 +5,28 @@
 <!-- 		<TankZone class="battle-ground__half" />
 		<FoeZone class="battle-ground__half" /> -->
 		<!-- <IncomingPrize /> -->
-		
-		<Vehicle
-			v-if="isPlayMode"
-			:model="playerName"
-			class="battle-ground__vehicle battle-ground__vehicle--left"
-		/>
-
-		<transition name="arrive">
-			<Vehicle
-				v-if="foe"
-				:model="foeName"
-				class="battle-ground__vehicle battle-ground__vehicle--right"
+		<div class="battle-ground__center">
+			<VehicleSprite
+				v-if="isPlayMode"
+				id="heroVehicle"
+				:model="playerName"
+				class="battle-ground__vehicle battle-ground__vehicle--left"
 			/>
-		</transition>
+
+			<div class="bullet bullet--hero" />
+
+			<transition name="arrive">
+				<VehicleSprite
+					v-if="foe"
+					id="foeVehicle"
+					:model="foeName"
+					class="battle-ground__vehicle battle-ground__vehicle--right"
+				/>
+			</transition>
+
+			<div class="bullet bullet--foe" />
+
+		</div>
 
 		<GrassLeaves class="battle-ground__grass-leaves" />
 	</div>
@@ -26,15 +34,17 @@
 
 <script>
 	import GrassLeaves from '@/components/GrassLeaves';
-	import Vehicle from '@/components/Vehicle';
+	import VehicleSprite from '@/components/VehicleSprite';
 	import { mapState, mapGetters } from 'vuex';
+	import eventBus from '@/utils/eventBus';
+	import shot from '@/utils/shot';
 	
 	export default {
 		name: 'BattleGround',
 
 		components: {
 			GrassLeaves,
-			Vehicle,
+			VehicleSprite,
 		},
 
 		computed: {
@@ -54,6 +64,38 @@
 				return this.foe && this.foe.type;
 			},
 		},
+
+		methods: {
+			shot,
+
+			heroShots(bulletId) {
+				this.shot({
+					bulletId,
+					shooter: this.$el.querySelector('#heroVehicle'),
+					target: this.$el.querySelector('#foeVehicle'),
+					bullet: this.$el.querySelector('.bullet--hero'),
+					diretion: 'right',
+					onHit: () => eventBus.$emit('gotcha', bulletId),
+				});
+			},
+
+			foeShots(bulletId) {
+				this.shot({
+					bulletId,
+					shooter: this.$el.querySelector('#foeVehicle'),
+					target: this.$el.querySelector('#heroVehicle'),
+					bullet: this.$el.querySelector('.bullet--foe'),
+					diretion: 'left',
+					onHit: () => eventBus.$emit('gotcha', bulletId),					
+				});
+			},
+		},
+
+		mounted() {
+			eventBus.$on('hero-shots', bulletId => this.heroShots(bulletId));
+			eventBus.$on('foe-shots', bulletId => this.foeShots(bulletId));
+
+		},
 	};
 </script>
 
@@ -64,11 +106,19 @@
 		width: 100%;
 		display: flex;
 		position: absolute;
-		top: 60%;
+		height: 30vh;
+
+		&__center {
+			width: 360px;
+			margin: 0 auto;
+			position: relative;
+		}
 
 		&__vehicle {
 			z-index: 1;
-			$vehicle-offset: 3%;
+			position: absolute;
+			bottom: 0;
+			$vehicle-offset: 0;
 
 			&--right {
 				right: $vehicle-offset;
@@ -81,7 +131,7 @@
 		
 		&__grass-leaves {
 			position: absolute;
-			bottom: -90px;
+			bottom: 0;
 		}
 
 		.arrive {
@@ -94,5 +144,16 @@
 				transform: translateX(300px);
 			}
 		}
+
+		.bullet {
+	    width: 10px;
+	    height: 10px;
+	    border-radius: 50%;
+	    background: black;
+	    bottom: 40px;
+	    left: 125px;
+	    position: absolute;
+	    display: none;
+	  }
 	}
 </style>

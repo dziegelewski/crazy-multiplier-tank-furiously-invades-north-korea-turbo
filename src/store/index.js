@@ -22,10 +22,12 @@ if (process.env.NODE_ENV !== 'production') {
 	document.addEventListener('keydown', e => {
 		switch(e.key) {
 			case 'a':
-				store.dispatch('challengeBeated');
+				store.dispatch('heroShots');
 				break;
 			break;
 			case 'b':
+				store.dispatch('foeShots');
+
 				break;
 		}
 	})

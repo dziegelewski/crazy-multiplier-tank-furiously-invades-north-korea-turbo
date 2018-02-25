@@ -1,17 +1,48 @@
 import eventBus from '@/utils/eventBus';
 import { wait } from '@/utils/functions';
 
-async function foeExplodes() {
-	eventBus.$emit('foe-explodes');
-	await wait(300);
+export const explodingTime = 350;
+let bullet = 0;
+
+async function emitExplosion(subject) {
+	eventBus.$emit(subject + '-explodes');
+	await wait(explodingTime - 50);
 }
 
-async function heroExplodes() {
-	eventBus.$emit('hero-explodes');
-	await wait(300);
+function emitScore(subject, score) {
+	eventBus.$emit(subject + '-score', score);
 }
+
+async function emitShot(subject) {
+	const bulletId = bullet ++;
+	eventBus.$emit(subject + '-shots', bulletId);
+	await waitForBullet(bulletId);
+}
+
+function waitForBullet(bulletId) {
+	return new Promise((resolve) => {
+		eventBus.$on('gotcha', (bulletThatHit) => {
+			if (bulletId === bulletThatHit) resolve();
+		});
+	});
+};
+
 
 export default {
-	foeExplodes,
-	heroExplodes,
+	async heroExplodes() {
+		await emitExplosion('hero');
+	},
+
+	async foeExplodes(score) {
+		emitScore('foe', score);
+		await emitExplosion('foe');
+	},
+
+	async heroShots() {
+		await emitShot('hero');
+	},
+
+	async foeShots() {
+		await emitShot('foe');
+	},
 };

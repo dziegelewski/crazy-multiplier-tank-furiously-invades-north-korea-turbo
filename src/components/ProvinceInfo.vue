@@ -1,6 +1,6 @@
 <template>
 	<div v-if="province">
-		<p class="province-info">{{ province.name }} {{ province.defenders }}</p>
+		<p class="province-info">{{ province.name }}</p>
 	</div>
 </template>
 

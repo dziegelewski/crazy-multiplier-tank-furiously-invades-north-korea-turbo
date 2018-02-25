@@ -4,12 +4,24 @@
 		"selected_items":
 		[
 			[
-				"wa",
-				"wait"
+				"de",
+				"descriptor"
+			],
+			[
+				"ba",
+				"background-color"
 			],
 			[
 				"tra",
-				"transition"
+				"translateX"
+			],
+			[
+				"her",
+				"heroExplodes"
+			],
+			[
+				"wa",
+				"wait"
 			],
 			[
 				"tr",
@@ -70,10 +82,6 @@
 			[
 				"a",
 				"absolute"
-			],
-			[
-				"ba",
-				"battle-ground"
 			],
 			[
 				"max-",
@@ -506,25 +514,43 @@
 			[
 				"animatio",
 				"animationDelay\tnum "
-			],
-			[
-				"mov",
-				"movement"
-			],
-			[
-				"movin",
-				"movingSpeed"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/store/actionsForGame.js",
+			"file": "src/components/BattleGround.vue",
 			"settings":
 			{
-				"buffer_size": 221,
+				"buffer_size": 1635,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/KeyboardWidget.vue",
+			"settings":
+			{
+				"buffer_size": 1356,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/Vehicle.vue",
+			"settings":
+			{
+				"buffer_size": 1739,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/Foe.js",
+			"settings":
+			{
+				"buffer_size": 1692,
 				"line_ending": "Unix"
 			}
 		}
@@ -537,19 +563,23 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "pre",
+		"last_filter": "re",
 		"selected_items":
 		[
+			[
+				"re",
+				"File: Rename"
+			],
+			[
+				"pr",
+				"JsPrettier: Format Code"
+			],
 			[
 				"pre",
 				"JsPrettier: Format Code"
 			],
 			[
 				"r",
-				"File: Rename"
-			],
-			[
-				"re",
 				"File: Rename"
 			],
 			[
@@ -727,31 +757,41 @@
 	],
 	"file_history":
 	[
-		"/home/grzegorz/Desktop/tank/src/components/Vehicle.vue",
-		"/home/grzegorz/Desktop/tank/src/components/BattleGround.vue",
+		"/home/grzegorz/Desktop/tank/src/store/index.js",
+		"/home/grzegorz/Desktop/tank/.babelrc",
+		"/home/grzegorz/Desktop/tank/package.json",
+		"/home/grzegorz/Desktop/tank/src/main.js",
+		"/home/grzegorz/Desktop/prog stuff/decorators exercises.js",
+		"/home/grzegorz/Desktop/tank/node_modules/babel-core/lib/store.js",
+		"/home/grzegorz/Desktop/tank/src/utils/animate.js",
+		"/home/grzegorz/Desktop/tank/build/webpack.prod.conf.js",
+		"/home/grzegorz/Desktop/tank/build/check-versions.js",
+		"/home/grzegorz/Desktop/tank/build/build.js",
+		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
+		"/home/grzegorz/Desktop/tank/src/components/MainView.vue",
+		"/home/grzegorz/Desktop/tank/src/components/PlayView.vue",
+		"/home/grzegorz/Desktop/tank/test/unit/coverage/lcov-report/components/GameApp.vue.html",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForFoe.js",
+		"/home/grzegorz/Desktop/tank/src/store/actionsForGame.js",
+		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
+		"/home/grzegorz/Desktop/tank/src/components/BattleGround.vue",
+		"/home/grzegorz/Desktop/tank/src/components/Vehicle.vue",
 		"/home/grzegorz/Desktop/tank/src/store/mutations.js",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForChallenge.js",
 		"/home/grzegorz/Desktop/tank/src/utils/animations.js",
 		"/home/grzegorz/Desktop/tank/src/store/actions.js",
-		"/home/grzegorz/Desktop/tank/src/store/actionsForGame.js",
 		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForProvinces.js",
 		"/home/grzegorz/Desktop/tank/src/utils/eventBus.js",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForInput.js",
 		"/home/grzegorz/Desktop/tank/src/components/KeyboardListener.vue",
-		"/home/grzegorz/Desktop/tank/src/store/index.js",
 		"/home/grzegorz/Desktop/tank/log",
-		"/home/grzegorz/Desktop/tank/src/components/PlayView.vue",
 		"/home/grzegorz/Desktop/tank/src/components/TheMessage.vue",
 		"/home/grzegorz/Desktop/tank/src/components/TheQuestion.vue",
 		"/home/grzegorz/Desktop/tank/src/classes/Province.js",
 		"/home/grzegorz/Desktop/tank/src/components/ProvinceInfo.vue",
 		"/home/grzegorz/Desktop/tank/config/index.js",
-		"/home/grzegorz/Desktop/tank/node_modules/babel-core/lib/store.js",
 		"/home/grzegorz/Desktop/tank/src/store/state.js",
-		"/home/grzegorz/Desktop/tank/package.json",
-		"/home/grzegorz/Desktop/tank/src/components/MainView.vue",
 		"/home/grzegorz/Desktop/tank/src/components/TheInput.vue",
 		"/home/grzegorz/Desktop/tank/src/components/ScoresCounter.vue",
 		"/home/grzegorz/Desktop/tank/src/assets/shared.scss",
@@ -762,9 +802,7 @@
 		"/home/grzegorz/Desktop/tank/src/store/getters.js",
 		"/home/grzegorz/Desktop/tank/src/components/MainInput.vue",
 		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
-		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
 		"/home/grzegorz/Desktop/tank/src/components/FoeZone.vue",
-		"/home/grzegorz/Desktop/tank/src/main.js",
 		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
 		"/home/grzegorz/Desktop/tank/node_modules/caniuse-lite/data/features/background-attachment.js",
 		"/home/grzegorz/.config/sublime-text-3/Packages/User/ss.merged-ca-bundle",
@@ -803,7 +841,6 @@
 		"/home/grzegorz/Desktop/node/n.js",
 		"/home/grzegorz/Desktop/node/tex.js",
 		"/home/grzegorz/Desktop/tank/test/unit/coverage/lcov-report/src/App.vue.html",
-		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
 		"/home/grzegorz/Desktop/tank/node_modules/chai/karma.conf.js",
 		"/home/grzegorz/Desktop/Sass info",
 		"/home/grzegorz/Desktop/tank/src/classes/Battlefield.js",
@@ -847,18 +884,11 @@
 		"/home/grzegorz/Desktop/Yo react/src/components/Main.js",
 		"/home/grzegorz/Desktop/Yo react/src/index.js",
 		"/home/grzegorz/Desktop/Lambro/src/components/Bricks.jsx",
-		"/home/grzegorz/Desktop/Lambro/src/components/Main.jsx",
-		"/home/grzegorz/Desktop/Lambro/src/index.js",
-		"/home/grzegorz/Desktop/Lambro/cfg/defaults.js",
-		"/home/grzegorz/Desktop/Lambro/package.json",
-		"/home/grzegorz/Desktop/Lambro/node_modules/lodash/times.js",
-		"/home/grzegorz/Desktop/Lambro/src/index.html",
-		"/home/grzegorz/Desktop/Lambro/karma.conf.js",
-		"/home/grzegorz/Desktop/Lambro/node_modules/lodash/range.js"
+		"/home/grzegorz/Desktop/Lambro/src/components/Main.jsx"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -872,6 +902,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"times",
+			"decorator",
+			"rimr",
+			"animate",
+			"animations",
+			"explos",
 			"isExplod",
 			"exploding",
 			"posit",
@@ -993,13 +1029,7 @@
 			"MainInput",
 			"rest",
 			"userAn",
-			"solution",
-			"startChallenge",
-			"onInput",
-			"attempt",
-			"lek na st",
-			"NUMPAD9",
-			"DIGIT9"
+			"solution"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1017,35 +1047,124 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/store/actionsForGame.js",
+					"file": "src/components/BattleGround.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 221,
+						"buffer_size": 1635,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								212,
-								212
+								821,
+								821
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/components/KeyboardWidget.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								397,
+								397
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/components/Vehicle.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								346,
+								346
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/classes/Foe.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								443,
+								443
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1108,20 +1227,100 @@
 		"selected_items":
 		[
 			[
-				"agame",
+				"store.js",
+				"node_modules/babel-core/lib/store.js"
+			],
+			[
+				"babe",
+				".babelrc"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"webpack.p",
+				"build/webpack.prod.conf.js"
+			],
+			[
+				"check",
+				"build/check-versions.js"
+			],
+			[
+				"build.",
+				"build/build.js"
+			],
+			[
+				"keyboa",
+				"src/components/KeyboardWidget.vue"
+			],
+			[
+				"play",
+				"src/components/PlayView.vue"
+			],
+			[
+				"mainv",
+				"src/components/MainView.vue"
+			],
+			[
+				"game",
+				"test/unit/coverage/lcov-report/components/GameApp.vue.html"
+			],
+			[
+				"gamea",
+				"test/unit/coverage/lcov-report/components/GameApp.vue.html"
+			],
+			[
+				"keyb",
+				"src/components/KeyboardWidget.vue"
+			],
+			[
+				"ve",
+				"src/components/Vehicle.vue"
+			],
+			[
+				"pla",
+				"src/components/PlayView.vue"
+			],
+			[
+				"batt",
+				"src/components/BattleGround.vue"
+			],
+			[
+				"veh",
+				"src/components/Vehicle.vue"
+			],
+			[
+				"foe",
+				"src/classes/Foe.js"
+			],
+			[
+				"actions",
 				"src/store/actionsForGame.js"
+			],
+			[
+				"challenge",
+				"test/unit/specs/Challenge.spec.js"
 			],
 			[
 				"vehi",
 				"src/components/Vehicle.vue"
 			],
 			[
-				"action",
+				"actionsfo",
 				"src/store/actionsForFoe.js"
 			],
 			[
 				"anima",
 				"src/utils/animations.js"
+			],
+			[
+				"agame",
+				"src/store/actionsForGame.js"
+			],
+			[
+				"action",
+				"src/store/actionsForFoe.js"
 			],
 			[
 				"battle",
@@ -1146,14 +1345,6 @@
 			[
 				"thequ",
 				"src/components/TheQuestion.vue"
-			],
-			[
-				"play",
-				"src/components/PlayView.vue"
-			],
-			[
-				"actions",
-				"src/store/actions.js"
 			],
 			[
 				"provin",
@@ -1184,10 +1375,6 @@
 				"src/components/ScoresCounter.vue"
 			],
 			[
-				"batt",
-				"src/components/BattleGround.vue"
-			],
-			[
 				"webpack",
 				"build/webpack.base.conf.js"
 			],
@@ -1216,14 +1403,6 @@
 				"src/classes/Foe.js"
 			],
 			[
-				"pla",
-				"src/components/PlayView.vue"
-			],
-			[
-				"foe",
-				"src/classes/Foe.js"
-			],
-			[
 				"grass",
 				"src/components/GrassLeaves.vue"
 			],
@@ -1246,10 +1425,6 @@
 			[
 				"playvie",
 				"src/components/PlayView.vue"
-			],
-			[
-				"mainv",
-				"src/components/MainView.vue"
 			],
 			[
 				"mut",
@@ -1280,10 +1455,6 @@
 				"src/components/MainView.vue"
 			],
 			[
-				"game",
-				"src/components/GameView.vue"
-			],
-			[
 				"sstate",
 				"src/store/state.js"
 			],
@@ -1298,10 +1469,6 @@
 			[
 				"main.js",
 				"src/main.js"
-			],
-			[
-				"keyb",
-				"src/components/KeyboardWidget.vue"
 			],
 			[
 				"foezo",
@@ -1340,10 +1507,6 @@
 				"src/assets/shared.scss"
 			],
 			[
-				"keyboa",
-				"src/components/KeyboardWidget.vue"
-			],
-			[
 				"",
 				"src/components/GameApp.vue"
 			],
@@ -1374,10 +1537,6 @@
 			[
 				"mainin",
 				"src/components/MainInput.vue"
-			],
-			[
-				"packa",
-				"package.json"
 			],
 			[
 				"app.vu",
@@ -1418,10 +1577,6 @@
 			[
 				"eslint",
 				".eslintrc.js"
-			],
-			[
-				"gamea",
-				"src/components/GameApp.vue"
 			],
 			[
 				"maini",
@@ -1528,10 +1683,6 @@
 				"test/unit/coverage/lcov-report/src/App.vue.html"
 			],
 			[
-				"challenge",
-				"test/unit/specs/Challenge.spec.js"
-			],
-			[
 				"challe",
 				"src/classes/Challenge.js"
 			],
@@ -1586,38 +1737,6 @@
 			[
 				"regene",
 				"src/components/Regeneration.jsx"
-			],
-			[
-				"reducere",
-				"test/helpers/reducerHelpersTest.js"
-			],
-			[
-				"reduc",
-				"src/reducerHelpers.js"
-			],
-			[
-				"taver",
-				"src/components/Tavern.jsx"
-			],
-			[
-				"tavern",
-				"src/components/Tavern.jsx"
-			],
-			[
-				"reducerh",
-				"src/reducerHelpers.js"
-			],
-			[
-				"stats",
-				"src/components/Stats.jsx"
-			],
-			[
-				"reducerhe",
-				"src/reducerHelpers.js"
-			],
-			[
-				"helpers",
-				"node_modules/crypto-browserify/helpers.js"
 			]
 		],
 		"width": 0.0

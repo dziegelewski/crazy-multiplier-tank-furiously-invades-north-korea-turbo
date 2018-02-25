@@ -42,14 +42,14 @@
 	.keyboard-widget {
 		position: fixed;
 		bottom: 0;
-		max-width: 100%;
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		@media (min-width: 700px) {
 			display: none;
 		}
-		display: none;
+		// display: none;
 
 		&__key {
 			display: flex;

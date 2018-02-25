@@ -11,6 +11,7 @@ class Foe {
     this.displayHearts = hearts > 1;
     this.displayHearts = true;
     this.numberOfFactors = numberOfFactors;
+    this.score = level * hearts * 100;
   }
 
   throwChallenge() {

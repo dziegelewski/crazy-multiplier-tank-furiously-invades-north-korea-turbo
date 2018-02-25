@@ -1,13 +1,13 @@
 <template>
   <div class="main-view">
 
-    <MenuView v-if="isMenuMode" />
-    <PlayView v-if="isPlayMode" />
+    <MenuView v-if="isMenuMode" class="main-view__view" />
+    <PlayView v-if="isPlayMode" class="main-view__view" />
 
     <BattleGround class="main-view__battle-ground" />
 
-    <KeyboardWidget />
-    <KeyboardListener />
+    <KeyboardWidget class="main-view__keyboard" />
+    <KeyboardListener  />
   </div>
 </template>
 
@@ -63,8 +63,19 @@ export default {
     position: relative;
     overflow: hidden;
 
-    &__battle-ground {
+    &__view {
+      position: absolute;
+      height: 40vh;
+      width: 100%;
+      z-index: 1;
+    }
 
+    &__battle-ground {
+    top: 30vh;
+    }
+
+    &__keyboard {
+      height: 30vh;
     }
   }
 </style>
