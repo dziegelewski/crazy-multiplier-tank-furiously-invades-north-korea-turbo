@@ -28,7 +28,7 @@
 		border-radius: 50%;
 		display: inline-block;
 		margin: 0 10px;
-		background-image: url('../assets/heart.png');
+		background-image: url('../assets/images/heart.png');
 		background-size: 100% 100%;
 	}
 

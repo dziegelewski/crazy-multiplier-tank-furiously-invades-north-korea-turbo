@@ -10,7 +10,7 @@
 </script>
 
 <style lang='scss' scoped>
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 	.grass-leaves {
 		width: 200%;
 		border-top: 6px dashed black;

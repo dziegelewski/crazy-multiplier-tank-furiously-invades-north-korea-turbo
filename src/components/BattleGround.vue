@@ -100,7 +100,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 
 	.battle-ground {
 		width: 100%;

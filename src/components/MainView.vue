@@ -51,6 +51,9 @@ export default {
 
 <style lang="scss">
   @import 'node_modules/reset-css/_reset';
+  @import 'src/assets/styles/transitions';
+  @import 'src/assets/styles/shared';
+
   body {
     background: black;
   }

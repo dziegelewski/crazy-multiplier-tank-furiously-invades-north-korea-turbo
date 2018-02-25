@@ -18,7 +18,7 @@
 </script>
 
 <style lang="scss">
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 
 	.province-info {
 		@extend %medium-font;

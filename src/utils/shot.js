@@ -1,5 +1,10 @@
+import audio from '@/utils/audio';
 export default function shot({ shooter, target, bullet, diretion, onHit, onMiss }) {
-	const oppositeDirection = diretion === 'right' ? 'left' : 'right'; 
+
+	if (!shooter || !target || !bullet) return;
+
+	const oppositeDirection = diretion === 'right' ? 'left' : 'right';
+	audio('shot');
 	function getBulletPosition() {
 		return bullet.getBoundingClientRect().left;
 	}
@@ -41,6 +46,7 @@ export default function shot({ shooter, target, bullet, diretion, onHit, onMiss 
 	function bulletGotTarget() {
 		moveBullet(bulletPosition = bulletStartingPosition);
 		bullet.style.display = 'none';
+		audio('hit');
 		onHit();
 	}
 

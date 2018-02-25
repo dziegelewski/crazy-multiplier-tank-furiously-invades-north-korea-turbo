@@ -2,6 +2,18 @@
 import { nonNegative } from '@/utils/functions';
 
 export default {
+  setStartingState(state) {
+    state.speed = 0;
+
+    state.score = 0;
+    state.heroHearts = 3;
+    state.lastEnteredProvince = null;
+
+    state.province = null;
+    state.foe = null;
+    state.challenge = null;
+  },
+
   updateAnswer(state, number) {
     state.challenge ?
 		state.challenge.input(number)
@@ -21,6 +33,15 @@ export default {
     state.foe.hurt();
   },
 
+  secondPassed(state) {
+    state.challenge &&
+    state.challenge.secondPassed();
+  },
+
+  resetTimeout(state) {
+    state.challenge &&
+    state.challenge.resetTimeout();
+  },
 
   restartChallenge(state) {
     state.challenge &&

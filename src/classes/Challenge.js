@@ -1,11 +1,15 @@
 import random from 'lodash/random';
 import times from 'lodash/times';
+import { nonNegative } from "@/utils/functions";
+let challengeId = 0;
 
 class Challenge {
-  constructor({ level = 1, numberOfFactors = 2, timeout = 5000, factors, prize } = {}) {
+  constructor({ level = 1, numberOfFactors = 2, timeout = 5, factors, prize } = {}) {
+    this.id = challengeId ++;
     this.level = level;
     this.numberOfFactors = numberOfFactors;
-    this.timeout = timeout;
+    this.maxTimeout = timeout;
+    this.leftTimeout = timeout;
 
     this.factors = factors || this.generateFactors();
     this.prize = prize || this.calculatePrize();
@@ -56,8 +60,16 @@ class Challenge {
     return userAnswer === this.solution;
   }
 
+  resetTimeout() {
+    this.leftTimeout = this.maxTimeout;
+  }
+
   restart() {
     this.userInput = [];
+  }
+
+  secondPassed() {
+    this.leftTimeout = nonNegative(this.leftTimeout - 1);
   }
 
   get solution() {
@@ -70,6 +82,10 @@ class Challenge {
 
   get inputFull() {
     return this.userInput.length === this.blanks;
+  }
+
+  get timeOver() {
+    return !this.leftTimeout;
   }
 }
 

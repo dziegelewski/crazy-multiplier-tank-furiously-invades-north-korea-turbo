@@ -32,7 +32,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 	
 	.the-question {
 		margin: 0 auto;

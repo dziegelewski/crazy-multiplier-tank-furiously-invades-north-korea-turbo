@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"ex",
+				"explodingTime"
+			],
+			[
+				"emi",
+				"emitShot"
+			],
+			[
+				"event",
+				"eventName"
+			],
+			[
+				"bul",
+				"bulletId"
+			],
+			[
+				"wai",
+				"waitForBullet"
+			],
+			[
+				"bu",
+				"bulletId"
+			],
+			[
+				"sh",
+				"shooter"
+			],
+			[
+				"bull",
+				"bulletPosition"
+			],
+			[
+				"com",
+				"comparePositions"
+			],
+			[
+				"get",
+				"getTargetPosition"
+			],
+			[
+				"di",
+				"diretion"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"hero",
+				"heroVehicle"
+			],
+			[
 				"de",
 				"descriptor"
 			],
@@ -32,10 +84,6 @@
 				"explosions"
 			],
 			[
-				"ex",
-				"explosion"
-			],
-			[
 				"exp",
 				"explosions"
 			],
@@ -46,10 +94,6 @@
 			[
 				"al",
 				"align-items"
-			],
-			[
-				"di",
-				"display"
 			],
 			[
 				"is",
@@ -180,10 +224,6 @@
 				"mapMutations"
 			],
 			[
-				"get",
-				"get\tget"
-			],
-			[
 				"ge",
 				"generateFactors"
 			],
@@ -246,10 +286,6 @@
 			[
 				"numbe",
 				"numberOfItemsToCraft"
-			],
-			[
-				"fun",
-				"function\tkeyword"
 			],
 			[
 				"for",
@@ -478,79 +514,16 @@
 			[
 				"ke",
 				"keypressed"
-			],
-			[
-				"spee",
-				"speedCss"
-			],
-			[
-				"gr",
-				"grassTypes\tnum "
-			],
-			[
-				"gra",
-				"grassTypes\tnum "
-			],
-			[
-				"add",
-				"addPoints"
-			],
-			[
-				"anim",
-				"animateGrass\tfn "
-			],
-			[
-				"new",
-				"newGrassBlade\t{} "
-			],
-			[
-				"rand",
-				"randomGrassModel"
-			],
-			[
-				"grass",
-				"grassBlade"
-			],
-			[
-				"animatio",
-				"animationDelay\tnum "
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/components/BattleGround.vue",
+			"file": "log",
 			"settings":
 			{
-				"buffer_size": 1635,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/components/KeyboardWidget.vue",
-			"settings":
-			{
-				"buffer_size": 1356,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/components/Vehicle.vue",
-			"settings":
-			{
-				"buffer_size": 1739,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/classes/Foe.js",
-			"settings":
-			{
-				"buffer_size": 1692,
+				"buffer_size": 566,
 				"line_ending": "Unix"
 			}
 		}
@@ -563,19 +536,23 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "re",
+		"last_filter": "pre",
 		"selected_items":
 		[
+			[
+				"pre",
+				"JsPrettier: Format Code"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"re",
 				"File: Rename"
 			],
 			[
 				"pr",
-				"JsPrettier: Format Code"
-			],
-			[
-				"pre",
 				"JsPrettier: Format Code"
 			],
 			[
@@ -593,10 +570,6 @@
 			[
 				"brow",
 				"Preferences: Browse Packages"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"eslint",
@@ -746,9 +719,7 @@
 	"expanded_folders":
 	[
 		"/home/grzegorz/Desktop/tank",
-		"/home/grzegorz/Desktop/tank/config",
 		"/home/grzegorz/Desktop/tank/src",
-		"/home/grzegorz/Desktop/tank/src/assets",
 		"/home/grzegorz/Desktop/tank/src/classes",
 		"/home/grzegorz/Desktop/tank/src/components",
 		"/home/grzegorz/Desktop/tank/static",
@@ -757,44 +728,47 @@
 	],
 	"file_history":
 	[
-		"/home/grzegorz/Desktop/tank/src/store/index.js",
+		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
+		"/home/grzegorz/Desktop/tank/src/assets/shared.scss",
+		"/home/grzegorz/Desktop/tank/src/components/MainView.vue",
+		"/home/grzegorz/Desktop/tank/src/utils/animate.js",
+		"/home/grzegorz/Desktop/tank/src/store/actions.js",
+		"/home/grzegorz/Desktop/tank/src/store/mutations.js",
+		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
+		"/home/grzegorz/Desktop/tank/src/utils/shot.js",
+		"/home/grzegorz/Desktop/tank/src/components/VehicleSprite.vue",
+		"/home/grzegorz/Desktop/tank/src/components/BattleGround.vue",
+		"/home/grzegorz/Desktop/tank/src/components/PlayView.vue",
+		"/home/grzegorz/Desktop/tank/src/components/ProvinceInfo.vue",
 		"/home/grzegorz/Desktop/tank/.babelrc",
+		"/home/grzegorz/Desktop/tank/log",
+		"/home/grzegorz/Desktop/tank/src/store/index.js",
+		"/home/grzegorz/Desktop/tank/src/store/actionsForFoe.js",
+		"/home/grzegorz/Desktop/tank/src/store/actionsForInput.js",
+		"/home/grzegorz/Desktop/tank/src/store/actionsForChallenge.js",
+		"/home/grzegorz/Desktop/tank/src/store/actionsForGame.js",
+		"/home/grzegorz/Desktop/tank/src/store/actionsForProvinces.js",
+		"/home/grzegorz/Desktop/tank/node_modules/node-sass/test/fixtures/depth-first/_common.scss",
 		"/home/grzegorz/Desktop/tank/package.json",
 		"/home/grzegorz/Desktop/tank/src/main.js",
 		"/home/grzegorz/Desktop/prog stuff/decorators exercises.js",
 		"/home/grzegorz/Desktop/tank/node_modules/babel-core/lib/store.js",
-		"/home/grzegorz/Desktop/tank/src/utils/animate.js",
 		"/home/grzegorz/Desktop/tank/build/webpack.prod.conf.js",
 		"/home/grzegorz/Desktop/tank/build/check-versions.js",
 		"/home/grzegorz/Desktop/tank/build/build.js",
-		"/home/grzegorz/Desktop/tank/src/components/KeyboardWidget.vue",
-		"/home/grzegorz/Desktop/tank/src/components/MainView.vue",
-		"/home/grzegorz/Desktop/tank/src/components/PlayView.vue",
 		"/home/grzegorz/Desktop/tank/test/unit/coverage/lcov-report/components/GameApp.vue.html",
-		"/home/grzegorz/Desktop/tank/src/store/actionsForFoe.js",
-		"/home/grzegorz/Desktop/tank/src/store/actionsForGame.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/Challenge.spec.js",
-		"/home/grzegorz/Desktop/tank/src/components/BattleGround.vue",
 		"/home/grzegorz/Desktop/tank/src/components/Vehicle.vue",
-		"/home/grzegorz/Desktop/tank/src/store/mutations.js",
-		"/home/grzegorz/Desktop/tank/src/store/actionsForChallenge.js",
 		"/home/grzegorz/Desktop/tank/src/utils/animations.js",
-		"/home/grzegorz/Desktop/tank/src/store/actions.js",
-		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
-		"/home/grzegorz/Desktop/tank/src/store/actionsForProvinces.js",
 		"/home/grzegorz/Desktop/tank/src/utils/eventBus.js",
-		"/home/grzegorz/Desktop/tank/src/store/actionsForInput.js",
 		"/home/grzegorz/Desktop/tank/src/components/KeyboardListener.vue",
-		"/home/grzegorz/Desktop/tank/log",
 		"/home/grzegorz/Desktop/tank/src/components/TheMessage.vue",
 		"/home/grzegorz/Desktop/tank/src/components/TheQuestion.vue",
 		"/home/grzegorz/Desktop/tank/src/classes/Province.js",
-		"/home/grzegorz/Desktop/tank/src/components/ProvinceInfo.vue",
 		"/home/grzegorz/Desktop/tank/config/index.js",
 		"/home/grzegorz/Desktop/tank/src/store/state.js",
 		"/home/grzegorz/Desktop/tank/src/components/TheInput.vue",
 		"/home/grzegorz/Desktop/tank/src/components/ScoresCounter.vue",
-		"/home/grzegorz/Desktop/tank/src/assets/shared.scss",
 		"/home/grzegorz/Desktop/tank/build/webpack.base.conf.js",
 		"/home/grzegorz/Desktop/tank/src/components/GrassLeaves.vue",
 		"/home/grzegorz/Desktop/tank/src/components/MenuView.vue",
@@ -881,14 +855,11 @@
 		"/home/grzegorz/Desktop/Lambro/src/components/Mercenary.jsx",
 		"/home/grzegorz/Desktop/Lambro/src/TransformState.js",
 		"/home/grzegorz/Desktop/Lambro/test/helpers/shallowRenderHelper.js",
-		"/home/grzegorz/Desktop/Yo react/src/components/Main.js",
-		"/home/grzegorz/Desktop/Yo react/src/index.js",
-		"/home/grzegorz/Desktop/Lambro/src/components/Bricks.jsx",
-		"/home/grzegorz/Desktop/Lambro/src/components/Main.jsx"
+		"/home/grzegorz/Desktop/Yo react/src/components/Main.js"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -902,6 +873,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bulle",
+			"score",
+			"eventName",
+			"explodes",
+			"target",
+			"hero",
+			"foeS",
+			" style=\"display: none;\"",
+			"()",
+			"bulletShift",
+			"console.log",
+			"bulletMovement",
+			"frameid",
+			"Vehicle",
+			"vehicle",
+			"Vehicle",
+			"vehicle",
+			"vue",
 			"times",
 			"decorator",
 			"rimr",
@@ -1011,25 +1000,7 @@
 			"Battlefield",
 			"battlefield",
 			"Battlefield",
-			"battlefield",
-			"Battlefield",
-			"nextCha",
-			"positiveValue",
-			"nextChallenge",
-			"Challenge",
-			"userIn",
-			"TheQuestion",
-			"userAnswer",
-			"userIn",
-			"state",
-			"this",
-			"DeveloperPanel",
-			"alert",
-			"inputFull",
-			"MainInput",
-			"rest",
-			"userAn",
-			"solution"
+			"battlefield"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1047,124 +1018,36 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/components/BattleGround.vue",
+					"file": "log",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1635,
+						"buffer_size": 566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								821,
-								821
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"syntax": "Packages/SAS Syntax and Theme/syntax/SAS Log.sublime-syntax",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 720.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/components/KeyboardWidget.vue",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1356,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								397,
-								397
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/components/Vehicle.vue",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1739,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								346,
-								346
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 108.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/classes/Foe.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1692,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								443,
-								443
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1227,6 +1110,106 @@
 		"selected_items":
 		[
 			[
+				"log",
+				"log"
+			],
+			[
+				"babelr",
+				".babelrc"
+			],
+			[
+				"keyb",
+				"src/components/KeyboardWidget.vue"
+			],
+			[
+				"provi",
+				"src/components/ProvinceInfo.vue"
+			],
+			[
+				"batt",
+				"src/components/BattleGround.vue"
+			],
+			[
+				"mainvi",
+				"src/components/MainView.vue"
+			],
+			[
+				"ve",
+				"src/components/VehicleSprite.vue"
+			],
+			[
+				"mutat",
+				"src/store/mutations.js"
+			],
+			[
+				"foe",
+				"src/classes/Foe.js"
+			],
+			[
+				"battle",
+				"src/components/BattleGround.vue"
+			],
+			[
+				"vehicle",
+				"src/components/VehicleSprite.vue"
+			],
+			[
+				"act",
+				"src/store/actions.js"
+			],
+			[
+				"store/in",
+				"src/store/index.js"
+			],
+			[
+				"bat",
+				"src/components/BattleGround.vue"
+			],
+			[
+				"anima",
+				"src/utils/animate.js"
+			],
+			[
+				"mai",
+				"src/components/MainView.vue"
+			],
+			[
+				"vehicles",
+				"src/components/VehicleSprite.vue"
+			],
+			[
+				"actionsfo",
+				"src/store/actionsForFoe.js"
+			],
+			[
+				"acions",
+				"src/store/actionsForChallenge.js"
+			],
+			[
+				"acions.",
+				"src/store/actions.js"
+			],
+			[
+				"shared",
+				"src/assets/shared.scss"
+			],
+			[
+				"common.scss",
+				"node_modules/node-sass/test/fixtures/depth-first/_common.scss"
+			],
+			[
+				"actions",
+				"src/store/actionsForGame.js"
+			],
+			[
+				"vehi",
+				"src/components/VehicleSprite.vue"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
 				"store.js",
 				"node_modules/babel-core/lib/store.js"
 			],
@@ -1271,48 +1254,16 @@
 				"test/unit/coverage/lcov-report/components/GameApp.vue.html"
 			],
 			[
-				"keyb",
-				"src/components/KeyboardWidget.vue"
-			],
-			[
-				"ve",
-				"src/components/Vehicle.vue"
-			],
-			[
 				"pla",
 				"src/components/PlayView.vue"
-			],
-			[
-				"batt",
-				"src/components/BattleGround.vue"
 			],
 			[
 				"veh",
 				"src/components/Vehicle.vue"
 			],
 			[
-				"foe",
-				"src/classes/Foe.js"
-			],
-			[
-				"actions",
-				"src/store/actionsForGame.js"
-			],
-			[
 				"challenge",
 				"test/unit/specs/Challenge.spec.js"
-			],
-			[
-				"vehi",
-				"src/components/Vehicle.vue"
-			],
-			[
-				"actionsfo",
-				"src/store/actionsForFoe.js"
-			],
-			[
-				"anima",
-				"src/utils/animations.js"
 			],
 			[
 				"agame",
@@ -1321,14 +1272,6 @@
 			[
 				"action",
 				"src/store/actionsForFoe.js"
-			],
-			[
-				"battle",
-				"src/components/BattleGround.vue"
-			],
-			[
-				"vehicle",
-				"src/components/Vehicle.vue"
 			],
 			[
 				"foe.js",
@@ -1391,10 +1334,6 @@
 				"src/store/actions.js"
 			],
 			[
-				"mutat",
-				"src/store/mutations.js"
-			],
-			[
 				"theq",
 				"src/components/TheQuestion.vue"
 			],
@@ -1433,10 +1372,6 @@
 			[
 				"muta",
 				"src/store/mutations.js"
-			],
-			[
-				"mainvi",
-				"src/components/MainView.vue"
 			],
 			[
 				"gett",
@@ -1483,10 +1418,6 @@
 				"src/components/BattleGround.vue"
 			],
 			[
-				"act",
-				"src/store/actions.js"
-			],
-			[
 				"key",
 				"src/components/KeyboardWidget.vue"
 			],
@@ -1517,10 +1448,6 @@
 			[
 				"actio",
 				"src/store/actions.js"
-			],
-			[
-				"provi",
-				"src/components/ProvinceInfo.vue"
 			],
 			[
 				"thein",
@@ -1693,50 +1620,6 @@
 			[
 				"pac",
 				"package-lock.json"
-			],
-			[
-				"packag",
-				"package.json"
-			],
-			[
-				".spec.",
-				"test/unit/specs/Foe.spec.js"
-			],
-			[
-				"chall",
-				"src/classes/Challenge.js"
-			],
-			[
-				"inde",
-				"index.html"
-			],
-			[
-				"challen",
-				"src/classes/Challenge.js"
-			],
-			[
-				"app",
-				"src/App.vue"
-			],
-			[
-				"magick",
-				"test/unit/specs/MagickBar.spec.js"
-			],
-			[
-				"karma.js",
-				"test/unit/karma.conf.js"
-			],
-			[
-				"hellow",
-				"src/components/HelloWorld.vue"
-			],
-			[
-				"app.v",
-				"src/App.vue"
-			],
-			[
-				"regene",
-				"src/components/Regeneration.jsx"
 			]
 		],
 		"width": 0.0
@@ -1766,8 +1649,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 131.0,
+	"side_bar_visible": false,
+	"side_bar_width": 216.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

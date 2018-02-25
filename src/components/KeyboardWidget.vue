@@ -38,7 +38,7 @@
 </script>
 
 <style lang="scss">
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 	.keyboard-widget {
 		position: fixed;
 		bottom: 0;
@@ -56,7 +56,7 @@
 			flex: 1;
 			height: 50px;
 			background: white;
-			background-image: url('../assets/key.png');
+			background-image: url('../assets/images/key.png');
 			background-size: 100% 100%;
 			color: black;
 			border: 4px solid black;

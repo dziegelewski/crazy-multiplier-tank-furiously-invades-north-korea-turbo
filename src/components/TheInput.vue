@@ -42,7 +42,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 
 	.the-input {
 		@extend %big-font;

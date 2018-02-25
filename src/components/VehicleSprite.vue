@@ -35,7 +35,7 @@
 
 		computed: {
 			backgroundImage() {
-				return require(`../assets/${this.model}.png`);
+				return require(`../assets/images/${this.model}.png`);
 			},
 
 			isPlayer() {
@@ -74,7 +74,7 @@
 </script>
 
 <style lang='scss' scoped>
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 
 	.vehicle-sprite {
 		position: absolute;
@@ -93,21 +93,10 @@
 			top: calc(50% - #{$height});
 			left: calc(65% - #{$width});
 			
-			background: url(../assets/explosion.png);
+			background: url(../assets/images/explosion.png);
 			background-size: 100% 100%;
 			position: absolute;
 			display: block;
-		}
-
-		.explode {
-			&-enter-active {
-				transition: transform .34s;
-				transform: scale(3);
-			}
-
-			&-enter {
-				transform: scale(1);
-			}
 		}
 	}
 

@@ -15,6 +15,11 @@
 			class="play-view__hearts play-view__hearts--foe"
 		/>
 
+		<TimeoutCounter
+			v-if="challenge" :timeout="challenge.leftTimeout"
+			class="play-view__timeout"
+		/>
+
     <ProvinceInfo class="play-view__province-info"/>
 
     <TheQuestion class="play-view__question" />
@@ -28,6 +33,7 @@
   import TheMessage from '@/components/TheMessage';
   import ProvinceInfo from '@/components/ProvinceInfo';
   import ScoresCounter from '@/components/ScoresCounter';
+  import TimeoutCounter from '@/components/TimeoutCounter';
 	import { mapState } from 'vuex';
 
 	export default {
@@ -38,10 +44,12 @@
 	    TheMessage,
 	    ProvinceInfo,
 	    ScoresCounter,
+	    TimeoutCounter,
 		},
 		computed: {
 			...mapState([
 				'foe',
+				'challenge',
 				'heroHearts',
 			]),
 
@@ -54,7 +62,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import 'src/assets/shared';
+	@import 'src/assets/styles/shared';
 	.play-view {
 
 		&__score {
@@ -92,6 +100,12 @@
 				right: $hearts-shift;
 
 			}
+		}
+
+		&__timeout {
+			position: absolute;
+			bottom: 0%;
+			right: 5%;
 		}
 	}
 
