@@ -1,7 +1,12 @@
 <template>
-	<div class="the-message" v-if="message">
-		<p class="the-message__message">{{ message }}</p>
-	</div>
+	<transition name="fade">
+		<div class="the-message">
+			<p
+				class="the-message__message"
+				:class="className"
+				v-html="message.text" />
+		</div>
+	</transition>
 </template>
 
 <script>
@@ -9,9 +14,19 @@
 		name: 'TheMessage',
 		props: {
 			message: {
-				type: String,
+				type: Object,
 			},
 		},
+		computed: {
+
+			style() {
+				return this.message.style;
+			},
+
+			className() {
+				return this.style ? `the-message__message--${this.style}` : null;
+			},
+		}
 
 	};
 </script>
@@ -25,6 +40,12 @@
 
 		&__message {
 			@extend %medium-font;
+			line-height: 150%;
+
+			&--alert {
+				color: $alert-color;
+				@extend %blinking;
+			}
 		}
 
 	}

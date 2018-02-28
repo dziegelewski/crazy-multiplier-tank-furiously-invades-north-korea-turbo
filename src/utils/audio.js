@@ -17,7 +17,9 @@ const sounds = [
 }, {});
 
 const audio = (soundName) => {
-	sounds[soundName].play();
+	if (window.isAudioEnabled()) {
+		sounds[soundName].play();
+	}
 };
 
 audio.stop = function(soundName) {

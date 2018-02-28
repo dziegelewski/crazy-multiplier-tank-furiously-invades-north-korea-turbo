@@ -3,6 +3,8 @@ import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import audio from '@/utils/audio';
 
+let menuInputInterval;
+
 export default {
   enterNextProvince({ state, dispatch }) {
     dispatch('enterProvince', state.lastEnteredProvince + 1);
@@ -11,8 +13,11 @@ export default {
   async enterProvince({ commit, dispatch }, provinceNumber) {
     const province = new Province(provinceNumber);
     commit('changeProvince', province);
-    const message = `Stage ${province.number}. ${province.name}`;
-    await dispatch('displayMessage', message);
+
+    await dispatch('displayMessage', {
+      text: `Stage ${province.number}.<br>  ${province.name}`,
+    });
+
     await wait(1000);
     dispatch('sendFoe');
   },
@@ -20,8 +25,10 @@ export default {
   async provinceCleared({ state, dispatch }) {
 		// commit('changeProvince', null);
     await wait(1000);
-    const message = `${state.province.name} cleared`;
-    await dispatch('displayMessage', message);
+
+    await dispatch('displayMessage', {
+      text: `${state.province.name}<br> cleared.`,
+    });
 
 		// Good opportunity for optional prize
     dispatch('enterNextProvince');
@@ -68,7 +75,8 @@ export default {
   	dispatch('foeShots')
   },
 
-  async foeShots({ dispatch }) {
+  async foeShots({ dispatch, getters }) {
+    if (getters.isHeroDead) return;
     await animate.foeShots();
     dispatch('heroHit');
   },
@@ -85,8 +93,9 @@ export default {
 
   // -------
 
-	beginGame({ commit, dispatch }) {
+	async beginGame({ commit, dispatch }) {
     commit('changeMode', 'play');
+    await wait(1000);
     dispatch('enterProvince', 1);
   },
 
@@ -101,7 +110,7 @@ export default {
   },
 
   restartGame({ commit, dispatch }) {
-    commit('setStartingState');
+    commit('resetState');
     dispatch('beginGame');
   },
 
@@ -140,26 +149,71 @@ export default {
 		}
 	},
 
+  async badAnswer({ commit, dispatch }) {
+    commit('lockTyping');
+    commit('restartChallenge');
+
+    await dispatch('displayMessage', {
+      text: 'Misfire!',
+      duration: 3000,
+      style: 'alert',
+    }) 
+
+    commit('unlockTyping');
+  },
+
 	userInput({ state, commit, getters, dispatch }, number) {
+    if (state.typingLocked) return;
+
+    if (getters.isMenuMode) {
+      dispatch('menuInput', number);
+      audio('keydown');
+      return;
+    }
     audio('keydown');
+
     const { challenge } = state;
     if (challenge) {
       commit('updateAnswer', number);
 
       if (challenge.inputFull) {
-        challenge.attempt() ? dispatch('challengeBeated') : dispatch('challengeFailed');
+        challenge.attempt() ? dispatch('challengeBeated') : dispatch('badAnswer');
       }
     }
   },
 
   userUndo({ state, commit }) {
+    if (state.typingLocked) return;
     audio('keydown');
     if (!state.challenge.inputFull) {
       commit('undoAnswer');
     }
   },
 
-  async displayMessage({ commit, mutation }, message, duration = 3000) {
+  async menuInput({ commit, dispatch }, number) {
+    clearInterval(menuInputInterval)
+    commit('updateMenuInput', number);
+
+    switch(number) {
+      case 1:
+        commit('toggleAudio');
+        break;
+      case 4:
+        await wait(500);
+        dispatch('beginGame');
+        break;
+      case 9:
+        commit('toggleMusic');
+        break;
+    }
+
+    menuInputInterval = setInterval(() => {
+      commit('resetMenuInput');
+    }, 300);  
+  },
+
+  async displayMessage({ commit, mutation }, message) {
+    const duration = message.duration || 3000;
     commit('changeMessage', message);
     await wait(duration);
     commit('changeMessage', null);

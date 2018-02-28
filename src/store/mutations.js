@@ -1,18 +1,17 @@
 /* eslint no-unused-expressions: 0 */
+import Vue from 'vue';
 import { nonNegative } from '@/utils/functions';
+import { generateInitialState } from '@/store/state';
 
 export default {
-  setStartingState(state) {
-    state.speed = 0;
+  resetState(state) {
+    const omittedKeys = [];
+    const startingState = generateInitialState();
 
-    state.score = 0;
-    state.heroHearts = 3;
-    state.lastEnteredProvince = null;
-
-    state.province = null;
-    state.foe = null;
-    state.challenge = null;
-    state.message = null;
+    for (let key in state) {
+      if (omittedKeys.includes(key)) continue;
+      Vue.set(state, key, startingState[key])
+    }
   },
 
   updateAnswer(state, number) {
@@ -78,5 +77,29 @@ export default {
 
   changeMessage(state, data) {
     state.message = data;
+  },
+
+  lockTyping(state) {
+    state.typingLocked = true;
+  },
+
+  unlockTyping(state) {
+    state.typingLocked = false;
+  },
+
+  updateMenuInput(state, value) {
+    state.menuInput = [value];
+  },
+
+  resetMenuInput(state) {
+    state.menuInput = [];
+  },
+
+  toggleAudio(state) {
+    return state.audioEnabled = !state.audioEnabled;
+  },
+
+  toggleMusic(state) {
+    return state.musicEnabled = !state.musicEnabled;
   },
 };

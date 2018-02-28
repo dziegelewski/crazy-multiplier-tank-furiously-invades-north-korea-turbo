@@ -39,4 +39,8 @@ export default {
   isMenuMode(state) {
     return state.mode === 'menu';
   },
+
+  isHeroDead(state) {
+    return !state.heroHearts;
+  },
 };

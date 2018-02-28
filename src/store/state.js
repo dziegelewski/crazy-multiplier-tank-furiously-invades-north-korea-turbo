@@ -1,4 +1,4 @@
-export default {
+export const generateInitialState = () => ({
 	mode: 'menu',
 
 	speed: 0,
@@ -12,4 +12,11 @@ export default {
   challenge: null,
 
   message: null,
-};
+  typingLocked: false,
+  menuInput: [],
+
+  audioEnabled: true, 
+  musicEnabled: true,
+});
+
+export default generateInitialState();
