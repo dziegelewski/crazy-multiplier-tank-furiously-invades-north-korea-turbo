@@ -1,7 +1,13 @@
 $score-color: green;
 $alert-color: red;
+
+$small-font: 30px;
 $medium-font: 40px;
 $big-font: 60px;
+
+%small-font {
+	font-size: $small-font;
+}
 
 %medium-font {
 	font-size: $medium-font;
@@ -13,7 +19,7 @@ $big-font: 60px;
 }
 
 %blinking {
-	animation: blinking 1.5s infinite;
+	animation: blinking 1.25s infinite;
 	animation-timing-function: linear;
 
 	@keyframes blinking {

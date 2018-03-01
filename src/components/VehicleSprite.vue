@@ -35,7 +35,7 @@
 
 		computed: {
 			backgroundImage() {
-				return require(`../assets/images/${this.model}.png`);
+				return require(`../assets/images/vehicles/${this.model}.png`);
 			},
 
 			isPlayer() {

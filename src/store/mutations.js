@@ -1,11 +1,15 @@
 /* eslint no-unused-expressions: 0 */
 import Vue from 'vue';
 import { nonNegative } from '@/utils/functions';
+import { storeOption } from '@/utils/retrieve';
 import { generateInitialState } from '@/store/state';
 
 export default {
   resetState(state) {
-    const omittedKeys = [];
+    const omittedKeys = [
+      'audioEnabled',
+      'musicEnabled',
+    ];
     const startingState = generateInitialState();
 
     for (let key in state) {
@@ -95,11 +99,9 @@ export default {
     state.menuInput = [];
   },
 
-  toggleAudio(state) {
-    return state.audioEnabled = !state.audioEnabled;
-  },
-
-  toggleMusic(state) {
-    return state.musicEnabled = !state.musicEnabled;
+  toggleOption(state, optionName) {
+    const valueAfterChange = !state[optionName];
+    storeOption(optionName, valueAfterChange)
+    state[optionName] = valueAfterChange
   },
 };

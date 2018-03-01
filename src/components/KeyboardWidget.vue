@@ -10,7 +10,7 @@
 			class="keyboard-widget__key keyboard-widget__key--backspace"
 			@click="userUndo"
 	   >
-	   	<-
+	   	<
 	   </button>
 	</div>
 
@@ -40,23 +40,21 @@
 <style lang="scss">
 	@import 'src/assets/styles/shared';
 	.keyboard-widget {
-		position: fixed;
+		position: absolute;
 		bottom: 0;
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		@media (min-width: 700px) {
-			display: none;
+			// display: none;
 		}
-		// display: none;
 
 		&__key {
 			display: flex;
 			flex: 1;
 			height: 50px;
 			background: white;
-			background-image: url('../assets/images/key.png');
 			background-size: 100% 100%;
 			color: black;
 			border: 4px solid black;
@@ -69,6 +67,13 @@
 			max-width: 19%;
 			margin: 1vh 0;
 			// transition: all 100ms;
+
+
+			@for $i from 1 through 11 {
+				&:nth-child(#{$i}) {
+					background-image: url('../assets/images/keys/key#{$i}.png');
+				}
+			}
 
 			&:active {
 				color: white;

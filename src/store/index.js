@@ -17,10 +17,6 @@ const store = new Vuex.Store({
 
 export default store;
 
-window.isAudioEnabled = function() {
-	return store.state.audioEnabled;
-}
-
 /* eslint-disable */
 if (process.env.NODE_ENV !== 'production') {
 	document.addEventListener('keydown', e => {

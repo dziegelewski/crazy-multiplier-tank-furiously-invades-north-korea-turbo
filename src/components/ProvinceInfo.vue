@@ -21,7 +21,8 @@
 	@import 'src/assets/styles/shared';
 
 	.province-info {
-		@extend %medium-font;
+		font-weight: bold;
+		@extend %small-font;
 	}
 
 </style>

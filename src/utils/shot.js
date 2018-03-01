@@ -1,4 +1,4 @@
-import audio from '@/utils/audio';
+import { playSound } from '@/utils/audio';
 import eventBus from '@/utils/eventBus';
 import { oppositeDirection, byDirection, showElement, hideElement } from '@/utils/functions';
 import { collisionDetector, elementTranslate } from '@/utils/collision';
@@ -14,7 +14,7 @@ export default function shot({ bulletId, shooter, target, bullet, diretion }) {
 	const detectCollision = collisionDetector(bullet, target, diretion);
 
 	showElement(bullet);
-	audio('shot');
+	playSound('shot');
 
 	(function loop() {
 		moveBullet(bulletSpeed);
@@ -28,6 +28,6 @@ export default function shot({ bulletId, shooter, target, bullet, diretion }) {
 
 function shotSuccess(bullet, bulletId) {
 	hideElement(bullet);
-	audio('hit');
+	playSound('hit');
 	eventBus.$emit('gotcha', bulletId);
 }

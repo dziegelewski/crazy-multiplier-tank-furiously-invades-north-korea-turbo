@@ -1,9 +1,7 @@
 import Province from '@/classes/Province';
 import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
-import audio from '@/utils/audio';
-
-let menuInputInterval;
+import { playSound, startMusic, stopMusic } from '@/utils/audio';
 
 export default {
   enterNextProvince({ state, dispatch }) {
@@ -27,7 +25,7 @@ export default {
     await wait(1000);
 
     await dispatch('displayMessage', {
-      text: `${state.province.name}<br> cleared.`,
+      text: `${state.province.name}<br> cleared`,
     });
 
 		// Good opportunity for optional prize
@@ -94,24 +92,18 @@ export default {
   // -------
 
 	async beginGame({ commit, dispatch }) {
+    commit('resetState');
     commit('changeMode', 'play');
     await wait(1000);
+    startMusic();
     dispatch('enterProvince', 1);
   },
 
   async gameOver({ commit, dispatch }) {
-		await animate.heroExplodes();
+    await animate.heroExplodes();
+    stopMusic();
     commit('changeMode', 'menu');
-    await wait(1000);
-    // eslint-disable-next-line
-    if (confirm('Restart?')) {
-      dispatch('restartGame');
-    }
-  },
-
-  restartGame({ commit, dispatch }) {
-    commit('resetState');
-    dispatch('beginGame');
+    await wait(3000);
   },
 
   async sendFoe({ state, commit, dispatch }) {
@@ -167,49 +159,56 @@ export default {
 
     if (getters.isMenuMode) {
       dispatch('menuInput', number);
-      audio('keydown');
-      return;
     }
-    audio('keydown');
+    else {
+      const { challenge } = state;
+      if (challenge) {
+        commit('updateAnswer', number);
 
-    const { challenge } = state;
-    if (challenge) {
-      commit('updateAnswer', number);
-
-      if (challenge.inputFull) {
-        challenge.attempt() ? dispatch('challengeBeated') : dispatch('badAnswer');
+        if (challenge.inputFull) {
+          challenge.attempt() ? dispatch('challengeBeated') : dispatch('badAnswer');
+        }
       }
     }
+    playSound('keydown');
   },
 
   userUndo({ state, commit }) {
     if (state.typingLocked) return;
-    audio('keydown');
+    playSound('keydown');
     if (!state.challenge.inputFull) {
       commit('undoAnswer');
     }
   },
 
   async menuInput({ commit, dispatch }, number) {
-    clearInterval(menuInputInterval)
+    clearTimeout(window.menuInputTimeout)
     commit('updateMenuInput', number);
 
     switch(number) {
       case 1:
-        commit('toggleAudio');
+        dispatch('toggleAudio');
         break;
       case 4:
         await wait(500);
         dispatch('beginGame');
         break;
       case 9:
-        commit('toggleMusic');
+        dispatch('toggleMusic');
         break;
     }
 
-    menuInputInterval = setInterval(() => {
+    window.menuInputTimeout = setTimeout(() => {
       commit('resetMenuInput');
     }, 300);  
+  },
+
+  toggleAudio({ commit }) {
+    commit('toggleOption', 'audioEnabled');
+  },
+
+  toggleMusic({ commit }) {
+    commit('toggleOption', 'musicEnabled');
   },
 
   async displayMessage({ commit, mutation }, message) {

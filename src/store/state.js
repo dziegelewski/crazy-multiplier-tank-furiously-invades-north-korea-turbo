@@ -1,3 +1,5 @@
+import retrieve from '@/utils/retrieve';
+
 export const generateInitialState = () => ({
 	mode: 'menu',
 
@@ -15,8 +17,8 @@ export const generateInitialState = () => ({
   typingLocked: false,
   menuInput: [],
 
-  audioEnabled: true, 
-  musicEnabled: true,
+  audioEnabled: retrieve('audioEnabled'), 
+  musicEnabled: retrieve('musicEnabled'),
 });
 
 export default generateInitialState();

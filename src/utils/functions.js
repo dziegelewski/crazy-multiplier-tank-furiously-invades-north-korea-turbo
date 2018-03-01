@@ -9,3 +9,5 @@ export const byDirection = (value, direction) => value * (direction === 'right' 
 export const showElement = element => element.style.display = 'block';
 
 export const hideElement = element => element.style.display = 'none';
+
+export const isDeviceBig = () => screen.width > 700;

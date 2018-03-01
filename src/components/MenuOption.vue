@@ -77,6 +77,9 @@
 
 		&__value {
 			text-transform: uppercase;
+			display: inline-block;
+			text-align: left;
+			width: 2.5em;
 		}
 	}
 	

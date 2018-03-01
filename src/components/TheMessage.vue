@@ -37,6 +37,7 @@
 		margin: 0 auto;
 		width: 100%;
 		text-align: center;
+		font-weight: bold;
 
 		&__message {
 			@extend %medium-font;
