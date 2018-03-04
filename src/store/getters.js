@@ -28,19 +28,20 @@ export default {
 		: [];
   },
 
+  toThePowerOf(state) {
+    return state.challenge &&
+    state.challenge.toThePowerOf;
+  },
+
   nextProvince(state) {
     return state.visitedProvince + 1;
   },
 
-  isPlayMode(state) {
+  isGameMode(state) {
     return state.mode === 'play';
   },
 
   isMenuMode(state) {
     return state.mode === 'menu';
-  },
-
-  isHeroDead(state) {
-    return !state.heroHearts;
   },
 };

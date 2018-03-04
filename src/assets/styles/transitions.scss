@@ -11,7 +11,7 @@
 
 .fade {
 	&-enter-active, &-leave-active {
-	  transition: opacity .2s;
+	  transition: opacity .1s;
 	}
 	&-enter, &-leave-to {
 	  opacity: 0;

@@ -1,12 +1,15 @@
 <template>
-	<transition name="fade">
+	<!-- <transition name="fade"> -->
 		<div class="the-message">
 			<p
+				v-for="line in messageText"
 				class="the-message__message"
 				:class="className"
-				v-html="message.text" />
+				>
+				{{ line }}
+			</p>
 		</div>
-	</transition>
+	<!-- </transition> -->
 </template>
 
 <script>
@@ -25,6 +28,11 @@
 
 			className() {
 				return this.style ? `the-message__message--${this.style}` : null;
+			},
+
+			messageText() {
+				const { text } = this.message;
+				return Array.isArray(text) ? text : [text]; 
 			},
 		}
 
@@ -46,6 +54,15 @@
 			&--alert {
 				color: $alert-color;
 				@extend %blinking;
+			}
+
+			&--old-score {
+				color: $score-color;
+				opacity: 0.66;
+			}
+
+			&--score {
+				color: $score-color;
 			}
 		}
 

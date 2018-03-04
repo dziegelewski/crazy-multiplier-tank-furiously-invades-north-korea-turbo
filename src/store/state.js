@@ -1,3 +1,4 @@
+import Vehicle from "@/classes/Vehicle";
 import retrieve from '@/utils/retrieve';
 
 export const generateInitialState = () => ({
@@ -6,7 +7,7 @@ export const generateInitialState = () => ({
 	speed: 0,
 
   score: 0,
-  heroHearts: 3,
+  hero: new Vehicle({ name: 'hero', hearts: 3, maxHearts: 9 }),
   lastEnteredProvince: null,
 
   province: null,

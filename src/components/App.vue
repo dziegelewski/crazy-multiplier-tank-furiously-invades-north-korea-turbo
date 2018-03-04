@@ -1,33 +1,34 @@
 <template>
-  <div class="main-view">
+  <div class="app">
 
-    <MenuView v-if="isMenuMode" class="main-view__view" />
-    <PlayView v-if="isPlayMode" class="main-view__view" />
+    <MenuMode v-if="isMenuMode" class="app__view" />
+    <GameMode v-if="isGameMode" class="app__view" />
 
-    <BattleGround class="main-view__battle-ground" />
+    <AnimatedArea class="app__animation-area" />
 
-    <KeyboardWidget class="main-view__keyboard" />
-    <KeyboardListener  />
+    <KeyboardWidget class="app__keyboard" />
+    <KeyboardListener />
   </div>
 </template>
 
 <script>
-  import BattleGround from '@/components/BattleGround';
   import KeyboardWidget from '@/components/KeyboardWidget';
   import KeyboardListener from '@/components/KeyboardListener';
-  import PlayView from '@/components/PlayView';
-  import MenuView from '@/components/MenuView';
+  import GameMode from '@/components/GameMode';
+  import MenuMode from '@/components/MenuMode';
   import { mapGetters, mapActions } from 'vuex';
+
+  import AnimatedArea from '@/components/AnimatedArea';
 
 
 export default {
   name: 'MainView',
   components: {
-    BattleGround,
+    AnimatedArea,
     KeyboardWidget,
     KeyboardListener,
-    PlayView,
-    MenuView,
+    GameMode,
+    MenuMode,
   },
 
   methods: {
@@ -39,7 +40,7 @@ export default {
   computed: {
     ...mapGetters([
       'isMenuMode',
-      'isPlayMode',
+      'isGameMode',
     ]),
   },
 
@@ -54,14 +55,18 @@ export default {
   @import 'src/assets/styles/transitions';
   @import 'src/assets/styles/shared';
 
+  html {
+    font-size: $base-font;
+  }
+
   body {
     background: black;
   }
 
-  .main-view {
+  .app {
     background: white;;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: $game-width;
     height: 100vh;
     position: relative;
     overflow: hidden;
@@ -73,12 +78,12 @@ export default {
       z-index: 1;
     }
 
-    &__battle-ground {
+    &__animation-area {
     top: 30vh;
     }
 
     &__keyboard {
-      height: 30vh;
+      height: 36vh;
     }
   }
 </style>

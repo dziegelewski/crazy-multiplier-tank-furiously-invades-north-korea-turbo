@@ -2,6 +2,7 @@ import Province from '@/classes/Province';
 import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
+import { tinyMoment, moment, longMoment,  } from '@/utils/waiting';
 
 export default {
   enterNextProvince({ state, dispatch }) {
@@ -13,19 +14,25 @@ export default {
     commit('changeProvince', province);
 
     await dispatch('displayMessage', {
-      text: `Stage ${province.number}.<br>  ${province.name}`,
+      text: [
+        `Stage ${province.number}.`,
+        province.name
+      ],
     });
 
-    await wait(1000);
+    await wait(moment);
     dispatch('sendFoe');
   },
 
   async provinceCleared({ state, dispatch }) {
 		// commit('changeProvince', null);
-    await wait(1000);
+    await wait(moment);
 
     await dispatch('displayMessage', {
-      text: `${state.province.name}<br> cleared`,
+      text: [
+        state.province.name,
+        'cleared'
+      ],
     });
 
 		// Good opportunity for optional prize
@@ -44,7 +51,7 @@ export default {
   },
 
   async countSecondForChallenge({ state, commit, dispatch }, challengeId) {
-    await wait(1000);
+    await wait(moment);
     const { challenge } = state;
     if (!challenge) return;
     if (challenge.id === challengeId) {
@@ -60,6 +67,7 @@ export default {
 
   challengeBeated({ dispatch }) {
     dispatch('heroShots');
+
   },
 
   async heroShots({ state, dispatch }) {
@@ -73,18 +81,18 @@ export default {
   	dispatch('foeShots')
   },
 
-  async foeShots({ dispatch, getters }) {
-    if (getters.isHeroDead) return;
+  async foeShots({ state, dispatch, getters }) {
+    if (state.hero.isDefeated) return;
     await animate.foeShots();
     dispatch('heroHit');
   },
 
   heroHit({ state, commit, dispatch }) {
     commit('heroLoosesHeart');
-    if (state.heroHearts) {
-      commit('restartChallenge');
-    } else {
+    if (state.hero.isDefeated) {
       dispatch('gameOver');
+    } else {
+      commit('restartChallenge');
     }
   },
 
@@ -94,7 +102,7 @@ export default {
 	async beginGame({ commit, dispatch }) {
     commit('resetState');
     commit('changeMode', 'play');
-    await wait(1000);
+    await wait(moment);
     startMusic();
     dispatch('enterProvince', 1);
   },
@@ -103,13 +111,21 @@ export default {
     await animate.heroExplodes();
     stopMusic();
     commit('changeMode', 'menu');
-    await wait(3000);
+    await wait(longMoment);
   },
 
   async sendFoe({ state, commit, dispatch }) {
 		if (!state.province) return;
 
 		const foe = state.province.sendFoe();
+    if (foe.needsWarning) {
+      await dispatch('displayMessage', {
+        text: '!',
+        duration: 3000,
+        style: 'alert',
+      }) 
+    }
+
 		commit("looseDefender");
 		commit("changeFoe", foe);
 		dispatch("throwChallenge");
@@ -129,10 +145,10 @@ export default {
 	async foeDefeated({ state, commit, dispatch }) {
 		const receivedScores = state.foe.score;
 		commit('scored', receivedScores);
-		await animate.foeExplodes(receivedScores);
+    await animate.foeExplodes(receivedScores);
 
 		commit("changeFoe", null);
-    await wait(1000);
+    await wait(moment);
 
 		if (state.province.isCleared) {
 			dispatch("provinceCleared");
@@ -141,7 +157,7 @@ export default {
 		}
 	},
 
-  async badAnswer({ commit, dispatch }) {
+  async incorrectAnswer({ commit, dispatch }) {
     commit('lockTyping');
     commit('restartChallenge');
 
@@ -166,7 +182,7 @@ export default {
         commit('updateAnswer', number);
 
         if (challenge.inputFull) {
-          challenge.attempt() ? dispatch('challengeBeated') : dispatch('badAnswer');
+          challenge.attempt() ? dispatch('challengeBeated') : dispatch('incorrectAnswer');
         }
       }
     }
@@ -190,14 +206,13 @@ export default {
         dispatch('toggleAudio');
         break;
       case 4:
-        await wait(500);
+        await wait(tinyMoment);
         dispatch('beginGame');
         break;
       case 9:
         dispatch('toggleMusic');
         break;
     }
-
     window.menuInputTimeout = setTimeout(() => {
       commit('resetMenuInput');
     }, 300);  
@@ -212,7 +227,7 @@ export default {
   },
 
   async displayMessage({ commit, mutation }, message) {
-    const duration = message.duration || 3000;
+    const duration = message.duration || longMoment;
     commit('changeMessage', message);
     await wait(duration);
     commit('changeMessage', null);

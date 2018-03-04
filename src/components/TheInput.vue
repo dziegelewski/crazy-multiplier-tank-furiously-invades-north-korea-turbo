@@ -52,7 +52,7 @@
 		&__letter {
 			display: inline-block;
 			width: 30px;
-			margin: 0 10px;
+			margin: 0 3px;
 		}
 	}
 

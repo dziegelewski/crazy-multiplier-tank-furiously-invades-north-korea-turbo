@@ -61,7 +61,7 @@
 	.menu-view {
 		&__logo {
 			max-width: 100%;
-			margin: 10% 0;
+			margin: 5% 0;
 		}
 
 		&__options {

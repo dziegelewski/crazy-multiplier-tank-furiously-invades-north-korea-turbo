@@ -57,7 +57,7 @@
 <style lang='scss' scoped>
 	@import 'src/assets/styles/shared';
 	.option {
-		font-size: 20px;
+		font-size: $small-font;
 		color: red;
 		text-align: center;
 		font-weight: 700;
@@ -69,6 +69,7 @@
 
 		&--important {
 			@extend %blinking;
+			animation-duration: $slow-blinking-duration;
 		}
 
 		&__line {

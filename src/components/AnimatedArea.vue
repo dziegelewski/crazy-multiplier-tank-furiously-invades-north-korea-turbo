@@ -1,22 +1,22 @@
 <template>
-	<div class="battle-ground">
-
-		<div class="battle-ground__center">
-			<VehicleSprite
-				v-if="isPlayMode"
+	<div class="animated-area">
+	<template v-if="!placeholder">
+		<div class="animated-area__center">
+			<Vehicle
+				v-if="isGameMode"
 				id="hero-vehicle"
-				:model="playerName"
-				class="battle-ground__vehicle battle-ground__vehicle--left"
+				:name="hero.name"
+				class="animated-area__vehicle animated-area__vehicle--left"
 			/>
 
 			<div class="bullet bullet--hero" id="hero-bullet"/>
 
 			<transition name="arrive">
-				<VehicleSprite
+				<Vehicle
 					v-if="foe"
 					id="foe-vehicle"
-					:model="foeName"
-					class="battle-ground__vehicle battle-ground__vehicle--right"
+					:name="foe.name"
+					class="animated-area__vehicle animated-area__vehicle--right"
 				/>
 			</transition>
 
@@ -24,41 +24,42 @@
 
 		</div>
 
-		<GrassLeaves class="battle-ground__grass-leaves" />
+		<GrassLeaves class="animated-area__grass-leaves" />
+	</template>
 	</div>
 </template>
 
 <script>
 	import GrassLeaves from '@/components/GrassLeaves';
-	import VehicleSprite from '@/components/VehicleSprite';
+	import Vehicle from '@/components/Vehicle';
 	import { mapState, mapGetters } from 'vuex';
 	import eventBus from '@/utils/eventBus';
 	import shot from '@/utils/shot';
 	
 	export default {
-		name: 'BattleGround',
+		name: 'AnimatedArea',
 
 		components: {
 			GrassLeaves,
-			VehicleSprite,
+			Vehicle,
+		},
+
+		props: {
+			placeholder: {
+				type: Boolean,
+				default: false,
+			},
 		},
 
 		computed: {
 			...mapState([
+				'hero',
 				'foe',
 			]),
 
 			...mapGetters([
-				'isPlayMode',
+				'isGameMode',
 			]),
-
-			playerName() {
-				return 'hero-tank';
-			},
-
-			foeName() {
-				return this.foe && this.foe.type;
-			},
 		},
 
 		methods: {
@@ -96,7 +97,7 @@
 <style lang="scss" scoped>
 	@import 'src/assets/styles/shared';
 
-	.battle-ground {
+	.animated-area {
 		width: 100%;
 		display: flex;
 		position: absolute;
@@ -112,7 +113,7 @@
 			z-index: 1;
 			position: absolute;
 			bottom: 0;
-			$vehicle-offset: 0;
+			$vehicle-offset: -10%;
 
 			&--right {
 				right: $vehicle-offset;

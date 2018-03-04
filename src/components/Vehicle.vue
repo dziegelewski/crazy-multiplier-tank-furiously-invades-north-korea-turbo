@@ -1,14 +1,14 @@
 <template>
-		<div class="vehicle-sprite">
+		<div class="vehicle">
 			<img
-				class="vehicle-sprite__vehicle"
+				class="vehicle__vehicle"
 				:src="backgroundImage"
 			/>
 
 			<transition name="explode">
 				<div
 					v-if="isExploding"
-					class="vehicle-sprite__explosion"
+					class="vehicle__explosion"
 				/>
 			</transition>
 		</div>
@@ -16,12 +16,13 @@
 
 <script>
 	import eventBus from '@/utils/eventBus';
+	import { wait } from '@/utils/functions';
 	import { explodingTime } from '@/utils/animate';
 
 	export default {
-		name: 'VehicleSprite',
+		name: 'Vehicle',
 		props: {
-			model: {
+			name: {
 				type: String,
 				required: true,
 			},
@@ -35,11 +36,11 @@
 
 		computed: {
 			backgroundImage() {
-				return require(`../assets/images/vehicles/${this.model}.png`);
+				return require(`../assets/images/vehicles/${this.name}.png`);
 			},
 
 			isPlayer() {
-				return this.model === 'hero-tank';
+				return this.name === 'hero';
 			},
 
 			isFoe() {
@@ -48,11 +49,10 @@
 		},
 
 		methods: {
-			explode() {
+			async explode() {
 				this.isExploding = true;
-				setTimeout(() => {
-					this.isExploding = false;
-				}, explodingTime);
+				await wait(explodingTime);
+				this.isExploding = false;
 			},
 
 			gainScore(score) {
@@ -76,9 +76,9 @@
 <style lang='scss' scoped>
 	@import 'src/assets/styles/shared';
 
-	.vehicle-sprite {
+	.vehicle {
 		position: absolute;
-		height: 70px;
+		height: 110px;
 
 		&__vehicle {
 			height: 100%;

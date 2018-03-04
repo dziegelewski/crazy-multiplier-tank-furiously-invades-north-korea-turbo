@@ -1,5 +1,5 @@
 <template>
-	<p class="scores">{{ score }}</p>
+	<p class="scores">Score: {{ score }}</p>
 </template>
 
 <script>
@@ -17,8 +17,9 @@
 <style lang="scss" scoped>
 	@import 'src/assets/styles/shared';
 	.scores {
-		font-size: $medium-font;
+		font-size: $small-font;
 		color: $score-color;
+		font-weight: 700;
 
 	}
 </style>

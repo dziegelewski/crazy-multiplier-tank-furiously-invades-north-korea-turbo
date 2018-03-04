@@ -2,15 +2,9 @@
 	<div class="keyboard-widget">
 	   <button
 	   v-for="key in keys"
-	   class="keyboard-widget__key"
-	   @click="userInput(key)">
+	   :class="keyClass(key)"
+	   @click="keyPressed(key)">
 	     {{ key }}
-	   </button>
-	   <button
-			class="keyboard-widget__key keyboard-widget__key--backspace"
-			@click="userUndo"
-	   >
-	   	<
 	   </button>
 	</div>
 
@@ -19,12 +13,13 @@
 <script>
 	import { mapActions } from 'vuex';
 	import range from 'lodash/range';
+	const BACKSPACE_KEY = '<';
 
 	export default {
 		name: 'KeyboardWidget',
 		data() {
 			return {
-				keys: [...range(1, 10), 0],
+				keys: [...range(1, 10), 0, BACKSPACE_KEY],
 			};
 		},
 
@@ -33,6 +28,20 @@
         'userInput',
         'userUndo',
 	    ]),
+
+	    keyClass(key) {
+	    	const isBackspace = key === BACKSPACE_KEY;
+	    	return `keyboard-widget__key keyboard-widget__key--${isBackspace ? 'backspace' : key}`;
+	    },
+
+	    keyPressed(key) {
+	    	if (key === BACKSPACE_KEY) {
+	    		this.userUndo();
+	    	}
+	    	else {
+	    		this.userInput(key);
+	    	}
+	    },
 		},
 	};
 </script>
@@ -40,9 +49,9 @@
 <style lang="scss">
 	@import 'src/assets/styles/shared';
 	.keyboard-widget {
-		position: absolute;
+		position: fixed;
 		bottom: 0;
-		width: 100%;
+		width: $game-width;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -51,6 +60,7 @@
 		}
 
 		&__key {
+			outline: none;
 			display: flex;
 			flex: 1;
 			height: 50px;
@@ -63,11 +73,8 @@
 			justify-content: center;
 			align-items: center;
 			font-size: $medium-font;
-			min-width: 19%;
-			max-width: 19%;
+			flex-basis: 25%;
 			margin: 1vh 0;
-			// transition: all 100ms;
-
 
 			@for $i from 1 through 11 {
 				&:nth-child(#{$i}) {

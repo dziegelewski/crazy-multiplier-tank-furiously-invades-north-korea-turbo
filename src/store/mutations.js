@@ -53,7 +53,7 @@ export default {
   },
 
   heroLoosesHeart(state) {
-    state.heroHearts = nonNegative(state.heroHearts - 1);
+    state.hero.hurt();
   },
 
 	//

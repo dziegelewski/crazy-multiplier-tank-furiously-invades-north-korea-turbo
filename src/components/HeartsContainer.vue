@@ -1,9 +1,11 @@
 <template>
 	<div class="hearts">
-		<div
-			v-for="heart in hearts"
-			class="heart"
-		/>
+		<!-- 	<div
+				v-for="heart in hearts"
+				class="heart"
+			/> -->
+			<span class="heart" />
+			<span class="hearts__hearts-number">{{ hearts }}</span>
 	</div>
 </template>
 
@@ -16,18 +18,28 @@
 				required: true,
 			},
 		},
-
 	};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+	@import 'src/assets/styles/shared';
+
+	.hearts {
+		display: flex;
+		flex-wrap: wrap;
+
+		&__hearts-number {
+			font-weight: bold;
+		}
+	}
 
 	.heart {
-		width: 30px;
-		height: 30px;
+		$size: 1rem;
+		min-width: $size;
+		height: $size;
+		margin: 0 3px;
 		border-radius: 50%;
 		display: inline-block;
-		margin: 0 10px;
 		background-image: url('../assets/images/heart.png');
 		background-size: 100% 100%;
 	}

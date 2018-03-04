@@ -4,7 +4,7 @@ import { nonNegative } from "@/utils/functions";
 let challengeId = 0;
 
 class Challenge {
-  constructor({ level = 1, numberOfFactors = 2, timeout = 5, factors, prize } = {}) {
+  constructor({ level = 1, numberOfFactors = 2, timeout = 5, factors, toThePowerOf } = {}) {
     this.id = challengeId ++;
     this.level = level;
     this.numberOfFactors = numberOfFactors;
@@ -12,7 +12,7 @@ class Challenge {
     this.leftTimeout = timeout;
 
     this.factors = factors || this.generateFactors();
-    this.prize = prize || this.calculatePrize();
+    this.toThePowerOf = toThePowerOf;
     this.isActive = true;
     this.userInput = [];
   }
@@ -29,9 +29,6 @@ class Challenge {
     return random(factorMin, factorMax);
   }
 
-  calculatePrize() {
-    return this.level * 100;
-  }
 
   input(value) {
     if (this.validateInput(value) && !this.inputFull) {
@@ -73,7 +70,7 @@ class Challenge {
   }
 
   get solution() {
-    return this.factors.reduce((total, factor) => total * factor, 1);
+    return this.factors.reduce((total, factor) => total * factor, 1) ** this.toThePowerOf;
   }
 
   get blanks() {

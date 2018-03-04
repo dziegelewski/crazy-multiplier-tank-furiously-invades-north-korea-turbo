@@ -16,6 +16,10 @@
 				type: Number,
 				required: true,
 			},
+
+			side: {
+				type: String,
+			},
 		},
 
 	};
@@ -27,11 +31,15 @@
 	.timeout-counter {
 		display: flex;
 		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		margin-top: 10px;
+
 		&__unit {
-			border: 3px solid black;
-			width: 20px;
-			height: 10px;
-			margin-left: 5px;
+			border: 2px solid black;
+			background: black;
+			width: 4px;
+			height: 3px;
+			margin-left: 1px;
 		}
 	}
 </style>

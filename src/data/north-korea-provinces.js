@@ -1,5 +1,4 @@
-/* eslint import/prefer-default-export: 0 */
-export const northKoreaProvinces = [
+export default [
   'Hyesan',
   'Kusong',
   'Rason',
