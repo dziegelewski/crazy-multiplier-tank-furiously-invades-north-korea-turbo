@@ -3,6 +3,14 @@ import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
 import { tinyMoment, moment, longMoment,  } from '@/utils/waiting';
+import perks from '@/data/perks';
+import sample from 'lodash/sample';
+import random from 'lodash/random';
+import { putInGear} from '@/utils/gear';
+
+const shuffledPerk = () => {
+  return random(0, 1) === 0;
+}
 
 export default {
   enterNextProvince({ state, dispatch }) {
@@ -10,6 +18,9 @@ export default {
   },
 
   async enterProvince({ commit, dispatch }, provinceNumber) {
+
+    putInGear(provinceNumber + 3);
+    
     const province = new Province(provinceNumber);
     commit('changeProvince', province);
 
@@ -24,10 +35,10 @@ export default {
     dispatch('sendFoe');
   },
 
-  async provinceCleared({ state, dispatch }) {
+  async provinceCleared({ state, commit, dispatch }) {
 		// commit('changeProvince', null);
     await wait(moment);
-
+    commit('heroLoosesPerks');
     await dispatch('displayMessage', {
       text: [
         state.province.name,
@@ -35,8 +46,29 @@ export default {
       ],
     });
 
-		// Good opportunity for optional prize
+    if (shuffledPerk()) {
+      await dispatch('getPerk');
+    }
+
     dispatch('enterNextProvince');
+  },
+
+  async getPerk({ commit, dispatch }) {
+    putInGear(1);
+    const perk = sample(perks);
+    commit('updateIncomingPerk', perk);
+    await animate.getPerk(perk);
+    commit('updateIncomingPerk', null);
+    commit('heroGotPerk', perk);
+    playSound('bonus');
+    await dispatch('displayMessage', {
+      text: [
+        'One-stage',
+        perk.longName,
+      ],
+      duration: 3000,
+    })
+
   },
 
   // -------
@@ -56,7 +88,7 @@ export default {
     if (challenge && challenge.id === targetChallengeId) {
       commit('secondPassed');
       if (challenge.timeOver) {
-        dispatch('foeShots');
+        // dispatch('foeShots');
         commit('resetTimeout');
       }
         dispatch('countSecondForChallenge', targetChallengeId);

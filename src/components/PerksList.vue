@@ -1,19 +1,19 @@
 <template>
-		<ul	class="buffs-list">
+		<ul	class="perks-list">
 			<li
-				v-for="buff in buffs"
-				class="buffs-list__buff"
+				v-for="perk in perks"
+				class="perks-list__perk"
 				>
-				{{ buff }}
+				{{ perk.longName }}
 			</li>
 		</ul>
 </template>
 
 <script>
 	export default {
-		name: 'BuffsList',
+		name: 'PerksList',
 		props: {
-			buffs: {
+			perks: {
 				type: Array,
 				required: true,
 			},
@@ -23,8 +23,11 @@
 
 <style lang='scss' scoped>
 	@import 'src/assets/styles/shared';
-	.buffs-list {
+	.perks-list {
 		@extend %small-font;
 		color: $score-color;
+		font-weight: bold;
+		margin-left: 10px;
+		margin-top: 10px;
 	}
 </style>

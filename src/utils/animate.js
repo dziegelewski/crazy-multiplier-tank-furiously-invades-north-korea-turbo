@@ -45,4 +45,11 @@ export default {
 	async foeShots() {
 		await emitShot('foe');
 	},
+
+	async getPerk(prize) {
+		return new Promise((resolve, reject) => {
+			eventBus.$on('catched', resolve);
+			// setTimeout(reject, 5000);
+		});
+	},
 };

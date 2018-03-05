@@ -24,6 +24,25 @@ export function collisionDetector(firstElement, secondElement, diretion) {
 	}
 }
 
+export function detectCollision(firstElement, secondElement, diretion) {
+	const detect = collisionDetector(firstElement, secondElement, diretion);
+
+	return new Promise(resolve => {
+		const checkFrame = function() {
+			requestAnimationFrame(() => {
+				if (detect()) {
+					resolve();
+				}
+				else {
+					checkFrame();
+				}
+			})
+		}
+
+		checkFrame()
+	})
+}
+
 export function elementTranslate(element, initialPosition) {
 
 	let translation = initialPosition;

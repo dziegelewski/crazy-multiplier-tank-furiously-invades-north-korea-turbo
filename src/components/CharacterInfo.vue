@@ -14,9 +14,9 @@
 			:side="side"
 		/>
 
-		<BuffsList
+		<PerksList
 			v-if="isHero"
-			:buffs="buffs"
+			:perks="owner.perks"
 		/>
 	</template>
 	</div>
@@ -25,7 +25,7 @@
 <script>
 	import HeartsContainer from '@/components/HeartsContainer';
 	import TimeoutCounter from '@/components/TimeoutCounter';
-	import BuffsList from '@/components/BuffsList';
+	import PerksList from '@/components/PerksList';
 	import { mapState } from 'vuex';
 
 	export default {
@@ -33,7 +33,7 @@
 		components: {
 			HeartsContainer,
 			TimeoutCounter,
-			BuffsList,
+			PerksList,
 		},
 		props: {
 			owner: {
@@ -59,10 +59,6 @@
 			isFoe() {
 				return this.owner === this.foe;
 			},
-
-			buffs() {
-				return [];
-			}
 		},
 
 	};

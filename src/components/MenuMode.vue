@@ -60,6 +60,7 @@
 	@import 'src/assets/styles/shared';
 	.menu-view {
 		text-align: center;
+		z-index: 3;
 		&__logo {
 			width: 100%;
 			max-width: 600px;

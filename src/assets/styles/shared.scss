@@ -40,6 +40,21 @@ $fast-blinking-duration: .5s;
 }
 
 
+  %path {
+    position: absolute;
+    bottom: 0;
+    width: 400%;
+    animation: var(--speed) moving infinite;
+    animation-timing-function: linear;
+    height: 80px;
+  }
+    
+  @keyframes moving {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+
 $small-breakpoint: 450px;
 $screen-breakpoint: 700px;
 

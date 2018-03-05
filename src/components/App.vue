@@ -54,56 +54,7 @@ export default {
   @import 'node_modules/reset-css/_reset';
   @import 'src/assets/styles/transitions';
   @import 'src/assets/styles/shared';
+  @import 'src/assets/styles/app';
 
-  html {
-    font-size: $base-font;
-    @include small {
-      font-size: 25px;
-    }
-    @include screen {
-      font-size: 28px;
-    }
-  }
-
-
-  body {
-    background: black;
-  }
-
-  .app {
-    background: white;;
-    margin: 0 auto;
-    max-width: $game-width;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-
-    &__view {
-      position: absolute;
-      width: 100%;
-      z-index: 1;
-    }
-
-    &__animation-area {
-      top: 30vh;
-      @include screen {
-        top: none;
-        bottom: 10%;
-      }
-    }
-  }
-
-  @include screen {
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .app {
-        width: 100%;
-        max-width: 800px;
-        max-height: 500px;
-      }
-    }
+  
 </style>

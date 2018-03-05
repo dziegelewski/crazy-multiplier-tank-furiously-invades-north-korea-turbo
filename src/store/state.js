@@ -20,6 +20,8 @@ export const generateInitialState = () => ({
 
   audioEnabled: retrieve('audioEnabled'), 
   musicEnabled: retrieve('musicEnabled'),
+
+  incomingPerk: null,
 });
 
 export default generateInitialState();

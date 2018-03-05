@@ -56,6 +56,18 @@ export default {
     state.hero.hurt();
   },
 
+  heroGotPerk(state, perk) {
+    state.hero.getPerk(perk);
+  },
+
+  heroLoosesPerks(state) {
+    state.hero.loosePerks();
+  },
+
+  updateIncomingPerk(state, perk) {
+    state.incomingPerk = perk;
+  },
+
 	//
 
   looseDefender(state) {

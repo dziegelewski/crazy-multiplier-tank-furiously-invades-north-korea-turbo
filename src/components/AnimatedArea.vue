@@ -1,6 +1,5 @@
 <template>
 	<div class="animated-area">
-	<template v-if="!placeholder">
 		<div class="animated-area__center">
 			<Vehicle
 				v-if="isGameMode"
@@ -25,13 +24,16 @@
 		</div>
 
 		<GrassLeaves class="animated-area__grass-leaves" />
-	</template>
+		
+		<PerkPath v-if="incomingPerk" :perk="incomingPerk" />
+
 	</div>
 </template>
 
 <script>
 	import GrassLeaves from '@/components/GrassLeaves';
 	import Vehicle from '@/components/Vehicle';
+	import PerkPath from '@/components/PerkPath';
 	import { mapState, mapGetters } from 'vuex';
 	import eventBus from '@/utils/eventBus';
 	import shot from '@/utils/shot';
@@ -42,19 +44,14 @@
 		components: {
 			GrassLeaves,
 			Vehicle,
-		},
-
-		props: {
-			placeholder: {
-				type: Boolean,
-				default: false,
-			},
+			PerkPath,
 		},
 
 		computed: {
 			...mapState([
 				'hero',
 				'foe',
+				'incomingPerk',
 			]),
 
 			...mapGetters([
@@ -135,11 +132,7 @@
 				left: $vehicle-offset;
 			}
 		}
-		
-		&__grass-leaves {
-			position: absolute;
-			bottom: 0;
-		}
+
 
 		.bullet {
 	    width: 10px;
