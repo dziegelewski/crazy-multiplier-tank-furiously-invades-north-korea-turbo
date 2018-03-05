@@ -49,14 +49,20 @@
 <style lang="scss">
 	@import 'src/assets/styles/shared';
 	.keyboard-widget {
-		position: fixed;
+		position: absolute;
 		bottom: 0;
-		width: $game-width;
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		@media (min-width: 700px) {
-			// display: none;
+		z-index: 2;
+   	height: 36vh;
+   	@include small {
+	   	height: 27vh;
+	  }
+
+		@include screen {
+			display: none;
 		}
 
 		&__key {
@@ -64,7 +70,7 @@
 			display: flex;
 			flex: 1;
 			height: 50px;
-			background: white;
+			background: transparent;
 			background-size: 100% 100%;
 			color: black;
 			border: 4px solid black;
@@ -72,7 +78,7 @@
 			border-radius: 5px;
 			justify-content: center;
 			align-items: center;
-			font-size: $medium-font;
+			font-size: $medium-font-immutable;
 			flex-basis: 25%;
 			margin: 1vh 0;
 

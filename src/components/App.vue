@@ -57,7 +57,14 @@ export default {
 
   html {
     font-size: $base-font;
+    @include small {
+      font-size: 25px;
+    }
+    @include screen {
+      font-size: 28px;
+    }
   }
+
 
   body {
     background: black;
@@ -73,17 +80,30 @@ export default {
 
     &__view {
       position: absolute;
-      height: 40vh;
       width: 100%;
       z-index: 1;
     }
 
     &__animation-area {
-    top: 30vh;
-    }
-
-    &__keyboard {
-      height: 36vh;
+      top: 30vh;
+      @include screen {
+        top: none;
+        bottom: 10%;
+      }
     }
   }
+
+  @include screen {
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .app {
+        width: 100%;
+        max-width: 800px;
+        max-height: 500px;
+      }
+    }
 </style>

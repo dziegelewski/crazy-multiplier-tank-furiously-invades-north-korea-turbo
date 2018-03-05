@@ -1,11 +1,11 @@
 <template>
 	<div class="hearts">
-		<!-- 	<div
+			<div
 				v-for="heart in hearts"
-				class="heart"
-			/> -->
-			<span class="heart" />
-			<span class="hearts__hearts-number">{{ hearts }}</span>
+				class="heart medium-min"
+			/>
+			<span class="heart small-max" />
+			<span class="hearts__hearts-number small-max">{{ hearts }}</span>
 	</div>
 </template>
 
@@ -42,6 +42,20 @@
 		display: inline-block;
 		background-image: url('../assets/images/heart.png');
 		background-size: 100% 100%;
+	}
+
+	.medium-min {
+		display: none;
+		@include small {
+			display: flex;
+		}
+	}
+
+	.small-max {
+		display: block;
+		@include small {
+			display: none;
+		}
 	}
 
 </style>

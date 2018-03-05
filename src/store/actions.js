@@ -50,17 +50,16 @@ export default {
     dispatch('countSecondForChallenge', challenge.id);
   },
 
-  async countSecondForChallenge({ state, commit, dispatch }, challengeId) {
-    await wait(moment);
+  async countSecondForChallenge({ state, commit, dispatch }, targetChallengeId) {
+    await wait(1000);
     const { challenge } = state;
-    if (!challenge) return;
-    if (challenge.id === challengeId) {
+    if (challenge && challenge.id === targetChallengeId) {
       commit('secondPassed');
       if (challenge.timeOver) {
         dispatch('foeShots');
         commit('resetTimeout');
       }
-        dispatch('countSecondForChallenge', challengeId);
+        dispatch('countSecondForChallenge', targetChallengeId);
     }
 
   },

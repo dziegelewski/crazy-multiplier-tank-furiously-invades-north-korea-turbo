@@ -51,7 +51,7 @@
 
 		&__letter {
 			display: inline-block;
-			width: 30px;
+			width: .7em;
 			margin: 0 3px;
 		}
 	}

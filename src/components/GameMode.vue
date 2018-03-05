@@ -61,9 +61,12 @@
 		&__middle-bar {
 			display: flex;
 			justify-content: space-between;
-			align-items: end;
-			height: 20vh;
+			align-items: flex-end;
+			height: 25vh;
 			margin-top: 4vh;
+			@include screen {
+				height: 150px;
+      }
 		}
 	}
 </style>

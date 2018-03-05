@@ -102,11 +102,23 @@
 		display: flex;
 		position: absolute;
 		height: 30vh;
+		@include screen {
+			height: 0;
+			top: initial;
+			bottom: 20%;
+		}
 
 		&__center {
 			width: 360px;
 			margin: 0 auto;
 			position: relative;
+			@include small {
+				width: 90%;
+			}
+
+			@include screen {
+				width: 70%;
+			}
 		}
 
 		&__vehicle {

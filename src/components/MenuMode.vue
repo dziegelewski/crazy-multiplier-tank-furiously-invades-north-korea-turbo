@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="menu-view">
 	<img class="menu-view__logo" src="../assets/images/logo.png" alt="" />
 
 	<div class="menu-view__options">
@@ -59,9 +59,12 @@
 <style lang='scss' scoped>
 	@import 'src/assets/styles/shared';
 	.menu-view {
+		text-align: center;
 		&__logo {
-			max-width: 100%;
-			margin: 5% 0;
+			width: 100%;
+			max-width: 600px;
+			text-align: center;
+			margin: 5% auto;
 		}
 
 		&__options {

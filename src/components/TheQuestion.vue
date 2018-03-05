@@ -54,6 +54,7 @@
 
 		&__input {
 			margin: 0 auto;
+			margin-top: 20px;
 		}
 	}
 

@@ -79,6 +79,12 @@
 	.vehicle {
 		position: absolute;
 		height: 110px;
+		@include small {
+			height: 130px;
+		}
+		@include screen {
+			height: 160px;
+		}
 
 		&__vehicle {
 			height: 100%;

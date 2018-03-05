@@ -1,4 +1,4 @@
-const impatience = 1;
+const impatience = 0;
 const impatientDev = process.env.NODE_ENV !== 'production' ? impatience : 0;
 
 export const tinyMoment = impatientDev || 500; 
