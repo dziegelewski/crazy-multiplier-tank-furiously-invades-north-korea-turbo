@@ -53,9 +53,8 @@ export default {
     dispatch('enterNextProvince');
   },
 
-  async getPerk({ commit, dispatch }) {
+  async getPerk({ commit, dispatch }, perk = sample(perks)) {
     putInGear(1);
-    const perk = sample(perks);
     commit('updateIncomingPerk', perk);
     await animate.getPerk(perk);
     commit('updateIncomingPerk', null);
@@ -88,7 +87,7 @@ export default {
     if (challenge && challenge.id === targetChallengeId) {
       commit('secondPassed');
       if (challenge.timeOver) {
-        // dispatch('foeShots');
+        dispatch('foeShots');
         commit('resetTimeout');
       }
         dispatch('countSecondForChallenge', targetChallengeId);

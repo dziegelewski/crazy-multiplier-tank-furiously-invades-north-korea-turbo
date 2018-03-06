@@ -1,4 +1,11 @@
-export const wait = time => new Promise(resolve => setTimeout(resolve, time ));
+import waitDevelopmentVersion from '../../test/manual/waitDev';
+
+export const wait = (function() {
+	switch(process.env.NODE_ENV === 'production') {
+		case true: return time => new Promise(resolve => setTimeout(resolve, time ));
+		case false: return waitDevelopmentVersion;
+	}
+})();
 
 export const nonNegative = value => Math.max(0, value);
 

@@ -13,3 +13,7 @@ new Vue({
   template: '<App />',
   components: { App },
 });
+
+if (process.env.NODE_ENV == 'development') {
+	require('../test/manual/scenarios');
+}
