@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 import Vue from 'vue';
 import { nonNegative } from '@/utils/functions';
-import { storeOption } from '@/utils/retrieve';
+import { saveOption } from '@/utils/retrieve';
 import { generateInitialState } from '@/store/state';
 
 export default {
@@ -56,6 +56,10 @@ export default {
     state.hero.hurt();
   },
 
+  heroGetHeart(state) {
+    state.hero.recover();
+  },
+
   heroGotPerk(state, perk) {
     state.hero.getPerk(perk);
   },
@@ -108,12 +112,12 @@ export default {
   },
 
   resetMenuInput(state) {
-    state.menuInput = [];
+    state.menuInput = [null];
   },
 
   toggleOption(state, optionName) {
     const valueAfterChange = !state[optionName];
-    storeOption(optionName, valueAfterChange)
+    saveOption(optionName, valueAfterChange)
     state[optionName] = valueAfterChange
   },
 };

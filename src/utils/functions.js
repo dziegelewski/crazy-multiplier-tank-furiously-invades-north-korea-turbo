@@ -1,11 +1,8 @@
 import waitDevelopmentVersion from '../../test/manual/waitDev';
 
-export const wait = (function() {
-	switch(process.env.NODE_ENV === 'production') {
-		case true: return time => new Promise(resolve => setTimeout(resolve, time ));
-		case false: return waitDevelopmentVersion;
-	}
-})();
+export const wait = process.env.NODE_ENV === 'production' 
+	?	time => new Promise(resolve => setTimeout(resolve, time))
+	: waitDevelopmentVersion;
 
 export const nonNegative = value => Math.max(0, value);
 
@@ -25,21 +22,36 @@ export const cssVariableSetter = (variable, unit = '') => value => document.docu
 
 export const fullHundreads = value => Math.floor(value / 100) * 100;
 
-export const intervally = (action, breakTest, interval = 100) => {
-	return new Promise(resolve => {
+export const doUntil = (config) => {
+	const {
+		do: _do,
+		until,
+		testFirst = false,
+		interval = 100,
+		timeout,
+	} = config;
+	return new Promise((resolve, reject) => {
 
-		if (breakTest()) {
+
+		if (testFirst && until()) {
 			resolve();
 			return;
 		}
 
 		let intervalId;
 		intervalId = setInterval(() => {
-			action();
-			if (breakTest()) {
+			_do();
+			if (until()) {
 				clearInterval(intervalId);
 				resolve();
 			}
 		}, interval)
+
+		if (timeout) {
+			setTimeout(() => {
+				clearInterval(intervalId);
+				reject('timeout');
+			}, timeout)
+		}		
 	})
 };

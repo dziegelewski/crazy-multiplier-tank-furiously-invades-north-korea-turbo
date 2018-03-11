@@ -26,7 +26,6 @@
 	
 	<TheInput
 		:fields="menuInput"
-		:blanks="1"
 		class="menu-view__input"
 		style="margin-top: 20px"
 	/>

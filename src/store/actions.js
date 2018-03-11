@@ -5,12 +5,8 @@ import { playSound, startMusic, stopMusic } from '@/utils/audio';
 import { tinyMoment, moment, longMoment,  } from '@/utils/waiting';
 import perks from '@/data/perks';
 import sample from 'lodash/sample';
-import random from 'lodash/random';
 import { putInGear} from '@/utils/gear';
-
-const shuffledPerk = () => {
-  return random(0, 1) === 0;
-}
+import { willPerkBeFound, doubleShooterPerk, foresightPerk } from '@/store/helpers';
 
 export default {
   enterNextProvince({ state, dispatch }) {
@@ -46,23 +42,30 @@ export default {
       ],
     });
 
-    if (shuffledPerk()) {
+    if (willPerkBeFound()) {
       await dispatch('getPerk');
     }
 
     dispatch('enterNextProvince');
   },
 
-  async getPerk({ commit, dispatch }, perk = sample(perks)) {
+  async getPerk(context, perk = sample(perks)) {
+    const { commit, dispatch } = context;
     putInGear(1);
     commit('updateIncomingPerk', perk);
     await animate.getPerk(perk);
     commit('updateIncomingPerk', null);
-    commit('heroGotPerk', perk);
     playSound('bonus');
+
+    if (perk.instantEffect) {
+      perk.instantEffect(context)
+    } else {
+      commit('heroGotPerk', perk);
+    }
+
     await dispatch('displayMessage', {
       text: [
-        'One-stage',
+        ...(!perk.instant ? ['One-stage'] : []),
         perk.longName,
       ],
       duration: 3000,
@@ -72,11 +75,15 @@ export default {
 
   // -------
 
-
   throwChallenge({ state, commit, dispatch }) {
     if (!state.foe) return;
 
     const challenge = state.foe.throwChallenge();
+
+    if (state.hero.hasPerk('foresight')) {
+      challenge.addHint();
+    }
+
     commit('changeChallenge', challenge);
     dispatch('countSecondForChallenge', challenge.id);
   },
@@ -90,14 +97,18 @@ export default {
         dispatch('foeShots');
         commit('resetTimeout');
       }
-        dispatch('countSecondForChallenge', targetChallengeId);
+      dispatch('countSecondForChallenge', targetChallengeId);
     }
 
   },
 
-  challengeBeated({ dispatch }) {
-    dispatch('heroShots');
-
+  async challengeBeated({ state, dispatch }) {
+    await dispatch('heroShots');
+    // if (state.hero.hasPerk('doubleShooter')) {
+    //   await wait(250);
+    //   console.log('heroShots again!')
+    //   dispatch('heroShots');
+    // }
   },
 
   async heroShots({ state, dispatch }) {
@@ -111,7 +122,7 @@ export default {
   	dispatch('foeShots')
   },
 
-  async foeShots({ state, dispatch, getters }) {
+  async foeShots({ state, dispatch }) {
     if (state.hero.isDefeated) return;
     await animate.foeShots();
     dispatch('heroHit');

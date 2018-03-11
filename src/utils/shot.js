@@ -1,6 +1,6 @@
 import { playSound } from '@/utils/audio';
 import eventBus from '@/utils/eventBus';
-import { oppositeDirection, byDirection, showElement, hideElement } from '@/utils/functions';
+import { oppositeDirection, byDirection, showElement, hideElement, doUntil } from '@/utils/functions';
 import { collisionDetector, elementTranslate } from '@/utils/collision';
 
 const BULLET_STARTING_POSITION = 0;
@@ -16,14 +16,15 @@ export default function shot({ bulletId, shooter, target, bullet, diretion }) {
 	showElement(bullet);
 	playSound('shot');
 
-	(function loop() {
-		moveBullet(bulletSpeed);
-		if (detectCollision()) {
-			shotSuccess(bullet, bulletId);
-		} else {
-			setTimeout(loop, 10);
-		}
-	})()
+	doUntil({
+		do: () => moveBullet(bulletSpeed),
+		until: () => detectCollision(),
+		interval: 10,
+		timeout: 5000,
+	})
+		.then(() => shotSuccess(bullet, bulletId))
+		.catch(console.log)
+		.then(() => moveBullet(BULLET_STARTING_POSITION))
 }
 
 function shotSuccess(bullet, bulletId) {

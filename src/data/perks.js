@@ -12,12 +12,16 @@ const perks = [
 	{
 		shortName: extraLife,
 		longName: 'Extra Life',
-		duration: 0,
+		instantEffect({ commit }) {
+      commit('heroGetHeart');
+		},
 	},
 	{
 		shortName: extraScore,
 		longName: 'Extra Score',
-		duration: 0,
+		instantEffect({ commit }) {
+      commit('scored', 3000);
+		},
 	},
 	{
 		shortName: extraTime,

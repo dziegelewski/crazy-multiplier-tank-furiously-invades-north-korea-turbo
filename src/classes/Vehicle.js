@@ -13,6 +13,10 @@ class Vehicle {
     this.hearts = nonNegative(this.hearts - damage);
   }
 
+  recover(healing = 1) {
+    this.hearts = Math.min(this.hearts + healing, this.maxHearts);
+  }
+
   get isDefeated() {
     return this.hearts === 0;
   }

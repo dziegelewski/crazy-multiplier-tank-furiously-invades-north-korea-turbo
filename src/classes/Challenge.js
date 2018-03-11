@@ -69,6 +69,22 @@ class Challenge {
     this.leftTimeout = nonNegative(this.leftTimeout - 1);
   }
 
+  addHint() {
+    const solutionNumbers = this.solution.toString().split('');
+    const hintIndex = random(0, solutionNumbers.length - 1);
+    this.hint = {
+      index: hintIndex,
+      value: parseInt(solutionNumbers[hintIndex], 10),
+    }; 
+  }
+
+  get fields() {
+    let result = Array.from(this.userInput);
+    result.length = this.blanks;
+    result.fill(null, this.userInput.length);
+    return result;
+  }
+
   get solution() {
     return this.factors.reduce((total, factor) => total * factor, 1) ** this.toThePowerOf;
   }

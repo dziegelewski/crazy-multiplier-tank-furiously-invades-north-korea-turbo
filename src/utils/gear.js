@@ -1,27 +1,23 @@
-import { cssVariableSetter, getCssVariable, intervally } from '@/utils/functions';
+import { cssVariableSetter, getCssVariable, intervally, doUntil } from '@/utils/functions';
 
 const getCurrentSpeed = () => parseFloat(getCssVariable('speed'));
 const updateSpeed = cssVariableSetter('speed', 'ms');
 const speedMutation = 0.05;
 
 function speedUp(currentSpeed, demandedSpeed) {
-	return intervally(
-		() => {
-			currentSpeed *= (1 + speedMutation);
-			updateSpeed(currentSpeed);
-		},
-		() => currentSpeed > demandedSpeed
-	)
+	return doUntil({
+		do: () => updateSpeed(currentSpeed *= (1 + speedMutation)),
+		until: () => currentSpeed > demandedSpeed,
+		testFirst: true,
+	})
 }
 
 function slowDown(currentSpeed, demandedSpeed) {
-	return intervally(
-		() => {
-			currentSpeed *= (1 - speedMutation);
-			updateSpeed(currentSpeed);
-		},
-		() => currentSpeed < demandedSpeed
-	)
+	return doUntil({
+		do: () => updateSpeed(currentSpeed *= (1 - speedMutation)),
+		until: () => currentSpeed < demandedSpeed,
+		testFirst: true,
+	})
 }
 
 function transitionSpeed(demandedSpeed) {

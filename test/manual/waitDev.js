@@ -1,9 +1,9 @@
 export default time => {
 	return new Promise(resolve => {
-		if (window.HASTE) {
+		if (window.HASTE_MODE_ENABLED) {
 
 			if (time > 1000) {
-				time *= window.HASTE || 1;
+				time *= 0.1;
 			}
 			
 		}

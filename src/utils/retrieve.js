@@ -2,23 +2,23 @@ import { isDeviceBig } from '@/utils/functions';
 
 export default function retrieve(optionName) {
 	let optionValue;
-	const storedValue = getFromStorage(optionName);
+	const savedValue = getSaved(optionName);
 
-	if (storedValue !== null) {
-		optionValue = storedValue;
+	if (savedValue !== null) {
+		optionValue = savedValue;
 	} else {
 		optionValue = isDeviceBig();
 	}
 
-	storeOption(optionName, optionValue);
+	saveOption(optionName, optionValue);
 	return optionValue;
 }
 
-export function storeOption(optionName, optionValue) {
+export function saveOption(optionName, optionValue) {
 	localStorage.setItem(optionName, optionValue);
 }
 
-function getFromStorage(optionName) {
+function getSaved(optionName) {
 	switch(localStorage.getItem(optionName)) {
 		case 'true':
 			return true;

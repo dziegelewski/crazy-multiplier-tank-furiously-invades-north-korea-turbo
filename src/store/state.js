@@ -14,7 +14,7 @@ export const generateInitialState = () => ({
 
   message: null,
   typingLocked: false,
-  menuInput: [],
+  menuInput: [null],
 
   audioEnabled: retrieve('audioEnabled'), 
   musicEnabled: retrieve('musicEnabled'),

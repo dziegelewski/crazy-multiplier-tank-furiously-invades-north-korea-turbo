@@ -1,7 +1,6 @@
 import store from '@/store';
 import { findPerk } from '@/data/perks';
 import testKeyboard from './testKeyboard';
-import { wait } from '@/utils/functions';
 
 /*
 	Uncomment scenarios to test them.
@@ -15,11 +14,12 @@ const scenarios = [
 	'mute',
 	'testKeyboard',
 	'autoBegin',
-	// 'perks',
+	'perks',
+	'heroInvincible',
 
 	// 'foeWontCome',
-	'foeCantShot',
-]
+	// 'foeWontShot',
+];
 
 const use = (testedScenario = 'testingOn') => scenarios.includes(testedScenario);
 window.store = store;
@@ -28,20 +28,24 @@ window.store = store;
 
 if (!use()) return;
 
-
-
-if (use('haste')) window.HASTE = 0.2;
+if (use('haste')) window.HASTE_MODE_ENABLED = true;
 if (use('mute')) { store.state.musicEnabled = false; store.state.audioEnabled = false; }
 if (use('testKeyboard')) testKeyboard(store);
 if (use('autoBegin')) store.dispatch('beginGame');
 
+if (use('heroInvincible')) store.state.hero.hurt = function() {};
+
+
 if (use('foeWontCome')) store._actions.sendFoe = () => {};
-if (use('foeCantShot')) store._actions.foeShots = () => {};
+if (use('foeWontShot')) store._actions.foeShots = () => {};
 
 if (use('perks')) {
-	await store.dispatch('getPerk', findPerk('foresight'));
-	await store.dispatch('getPerk');
-	await store.dispatch('getPerk');
+	await store.dispatch('getPerk', findPerk('doubleShooter'));
+	// await store.dispatch('getPerk');
+	// await store.dispatch('getPerk');
+	// await store.dispatch('getPerk');
+	// await store.dispatch('getPerk');
+	// await store.dispatch('getPerk');
 }
 
 
