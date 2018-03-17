@@ -52,7 +52,7 @@
 			width: 60px;
 			height: 60px;
 			position: absolute;
-			bottom: 30px;
+			bottom: 10px;
 			right: 50%;
 			z-index: 5;
 		}

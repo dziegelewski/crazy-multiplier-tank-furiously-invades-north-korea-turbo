@@ -1,19 +1,22 @@
 /* eslint no-unused-expressions: 0 */
 import Vue from 'vue';
 import { nonNegative } from '@/utils/functions';
-import { saveOption } from '@/utils/retrieve';
+import { saveData } from '@/utils/retrieve';
 import { generateInitialState } from '@/store/state';
+import forOwn from 'lodash/forOwn';
 
 export default {
   resetState(state) {
-    const omittedKeys = [
+    const dontResetThese = [
       'audioEnabled',
       'musicEnabled',
+      'highscore',
+      'games',
     ];
     const startingState = generateInitialState();
 
     for (let key in state) {
-      if (omittedKeys.includes(key)) continue;
+      if (dontResetThese.includes(key)) continue;
       Vue.set(state, key, startingState[key])
     }
   },
@@ -31,6 +34,11 @@ export default {
 
   scored(state, score) {
     state.score += score;
+  },
+
+  updateHighscore(state, highscore) {
+    state.highscore = highscore;
+    saveData('highscore', highscore);
   },
 
   foeLoosesHeart(state) {
@@ -117,7 +125,17 @@ export default {
 
   toggleOption(state, optionName) {
     const valueAfterChange = !state[optionName];
-    saveOption(optionName, valueAfterChange)
+    saveData(optionName, valueAfterChange)
     state[optionName] = valueAfterChange
+  },
+
+  addGame(state) {
+    state.games++;
+  },
+
+  updateSummary(state, values) {
+    forOwn(values, (value, key) => {
+      state.summary[key] += value;
+    });
   },
 };

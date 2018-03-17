@@ -1,5 +1,7 @@
-$score-color: green;
-$alert-color: red;
+$score-color: rgb(0, 255, 0);
+$alert-color: rgb(255, 0, 0);
+
+$pale-alert-color: rgba($alert-color, 0.5);
 
 $base-font: 20px;
 $small-font: 0.75rem;

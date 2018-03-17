@@ -7,6 +7,15 @@ let bullet = 0;
 async function emitExplosion(subject) {
 	eventBus.$emit(subject + '-explodes');
 	await wait(explodingTime - 50);
+
+	if (process.env.NODE_ENV === 'development' && window.LOOP_EXPLOSION) {
+		async function loopExplosion() {
+			eventBus.$emit(subject + '-explodes');
+			await wait(1000);
+			await loopExplosion();
+		}
+		await loopExplosion()
+	}
 }
 
 function emitScore(subject, score) {

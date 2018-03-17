@@ -58,13 +58,12 @@
 	@import 'src/assets/styles/shared';
 	.option {
 		font-size: $small-font;
-		color: red;
+		color: $alert-color;
 		text-align: center;
 		font-weight: 700;
 
-
 		&--off {
-			opacity: 0.6;
+			color: $pale-alert-color;
 		}
 
 		&--important {

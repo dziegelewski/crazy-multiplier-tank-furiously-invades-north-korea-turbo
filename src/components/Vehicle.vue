@@ -96,8 +96,10 @@
 			$width: $height * 1.4;
 			height: $height;
 			width: $width;
-			top: calc(50% - #{$height});
-			left: calc(65% - #{$width});
+/*			top: calc(50% - #{$height});
+			left: calc(65% - #{$width});*/
+			bottom: 20%;
+			left: 10%;
 			
 			background: url(../assets/images/explosion.png);
 			background-size: 100% 100%;

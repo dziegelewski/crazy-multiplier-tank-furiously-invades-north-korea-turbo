@@ -15,7 +15,8 @@ const scenarios = [
 	'testKeyboard',
 	'autoBegin',
 	'perks',
-	'heroInvincible',
+	'loopExplosion',
+	// 'heroInvincible',
 
 	// 'foeWontCome',
 	// 'foeWontShot',
@@ -35,6 +36,7 @@ if (use('autoBegin')) store.dispatch('beginGame');
 
 if (use('heroInvincible')) store.state.hero.hurt = function() {};
 
+if (use('loopExplosion')) window.LOOP_EXPLOSION = true;
 
 if (use('foeWontCome')) store._actions.sendFoe = () => {};
 if (use('foeWontShot')) store._actions.foeShots = () => {};

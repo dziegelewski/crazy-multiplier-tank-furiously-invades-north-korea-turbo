@@ -17,4 +17,8 @@ export default {
   isMenuMode(state) {
     return state.mode === 'menu';
   },
+
+  isFirstGame(state) {
+    return state.games === 0;
+  },
 };

@@ -6,20 +6,16 @@ export const foresight = 'foresight';
 
 const perks = [
 	{
-		shortName: doubleShooter,
-		longName: 'Double-Shooter',
-	},
-	{
 		shortName: extraLife,
 		longName: 'Extra Life',
-		instantEffect({ commit }) {
+		effect({ commit }) {
       commit('heroGetHeart');
 		},
 	},
 	{
 		shortName: extraScore,
 		longName: 'Extra Score',
-		instantEffect({ commit }) {
+		effect({ commit }) {
       commit('scored', 3000);
 		},
 	},
@@ -30,6 +26,10 @@ const perks = [
 	{
 		shortName: foresight,
 		longName: 'Foresight',
+	// {
+	// 	shortName: doubleShooter,
+	// 	longName: 'Double-Shooter',
+	// },
 	},
 ];
 

@@ -1,30 +1,30 @@
-import { isDeviceBig } from '@/utils/functions';
-
-export default function retrieve(optionName) {
-	let optionValue;
-	const savedValue = getSaved(optionName);
+export default function retrieve(dataName, params) {
+	const { default: _default } = params;
+	let dataValue;
+	const savedValue = getSaved(dataName);
 
 	if (savedValue !== null) {
-		optionValue = savedValue;
+		dataValue = savedValue;
 	} else {
-		optionValue = isDeviceBig();
+		dataValue = _default;
 	}
 
-	saveOption(optionName, optionValue);
-	return optionValue;
+	saveData(dataName, dataValue);
+	return dataValue;
 }
 
-export function saveOption(optionName, optionValue) {
-	localStorage.setItem(optionName, optionValue);
+export function saveData(dataName, dataValue) {
+	localStorage.setItem(dataName, dataValue);
 }
 
-function getSaved(optionName) {
-	switch(localStorage.getItem(optionName)) {
+function getSaved(dataName) {
+	const savedData = localStorage.getItem(dataName);
+	switch(savedData) {
 		case 'true':
 			return true;
 		case 'false':
 			return false;
 		default:
-			return null;
+			return savedData;
 		}
 }

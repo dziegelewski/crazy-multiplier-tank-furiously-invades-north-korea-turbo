@@ -1,6 +1,13 @@
 <template>
 	<div class="menu-view">
-	<img class="menu-view__logo" src="../assets/images/logo.png" alt="" />
+
+	<img v-if="isFirstGame"
+		class="menu-view__logo" src="../assets/images/logo.png" alt=""
+	/>
+
+	<GameSummary v-else />
+	
+	<p class="menu-view__highscore">Highscore: {{ highscore }}</p>
 
 	<div class="menu-view__options">
 
@@ -11,7 +18,7 @@
 		/>
 
 		<MenuOption 
-			label="Type 2 * 2 to Begin"
+			:label="'Type 2 * 2 to ' + (isFirstGame ? 'Begin' : 'Retry')"
 			single-line
 			important
 		/>
@@ -35,7 +42,8 @@
 <script>
 	import TheInput from '@/components/TheInput';
 	import MenuOption from '@/components/MenuOption';
-	import { mapState } from 'vuex';
+	import GameSummary from '@/components/GameSummary';
+	import { mapState, mapGetters } from 'vuex';
 
 
 	export default {
@@ -43,12 +51,18 @@
 		components: {
 			TheInput,
 			MenuOption,
+			GameSummary,
 		},
 		computed: {
 			...mapState([
 				'menuInput',
 				'audioEnabled',
 				'musicEnabled',
+				'highscore',
+			]),
+
+			...mapGetters([
+				'isFirstGame',
 			]),
 		},
 
@@ -60,11 +74,17 @@
 	.menu-view {
 		text-align: center;
 		z-index: 3;
+
 		&__logo {
 			width: 100%;
 			max-width: 600px;
 			text-align: center;
 			margin: 5% auto;
+		}
+
+		&__highscore {
+			@extend %small-font;
+			margin: 0 0 4%;
 		}
 
 		&__options {

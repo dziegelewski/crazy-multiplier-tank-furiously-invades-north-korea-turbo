@@ -41,6 +41,7 @@ export default {
     ...mapGetters([
       'isMenuMode',
       'isGameMode',
+      'isGameMode',
     ]),
   },
 

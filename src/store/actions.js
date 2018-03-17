@@ -57,15 +57,16 @@ export default {
     commit('updateIncomingPerk', null);
     playSound('bonus');
 
-    if (perk.instantEffect) {
-      perk.instantEffect(context)
+    if (perk.effect) {
+      perk.effect(context)
     } else {
       commit('heroGotPerk', perk);
     }
 
+    commit('updateSummary', { perks: 1 });
     await dispatch('displayMessage', {
       text: [
-        ...(!perk.instant ? ['One-stage'] : []),
+        ...(!perk.effect ? ['One-stage'] : []),
         perk.longName,
       ],
       duration: 3000,
@@ -102,7 +103,8 @@ export default {
 
   },
 
-  async challengeBeated({ state, dispatch }) {
+  async challengeBeated({ state, commit, dispatch }) {
+    commit('updateSummary', { hits: 1 })
     await dispatch('heroShots');
     // if (state.hero.hasPerk('doubleShooter')) {
     //   await wait(250);
@@ -143,14 +145,18 @@ export default {
 	async beginGame({ commit, dispatch }) {
     commit('resetState');
     commit('changeMode', 'play');
+    commit('addGame');
     await wait(moment);
     startMusic();
     dispatch('enterProvince', 1);
   },
 
-  async gameOver({ commit, dispatch }) {
+  async gameOver({ commit, state, mutation, dispatch }) {
     await animate.heroExplodes();
     stopMusic();
+    if (state.score > state.highscore) {
+      commit('updateHighscore', state.score);
+    }
     commit('changeMode', 'menu');
     await wait(longMoment);
   },
@@ -184,6 +190,7 @@ export default {
 	},
 
 	async foeDefeated({ state, commit, dispatch }) {
+    commit('updateSummary', { foesKilled: 1 });
 		const receivedScores = state.foe.score;
 		commit('scored', receivedScores);
     await animate.foeExplodes(receivedScores);
@@ -223,6 +230,7 @@ export default {
         commit('updateAnswer', number);
 
         if (challenge.inputFull) {
+          commit('updateSummary', { shots: 1 })
           challenge.attempt() ? dispatch('challengeBeated') : dispatch('incorrectAnswer');
         }
       }
