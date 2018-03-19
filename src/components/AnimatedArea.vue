@@ -16,6 +16,7 @@
 					id="foe-vehicle"
 					:name="foe.name"
 					class="animated-area__vehicle animated-area__vehicle--right"
+					:class="{rushing: foeRushing}"
 				/>
 			</transition>
 
@@ -37,6 +38,7 @@
 	import { mapState, mapGetters } from 'vuex';
 	import eventBus from '@/utils/eventBus';
 	import shot from '@/utils/shot';
+	import { detectCollision } from '@/utils/collision';
 	
 	export default {
 		name: 'AnimatedArea',
@@ -45,6 +47,12 @@
 			GrassLeaves,
 			Vehicle,
 			PerkPath,
+		},
+
+		data() {
+			return {
+				foeRushing: false,
+			};
 		},
 
 		computed: {
@@ -60,10 +68,9 @@
 		},
 
 		methods: {
-			shot,
 
 			heroShots(bulletId) {
-				this.shot({
+				shot({
 					bulletId,
 					diretion: 'right',
 					shooter: this.$el.querySelector('#hero-vehicle'),
@@ -73,7 +80,7 @@
 			},
 
 			foeShots(bulletId) {
-				this.shot({
+				shot({
 					bulletId,
 					diretion: 'left',				
 					shooter: this.$el.querySelector('#foe-vehicle'),
@@ -81,12 +88,25 @@
 					bullet: this.$el.querySelector('#foe-bullet'),
 				});
 			},
+
+			foeRushes() {
+				this.foeRushing = true;
+				detectCollision(
+					this.$el.querySelector('#foe-vehicle'),
+					this.$el.querySelector('#hero-vehicle'),
+					'left',
+				).then(() => {
+					console.log('yay collision!')
+					eventBus.$emit('impact');
+					this.foeRushing = false;
+				})
+			},
 		},
 
 		mounted() {
 			eventBus.$on('hero-shots', bulletId => this.heroShots(bulletId));
 			eventBus.$on('foe-shots', bulletId => this.foeShots(bulletId));
-
+			eventBus.$on('foe-rushes', () => this.foeRushes());
 		},
 	};
 </script>
@@ -150,6 +170,12 @@
 	    &--foe {
 	    	right: 125px;
 	    }
+	  }
+
+	  .rushing {
+	  	transition: 0.5s transform;
+	  	// transition-timing-function: linear;
+	  	transform: translateX(-500px);
 	  }
 	}
 </style>

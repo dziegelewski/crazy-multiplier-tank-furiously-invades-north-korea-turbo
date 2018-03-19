@@ -2,7 +2,7 @@ import Province from '@/classes/Province';
 import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
-import { tinyMoment, moment, longMoment,  } from '@/utils/waiting';
+import { oneSecond, tinyMoment, moment, longMoment,  } from '@/utils/waiting';
 import perks from '@/data/perks';
 import sample from 'lodash/sample';
 import { putInGear} from '@/utils/gear';
@@ -90,12 +90,13 @@ export default {
   },
 
   async countSecondForChallenge({ state, commit, dispatch }, targetChallengeId) {
-    await wait(1000);
+    await wait(oneSecond);
     const { challenge } = state;
     if (challenge && challenge.id === targetChallengeId) {
       commit('secondPassed');
       if (challenge.timeOver) {
         dispatch('foeShots');
+        dispatch('foeRushes');
         commit('resetTimeout');
       }
       dispatch('countSecondForChallenge', targetChallengeId);
@@ -124,10 +125,35 @@ export default {
   	dispatch('foeShots')
   },
 
+  async foeAttacks({ state, dispatch }) {
+    switch(state.foe.attack) {
+      case 'shot':
+        await dispatch('foeShots');
+        break;
+      case 'rush':
+        await dispatch('foeRushes');
+        break;
+      case 'nuke':
+        await dispatch('foeNukes');
+        break;
+    };
+  },
+
   async foeShots({ state, dispatch }) {
     if (state.hero.isDefeated) return;
     await animate.foeShots();
     dispatch('heroHit');
+  },
+
+  async foeRushes({ state, dispatch }) {
+    if (state.hero.isDefeated) return;
+    await animate.foeRushes();
+    dispatch('heroHit');
+    dispatch('foeDefeated');
+  },
+
+  async foeNukes() {
+    // todo
   },
 
   heroHit({ state, commit, dispatch }) {
@@ -142,13 +168,13 @@ export default {
 
   // -------
 
-	async beginGame({ commit, dispatch }) {
+	async beginGame({ state, commit, dispatch }) {
     commit('resetState');
     commit('changeMode', 'play');
     commit('addGame');
     await wait(moment);
     startMusic();
-    dispatch('enterProvince', 1);
+    dispatch('enterProvince', state.startingProvince);
   },
 
   async gameOver({ commit, state, mutation, dispatch }) {

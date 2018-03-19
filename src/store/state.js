@@ -9,6 +9,7 @@ export const generateInitialState = () => ({
   hero: new Hero({ hearts: 3, maxHearts: 9 }),
   lastEnteredProvince: null,
 
+  startingProvince: 1,
   province: null,
   foe: null,
   challenge: null,

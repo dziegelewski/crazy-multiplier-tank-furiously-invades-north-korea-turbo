@@ -8,7 +8,7 @@ const createPositionGetter = (element, diretion) => {
 
 export function collisionDetector(firstElement, secondElement, diretion) {
 
-	const getFirstElementPosition = createPositionGetter(firstElement, oppositeDirection(diretion));
+	const getFirstElementPosition = createPositionGetter(firstElement, diretion);
 	const getSecondElementPosition = createPositionGetter(secondElement, oppositeDirection(diretion));
 
 	return function() {

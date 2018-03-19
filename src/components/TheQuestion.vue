@@ -36,7 +36,7 @@
 			},
 
 			powerOf() {
-				return this.challenge.toThePowerOf > 1 && this.state.challenge.toThePowerOf;
+				return this.challenge.toThePowerOf > 1 && this.challenge.toThePowerOf;
 			},
 
 			fields() {

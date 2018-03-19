@@ -1,6 +1,6 @@
 import Foe from '@/classes/Foe';
 import provincesNames from '@/data/north-korea-provinces';
-import foesKinds from '@/data/foes-kinds';
+import provinceFoe from '@/data/foes-in-provinces';
 import sample from "lodash/sample";
 import { nonNegative } from '@/utils/functions';
 
@@ -11,29 +11,19 @@ class Province {
 
     this.number = number;
     this.name = provincesNames[number - 1];
-    this.defenders = Math.floor(number * 1.5) + 4;
+    this.defenders = Math.floor(number * 1.5) + 2;
   }
 
   sendFoe() {
     if (this.isCleared) return null;
     return new Foe({
       power: this.number,
-      kind: this.chooseDefenderKind(),
+      kind: provinceFoe(this.number),
     });
   }
 
   looseDefender() {
     this.defenders = nonNegative(this.defenders - 1);
-  }
-
-
-  chooseDefenderKind() {
-    return sample(this.availableDefenders);
-  }
-
-  get availableDefenders() {
-    const strongestDefender = Math.floor(this.number / 2) + 2;
-    return foesKinds.slice(0, strongestDefender);
   }
 
   get isCleared() {

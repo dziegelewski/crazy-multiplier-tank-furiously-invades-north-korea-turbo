@@ -6,14 +6,14 @@ class Foe extends Vehicle {
     super({ name: kind.name, hearts: kind.hearts });
     const {
         factors = 2,
-        nuke = false,
         power: kindPower = 1,
         toThePowerOf = 1,
+        attack,
     } = kind;
 
     this.power = power * kindPower;
     this.numberOfFactors = factors;
-    this.nuke = nuke;
+    this.attack = attack;
     this.toThePowerOf = toThePowerOf;
 
   }
@@ -27,7 +27,7 @@ class Foe extends Vehicle {
   }
 
   get needsWarning() {
-    return this.nuke;
+    return this.attack === 'nuke';
   }
 
   get score() {

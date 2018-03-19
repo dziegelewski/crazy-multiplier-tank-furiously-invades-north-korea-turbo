@@ -55,6 +55,11 @@ export default {
 		await emitShot('foe');
 	},
 
+	async foeRushes() {
+		eventBus.$emit('foe-rushes');
+		await new Promise(resolve => eventBus.$on('impact', resolve));
+	},
+
 	async getPerk(prize) {
 		return new Promise((resolve, reject) => {
 			eventBus.$on('catched', resolve);
