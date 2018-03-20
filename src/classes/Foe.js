@@ -2,38 +2,41 @@ import Vehicle from "@/classes/Vehicle";
 import Challenge from "@/classes/Challenge";
 
 class Foe extends Vehicle {
-  constructor({ power, kind } = {}) {
-    super({ name: kind.name, hearts: kind.hearts });
-    const {
-        factors = 2,
-        power: kindPower = 1,
-        toThePowerOf = 1,
-        attack,
-    } = kind;
+  constructor({
+    power,
+    name,
+    hearts,
+    attackType,
+    toThePowerOf = 1,
+    numberOfFactors = 2,
+    time = 5,
+    specials = [],
+    score,
+  }) {
+    super({ name, hearts });
 
-    this.power = power * kindPower;
-    this.numberOfFactors = factors;
-    this.attack = attack;
+    this.power = power;
+    this.attackType = attackType;
+    this.numberOfFactors = numberOfFactors;
     this.toThePowerOf = toThePowerOf;
-
+    this.specials = specials;
+    this.time = time;
+    this.score = score;
   }
 
   throwChallenge() {
     return new Challenge({
       level: this.power,
       numberOfFactors: this.numberOfFactors,
-      toThePowerOf: this.toThePowerOf,   
+      toThePowerOf: this.toThePowerOf,
+      time: this.time,
+      specials: this.specials,   
     });
   }
 
   get needsWarning() {
-    return this.attack === 'nuke';
+    return this.attackType === 'nuke';
   }
-
-  get score() {
-    return this.power * this.maxHearts * 100;
-  }
-
 }
 
 export default Foe;

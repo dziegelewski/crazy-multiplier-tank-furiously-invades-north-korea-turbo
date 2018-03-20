@@ -1,4 +1,4 @@
-export default [
+const provinces = [
   'Hyesan',
   'Kusong',
   'Rason',
@@ -20,3 +20,7 @@ export default [
   'Hamhŭng',
   'Pjongjang',
 ];
+
+export default provinces;
+
+export const finalProvinceNumber = provinces.length;

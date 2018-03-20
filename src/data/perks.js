@@ -1,40 +1,48 @@
-export const doubleShooter = 'doubleShooter';
-export const extraLife = 'extraLife';
-export const extraScore = 'extraScore';
-export const extraTime = 'extraTime';
-export const foresight = 'foresight';
+import sample from 'lodash/sample';
+
+export const extraLife = {
+	shortName: 'extraLife',
+	longName: 'Extra Life',
+	effect({ commit }) {
+    commit('heroGetHeart');
+	},
+};
+
+export const extraScore = {
+	shortName: 'extraScore',
+	longName: 'Extra Score',
+	effect({ commit }) {
+    commit('scored', 3000);
+	},
+};
+
+export const extraTime = {
+	shortName: 'extraTime',
+	longName: 'Extra Time',
+};
+
+export const foresight = {
+	shortName: 'foresight',
+	longName: 'Foresight',
+};
+
+// export const doubleShooter = {
+// 	shortName: 'doubleShooter',
+// 	longName: 'Double Shooter',
+// };
+
+// export const fastReload = {
+// 	shortName: 'fastReload',
+// 	longName: 'Fast Reload',
+// };
 
 const perks = [
-	{
-		shortName: extraLife,
-		longName: 'Extra Life',
-		effect({ commit }) {
-      commit('heroGetHeart');
-		},
-	},
-	{
-		shortName: extraScore,
-		longName: 'Extra Score',
-		effect({ commit }) {
-      commit('scored', 3000);
-		},
-	},
-	{
-		shortName: extraTime,
-		longName: 'Extra Time',
-	},
-	{
-		shortName: foresight,
-		longName: 'Foresight',
-	// {
-	// 	shortName: doubleShooter,
-	// 	longName: 'Double-Shooter',
-	// },
-	},
+	extraLife,
+	extraScore,
+	extraTime,
+	foresight,
 ];
 
-export default perks;
+export const randomPerk = () => sample(perks);
 
-export function findPerk(searchedName) {
-	return perks.find(perk => perk.shortName === searchedName)
-}
+export default perks;

@@ -1,19 +1,29 @@
 import Province from '@/classes/Province';
+import { finalProvinceNumber } from '@/data/provinces';
 import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
 import { oneSecond, tinyMoment, moment, longMoment,  } from '@/utils/waiting';
-import perks from '@/data/perks';
-import sample from 'lodash/sample';
+import { randomPerk } from '@/data/perks';
 import { putInGear} from '@/utils/gear';
-import { willPerkBeFound, doubleShooterPerk, foresightPerk } from '@/store/helpers';
+import { willPerkBeFound, doubleShooterPerk, foresightPerk, tellAStory } from '@/store/helpers';
 
 export default {
+
   enterNextProvince({ state, dispatch }) {
     dispatch('enterProvince', state.lastEnteredProvince + 1);
   },
 
   async enterProvince({ commit, dispatch }, provinceNumber) {
+
+    if (provinceNumber > finalProvinceNumber) {
+      dispatch('heroWonGame');
+      return
+    }
+
+    if (provinceNumber === finalProvinceNumber) {
+      stopMusic();
+    }
 
     putInGear(provinceNumber + 3);
     
@@ -42,14 +52,14 @@ export default {
       ],
     });
 
-    if (willPerkBeFound()) {
+    if (willPerkBeFound(state)) {
       await dispatch('getPerk');
     }
 
     dispatch('enterNextProvince');
   },
 
-  async getPerk(context, perk = sample(perks)) {
+  async getPerk(context, perk = randomPerk()) {
     const { commit, dispatch } = context;
     putInGear(1);
     commit('updateIncomingPerk', perk);
@@ -95,8 +105,7 @@ export default {
     if (challenge && challenge.id === targetChallengeId) {
       commit('secondPassed');
       if (challenge.timeOver) {
-        dispatch('foeShots');
-        dispatch('foeRushes');
+        dispatch('foeAttacks');
         commit('resetTimeout');
       }
       dispatch('countSecondForChallenge', targetChallengeId);
@@ -126,7 +135,7 @@ export default {
   },
 
   async foeAttacks({ state, dispatch }) {
-    switch(state.foe.attack) {
+    switch(state.foe.attackType) {
       case 'shot':
         await dispatch('foeShots');
         break;
@@ -156,9 +165,10 @@ export default {
     // todo
   },
 
-  heroHit({ state, commit, dispatch }) {
+  async heroHit({ state, commit, dispatch }) {
     commit('heroLoosesHeart');
     if (state.hero.isDefeated) {
+      await animate.heroExplodes();
       dispatch('gameOver');
     } else {
       commit('restartChallenge');
@@ -178,7 +188,6 @@ export default {
   },
 
   async gameOver({ commit, state, mutation, dispatch }) {
-    await animate.heroExplodes();
     stopMusic();
     if (state.score > state.highscore) {
       commit('updateHighscore', state.score);
@@ -306,6 +315,33 @@ export default {
     commit('changeMessage', message);
     await wait(duration);
     commit('changeMessage', null);
+  },
+
+  async heroWonGame({ dispatch }) {
+    putInGear(3);
+    await wait(longMoment);
+    await tellAStory(dispatch, [
+      'Well done.',
+      'You did it.',
+      'Congratulations.',
+      'Evil troops | are defeated',
+      'And world is | a better place now',
+      'Thanks to you.',
+      'Now is the time',
+      'For well-deserved rest.',
+      3000,
+      'Math | can be cool',
+      'Don\'t you think?',
+      '"Minimalism wasn\'t | a real idea -',
+      'it ended | before it started". | Sol LeWitt',
+      3000,
+      'Drive safely',
+      'Maybe one day',
+      'We will need again',
+      'A real hero.',
+    ]);
+    await wait(longMoment);
+    dispatch('gameOver');
   },
 
 };

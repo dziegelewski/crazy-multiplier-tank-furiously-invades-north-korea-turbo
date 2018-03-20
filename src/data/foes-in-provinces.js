@@ -111,8 +111,12 @@ const defenders = {
 };
 
 export default function(provinceNumber) {
-	// provinceNumber = 20;
-	// return tank3;
+	if (process.env.NODE_ENV === 'development') {
+		if (window.TESTED_FOES) {
+			return sample(window.TESTED_FOES);
+		}
+	}
+
   const available = defenders[provinceNumber]
   const only = available.only;
   const often = available.often || [];

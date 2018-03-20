@@ -1,14 +1,19 @@
 import store from '@/store';
 import { findPerk } from '@/data/perks';
 import testKeyboard from './testKeyboard';
+const foes = require('@/data/foes');
+const perks = require('@/data/perks');
 
 /*
 	Uncomment scenarios to test them.
 	testingOn is necessary for any senario to work. 
 */
 
+
 const scenarios = [
-	'testingOn',
+	// 'testingOn',
+
+	// 'logScenarios',
 
 	// 'haste',
 	// 'mute',
@@ -16,18 +21,30 @@ const scenarios = [
 	'autoBegin',
 	// 'perks',
 	// 'loopExplosion',
-	// 'heroInvincible',
+	'heroImmortal',
 
 	// 'foeWontCome',
-	// 'foeWontShot',
+	'foeWontShot',
 	// 'foeShotsFast',
 
-	// 'startingProvince',
+	{ province: 19 },
+	// { foes: [foes.missle2, foes.missle1] },
+	// { perks: [perks.foresight] },
 ];
 
-const startingProvince = 4;
 
-const use = (testedScenario = 'testingOn') => scenarios.includes(testedScenario);
+const use = (testedScenario = 'testingOn') => {
+	const result = scenarios.includes(testedScenario) || scenarioVal(testedScenario) !== undefined;
+	result && scenarios.includes('logScenarios') &&
+	console.info(`Testing scenario: ${testedScenario}`);
+	return result;
+}
+
+const scenarioVal = name => {
+	const scenarioObject = scenarios.find(scenario => scenario.hasOwnProperty(name));
+	return scenarioObject && scenarioObject[name]
+}
+
 window.store = store;
 
 (async function() {
@@ -39,23 +56,26 @@ if (use('mute')) { store.state.musicEnabled = false; store.state.audioEnabled = 
 if (use('testKeyboard')) testKeyboard(store);
 if (use('autoBegin')) store.dispatch('beginGame');
 
-if (use('startingProvince')) store.state.startingProvince = startingProvince
+if (use('province')) store.state.startingProvince = scenarioVal('province');
 
-if (use('heroInvincible')) store.state.hero.hurt = function() {};
+if (use('foes')) window.TESTED_FOES = scenarioVal('foes');
+
+if (use('heroImmortal')) store.state.hero.hurt = function() {};
 
 if (use('loopExplosion')) window.LOOP_EXPLOSION = true;
 
 if (use('foeWontCome')) store._actions.sendFoe = () => {};
-if (use('foeWontShot')) store._actions.foeShots = () => {};
+if (use('foeWontShot')) window.FOE_WONT_SHOT = true;
 if (use('foeShotsFast')) window.FOE_FAST_SHOT = true;
 
 if (use('perks')) {
-	await store.dispatch('getPerk', findPerk('doubleShooter'));
-	// await store.dispatch('getPerk');
-	// await store.dispatch('getPerk');
-	// await store.dispatch('getPerk');
-	// await store.dispatch('getPerk');
-	// await store.dispatch('getPerk');
+	const perksToProvide = scenarioVal('perks');
+
+	(async function nextPerk() {
+		const perk = perksToProvide.shift();
+		await store.dispatch('getPerk', perk);
+		if (perksToProvide.length) nextPerk()
+	})()
 }
 
 

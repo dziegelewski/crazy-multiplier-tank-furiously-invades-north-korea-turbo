@@ -67,7 +67,7 @@
 			margin-top: 20px;
 		}
 
-		.power-of {
+		&__power-of {
 			vertical-align: super;
 			font-size: 75%;
 			margin-left: -0.5em;

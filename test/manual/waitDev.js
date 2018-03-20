@@ -12,6 +12,12 @@ export default time => {
 				time = 250;
 			}
 		}
+
+		if (window.FOE_WONT_SHOT) {
+			if (time === 1000) {
+				time = 24 * 3600 * 1000;
+			}
+		}
 		
 		setTimeout(resolve, time);
 	})

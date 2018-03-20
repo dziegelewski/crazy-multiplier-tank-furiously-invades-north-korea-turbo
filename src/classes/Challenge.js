@@ -4,13 +4,14 @@ import { nonNegative } from "@/utils/functions";
 let challengeId = 0;
 
 class Challenge {
-  constructor({ level = 1, numberOfFactors = 2, timeout = 5, factors, toThePowerOf } = {}) {
+  constructor({ level = 1, numberOfFactors = 2, time = 5, factors, toThePowerOf, specials } = {}) {
     this.id = challengeId ++;
     this.level = level;
     this.numberOfFactors = numberOfFactors;
-    this.maxTimeout = timeout;
-    this.leftTimeout = timeout;
+    this.maxTimeout = time;
+    this.leftTimeout = time;
 
+    this.specials = specials;
     this.factors = factors || this.generateFactors();
     this.toThePowerOf = toThePowerOf;
     this.isActive = true;
@@ -18,15 +19,22 @@ class Challenge {
   }
 
   generateFactors() {
-    return [...times(this.numberOfFactors, () => this.generateSingleFactor())];
+    return [...times(this.numberOfFactors, (factorNumber) => this.generateSingleFactor(factorNumber))];
   }
 
-  generateSingleFactor() {
+  generateSingleFactor(factorNumber) {
     const level = this.level + 3;
 
     const factorMin = Math.floor(level / 2);
     const factorMax = Math.ceil(level * 1.5);
-    return random(factorMin, factorMax);
+
+    let factor = random(factorMin, factorMax);
+
+    if (this.specials.includes('hammerFist')) {
+      factor = factorNumber === 0 ? 2 : (factor * random(20, 70)); 
+    }
+
+    return factor;
   }
 
 
