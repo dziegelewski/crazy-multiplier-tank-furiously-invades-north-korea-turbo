@@ -1,6 +1,8 @@
 import store from '@/store';
 import { findPerk } from '@/data/perks';
 import testKeyboard from './testKeyboard';
+import Challenge from "@/classes/Challenge";
+import provinces from '@/data/provinces';
 const foes = require('@/data/foes');
 const perks = require('@/data/perks');
 
@@ -16,10 +18,9 @@ const scenarios = [
 	// 'logScenarios',
 
 	// 'haste',
-	// 'mute',
+	'mute',
 	'testKeyboard',
 	'autoBegin',
-	// 'perks',
 	// 'loopExplosion',
 	'heroImmortal',
 
@@ -27,9 +28,11 @@ const scenarios = [
 	'foeWontShot',
 	// 'foeShotsFast',
 
-	{ province: 19 },
-	// { foes: [foes.missle2, foes.missle1] },
+	// { province: 11 },
+	// { foes: [foes.van1] },
 	// { perks: [perks.foresight] },
+
+	'factorsTable',
 ];
 
 
@@ -76,6 +79,21 @@ if (use('perks')) {
 		await store.dispatch('getPerk', perk);
 		if (perksToProvide.length) nextPerk()
 	})()
+}
+
+if (use('factorsTable')) {
+	const table = provinces.reduce((total, province, index) => {
+		const provinceNumber = index + 1;
+		const provinceChallenge = new Challenge({ level: provinceNumber })
+		total.push({ 
+			number: provinceNumber,
+			name: province,
+			minFactor: provinceChallenge.minFactorValue,
+			maxFactor: provinceChallenge.maxFactorValue,
+		});
+		return total;
+	}, []);
+	console.table(table)
 }
 
 

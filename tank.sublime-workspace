@@ -4,6 +4,106 @@
 		"selected_items":
 		[
 			[
+				"me",
+				"message"
+			],
+			[
+				"num",
+				"numberOfProvinces"
+			],
+			[
+				"pro",
+				"provinceNumber"
+			],
+			[
+				"sce",
+				"scenarios"
+			],
+			[
+				"fo",
+				"foresight"
+			],
+			[
+				"to",
+				"perksToProvide"
+			],
+			[
+				"pe",
+				"perksToProvide"
+			],
+			[
+				"sc",
+				"scenarioVal"
+			],
+			[
+				"f",
+				"fun\tFunction"
+			],
+			[
+				"ex",
+				"extraTime"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"teste",
+				"testedFoe"
+			],
+			[
+				"fac",
+				"factor"
+			],
+			[
+				"provi",
+				"provinceFoe"
+			],
+			[
+				"onl",
+				"onlyFoes"
+			],
+			[
+				"mi",
+				"missle1"
+			],
+			[
+				"of",
+				"often"
+			],
+			[
+				"cos",
+				"cosmic2"
+			],
+			[
+				"rar",
+				"rareFoes"
+			],
+			[
+				"sta",
+				"startingProvince"
+			],
+			[
+				"tes",
+				"testedScenario"
+			],
+			[
+				"foeRu",
+				"foe-rushes"
+			],
+			[
+				"foe",
+				"foeDefeated"
+			],
+			[
+				"emit",
+				"emitExplosion"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
 				"back",
 				"background"
 			],
@@ -52,10 +152,6 @@
 				"prediction"
 			],
 			[
-				"fo",
-				"foreseenNumberIndex"
-			],
-			[
 				"so",
 				"solutionNumbers"
 			],
@@ -68,20 +164,12 @@
 				"maxHearts"
 			],
 			[
-				"ex",
-				"extraLife"
-			],
-			[
 				"her",
 				"heroShots"
 			],
 			[
 				"di",
 				"dispatch"
-			],
-			[
-				"re",
-				"resolve"
 			],
 			[
 				"bu",
@@ -100,14 +188,6 @@
 				"testKeyboard"
 			],
 			[
-				"foe",
-				"foeShots"
-			],
-			[
-				"sc",
-				"scenarioToTest"
-			],
-			[
 				"fun",
 				"function"
 			],
@@ -122,10 +202,6 @@
 			[
 				"fin",
 				"findPerk"
-			],
-			[
-				"pro",
-				"provinceNumber"
 			],
 			[
 				"get",
@@ -172,10 +248,6 @@
 				"animation-timing-function"
 			],
 			[
-				"pe",
-				"perks"
-			],
-			[
 				"z",
 				"z-index"
 			],
@@ -198,10 +270,6 @@
 			[
 				"sco",
 				"score"
-			],
-			[
-				"to",
-				"toThePowerOf"
 			],
 			[
 				"pow",
@@ -286,10 +354,6 @@
 			[
 				"st",
 				"stopMusic"
-			],
-			[
-				"sta",
-				"startMusic"
 			],
 			[
 				"pla",
@@ -450,109 +514,18 @@
 			[
 				"i",
 				"imgSrc"
-			],
-			[
-				"chall",
-				"challengeFailed"
-			],
-			[
-				"en",
-				"enterNextProvince"
-			],
-			[
-				"provi",
-				"provinceCleared"
-			],
-			[
-				"cha",
-				"challenge"
-			],
-			[
-				"t",
-				"throwChallenge"
-			],
-			[
-				"ne",
-				"nextStage"
-			],
-			[
-				"input",
-				"inputFull"
-			],
-			[
-				"res",
-				"restartChallenge"
-			],
-			[
-				"us",
-				"userInput"
-			],
-			[
-				"w",
-				"wrapper"
-			],
-			[
-				"fa",
-				"factorMax"
-			],
-			[
-				"gene",
-				"generateSingleFactor"
-			],
-			[
-				"NU",
-				"NUMPAD9"
-			],
-			[
-				"NUM",
-				"NUMPAD0"
-			],
-			[
-				"DI",
-				"DIGIT0"
-			],
-			[
-				"map",
-				"mapMutations"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/components/MenuMode.vue",
+			"file": "log",
 			"settings":
 			{
-				"buffer_size": 1513,
+				"buffer_size": 509,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/manual/scenarios.js",
-			"settings":
-			{
-				"buffer_size": 1221,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/store/actions.js",
-			"settings":
-			{
-				"buffer_size": 6694,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "indd\ns. 256\nna tyle mało przypisow, że nie wpłyną na wycnę\n1 ilustracja\n\nwyd 79 zł\nkonw 55.3 zł",
-			"settings":
-			{
-				"buffer_size": 95,
-				"line_ending": "Unix",
-				"name": "indd"
 			}
 		}
 	],
@@ -564,16 +537,24 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "SCRE",
+		"last_filter": "separ",
 		"selected_items":
 		[
 			[
-				"SCRE",
-				"Convert Case: SCREAMING_SNAKE_CASE"
+				"separ",
+				"Convert Case: separate␣words"
 			],
 			[
 				"re",
 				"File: Rename"
+			],
+			[
+				"r",
+				"File: Rename"
+			],
+			[
+				"SCRE",
+				"Convert Case: SCREAMING_SNAKE_CASE"
 			],
 			[
 				"rena",
@@ -582,10 +563,6 @@
 			[
 				"ins",
 				"Package Control: Install Package"
-			],
-			[
-				"r",
-				"File: Rename"
 			],
 			[
 				"came",
@@ -774,49 +751,60 @@
 	],
 	"file_history":
 	[
-		"/home/grzegorz/Desktop/tank/src/components/GameSummary.vue",
-		"/home/grzegorz/Desktop/tank/src/components/AnimatedArea.vue",
-		"/home/grzegorz/Desktop/tank/src/components/ProvinceInfo.vue",
-		"/home/grzegorz/Desktop/tank/src/store/index.js",
-		"/home/grzegorz/Desktop/tank/src/store/state.js",
-		"/home/grzegorz/Desktop/tank/src/store/getters.js",
-		"/home/grzegorz/Desktop/tank/src/store/mutations.js",
+		"/home/grzegorz/Desktop/tank/src/components/MenuMode.vue",
 		"/home/grzegorz/Desktop/tank/src/store/actions.js",
 		"/home/grzegorz/Desktop/tank/test/manual/scenarios.js",
-		"/home/grzegorz/Desktop/tank/log",
+		"/home/grzegorz/Desktop/tank/src/classes/Vehicle.js",
+		"/home/grzegorz/Desktop/tank/src/data/foes-in-provinces.js",
 		"/home/grzegorz/Desktop/tank/src/data/perks.js",
-		"/home/grzegorz/Desktop/tank/src/components/MenuMode.vue",
+		"/home/grzegorz/Desktop/tank/src/classes/Province.js",
+		"/home/grzegorz/Desktop/tank/src/data/foes.js",
+		"/home/grzegorz/Desktop/tank/src/components/AnimatedArea.vue",
+		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
+		"/home/grzegorz/Desktop/tank/src/store/helpers.js",
+		"/home/grzegorz/Desktop/tank/test/manual/waitDev.js",
+		"/home/grzegorz/Desktop/tank/src/utils/waiting.js",
+		"/home/grzegorz/Desktop/tank/src/components/TheQuestion.vue",
+		"/home/grzegorz/Desktop/tank/src/components/TheInput.vue",
+		"/home/grzegorz/Desktop/tank/src/utils/rush.js",
+		"/home/grzegorz/Desktop/tank/src/store/actionsForInput.js",
+		"/home/grzegorz/Desktop/tank/src/data/north-korea-provinces.js",
+		"/home/grzegorz/Desktop/tank/src/data/provinces.js",
+		"/home/grzegorz/Desktop/tank/src/utils/functions.js",
+		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
+		"/home/grzegorz/Desktop/tank/src/store/state.js",
+		"/home/grzegorz/Desktop/tank/src/store/mutations.js",
+		"/home/grzegorz/Desktop/tank/src/assets/styles/shared.scss",
+		"/home/grzegorz/Desktop/tank/src/data/foes-kinds.js",
+		"/home/grzegorz/Desktop/tank/src/data/provinces-protectors.js",
+		"/home/grzegorz/Desktop/crazy-multiplier-tank-furiously-invades-north-korea/javascript.js",
+		"/home/grzegorz/Desktop/tank/src/utils/collision.js",
+		"/home/grzegorz/Desktop/tank/src/utils/shot.js",
+		"/home/grzegorz/Desktop/tank/src/components/MenuOption.vue",
+		"/home/grzegorz/Desktop/tank/src/utils/animate.js",
+		"/home/grzegorz/Desktop/tank/src/components/Vehicle.vue",
+		"/home/grzegorz/Desktop/tank/src/components/PerkPath.vue",
+		"/home/grzegorz/Desktop/tank/src/components/GameSummary.vue",
+		"/home/grzegorz/Desktop/tank/src/components/ScoresCounter.vue",
+		"/home/grzegorz/Desktop/tank/src/components/ProvinceInfo.vue",
+		"/home/grzegorz/Desktop/tank/src/store/index.js",
+		"/home/grzegorz/Desktop/tank/src/store/getters.js",
+		"/home/grzegorz/Desktop/tank/log",
 		"/home/grzegorz/Desktop/tank/src/components/App.vue",
 		"/home/grzegorz/Desktop/tank/src/utils/retrieve.js",
 		"/home/grzegorz/Desktop/tank/src/components/GameMode.vue",
-		"/home/grzegorz/Desktop/tank/src/utils/waiting.js",
-		"/home/grzegorz/Desktop/tank/src/components/Vehicle.vue",
-		"/home/grzegorz/Desktop/tank/src/utils/shot.js",
 		"/home/grzegorz/Desktop/tank/src/components/BulletsPath.vue",
 		"/home/grzegorz/Desktop/tank/test/unit/karma.conf.js",
 		"/home/grzegorz/Desktop/tank/config/dev.env.js",
-		"/home/grzegorz/Desktop/tank/src/classes/Vehicle.js",
-		"/home/grzegorz/Desktop/tank/src/components/TheInput.vue",
-		"/home/grzegorz/Desktop/tank/src/components/TheQuestion.vue",
-		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
-		"/home/grzegorz/Desktop/tank/src/utils/animate.js",
-		"/home/grzegorz/Desktop/tank/src/store/helpers.js",
-		"/home/grzegorz/Desktop/tank/src/assets/styles/shared.scss",
-		"/home/grzegorz/Desktop/tank/src/utils/functions.js",
 		"/home/grzegorz/Desktop/tank/src/components/TheInputOld.vue",
-		"/home/grzegorz/Desktop/tank/src/data/foes-kinds.js",
-		"/home/grzegorz/Desktop/tank/test/manual/waitDev.js",
-		"/home/grzegorz/Desktop/tank/src/utils/collision.js",
 		"/home/grzegorz/Desktop/tank/src/components/PerksList.vue",
 		"/home/grzegorz/Desktop/tank/src/utils/gear.js",
 		"/home/grzegorz/Desktop/tank/src/classes/Hero.js",
 		"/home/grzegorz/Desktop/tank/test/manual/testKeyboard.js",
 		"/home/grzegorz/Desktop/tank/src/main.js",
 		"/home/grzegorz/Desktop/tank/test/unit/index.js",
-		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
 		"/home/grzegorz/Desktop/tank/src/components/GrassLeaves.vue",
 		"/home/grzegorz/Desktop/tank/.gitignore",
-		"/home/grzegorz/Desktop/tank/src/components/PerkPath.vue",
 		"/home/grzegorz/Desktop/tank/src/utils/testingScenarios.js",
 		"/home/grzegorz/Desktop/tank/src/store/speed.js",
 		"/home/grzegorz/Desktop/tank/src/assets/styles/app.scss",
@@ -826,11 +814,7 @@
 		"/home/grzegorz/Desktop/tank/src/components/CharacterInfo.vue",
 		"/home/grzegorz/Desktop/tank/src/utils/audio.js",
 		"/home/grzegorz/Desktop/tank/src/components/CentralInfo.vue",
-		"/home/grzegorz/Desktop/tank/src/classes/Province.js",
-		"/home/grzegorz/Desktop/tank/src/components/ScoresCounter.vue",
-		"/home/grzegorz/Desktop/tank/src/data/north-korea-provinces.js",
 		"/home/grzegorz/Desktop/tank/src/assets/styles/transitions.scss",
-		"/home/grzegorz/Desktop/tank/src/components/MenuOption.vue",
 		"/home/grzegorz/Desktop/tank/src/components/TheMessage.vue",
 		"/home/grzegorz/Desktop/tank/build/utils.js",
 		"/home/grzegorz/Desktop/tank/src/components/BuffsList.vue",
@@ -875,7 +859,6 @@
 		"/home/grzegorz/Desktop/tank/src/assets/shared.scss",
 		"/home/grzegorz/Desktop/tank/.babelrc",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForFoe.js",
-		"/home/grzegorz/Desktop/tank/src/store/actionsForInput.js",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForChallenge.js",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForGame.js",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForProvinces.js",
@@ -895,17 +878,11 @@
 		"/home/grzegorz/Desktop/tank/tank",
 		"/home/grzegorz/Desktop/tank/.eslintrc.js",
 		"/home/grzegorz/Desktop/tank/test/unit/specs/Province.spec.js",
-		"/home/grzegorz/Desktop/tank/src/components/common.scss",
-		"/home/grzegorz/Desktop/tank/src/components/GameApp.vue",
-		"/home/grzegorz/Desktop/tank/node_modules/eslint-config-airbnb-base/rules/node.js",
-		"/home/grzegorz/Desktop/tank/test/unit/specs/KeyboardWidget.spec.js",
-		"/home/grzegorz/Desktop/tank/node_modules/eslint-config-airbnb-base/rules/best-practices.js",
-		"/home/grzegorz/Desktop/tank/node_modules/eslint-config-airbnb-base/rules/variables.js",
-		"/home/grzegorz/Desktop/tank/src/components/TankZone.vue"
+		"/home/grzegorz/Desktop/tank/src/components/common.scss"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -922,6 +899,107 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"acti",
+			"enterP",
+			"messages",
+			"gameOv",
+			"isLastProvince",
+			"provincesNames",
+			"provinceFoe",
+			"calculateNumberOfDefenders",
+			"startingProvince",
+			"testFoes",
+			"testfoe",
+			"testFoe",
+			"heroInvincible",
+			"logUsedScenarios",
+			"attack",
+			"attak",
+			"effect",
+			"perks",
+			"sam",
+			"perks",
+			"sample",
+			"providePerk",
+			"foes",
+			"perk",
+			"shortName",
+			"scenarioVal",
+			"van2",
+			"sendFo",
+			"special",
+			"time",
+			"special",
+			"hearts",
+			"attack",
+			"foeSh",
+			"attack",
+			"factors",
+			"  hearts: 1,",
+			"attackType: 'rush',",
+			"attack",
+			"kind",
+			"time",
+			"shot",
+			"va1",
+			": {",
+			"const",
+			"foesForProvinces",
+			"const",
+			"getFoeForProvince",
+			"\\bvalue\\b",
+			"\\bval\\b",
+			"sendFoe",
+			"val",
+			"foesTable",
+			"hammer1",
+			"hhammer1",
+			"val",
+			"[val",
+			"val",
+			"val ",
+			"val",
+			"getAvailableFoe",
+			"rareFoes",
+			"oftenFoes",
+			"onlyFoe",
+			"availableForProvince",
+			"foesTable[provinceNumber]",
+			"{",
+			"}",
+			"many",
+			"atom",
+			"Enemies",
+			"many",
+			"crowd",
+			"sometimes",
+			"plenty",
+			"average",
+			"tank2",
+			"tank1",
+			"van1",
+			"tank1",
+			"rush",
+			"impact",
+			"foeShots",
+			"nuke",
+			"warn",
+			"pro",
+			"startingStage",
+			"enterPr",
+			"startingState",
+			"this.state",
+			"rushing",
+			"waitForB",
+			"foeRushes",
+			"foeShots",
+			"foeShot",
+			"everExplosion",
+			"foeExplodes",
+			"foeExpl",
+			"explodingTime",
+			"explode",
+			"explodingT",
 			"provinve",
 			"challengeBe",
 			"correct",
@@ -948,113 +1026,12 @@
 			"store",
 			"\"the",
 			"the",
-			"fields",
-			"getter",
-			"userAn",
-			"heroLoosesH",
-			"looses",
-			"loosed",
-			"foeSh",
-			"addH",
-			"theI",
-			"foreseenNumberIndex",
-			"predi",
-			"predic",
-			"input",
-			"field",
-			"displayedFields",
-			"field",
-			"fields",
-			"input",
-			"userIn",
-			"TheInput",
-			"foresigh",
-			"value",
-			"prediction",
-			"(this.challenge.",
-			"random",
-			"throw",
-			"effect",
-			"duration",
-			"looses",
-			"heroLoo",
-			"foeSho",
-			"doub",
-			"random",
-			"foeCantShot",
-			"intervally",
-			"checkF",
-			"do",
-			"config",
-			"breakTest",
-			"wait",
-			"modifiedTime",
-			"wait",
-			"displayMe",
-			"enterPro",
-			"testingEnabled",
-			"testMode",
-			"scenarioToTest",
-			"foeShots",
-			"getPerk",
-			"enterPro",
-			"enterProv",
-			"Vehicle",
-			"shortName",
-			"enter",
-			"enterNe",
-			"getPerk",
-			"enterPr",
-			"incomingPerk",
-			"IncomingPerk",
-			"incoming-perk",
-			"collide",
-			"getPer",
-			"');\n",
-			"longName",
-			"{",
-			"doubleShooter",
-			"element",
-			"enterPr",
-			"buff",
-			"buffs-",
-			"BuffsList",
-			"clear",
-			"prize",
-			"IncomingPrize",
-			"inc",
-			"input",
-			"theQu",
-			"SecondPa",
-			"animated",
-			"back",
-			"small",
-			"wrongAnswer",
-			"badAnswer",
-			"logo",
-			"red",
-			"score",
-			"badAnswer",
-			"scoreInf",
-			"await ",
-			"tiny",
-			"chooseDefenderKind",
-			"foesKinds",
-			"wait(1000)",
-			"wait(",
-			"animation-zone",
-			"animated",
-			"toThePowerOf",
-			"extra",
-			"heroSh",
-			"displayMe",
-			"question",
-			"prize"
+			"fields"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
 			"AnimatedArea",
@@ -1071,120 +1048,33 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/components/MenuMode.vue",
+					"file": "log",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1513,
+						"buffer_size": 509,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								449,
-								449
+								464,
+								464
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"syntax": "Packages/SAS Syntax and Theme/syntax/SAS Log.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "test/manual/scenarios.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1221,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								368,
-								368
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/store/actions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6694,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								645,
-								645
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 27.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 95,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								95,
-								95
-							]
-						],
-						"settings":
-						{
-							"auto_name": "indd",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1195,11 +1085,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 30.0
 	},
 	"input":
 	{
-		"height": 38.0
+		"height": 42.0
 	},
 	"layout":
 	{
@@ -1240,7 +1130,7 @@
 	"project": "tank",
 	"replace":
 	{
-		"height": 48.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1250,12 +1140,264 @@
 		"selected_items":
 		[
 			[
-				"ac",
-				"src/store/actions.js"
+				"og",
+				"log"
+			],
+			[
+				"per",
+				"src/data/perks.js"
+			],
+			[
+				"foes-",
+				"src/data/foes-in-provinces.js"
 			],
 			[
 				"sce",
 				"test/manual/scenarios.js"
+			],
+			[
+				"nort",
+				"src/store/actionsForInput.js"
+			],
+			[
+				"sc",
+				"test/manual/scenarios.js"
+			],
+			[
+				"ac",
+				"src/store/actions.js"
+			],
+			[
+				"act",
+				"src/store/actions.js"
+			],
+			[
+				"a",
+				"src/store/actions.js"
+			],
+			[
+				"hel",
+				"src/store/helpers.js"
+			],
+			[
+				"he",
+				"src/store/helpers.js"
+			],
+			[
+				"provi",
+				"src/data/provinces.js"
+			],
+			[
+				"perk",
+				"src/data/perks.js"
+			],
+			[
+				"prov",
+				"src/classes/Province.js"
+			],
+			[
+				"pro",
+				"src/data/provinces.js"
+			],
+			[
+				"provinces",
+				"src/data/provinces.js"
+			],
+			[
+				"pr",
+				"src/classes/Province.js"
+			],
+			[
+				"perks",
+				"src/data/perks.js"
+			],
+			[
+				"nor",
+				"src/data/north-korea-provinces.js"
+			],
+			[
+				"foes",
+				"src/data/foes-in-provinces.js"
+			],
+			[
+				"foe-i",
+				"src/data/foes-in-provinces.js"
+			],
+			[
+				"scena",
+				"test/manual/scenarios.js"
+			],
+			[
+				"theq",
+				"src/components/TheQuestion.vue"
+			],
+			[
+				"tth",
+				"src/components/TheInput.vue"
+			],
+			[
+				"fu",
+				"src/utils/functions.js"
+			],
+			[
+				"wait",
+				"test/manual/waitDev.js"
+			],
+			[
+				"waiti",
+				"src/utils/waiting.js"
+			],
+			[
+				"foe",
+				"src/classes/Foe.js"
+			],
+			[
+				"foe-",
+				"src/data/foes-in-provinces.js"
+			],
+			[
+				"scen",
+				"test/manual/scenarios.js"
+			],
+			[
+				"chal",
+				"src/classes/Challenge.js"
+			],
+			[
+				"cha",
+				"src/classes/Challenge.js"
+			],
+			[
+				"",
+				"src/classes/Province.js"
+			],
+			[
+				"veh",
+				"src/classes/Vehicle.js"
+			],
+			[
+				"get-d",
+				"src/data/get-defender.js"
+			],
+			[
+				"rush",
+				"src/utils/rush.js"
+			],
+			[
+				"anima",
+				"src/components/AnimatedArea.vue"
+			],
+			[
+				"provin",
+				"src/data/provinces-protectors.js"
+			],
+			[
+				"mu",
+				"src/store/mutations.js"
+			],
+			[
+				"foe-k",
+				"src/data/foes-kinds.js"
+			],
+			[
+				"acti",
+				"src/store/actions.js"
+			],
+			[
+				"foek",
+				"src/data/foes-kinds.js"
+			],
+			[
+				"sta",
+				"src/store/state.js"
+			],
+			[
+				"fo",
+				"src/classes/Foe.js"
+			],
+			[
+				"state",
+				"src/store/state.js"
+			],
+			[
+				"ani",
+				"src/components/AnimatedArea.vue"
+			],
+			[
+				"dev",
+				"test/manual/waitDev.js"
+			],
+			[
+				"waitd",
+				"test/manual/waitDev.js"
+			],
+			[
+				"wai",
+				"test/manual/waitDev.js"
+			],
+			[
+				"wa",
+				"src/utils/waiting.js"
+			],
+			[
+				"actio",
+				"src/store/actions.js"
+			],
+			[
+				"coll",
+				"src/utils/collision.js"
+			],
+			[
+				"sht",
+				"src/utils/shot.js"
+			],
+			[
+				"colli",
+				"src/utils/collision.js"
+			],
+			[
+				"shot",
+				"src/utils/shot.js"
+			],
+			[
+				"perkpa",
+				"src/components/PerkPath.vue"
+			],
+			[
+				"func",
+				"src/utils/functions.js"
+			],
+			[
+				"sactio",
+				"src/store/actions.js"
+			],
+			[
+				"animat",
+				"src/utils/animate.js"
+			],
+			[
+				"vehicle",
+				"src/components/Vehicle.vue"
+			],
+			[
+				"waiting",
+				"src/utils/waiting.js"
+			],
+			[
+				"menuo",
+				"src/components/MenuOption.vue"
+			],
+			[
+				"summa",
+				"src/components/GameSummary.vue"
+			],
+			[
+				"score",
+				"src/components/ScoresCounter.vue"
+			],
+			[
+				"shared",
+				"src/assets/styles/shared.scss"
 			],
 			[
 				"menu",
@@ -1266,24 +1408,12 @@
 				"src/components/GameSummary.vue"
 			],
 			[
-				"summa",
-				"src/components/GameSummary.vue"
-			],
-			[
-				"sta",
-				"src/store/state.js"
-			],
-			[
 				"su",
 				"src/components/GameSummary.vue"
 			],
 			[
 				"st",
 				"src/store/state.js"
-			],
-			[
-				"acti",
-				"src/store/actions.js"
 			],
 			[
 				"muta",
@@ -1322,14 +1452,6 @@
 				"src/utils/retrieve.js"
 			],
 			[
-				"scena",
-				"test/manual/scenarios.js"
-			],
-			[
-				"act",
-				"src/store/actions.js"
-			],
-			[
 				"menmo",
 				"src/components/MenuMode.vue"
 			],
@@ -1342,36 +1464,12 @@
 				"log"
 			],
 			[
-				"state",
-				"src/store/state.js"
-			],
-			[
-				"provi",
-				"src/components/ProvinceInfo.vue"
-			],
-			[
-				"waiti",
-				"src/utils/waiting.js"
-			],
-			[
 				"conf",
 				"test/unit/karma.conf.js"
 			],
 			[
 				"deve",
 				"config/dev.env.js"
-			],
-			[
-				"perks",
-				"src/data/perks.js"
-			],
-			[
-				"ani",
-				"src/components/AnimatedArea.vue"
-			],
-			[
-				"animat",
-				"src/utils/animate.js"
 			],
 			[
 				"sho",
@@ -1382,20 +1480,8 @@
 				"src/store/helpers.js"
 			],
 			[
-				"scen",
-				"test/manual/scenarios.js"
-			],
-			[
 				"sha",
 				"src/assets/styles/shared.scss"
-			],
-			[
-				"shot",
-				"src/utils/shot.js"
-			],
-			[
-				"sht",
-				"src/utils/shot.js"
 			],
 			[
 				"anim",
@@ -1406,28 +1492,8 @@
 				"src/components/Vehicle.vue"
 			],
 			[
-				"fu",
-				"src/utils/functions.js"
-			],
-			[
-				"sc",
-				"test/manual/scenarios.js"
-			],
-			[
-				"foe-",
-				"src/data/foes-kinds.js"
-			],
-			[
-				"mu",
-				"src/store/mutations.js"
-			],
-			[
 				"the",
 				"src/components/TheQuestion.vue"
-			],
-			[
-				"cha",
-				"src/classes/Challenge.js"
 			],
 			[
 				"vehic",
@@ -1446,10 +1512,6 @@
 				"src/components/NewInput.vue"
 			],
 			[
-				"theq",
-				"src/components/TheQuestion.vue"
-			],
-			[
 				"ques",
 				"src/components/TheQuestion.vue"
 			],
@@ -1462,10 +1524,6 @@
 				"src/components/TheInput.vue"
 			],
 			[
-				"shared",
-				"src/assets/styles/shared.scss"
-			],
-			[
 				"ve",
 				"src/classes/Vehicle.js"
 			],
@@ -1474,23 +1532,7 @@
 				"src/classes/Challenge.js"
 			],
 			[
-				"perk",
-				"src/data/perks.js"
-			],
-			[
-				"veh",
-				"src/classes/Vehicle.js"
-			],
-			[
-				"per",
-				"src/data/perks.js"
-			],
-			[
 				"fn",
-				"src/utils/functions.js"
-			],
-			[
-				"func",
 				"src/utils/functions.js"
 			],
 			[
@@ -1498,24 +1540,8 @@
 				"src/classes/Hero.js"
 			],
 			[
-				"wait",
-				"test/manual/waitDev.js"
-			],
-			[
-				"wai",
-				"test/manual/waitDev.js"
-			],
-			[
 				"scenari",
 				"test/manual/scenarios.js"
-			],
-			[
-				"coll",
-				"src/utils/collision.js"
-			],
-			[
-				"waitd",
-				"test/manual/waitDev.js"
 			],
 			[
 				"waitde",
@@ -1554,24 +1580,12 @@
 				"src/store/index.js"
 			],
 			[
-				"foe",
-				"src/classes/Foe.js"
-			],
-			[
-				"a",
-				"src/store/actions.js"
-			],
-			[
 				"git",
 				".gitignore"
 			],
 			[
 				"ge",
 				"src/utils/gear.js"
-			],
-			[
-				"wa",
-				"src/utils/waiting.js"
 			],
 			[
 				"gear",
@@ -1626,10 +1640,6 @@
 				"src/assets/styles/app.scss"
 			],
 			[
-				"anima",
-				"src/utils/animate.js"
-			],
-			[
 				"inc",
 				"src/components/IncomingPerk.vue"
 			],
@@ -1640,126 +1650,6 @@
 			[
 				"inco",
 				"src/components/IncomingPerk.vue"
-			],
-			[
-				"co",
-				"src/utils/collision.js"
-			],
-			[
-				"mua",
-				"src/store/mutations.js"
-			],
-			[
-				"buff",
-				"src/components/BuffsList.vue"
-			],
-			[
-				"char",
-				"src/components/CharacterInfo.vue"
-			],
-			[
-				"au",
-				"src/utils/audio.js"
-			],
-			[
-				"animated",
-				"src/components/AnimatedArea.vue"
-			],
-			[
-				"inp",
-				"src/components/TheInput.vue"
-			],
-			[
-				"gam",
-				"src/components/GameMode.vue"
-			],
-			[
-				"c",
-				"src/components/CharacterInfo.vue"
-			],
-			[
-				"he",
-				"src/components/HeartsContainer.vue"
-			],
-			[
-				"are",
-				"src/components/AnimatedArea.vue"
-			],
-			[
-				"pro",
-				"src/classes/Province.js"
-			],
-			[
-				"score",
-				"src/components/ScoresCounter.vue"
-			],
-			[
-				"province",
-				"src/components/ProvinceInfo.vue"
-			],
-			[
-				"ce",
-				"src/components/CentralInfo.vue"
-			],
-			[
-				"cen",
-				"src/components/CentralInfo.vue"
-			],
-			[
-				"main",
-				"src/main.js"
-			],
-			[
-				"uti",
-				"build/utils.js"
-			],
-			[
-				"actions",
-				"src/store/actions.js"
-			],
-			[
-				"foek",
-				"src/data/foes-kinds.js"
-			],
-			[
-				"menuo",
-				"src/components/MenuOption.vue"
-			],
-			[
-				"shar",
-				"src/assets/styles/shared.scss"
-			],
-			[
-				"tra",
-				"src/assets/styles/transitions.scss"
-			],
-			[
-				"centr",
-				"src/components/CentralInfo.vue"
-			],
-			[
-				"f",
-				"src/data/foes-kinds.js"
-			],
-			[
-				"foe.",
-				"src/classes/Foe.js"
-			],
-			[
-				"ch",
-				"src/classes/Challenge.js"
-			],
-			[
-				"foe.js",
-				"src/classes/Foe.js"
-			],
-			[
-				"actio",
-				"src/store/actions.js"
-			],
-			[
-				"fuc",
-				"src/utils/functions.js"
 			]
 		],
 		"width": 0.0

@@ -4,36 +4,48 @@ import { nonNegative } from "@/utils/functions";
 let challengeId = 0;
 
 class Challenge {
-  constructor({ level = 1, numberOfFactors = 2, time = 5, factors, toThePowerOf, specials } = {}) {
+  constructor({ level = 1, numberOfFactors = 2, time = 5, factors, toThePowerOf, factorsModifiers } = {}) {
     this.id = challengeId ++;
     this.level = level;
     this.numberOfFactors = numberOfFactors;
     this.maxTimeout = time;
     this.leftTimeout = time;
 
-    this.specials = specials;
+    this.factorsModifiers = factorsModifiers;
     this.factors = factors || this.generateFactors();
     this.toThePowerOf = toThePowerOf;
-    this.isActive = true;
     this.userInput = [];
   }
 
   generateFactors() {
-    return [...times(this.numberOfFactors, (factorNumber) => this.generateSingleFactor(factorNumber))];
+    return [...times(this.numberOfFactors, (factorIndex) => this.generateSingleFactor(factorIndex))];
   }
 
-  generateSingleFactor(factorNumber) {
-    const level = this.level + 3;
+  generateSingleFactor(factorIndex) {
+    let factor = random(this.minFactorValue, this.maxFactorValue);
+    factor = this.modifiedFactor(factor, factorIndex);
+    return factor;
+  }
 
-    const factorMin = Math.floor(level / 2);
-    const factorMax = Math.ceil(level * 1.5);
+  get minFactorValue() {
+    return Math.floor(this.level / 3) + 1;
+  }
 
-    let factor = random(factorMin, factorMax);
+  get maxFactorValue() {
+    return Math.ceil(this.level * 1.5) + 4;
 
-    if (this.specials.includes('hammerFist')) {
-      factor = factorNumber === 0 ? 2 : (factor * random(20, 70)); 
+  }
+
+  modifiedFactor(factor, factorIndex) {
+    const modifiers = this.factorsModifiers;
+    if (modifiers) {
+      if (typeof modifiers === 'function') {
+        factor = modifiers(factor)
+      }
+      else if (modifiers.hasOwnProperty(factorIndex)) {
+        factor = modifiers[factorIndex](factor)
+      }
     }
-
     return factor;
   }
 

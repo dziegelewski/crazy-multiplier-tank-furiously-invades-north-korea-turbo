@@ -9,8 +9,8 @@ class Foe extends Vehicle {
     attackType,
     toThePowerOf = 1,
     numberOfFactors = 2,
+    factorsModifiers,
     time = 5,
-    specials = [],
     score,
   }) {
     super({ name, hearts });
@@ -18,8 +18,8 @@ class Foe extends Vehicle {
     this.power = power;
     this.attackType = attackType;
     this.numberOfFactors = numberOfFactors;
+    this.factorsModifiers = factorsModifiers;
     this.toThePowerOf = toThePowerOf;
-    this.specials = specials;
     this.time = time;
     this.score = score;
   }
@@ -27,10 +27,7 @@ class Foe extends Vehicle {
   throwChallenge() {
     return new Challenge({
       level: this.power,
-      numberOfFactors: this.numberOfFactors,
-      toThePowerOf: this.toThePowerOf,
-      time: this.time,
-      specials: this.specials,   
+      ...this,
     });
   }
 

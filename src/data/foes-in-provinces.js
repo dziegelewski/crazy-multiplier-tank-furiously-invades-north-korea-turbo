@@ -121,5 +121,5 @@ export default function(provinceNumber) {
   const only = available.only;
   const often = available.often || [];
   const rare = available.rare || [];
-  return  only || sample([...often, ...often, ...rare])
+  return  only || sample([...often, ...often, ...often, ...rare])
 }
