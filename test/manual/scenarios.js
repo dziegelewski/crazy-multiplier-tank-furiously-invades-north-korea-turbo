@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import store from '@/store';
 import { findPerk } from '@/data/perks';
 import testKeyboard from './testKeyboard';
@@ -25,14 +27,14 @@ const scenarios = [
 	'heroImmortal',
 
 	// 'foeWontCome',
-	'foeWontShot',
-	// 'foeShotsFast',
+	// 'foeWontShot',
+	'foeShotsFast',
 
 	// { province: 11 },
-	// { foes: [foes.van1] },
+	{ foes: [foes.atom1] },
 	// { perks: [perks.foresight] },
 
-	'factorsTable',
+	// 'factorsTable',
 ];
 
 

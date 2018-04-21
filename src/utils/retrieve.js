@@ -19,7 +19,7 @@ export function saveData(dataName, dataValue) {
 
 function getSaved(dataName) {
 	const savedData = localStorage.getItem(dataName);
-	switch(savedData) {
+	switch (savedData) {
 		case 'true':
 			return true;
 		case 'false':

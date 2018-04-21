@@ -18,7 +18,7 @@ export const generateInitialState = () => ({
   typingLocked: false,
   menuInput: [null],
 
-  audioEnabled: retrieve('audioEnabled', { default: isDeviceBig() }), 
+  audioEnabled: retrieve('audioEnabled', { default: isDeviceBig() }),
   musicEnabled: retrieve('musicEnabled', { default: isDeviceBig() }),
 
   incomingPerk: null,

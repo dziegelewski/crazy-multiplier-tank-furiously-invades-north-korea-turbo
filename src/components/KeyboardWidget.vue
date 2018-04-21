@@ -13,6 +13,7 @@
 <script>
 	import { mapActions } from 'vuex';
 	import range from 'lodash/range';
+
 	const BACKSPACE_KEY = '<';
 
 	export default {
@@ -37,8 +38,7 @@
 	    keyPressed(key) {
 	    	if (key === BACKSPACE_KEY) {
 	    		this.userUndo();
-	    	}
-	    	else {
+	    	}	else {
 	    		this.userInput(key);
 	    	}
 	    },

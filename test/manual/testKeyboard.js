@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default function(store) {
 	document.addEventListener('keydown', e => {
 		switch(e.key) {

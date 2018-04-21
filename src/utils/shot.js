@@ -1,10 +1,9 @@
 import { playSound } from '@/utils/audio';
 import eventBus from '@/utils/eventBus';
-import { oppositeDirection, byDirection, showElement, hideElement, doUntil } from '@/utils/functions';
+import { byDirection, showElement, hideElement, doUntil } from '@/utils/functions';
 import { collisionDetector, elementTranslate } from '@/utils/collision';
 
 const BULLET_STARTING_POSITION = 0;
-const DIRECTION_ATTR = 'data-direction';
 
 export default function shot({ bulletId, shooter, target, bullet, diretion }) {
 	if (!shooter || !target || !bullet) return;
@@ -23,8 +22,7 @@ export default function shot({ bulletId, shooter, target, bullet, diretion }) {
 		timeout: 5000,
 	})
 		.then(() => shotSuccess(bullet, bulletId))
-		.catch(console.log)
-		.then(() => moveBullet(BULLET_STARTING_POSITION))
+		.then(() => moveBullet(BULLET_STARTING_POSITION));
 }
 
 function shotSuccess(bullet, bulletId) {

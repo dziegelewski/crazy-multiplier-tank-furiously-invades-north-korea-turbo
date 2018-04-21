@@ -4,16 +4,40 @@
 		"selected_items":
 		[
 			[
+				"pro",
+				"provinceChallenge"
+			],
+			[
+				"provi",
+				"provinceChallenge"
+			],
+			[
+				"cos",
+				"cosmic1"
+			],
+			[
+				"fa",
+				"factor"
+			],
+			[
+				"mo",
+				"modifiers"
+			],
+			[
+				"fact",
+				"factorIndex"
+			],
+			[
+				"fac",
+				"factorNumber"
+			],
+			[
 				"me",
 				"message"
 			],
 			[
 				"num",
 				"numberOfProvinces"
-			],
-			[
-				"pro",
-				"provinceNumber"
 			],
 			[
 				"sce",
@@ -52,14 +76,6 @@
 				"testedFoe"
 			],
 			[
-				"fac",
-				"factor"
-			],
-			[
-				"provi",
-				"provinceFoe"
-			],
-			[
 				"onl",
 				"onlyFoes"
 			],
@@ -70,10 +86,6 @@
 			[
 				"of",
 				"often"
-			],
-			[
-				"cos",
-				"cosmic2"
 			],
 			[
 				"rar",
@@ -502,18 +514,6 @@
 			[
 				"foco",
 				"focusKeyboardInput"
-			],
-			[
-				"mo",
-				"mobileKeyboardInput"
-			],
-			[
-				"u",
-				"userUndo"
-			],
-			[
-				"i",
-				"imgSrc"
 			]
 		]
 	},
@@ -524,6 +524,116 @@
 			"settings":
 			{
 				"buffer_size": 509,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/Foe.js",
+			"settings":
+			{
+				"buffer_size": 738,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/Challenge.js",
+			"settings":
+			{
+				"buffer_size": 2886,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/store/actions.js",
+			"settings":
+			{
+				"buffer_size": 8271,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grzegorz/Desktop/otatni 15509",
+			"settings":
+			{
+				"buffer_size": 22,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "otatni 15509"
+			}
+		},
+		{
+			"contents": "Searching 120 files for \"isActive\" (regex)\n\n/home/grzegorz/Desktop/tank/src/classes/Challenge.js:\n   15      this.factors = factors || this.generateFactors();\n   16      this.toThePowerOf = toThePowerOf;\n   17:     this.isActive = true;\n   18      this.userInput = [];\n   19    }\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 299,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "test/manual/scenarios.js",
+			"settings":
+			{
+				"buffer_size": 2485,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/App.vue",
+			"settings":
+			{
+				"buffer_size": 1475,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/assets/styles/app.scss",
+			"settings":
+			{
+				"buffer_size": 855,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/utils/animate.js",
+			"settings":
+			{
+				"buffer_size": 1470,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/data/foes-in-provinces.js",
+			"settings":
+			{
+				"buffer_size": 1679,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grzegorz/Desktop/crazy-multiplier-tank-furiously-invades-north-korea/javascript.js",
+			"settings":
+			{
+				"buffer_size": 32081,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/data/foes.js",
+			"settings":
+			{
+				"buffer_size": 1491,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -751,15 +861,17 @@
 	],
 	"file_history":
 	[
+		"/home/grzegorz/Desktop/tank/src/components/AnimatedArea.vue",
+		"/home/grzegorz/Desktop/tank/src/classes/Province.js",
+		"/home/grzegorz/Desktop/tank/src/utils/animate.js",
+		"/home/grzegorz/Desktop/tank/src/data/provinces.js",
 		"/home/grzegorz/Desktop/tank/src/components/MenuMode.vue",
 		"/home/grzegorz/Desktop/tank/src/store/actions.js",
 		"/home/grzegorz/Desktop/tank/test/manual/scenarios.js",
 		"/home/grzegorz/Desktop/tank/src/classes/Vehicle.js",
 		"/home/grzegorz/Desktop/tank/src/data/foes-in-provinces.js",
 		"/home/grzegorz/Desktop/tank/src/data/perks.js",
-		"/home/grzegorz/Desktop/tank/src/classes/Province.js",
 		"/home/grzegorz/Desktop/tank/src/data/foes.js",
-		"/home/grzegorz/Desktop/tank/src/components/AnimatedArea.vue",
 		"/home/grzegorz/Desktop/tank/src/classes/Foe.js",
 		"/home/grzegorz/Desktop/tank/src/store/helpers.js",
 		"/home/grzegorz/Desktop/tank/test/manual/waitDev.js",
@@ -769,7 +881,6 @@
 		"/home/grzegorz/Desktop/tank/src/utils/rush.js",
 		"/home/grzegorz/Desktop/tank/src/store/actionsForInput.js",
 		"/home/grzegorz/Desktop/tank/src/data/north-korea-provinces.js",
-		"/home/grzegorz/Desktop/tank/src/data/provinces.js",
 		"/home/grzegorz/Desktop/tank/src/utils/functions.js",
 		"/home/grzegorz/Desktop/tank/src/classes/Challenge.js",
 		"/home/grzegorz/Desktop/tank/src/store/state.js",
@@ -781,7 +892,6 @@
 		"/home/grzegorz/Desktop/tank/src/utils/collision.js",
 		"/home/grzegorz/Desktop/tank/src/utils/shot.js",
 		"/home/grzegorz/Desktop/tank/src/components/MenuOption.vue",
-		"/home/grzegorz/Desktop/tank/src/utils/animate.js",
 		"/home/grzegorz/Desktop/tank/src/components/Vehicle.vue",
 		"/home/grzegorz/Desktop/tank/src/components/PerkPath.vue",
 		"/home/grzegorz/Desktop/tank/src/components/GameSummary.vue",
@@ -882,7 +992,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -899,6 +1009,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"back",
+			"isActive",
+			"isAct",
+			"fac",
+			"modifiers",
+			"modifier",
+			"random",
+			"factorNumber",
+			"specials",
+			"numberOfFactors",
 			"acti",
 			"enterP",
 			"messages",
@@ -1016,17 +1136,7 @@
 			"save",
 			"optionValue",
 			"optionName",
-			"saveOption",
-			"instantEffect",
-			"incoMi",
-			"shot",
-			"double",
-			"getFromStorage",
-			"storeOption",
-			"store",
-			"\"the",
-			"the",
-			"fields"
+			"saveOption"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1048,7 +1158,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1064,8 +1174,8 @@
 						"selection":
 						[
 							[
-								464,
-								464
+								457,
+								457
 							]
 						],
 						"settings":
@@ -1077,7 +1187,379 @@
 						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/classes/Foe.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								69,
+								69
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/classes/Challenge.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								719,
+								719
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/store/actions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4229,
+								4229
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2863.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/grzegorz/Desktop/otatni 15509",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"auto_name": "otatni 15509",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 299,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										220,
+										228
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "test/manual/scenarios.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								478,
+								478
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/components/App.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1073,
+								1073
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vuejs Complete Package/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 675.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/assets/styles/app.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 855,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62,
+								62
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/utils/animate.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								79,
+								79
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/data/foes-in-provinces.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1679,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								67,
+								67
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/home/grzegorz/Desktop/crazy-multiplier-tank-furiously-invades-north-korea/javascript.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 32081,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13598,
+								13515
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10458.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/data/foes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1491,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1085,7 +1567,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -1130,7 +1612,7 @@
 	"project": "tank",
 	"replace":
 	{
-		"height": 56.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1140,6 +1622,70 @@
 		"selected_items":
 		[
 			[
+				"a",
+				"src/store/actions.js"
+			],
+			[
+				"anima",
+				"src/components/AnimatedArea.vue"
+			],
+			[
+				"app",
+				"src/components/App.vue"
+			],
+			[
+				"sc",
+				"test/manual/scenarios.js"
+			],
+			[
+				"act",
+				"src/store/actions.js"
+			],
+			[
+				"ch",
+				"src/classes/Challenge.js"
+			],
+			[
+				"app.",
+				"src/assets/styles/app.scss"
+			],
+			[
+				"sce",
+				"test/manual/scenarios.js"
+			],
+			[
+				"provin",
+				"src/classes/Province.js"
+			],
+			[
+				"province",
+				"src/data/provinces.js"
+			],
+			[
+				"scena",
+				"test/manual/scenarios.js"
+			],
+			[
+				"foe",
+				"src/classes/Foe.js"
+			],
+			[
+				"foes-",
+				"src/data/foes-in-provinces.js"
+			],
+			[
+				"cha",
+				"src/classes/Challenge.js"
+			],
+			[
+				"foes",
+				"src/data/foes.js"
+			],
+			[
+				"chal",
+				"src/classes/Challenge.js"
+			],
+			[
 				"og",
 				"log"
 			],
@@ -1148,31 +1694,11 @@
 				"src/data/perks.js"
 			],
 			[
-				"foes-",
-				"src/data/foes-in-provinces.js"
-			],
-			[
-				"sce",
-				"test/manual/scenarios.js"
-			],
-			[
 				"nort",
 				"src/store/actionsForInput.js"
 			],
 			[
-				"sc",
-				"test/manual/scenarios.js"
-			],
-			[
 				"ac",
-				"src/store/actions.js"
-			],
-			[
-				"act",
-				"src/store/actions.js"
-			],
-			[
-				"a",
 				"src/store/actions.js"
 			],
 			[
@@ -1216,16 +1742,8 @@
 				"src/data/north-korea-provinces.js"
 			],
 			[
-				"foes",
-				"src/data/foes-in-provinces.js"
-			],
-			[
 				"foe-i",
 				"src/data/foes-in-provinces.js"
-			],
-			[
-				"scena",
-				"test/manual/scenarios.js"
 			],
 			[
 				"theq",
@@ -1248,24 +1766,12 @@
 				"src/utils/waiting.js"
 			],
 			[
-				"foe",
-				"src/classes/Foe.js"
-			],
-			[
 				"foe-",
 				"src/data/foes-in-provinces.js"
 			],
 			[
 				"scen",
 				"test/manual/scenarios.js"
-			],
-			[
-				"chal",
-				"src/classes/Challenge.js"
-			],
-			[
-				"cha",
-				"src/classes/Challenge.js"
 			],
 			[
 				"",
@@ -1282,14 +1788,6 @@
 			[
 				"rush",
 				"src/utils/rush.js"
-			],
-			[
-				"anima",
-				"src/components/AnimatedArea.vue"
-			],
-			[
-				"provin",
-				"src/data/provinces-protectors.js"
 			],
 			[
 				"mu",
@@ -1418,10 +1916,6 @@
 			[
 				"muta",
 				"src/store/mutations.js"
-			],
-			[
-				"app",
-				"src/components/App.vue"
 			],
 			[
 				"get",
@@ -1620,10 +2114,6 @@
 				"src/components/IncomingPerk.vue"
 			],
 			[
-				"app.",
-				"src/assets/styles/app.scss"
-			],
-			[
 				"invo",
 				"src/components/IncomingPerk.vue"
 			],
@@ -1641,14 +2131,6 @@
 			],
 			[
 				"inc",
-				"src/components/IncomingPerk.vue"
-			],
-			[
-				"qu",
-				"src/components/TheQuestion.vue"
-			],
-			[
-				"inco",
 				"src/components/IncomingPerk.vue"
 			]
 		],

@@ -5,26 +5,26 @@ export const explodingTime = 350;
 let bullet = 0;
 
 async function emitExplosion(subject) {
-	eventBus.$emit(subject + '-explodes');
+	eventBus.$emit(`${subject}-explodes`);
 	await wait(explodingTime - 50);
 
 	if (process.env.NODE_ENV === 'development' && window.LOOP_EXPLOSION) {
 		async function loopExplosion() {
-			eventBus.$emit(subject + '-explodes');
+			eventBus.$emit(`${subject}-explodes`);
 			await wait(1000);
 			await loopExplosion();
 		}
-		await loopExplosion()
+		await loopExplosion();
 	}
 }
 
 function emitScore(subject, score) {
-	eventBus.$emit(subject + '-score', score);
+	eventBus.$emit(`${subject}-score`, score);
 }
 
 async function emitShot(subject) {
-	const bulletId = bullet ++;
-	eventBus.$emit(subject + '-shots', bulletId);
+	const bulletId = bullet++;
+	eventBus.$emit(`${subject}-shots`, bulletId);
 	await waitForBullet(bulletId);
 }
 
@@ -34,7 +34,7 @@ function waitForBullet(bulletId) {
 			if (bulletId === bulletThatHit) resolve();
 		});
 	});
-};
+}
 
 
 export default {
@@ -60,10 +60,14 @@ export default {
 		await new Promise(resolve => eventBus.$on('impact', resolve));
 	},
 
-	async getPerk(prize) {
-		return new Promise((resolve, reject) => {
+	async getPerk() {
+		return new Promise((resolve/* , reject */) => {
 			eventBus.$on('catched', resolve);
 			// setTimeout(reject, 5000);
 		});
+	},
+
+	nuke() {
+		eventBus.$emit('nuke');
 	},
 };

@@ -1,5 +1,8 @@
 <template>
-  <div class="app">
+  <div
+    class="app"
+    :class="{ 'app--nuke': isNuked }"
+  >
 
     <MenuMode v-if="isMenuMode" class="app__view" />
     <GameMode v-if="isGameMode" class="app__view" />
@@ -16,10 +19,10 @@
   import KeyboardListener from '@/components/KeyboardListener';
   import GameMode from '@/components/GameMode';
   import MenuMode from '@/components/MenuMode';
-  import { mapGetters, mapActions } from 'vuex';
-
   import AnimatedArea from '@/components/AnimatedArea';
-
+  import { mapGetters, mapActions } from 'vuex';
+  import eventBus from '@/utils/eventBus';
+  import { wait } from '@/utils/functions';
 
 export default {
   name: 'MainView',
@@ -29,6 +32,12 @@ export default {
     KeyboardListener,
     GameMode,
     MenuMode,
+  },
+
+  data() {
+    return {
+      isNuked: false,
+    };
   },
 
   methods: {
@@ -41,12 +50,17 @@ export default {
     ...mapGetters([
       'isMenuMode',
       'isGameMode',
-      'isGameMode',
     ]),
   },
 
-  mounted() {
-    // this.beginGame();
+  created() {
+    eventBus.$on('nuke', () => {
+      this.isNuked = true;
+      wait(5000)
+      .then(() => {
+        this.isNuked = false;
+      });
+    });
   },
 };
 </script>

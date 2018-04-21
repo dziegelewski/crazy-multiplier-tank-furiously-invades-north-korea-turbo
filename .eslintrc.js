@@ -24,6 +24,15 @@ module.exports = {
   },
   // add your custom rules here
   rules: {
+    'no-mixed-operators': 0,
+    'no-restricted-syntax': 0,
+    'no-inner-declarations': 0,
+    'no-await-in-loop': 0,
+    'no-return-assign': 0,
+    'no-mixed-spaces-and-tabs': 0,
+    'import/prefer-default-export': 0,
+    'no-prototype-builtins': 0,
+    'no-plusplus': 0,
     'no-tabs': 0,
     'indent': 0,
     'import/no-dynamic-require': 0,
@@ -41,16 +50,7 @@ module.exports = {
       js: 'never',
       vue: 'never'
     }],
-    // disallow reassignment of function parameters
-    // disallow parameter object manipulation except for specific exclusions
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state', // for vuex state
-        'acc', // for reduce accumulators
-        'e' // for e.returnvalue
-      ]
-    }],
+    'no-param-reassign': 0,
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       optionalDependencies: ['test/unit/index.js']

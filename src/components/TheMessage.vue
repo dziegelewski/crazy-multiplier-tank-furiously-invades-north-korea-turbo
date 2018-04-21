@@ -32,9 +32,9 @@
 
 			messageText() {
 				const { text } = this.message;
-				return Array.isArray(text) ? text : [text]; 
+				return Array.isArray(text) ? text : [text];
 			},
-		}
+		},
 
 	};
 </script>

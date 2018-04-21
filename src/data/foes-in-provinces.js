@@ -92,7 +92,7 @@ const defenders = {
   },
 
   17: {
-    often: [missle2, tank2,],
+    often: [missle2, tank2],
     rare: [cosmic2],
   },
 
@@ -110,16 +110,16 @@ const defenders = {
   },
 };
 
-export default function(provinceNumber) {
+export default function (provinceNumber) {
 	if (process.env.NODE_ENV === 'development') {
 		if (window.TESTED_FOES) {
 			return sample(window.TESTED_FOES);
 		}
 	}
 
-  const available = defenders[provinceNumber]
+  const available = defenders[provinceNumber];
   const only = available.only;
   const often = available.often || [];
   const rare = available.rare || [];
-  return  only || sample([...often, ...often, ...often, ...rare])
+  return only || sample([...often, ...often, ...often, ...rare]);
 }

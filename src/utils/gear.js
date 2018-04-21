@@ -1,4 +1,4 @@
-import { cssVariableSetter, getCssVariable, intervally, doUntil } from '@/utils/functions';
+import { cssVariableSetter, getCssVariable, doUntil } from '@/utils/functions';
 
 const getCurrentSpeed = () => parseFloat(getCssVariable('speed'));
 const updateSpeed = cssVariableSetter('speed', 'ms');
@@ -9,7 +9,7 @@ function speedUp(currentSpeed, demandedSpeed) {
 		do: () => updateSpeed(currentSpeed *= (1 + speedMutation)),
 		until: () => currentSpeed > demandedSpeed,
 		testFirst: true,
-	})
+	});
 }
 
 function slowDown(currentSpeed, demandedSpeed) {
@@ -17,7 +17,7 @@ function slowDown(currentSpeed, demandedSpeed) {
 		do: () => updateSpeed(currentSpeed *= (1 - speedMutation)),
 		until: () => currentSpeed < demandedSpeed,
 		testFirst: true,
-	})
+	});
 }
 
 function transitionSpeed(demandedSpeed) {
@@ -26,10 +26,9 @@ function transitionSpeed(demandedSpeed) {
 	if (demandedSpeed > currentSpeed) {
 		return speedUp(currentSpeed, demandedSpeed);
 	} else if (demandedSpeed < currentSpeed) {
-		return slowDown(currentSpeed, demandedSpeed)
-	} else {
-		return Promise.resolve();
+		return slowDown(currentSpeed, demandedSpeed);
 	}
+		return Promise.resolve();
 }
 
 export function putInGear(gear) {

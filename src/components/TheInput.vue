@@ -22,7 +22,7 @@
 			},
 			hint: {
 				required: false,
-			}
+			},
 		},
 
 		computed: {

@@ -46,7 +46,7 @@
 			classArray() {
 				return [
 					'option',
-					'option--' + this.status,
+					`option--${this.status}`,
 					{ 'option--important': this.important },
 				];
 			},

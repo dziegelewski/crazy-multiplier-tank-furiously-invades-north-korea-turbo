@@ -13,7 +13,7 @@ class Hero extends Vehicle {
   }
 
   hasPerk(searchedPerk) {
-    return this.perks.some(perk => perk.shortName === searchedPerk)
+    return this.perks.some(perk => perk.shortName === searchedPerk);
   }
 
   loosePerks() {

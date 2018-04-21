@@ -55,15 +55,15 @@
 				this.isExploding = false;
 			},
 
-			gainScore(score) {
-				// alert(score);
-			},
+			// gainScore(score) {
+			// 	// alert(score);
+			// },
 		},
 
 		mounted() {
 			if (this.isFoe) {
 				eventBus.$on('foe-explodes', this.explode);
-				eventBus.$on('foe-score', score => this.gainScore(score));
+				// eventBus.$on('foe-score', score => this.gainScore(score));
 			}
 
 			if (this.isPlayer) {

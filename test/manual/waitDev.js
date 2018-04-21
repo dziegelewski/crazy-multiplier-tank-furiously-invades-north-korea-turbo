@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default time => {
 	return new Promise(resolve => {
 		if (window.HASTE_MODE_ENABLED) {

@@ -12,6 +12,7 @@
 
 <script>
 	import { mapState } from 'vuex';
+	
 	export default {
 		name: 'SummaryMode',
 		computed: {
@@ -27,7 +28,7 @@
 			},
 
 			accuracyFormatted() {
-				return Math.floor(this.accuracy) + '%';
+				return `${Math.floor(this.accuracy)}%`;
 			},
 		},
 

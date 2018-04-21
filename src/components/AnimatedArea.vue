@@ -82,7 +82,7 @@
 			foeShots(bulletId) {
 				shot({
 					bulletId,
-					diretion: 'left',				
+					diretion: 'left',
 					shooter: this.$el.querySelector('#foe-vehicle'),
 					target: this.$el.querySelector('#hero-vehicle'),
 					bullet: this.$el.querySelector('#foe-bullet'),
@@ -96,10 +96,9 @@
 					this.$el.querySelector('#hero-vehicle'),
 					'left',
 				).then(() => {
-					console.log('yay collision!')
 					eventBus.$emit('impact');
 					this.foeRushing = false;
-				})
+				});
 			},
 		},
 

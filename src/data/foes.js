@@ -90,7 +90,7 @@ export const hammer1 = {
   hearts: 1,
   attackType: 'rush',
   factorsModifiers: {
-    0: value => 2,
+    0: () => 2,
     1: value => value * random(20, 70),
   },
   score: 200,

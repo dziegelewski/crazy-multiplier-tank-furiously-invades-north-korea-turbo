@@ -1,6 +1,5 @@
 /* eslint no-unused-expressions: 0 */
 import Vue from 'vue';
-import { nonNegative } from '@/utils/functions';
 import { saveData } from '@/utils/retrieve';
 import { generateInitialState } from '@/store/state';
 import forOwn from 'lodash/forOwn';
@@ -15,9 +14,10 @@ export default {
     ];
     const startingState = generateInitialState();
 
-    for (let key in state) {
-      if (dontResetThese.includes(key)) continue;
-      Vue.set(state, key, startingState[key])
+    for (const key in state) {
+      if (!dontResetThese.includes(key)) {
+        Vue.set(state, key, startingState[key]);
+      }
     }
   },
 
@@ -125,8 +125,8 @@ export default {
 
   toggleOption(state, optionName) {
     const valueAfterChange = !state[optionName];
-    saveData(optionName, valueAfterChange)
-    state[optionName] = valueAfterChange
+    saveData(optionName, valueAfterChange);
+    state[optionName] = valueAfterChange;
   },
 
   addGame(state) {

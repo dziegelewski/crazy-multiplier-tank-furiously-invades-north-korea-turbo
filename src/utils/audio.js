@@ -13,12 +13,10 @@ const sounds = [
 	'keydown',
 	'win',
 	MUSIC_NAME,
-].reduce((total, soundName) => {
-	return {
+].reduce((total, soundName) => ({
 		...total,
 		[soundName]: new Audio(require(`../assets/sounds/${soundName}.mp3`)),
-	};
-}, {});
+	}), {});
 
 
 function isAudioEnabled() {
@@ -50,7 +48,7 @@ export function startMusic() {
 
 export function stopMusic() {
 	fadeSound(MUSIC_NAME)
-		.then(() => pauseSound(MUSIC_NAME))
+		.then(() => pauseSound(MUSIC_NAME));
 }
 
 window.stopMusic = stopMusic;
@@ -62,7 +60,7 @@ function pauseSound(soundName) {
 function fadeSound(soundName) {
 	let fadingInterval;
 
-	return new Promise(resolve => {
+	return new Promise((resolve) => {
 		fadingInterval = setInterval(() => {
 			const soundVolume = sounds[soundName].volume;
 			const soundLowerVolume = nonNegative(soundVolume - 0.1);
@@ -72,6 +70,6 @@ function fadeSound(soundName) {
 				clearInterval(fadingInterval);
 				resolve();
 			}
-		}, 100)
-	})
+		}, 100);
+	});
 }

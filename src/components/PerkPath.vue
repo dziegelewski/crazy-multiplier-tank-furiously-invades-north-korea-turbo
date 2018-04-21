@@ -27,19 +27,14 @@
 			},
 		},
 		mounted() {
-			this.$nextTick(() => {			
+			this.$nextTick(() => {
 				const perk = document.querySelector('#perk');
 				const heroTank = document.querySelector('#hero-vehicle');
 
 				detectCollision(perk, heroTank, 'left')
-					.then(() => {
-						eventBus.$emit('catched');						
-					})
-			})
-		}
-
-
-
+					.then(() => eventBus.$emit('catched'));
+			});
+		},
 	};
 </script>
 

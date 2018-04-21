@@ -3,10 +3,10 @@ import { finalProvinceNumber } from '@/data/provinces';
 import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
-import { oneSecond, tinyMoment, moment, longMoment,  } from '@/utils/waiting';
+import { oneSecond, tinyMoment, moment, longMoment } from '@/utils/waiting';
 import { randomPerk } from '@/data/perks';
-import { putInGear} from '@/utils/gear';
-import { willPerkBeFound, doubleShooterPerk, foresightPerk, tellAStory } from '@/store/helpers';
+import { putInGear } from '@/utils/gear';
+import { willPerkBeFound, tellAStory } from '@/store/helpers';
 
 export default {
 
@@ -15,10 +15,9 @@ export default {
   },
 
   async enterProvince({ commit, dispatch }, provinceNumber) {
-
     if (provinceNumber > finalProvinceNumber) {
       dispatch('heroWonGame');
-      return
+      return;
     }
 
     if (provinceNumber === finalProvinceNumber) {
@@ -26,14 +25,14 @@ export default {
     }
 
     putInGear(provinceNumber + 3);
-    
+
     const province = new Province(provinceNumber);
     commit('changeProvince', province);
 
     await dispatch('displayMessage', {
       text: [
         `Stage ${province.number}.`,
-        province.name
+        province.name,
       ],
     });
 
@@ -48,7 +47,7 @@ export default {
     await dispatch('displayMessage', {
       text: [
         state.province.name,
-        'cleared'
+        'cleared',
       ],
     });
 
@@ -68,7 +67,7 @@ export default {
     playSound('bonus');
 
     if (perk.effect) {
-      perk.effect(context)
+      perk.effect(context);
     } else {
       commit('heroGotPerk', perk);
     }
@@ -80,8 +79,7 @@ export default {
         perk.longName,
       ],
       duration: 3000,
-    })
-
+    });
   },
 
   // -------
@@ -110,11 +108,10 @@ export default {
       }
       dispatch('countSecondForChallenge', targetChallengeId);
     }
-
   },
 
-  async challengeBeated({ state, commit, dispatch }) {
-    commit('updateSummary', { hits: 1 })
+  async challengeBeated({ commit, dispatch }) {
+    commit('updateSummary', { hits: 1 });
     await dispatch('heroShots');
     // if (state.hero.hasPerk('doubleShooter')) {
     //   await wait(250);
@@ -131,11 +128,12 @@ export default {
   },
 
   async challengeFailed({ dispatch }) {
-  	dispatch('foeShots')
+  	dispatch('foeShots');
   },
 
   async foeAttacks({ state, dispatch }) {
-    switch(state.foe.attackType) {
+    if (state.hero.isDefeated) return;
+    switch (state.foe.attackType) {
       case 'shot':
         await dispatch('foeShots');
         break;
@@ -145,28 +143,31 @@ export default {
       case 'nuke':
         await dispatch('foeNukes');
         break;
-    };
+      default:
+    }
   },
 
-  async foeShots({ state, dispatch }) {
-    if (state.hero.isDefeated) return;
+  async foeShots({ dispatch }) {
     await animate.foeShots();
     dispatch('heroHit');
   },
 
-  async foeRushes({ state, dispatch }) {
-    if (state.hero.isDefeated) return;
+  async foeRushes({ dispatch }) {
     await animate.foeRushes();
     dispatch('heroHit');
     dispatch('foeDefeated');
   },
 
-  async foeNukes() {
-    // todo
+  async foeNukes({ dispatch, commit }) {
+    dispatch('foeDefeated');
+    animate.nuke();
+    commit('heroLoosesHeart', 9);
+    await wait(5000);
+    dispatch('gameOver');
   },
 
-  async heroHit({ state, commit, dispatch }) {
-    commit('heroLoosesHeart');
+  async heroHit({ state, commit, dispatch }, damage) {
+    commit('heroLoosesHeart', damage);
     if (state.hero.isDefeated) {
       await animate.heroExplodes();
       dispatch('gameOver');
@@ -187,7 +188,7 @@ export default {
     dispatch('enterProvince', state.startingProvince);
   },
 
-  async gameOver({ commit, state, mutation, dispatch }) {
+  async gameOver({ commit, state }) {
     stopMusic();
     if (state.score > state.highscore) {
       commit('updateHighscore', state.score);
@@ -205,7 +206,7 @@ export default {
         text: '!',
         duration: 3000,
         style: 'alert',
-      }) 
+      });
     }
 
 		commit("looseDefender");
@@ -248,7 +249,7 @@ export default {
       text: 'Misfire!',
       duration: 3000,
       style: 'alert',
-    }) 
+    });
 
     commit('unlockTyping');
   },
@@ -258,14 +259,13 @@ export default {
 
     if (getters.isMenuMode) {
       dispatch('menuInput', number);
-    }
-    else {
+    } else {
       const { challenge } = state;
       if (challenge) {
         commit('updateAnswer', number);
 
         if (challenge.inputFull) {
-          commit('updateSummary', { shots: 1 })
+          commit('updateSummary', { shots: 1 });
           challenge.attempt() ? dispatch('challengeBeated') : dispatch('incorrectAnswer');
         }
       }
@@ -282,10 +282,10 @@ export default {
   },
 
   async menuInput({ commit, dispatch }, number) {
-    clearTimeout(window.menuInputTimeout)
+    clearTimeout(window.menuInputTimeout);
     commit('updateMenuInput', number);
 
-    switch(number) {
+    switch (number) {
       case 1:
         dispatch('toggleAudio');
         break;
@@ -296,10 +296,11 @@ export default {
       case 9:
         dispatch('toggleMusic');
         break;
+      default:
     }
     window.menuInputTimeout = setTimeout(() => {
       commit('resetMenuInput');
-    }, 300);  
+    }, 300);
   },
 
   toggleAudio({ commit }) {

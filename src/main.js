@@ -14,6 +14,6 @@ new Vue({
   components: { App },
 });
 
-if (process.env.NODE_ENV == 'development') {
+if (process.env.NODE_ENV === 'development') {
 	require('../test/manual/scenarios');
 }

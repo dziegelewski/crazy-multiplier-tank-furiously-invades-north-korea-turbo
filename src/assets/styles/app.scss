@@ -24,6 +24,11 @@ html {
     height: 100vh;
     position: relative;
     overflow: hidden;
+  
+    transition: background .5s;
+    &--nuke {
+      background: black;
+    }
 
     &__view {
       position: absolute;

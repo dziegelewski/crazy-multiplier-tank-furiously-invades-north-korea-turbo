@@ -1,11 +1,19 @@
-import random from 'lodash/random';
-import times from 'lodash/times';
+import random from "lodash/random";
+import times from "lodash/times";
 import { nonNegative } from "@/utils/functions";
+
 let challengeId = 0;
 
 class Challenge {
-  constructor({ level = 1, numberOfFactors = 2, time = 5, factors, toThePowerOf, factorsModifiers } = {}) {
-    this.id = challengeId ++;
+  constructor({
+    level = 1,
+    numberOfFactors = 2,
+    time = 5,
+    factors,
+    toThePowerOf,
+    factorsModifiers,
+  } = {}) {
+    this.id = challengeId++;
     this.level = level;
     this.numberOfFactors = numberOfFactors;
     this.maxTimeout = time;
@@ -18,7 +26,11 @@ class Challenge {
   }
 
   generateFactors() {
-    return [...times(this.numberOfFactors, (factorIndex) => this.generateSingleFactor(factorIndex))];
+    return [
+      ...times(this.numberOfFactors, factorIndex =>
+        this.generateSingleFactor(factorIndex),
+      ),
+    ];
   }
 
   generateSingleFactor(factorIndex) {
@@ -33,22 +45,19 @@ class Challenge {
 
   get maxFactorValue() {
     return Math.ceil(this.level * 1.5) + 4;
-
   }
 
   modifiedFactor(factor, factorIndex) {
     const modifiers = this.factorsModifiers;
     if (modifiers) {
-      if (typeof modifiers === 'function') {
-        factor = modifiers(factor)
-      }
-      else if (modifiers.hasOwnProperty(factorIndex)) {
-        factor = modifiers[factorIndex](factor)
+      if (typeof modifiers === "function") {
+        factor = modifiers(factor);
+      } else if (modifiers.hasOwnProperty(factorIndex)) {
+        factor = modifiers[factorIndex](factor);
       }
     }
     return factor;
   }
-
 
   input(value) {
     if (this.validateInput(value) && !this.inputFull) {
@@ -68,9 +77,8 @@ class Challenge {
   }
 
   convertInput(arrayOfNumbers) {
-    return parseInt(arrayOfNumbers.join(''), 10);
+    return parseInt(arrayOfNumbers.join(""), 10);
   }
-
 
   attempt() {
     const userAnswer = this.convertInput(this.userInput);
@@ -90,23 +98,26 @@ class Challenge {
   }
 
   addHint() {
-    const solutionNumbers = this.solution.toString().split('');
+    const solutionNumbers = this.solution.toString().split("");
     const hintIndex = random(0, solutionNumbers.length - 1);
     this.hint = {
       index: hintIndex,
       value: parseInt(solutionNumbers[hintIndex], 10),
-    }; 
+    };
   }
 
   get fields() {
-    let result = Array.from(this.userInput);
+    const result = Array.from(this.userInput);
     result.length = this.blanks;
     result.fill(null, this.userInput.length);
     return result;
   }
 
   get solution() {
-    return this.factors.reduce((total, factor) => total * factor, 1) ** this.toThePowerOf;
+    return (
+      this.factors.reduce((total, factor) => total * factor, 1) **
+      this.toThePowerOf
+    );
   }
 
   get blanks() {

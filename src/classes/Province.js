@@ -1,7 +1,6 @@
 import Foe from '@/classes/Foe';
 import provinces, { finalProvinceNumber } from '@/data/provinces';
 import provinceFoe from '@/data/foes-in-provinces';
-import sample from "lodash/sample";
 import { nonNegative } from '@/utils/functions';
 
 
@@ -27,7 +26,7 @@ class Province {
   }
 
   getNumberOfDefenders() {
-    return  this.isFinalProvince
+    return this.isFinalProvince
     ? 1
     : Math.floor(this.number * 1.5) + 2;
   }
