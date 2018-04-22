@@ -25,10 +25,13 @@ html {
     position: relative;
     overflow: hidden;
   
-    transition: background .5s;
     &--nuke {
+      transition: background .5s;
       background: black;
     }
+
+    transition: background 5s;
+
 
     &__view {
       position: absolute;

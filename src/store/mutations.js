@@ -60,8 +60,8 @@ export default {
 		state.challenge.restart();
   },
 
-  heroLoosesHeart(state) {
-    state.hero.hurt();
+  heroLoosesHeart(state, damage) {
+    state.hero.hurt(damage);
   },
 
   heroGetHeart(state) {

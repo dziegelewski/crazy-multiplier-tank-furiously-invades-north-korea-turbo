@@ -11,7 +11,6 @@ const sounds = [
 	'nuke',
 	'shot',
 	'keydown',
-	'win',
 	MUSIC_NAME,
 ].reduce((total, soundName) => ({
 		...total,

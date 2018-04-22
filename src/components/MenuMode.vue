@@ -85,6 +85,8 @@
 		&__highscore {
 			@extend %small-font;
 			margin: 0 0 4%;
+			color: $score-color;
+			font-weight: bold;
 		}
 
 		&__options {

@@ -18,6 +18,10 @@ export default {
     return state.mode === 'menu';
   },
 
+  isNukeMode(state) {
+    return state.mode === 'nuke';
+  },
+
   isFirstGame(state) {
     return state.games === 0;
   },

@@ -32,6 +32,7 @@ export const generateInitialState = () => ({
     hits: 0,
     distance: 0,
     perks: 0,
+    isHighscore: 0,
   },
 });
 

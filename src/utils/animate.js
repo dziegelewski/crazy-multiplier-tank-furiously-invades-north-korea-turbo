@@ -66,8 +66,4 @@ export default {
 			// setTimeout(reject, 5000);
 		});
 	},
-
-	nuke() {
-		eventBus.$emit('nuke');
-	},
 };

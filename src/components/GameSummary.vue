@@ -1,11 +1,18 @@
 <template>
 	<div class="game-summary">
 		<div class="game-summary__inner">
-			<p>Score: <b>{{ score }}</b></p>
-			<!-- Is highscore! -->
+			<p>Score: <b>{{ score }}</b>
+				<span
+				class="game-summary__highscore"
+				v-if="summary.isHighscore"
+				>
+					new highscore!
+				</span>
+			</p>
 			<p>Multiplying accuracy: <b>{{ accuracyFormatted }}</b></p>
 			<p>Stage reached: <b>{{ province.name }} ({{ province.number }})</b></p>
 			<p>Enemies defeated: <b>{{ summary.foesKilled }}</b></p>
+			<p>Perks collected: <b>{{ summary.perks }}</b></p>
 		</div>
 	</div>
 </template>
@@ -44,10 +51,15 @@
 
 		&__inner {
 			margin: 0 auto;
-			background: teal;
 			max-width: 500px;
-			background: $pale-alert-color;
+			border: 2px solid black;
 			padding: 10px 0;
+		}
+
+		&__highscore {
+			color: $score-color;
+			text-transform: uppercase;
+			font-weight: 700;
 		}
 
 		b {

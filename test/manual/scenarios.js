@@ -20,15 +20,15 @@ const scenarios = [
 	// 'logScenarios',
 
 	// 'haste',
-	'mute',
+	// 'mute',
 	'testKeyboard',
 	'autoBegin',
 	// 'loopExplosion',
-	'heroImmortal',
+	// 'heroImmortal',
 
 	// 'foeWontCome',
 	// 'foeWontShot',
-	'foeShotsFast',
+	// 'foeShotsFast',
 
 	// { province: 11 },
 	{ foes: [foes.atom1] },

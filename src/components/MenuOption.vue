@@ -3,7 +3,6 @@
 
 		<template v-if="singleLine">
 			<p class="option__line">{{ label }}</p>
-			
 		</template>
 
 		<template v-else>

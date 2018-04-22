@@ -41,6 +41,7 @@ export default {
   },
 
   async provinceCleared({ state, commit, dispatch }) {
+    if (state.hero.isDefeated) return;
 		// commit('changeProvince', null);
     await wait(moment);
     commit('heroLoosesPerks');
@@ -154,14 +155,17 @@ export default {
 
   async foeRushes({ dispatch }) {
     await animate.foeRushes();
+    playSound('impact');
     dispatch('heroHit');
     dispatch('foeDefeated');
   },
 
   async foeNukes({ dispatch, commit }) {
-    dispatch('foeDefeated');
-    animate.nuke();
+    playSound('nuke');
+    commit('changeMode', 'nuke');
     commit('heroLoosesHeart', 9);
+    animate.heroExplodes();
+    dispatch('foeDefeated');
     await wait(5000);
     dispatch('gameOver');
   },
@@ -169,6 +173,7 @@ export default {
   async heroHit({ state, commit, dispatch }, damage) {
     commit('heroLoosesHeart', damage);
     if (state.hero.isDefeated) {
+      playSound('destroy');
       await animate.heroExplodes();
       dispatch('gameOver');
     } else {
@@ -198,7 +203,7 @@ export default {
   },
 
   async sendFoe({ state, commit, dispatch }) {
-		if (!state.province) return;
+		if (!state.province || state.hero.isDefeated) return;
 
 		const foe = state.province.sendFoe();
     if (foe.needsWarning) {
@@ -214,8 +219,8 @@ export default {
 		dispatch("throwChallenge");
 	},
 
-	foeHit({ state, commit, dispatch }) {
-		commit("foeLoosesHeart");
+	foeHit({ state, commit, dispatch }, damage = 1) {
+		commit("foeLoosesHeart", damage);
 		commit("changeChallenge", null);
 
 		if (state.foe.isDefeated) {
@@ -226,9 +231,15 @@ export default {
 	},
 
 	async foeDefeated({ state, commit, dispatch }) {
+    playSound('destroy');
     commit('updateSummary', { foesKilled: 1 });
 		const receivedScores = state.foe.score;
 		commit('scored', receivedScores);
+
+    if (state.score > state.highscore) {
+      commit('updateSummary', { isHighscore: 1 });
+    }
+
     await animate.foeExplodes(receivedScores);
 
 		commit("changeFoe", null);
@@ -245,6 +256,7 @@ export default {
     commit('lockTyping');
     commit('restartChallenge');
 
+    playSound('misfire');
     await dispatch('displayMessage', {
       text: 'Misfire!',
       duration: 3000,
