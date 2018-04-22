@@ -15,6 +15,7 @@ html {
 
   body {
     background: black;
+    overflow: hidden;
   }
 
   .app {
@@ -32,7 +33,6 @@ html {
 
     transition: background 5s;
 
-
     &__view {
       position: absolute;
       width: 100%;
@@ -48,16 +48,37 @@ html {
     }
   }
 
-  @include screen {
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+@include screen {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-      .app {
-        width: 100%;
-        max-width: 800px;
-        max-height: 500px;
-      }
-    }
+  .app {
+    width: 100%;
+    max-width: 800px;
+    max-height: 500px;
+  }
+}
+
+.explosion {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  background: url(../assets/images/explosion.png);
+  background-size: 100% 100%;
+  animation: explode .2s;
+  animation-timing-function: linear;
+
+
+  @keyframes explode {
+    100% { transform: scale(3); }
+  }
+}
+
+.bullet {
+  border-radius: 50%;
+  background: black;
+  position: absolute;
+}

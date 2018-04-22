@@ -1,29 +1,14 @@
 import eventBus from '@/utils/eventBus';
-import { wait } from '@/utils/functions';
+import { wait, getElementCenter } from '@/utils/functions';
 
-export const explodingTime = 350;
-let bullet = 0;
-
-async function emitExplosion(subject) {
-	eventBus.$emit(`${subject}-explodes`);
-	await wait(explodingTime - 50);
-
-	if (process.env.NODE_ENV === 'development' && window.LOOP_EXPLOSION) {
-		async function loopExplosion() {
-			eventBus.$emit(`${subject}-explodes`);
-			await wait(1000);
-			await loopExplosion();
-		}
-		await loopExplosion();
-	}
-}
+let bullets = 0;
 
 function emitScore(subject, score) {
 	eventBus.$emit(`${subject}-score`, score);
 }
 
 async function emitShot(subject) {
-	const bulletId = bullet++;
+	const bulletId = bullets++;
 	eventBus.$emit(`${subject}-shots`, bulletId);
 	await waitForBullet(bulletId);
 }
@@ -36,17 +21,26 @@ function waitForBullet(bulletId) {
 	});
 }
 
+function explode(selector) {
+	const position = getElementCenter(selector);
+	const explosionSize = 80;
+	const marker = `
+		<div
+			class="explosion"
+			style="
+				width: ${explosionSize}px;
+				height: ${explosionSize}px;
+				left: ${position.left - explosionSize/2}px;
+				top: ${position.top - explosionSize/2}px;
+			"
+			onanimationend="this.parentNode.removeChild(this)"
+		/>
+		</div>
+	`;
+	document.querySelector('body').insertAdjacentHTML('beforeend', marker);
+};
 
 export default {
-	async heroExplodes() {
-		await emitExplosion('hero');
-	},
-
-	async foeExplodes(score) {
-		emitScore('foe', score);
-		await emitExplosion('foe');
-	},
-
 	async heroShots() {
 		await emitShot('hero');
 	},
@@ -66,4 +60,18 @@ export default {
 			// setTimeout(reject, 5000);
 		});
 	},
+
+	async foeExplodes() {
+		explode('#foe-vehicle');
+		await wait(100);
+	},
+
+	async heroExplodes() {
+		explode('#hero-vehicle');
+		await wait(100);
+	},
+
+
 };
+
+window.explode = explode;

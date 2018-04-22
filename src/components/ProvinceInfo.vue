@@ -1,5 +1,5 @@
 <template>
-	<div v-if="province">
+	<div v-if="showCurrentProvince && province">
 		<p class="province-info">Stage {{ province.number }}. {{ province.name }}</p>
 	</div>
 </template>
@@ -12,6 +12,7 @@
 		computed: {
 			...mapState([
 				'province',
+				'showCurrentProvince',
 			]),
 		},
 	};

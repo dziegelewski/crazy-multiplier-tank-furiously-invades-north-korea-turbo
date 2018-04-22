@@ -5,23 +5,19 @@
 				v-if="isGameMode"
 				id="hero-vehicle"
 				:name="hero.name"
-				class="animated-area__vehicle animated-area__vehicle--left"
+				class="animated-area__vehicle"
+				data-direction="right"
 			/>
-
-			<div class="bullet bullet--hero" id="hero-bullet"/>
 
 			<transition name="arrive">
 				<Vehicle
 					v-if="foe"
 					id="foe-vehicle"
 					:name="foe.name"
-					class="animated-area__vehicle animated-area__vehicle--right"
-					:class="{rushing: foeRushing}"
+					class="animated-area__vehicle"
+					data-direction="left"
 				/>
 			</transition>
-
-			<div class="bullet bullet--foe" id="foe-bullet" />
-
 		</div>
 
 		<GrassLeaves class="animated-area__grass-leaves" />
@@ -38,8 +34,8 @@
 	import { mapState, mapGetters } from 'vuex';
 	import eventBus from '@/utils/eventBus';
 	import shot from '@/utils/shot';
-	import { detectCollision } from '@/utils/collision';
-	
+	import { detectCollision, elementTranslate } from '@/utils/collision';
+
 	export default {
 		name: 'AnimatedArea',
 
@@ -47,12 +43,6 @@
 			GrassLeaves,
 			Vehicle,
 			PerkPath,
-		},
-
-		data() {
-			return {
-				foeRushing: false,
-			};
 		},
 
 		computed: {
@@ -69,36 +59,40 @@
 
 		methods: {
 
+			getVehicle(owner) {
+				return this.$el.querySelector(`#${owner}-vehicle`);
+			},
+
 			heroShots(bulletId) {
 				shot({
 					bulletId,
-					diretion: 'right',
-					shooter: this.$el.querySelector('#hero-vehicle'),
-					target: this.$el.querySelector('#foe-vehicle'),
-					bullet: this.$el.querySelector('#hero-bullet'),
+					shooter: this.getVehicle('hero'),
+					target: this.getVehicle('foe'),
 				});
 			},
 
 			foeShots(bulletId) {
 				shot({
 					bulletId,
-					diretion: 'left',
-					shooter: this.$el.querySelector('#foe-vehicle'),
-					target: this.$el.querySelector('#hero-vehicle'),
-					bullet: this.$el.querySelector('#foe-bullet'),
+					shooter: this.getVehicle('foe'),
+					target: this.getVehicle('hero'),
 				});
 			},
 
 			foeRushes() {
-				this.foeRushing = true;
-				detectCollision(
-					this.$el.querySelector('#foe-vehicle'),
-					this.$el.querySelector('#hero-vehicle'),
-					'left',
-				).then(() => {
+				const foeVehicle = this.getVehicle('foe');
+				const heroVehicle = this.getVehicle('hero');
+				const moveFoe = elementTranslate(foeVehicle, 0);
+
+				const rushingInterval = setInterval(() => {
+					moveFoe(-30);
+				}, 10)
+
+				detectCollision(foeVehicle,	heroVehicle, 'left')
+				.then(() => {
+					clearInterval(rushingInterval);
 					eventBus.$emit('impact');
-					this.foeRushing = false;
-				});
+				})
 			},
 		},
 
@@ -143,38 +137,13 @@
 			bottom: 0;
 			$vehicle-offset: -10%;
 
-			&--right {
+			&[data-direction="left"] {
 				right: $vehicle-offset;
 			}
 
-			&--left {
+			&[data-direction="right"] {
 				left: $vehicle-offset;
 			}
 		}
-
-
-		.bullet {
-	    width: 10px;
-	    height: 10px;
-	    border-radius: 50%;
-	    background: black;
-	    bottom: 40px;
-	    position: absolute;
-	    display: none;
-
-	    &--hero {
-	    	left: 125px;
-	    }
-
-	    &--foe {
-	    	right: 125px;
-	    }
-	  }
-
-	  .rushing {
-	  	transition: 0.5s transform;
-	  	// transition-timing-function: linear;
-	  	transform: translateX(-500px);
-	  }
 	}
 </style>

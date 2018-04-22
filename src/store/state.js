@@ -22,6 +22,7 @@ export const generateInitialState = () => ({
   musicEnabled: retrieve('musicEnabled', { default: isDeviceBig() }),
 
   incomingPerk: null,
+  showCurrentProvince: false,
 
   highscore: retrieve('highscore', { default: 0 }),
 

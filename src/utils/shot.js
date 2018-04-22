@@ -1,18 +1,19 @@
 import { playSound } from '@/utils/audio';
 import eventBus from '@/utils/eventBus';
-import { byDirection, showElement, hideElement, doUntil } from '@/utils/functions';
+import { byDirection, showElement, hideElement, doUntil, createElementFromHTMLString, getElementCannonPosition, getElementDirection } from '@/utils/functions';
 import { collisionDetector, elementTranslate } from '@/utils/collision';
 
 const BULLET_STARTING_POSITION = 0;
 
-export default function shot({ bulletId, shooter, target, bullet, diretion }) {
-	if (!shooter || !target || !bullet) return;
+export default function shot({ bulletId, shooter, target }) {
+	if (!shooter) return;
 
+	const diretion = getElementDirection(shooter);
+	const bullet = createBullet(shooter);
 	const bulletSpeed = byDirection(15, diretion);
 	const moveBullet = elementTranslate(bullet, BULLET_STARTING_POSITION);
 	const detectCollision = collisionDetector(bullet, target, diretion);
 
-	showElement(bullet);
 	playSound('shot');
 
 	doUntil({
@@ -26,7 +27,27 @@ export default function shot({ bulletId, shooter, target, bullet, diretion }) {
 }
 
 function shotSuccess(bullet, bulletId) {
-	hideElement(bullet);
+	bullet.parentNode.removeChild(bullet)
 	playSound('hit');
 	eventBus.$emit('gotcha', bulletId);
+}
+
+function createBullet(shooter) {
+	const position = getElementCannonPosition(shooter);
+	const bulltetSize = 10;
+	const bullet = `
+		<div
+			class="bullet"
+			style="
+				width: ${bulltetSize}px;
+				height: ${bulltetSize}px;
+				left: ${position.left - bulltetSize/2}px;
+				top: ${position.top - bulltetSize/2}px;
+			"
+		/>
+		</div>
+	`;
+	const element = createElementFromHTMLString(bullet);
+	document.querySelector('body').insertAdjacentElement('beforeend', element);
+	return element;
 }

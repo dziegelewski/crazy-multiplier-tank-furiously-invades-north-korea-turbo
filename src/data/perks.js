@@ -26,10 +26,17 @@ export const foresight = {
 	longName: 'Foresight',
 };
 
-// export const doubleShooter = {
-// 	shortName: 'doubleShooter',
-// 	longName: 'Double Shooter',
+export const doubleShooter = {
+	shortName: 'doubleShooter',
+	longName: 'Double Shooter',
+};
+
+// export const counterStrike = {
+// 	shortName: 'counterStrike',
+// 	longName: 'Counter Strike',
 // };
+
+
 
 // export const fastReload = {
 // 	shortName: 'fastReload',
@@ -41,6 +48,8 @@ const perks = [
 	extraScore,
 	extraTime,
 	foresight,
+	doubleShooter,
+	// counterStrike,
 ];
 
 export const randomPerk = () => sample(perks);

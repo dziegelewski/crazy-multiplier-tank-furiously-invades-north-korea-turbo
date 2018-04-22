@@ -52,3 +52,49 @@ export const doUntil = (config) => {
 		}
 	});
 };
+
+export const getElementDirection = (element) => {
+	const direction = element.getAttribute('data-direction');
+	if (!direction) {
+		throw new Error('Element has an undefined direction');
+	}
+	return direction;
+}
+
+export const smartQuerySelector = (target) => target instanceof HTMLElement ? target : document.querySelector(target);
+
+export const getElementCenter = (target) => {
+	const element = smartQuerySelector(target);
+	const rect = element.getBoundingClientRect();
+
+	const width = element.offsetWidth;
+	const height = element.offsetHeight;
+
+	return {
+		left: rect.left + width / 2,
+		top: rect.top + height / 2,
+	};
+};
+
+export const getElementCannonPosition = (target) => {
+	const element = smartQuerySelector(target);
+	const rect = element.getBoundingClientRect();
+
+	const width = element.offsetWidth;
+	const height = element.offsetHeight;
+	const direction = getElementDirection(element);
+
+	const fromGroundToCannon = height / 5;
+
+	return {
+		left: rect[direction],
+		top: rect.top + fromGroundToCannon + height / 2,
+	};
+};
+
+
+export function createElementFromHTMLString(htmlString) {
+  var div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
+  return div.firstChild; 
+}

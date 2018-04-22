@@ -41,8 +41,8 @@ export default {
     saveData('highscore', highscore);
   },
 
-  foeLoosesHeart(state) {
-    state.foe.hurt();
+  foeLoosesHeart(state, damage) {
+    state.foe.hurt(damage);
   },
 
   secondPassed(state) {
@@ -78,6 +78,10 @@ export default {
 
   updateIncomingPerk(state, perk) {
     state.incomingPerk = perk;
+  },
+
+  currentProvinceVisibility(state, bool) {
+    state.showCurrentProvince = bool;
   },
 
 	//

@@ -37,11 +37,13 @@ export default {
     });
 
     await wait(moment);
+    commit('currentProvinceVisibility', true);
     dispatch('sendFoe');
   },
 
   async provinceCleared({ state, commit, dispatch }) {
     if (state.hero.isDefeated) return;
+    commit('currentProvinceVisibility', false);
 		// commit('changeProvince', null);
     await wait(moment);
     commit('heroLoosesPerks');
@@ -111,14 +113,13 @@ export default {
     }
   },
 
-  async challengeBeated({ commit, dispatch }) {
+  async challengeBeated({ commit, dispatch, state }) {
     commit('updateSummary', { hits: 1 });
     await dispatch('heroShots');
-    // if (state.hero.hasPerk('doubleShooter')) {
-    //   await wait(250);
-    //   console.log('heroShots again!')
-    //   dispatch('heroShots');
-    // }
+    if (state.hero.hasPerk('doubleShooter')) {
+      await wait(150);
+      dispatch('heroShots');
+    }
   },
 
   async heroShots({ state, dispatch }) {
@@ -156,8 +157,8 @@ export default {
   async foeRushes({ dispatch }) {
     await animate.foeRushes();
     playSound('impact');
+    dispatch('foeHit', 9);
     dispatch('heroHit');
-    dispatch('foeDefeated');
   },
 
   async foeNukes({ dispatch, commit }) {
@@ -174,7 +175,7 @@ export default {
     commit('heroLoosesHeart', damage);
     if (state.hero.isDefeated) {
       playSound('destroy');
-      await animate.heroExplodes();
+      animate.heroExplodes();
       dispatch('gameOver');
     } else {
       commit('restartChallenge');
@@ -240,7 +241,7 @@ export default {
       commit('updateSummary', { isHighscore: 1 });
     }
 
-    await animate.foeExplodes(receivedScores);
+    animate.foeExplodes(receivedScores);
 
 		commit("changeFoe", null);
     await wait(moment);

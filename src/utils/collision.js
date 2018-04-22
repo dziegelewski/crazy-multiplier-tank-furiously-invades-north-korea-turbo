@@ -1,9 +1,11 @@
-import { oppositeDirection } from '@/utils/functions';
+import { oppositeDirection, getElementDirection } from '@/utils/functions';
 
 const createPositionGetter = (element, diretion) => () => element.getBoundingClientRect()[diretion];
 
 export function collisionDetector(firstElement, secondElement, diretion) {
 	if (!diretion) throw new Error('Direction is obligatory');
+	if (!firstElement || !secondElement) return () => false;
+
 	const getFirstElementPosition = createPositionGetter(firstElement, diretion);
 	const getSecondElementPosition = createPositionGetter(secondElement, oppositeDirection(diretion));
 

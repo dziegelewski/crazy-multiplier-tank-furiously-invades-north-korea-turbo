@@ -13,14 +13,13 @@ const perks = require('@/data/perks');
 	testingOn is necessary for any senario to work. 
 */
 
-
 const scenarios = [
 	// 'testingOn',
 
 	// 'logScenarios',
 
 	// 'haste',
-	// 'mute',
+	'mute',
 	'testKeyboard',
 	'autoBegin',
 	// 'loopExplosion',
@@ -30,9 +29,9 @@ const scenarios = [
 	// 'foeWontShot',
 	// 'foeShotsFast',
 
-	// { province: 11 },
-	{ foes: [foes.atom1] },
-	// { perks: [perks.foresight] },
+	{ province: 1 },
+	{ foes: [ foes.van1 ] },
+	{ perks: [ perks.doubleShooter ] },
 
 	// 'factorsTable',
 ];
