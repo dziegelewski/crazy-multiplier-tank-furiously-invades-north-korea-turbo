@@ -4,6 +4,7 @@
 				v-for="unit in timeout"
 				:key="unit"
 				class="timeout-counter__unit"
+				:class="{'timeout-counter__unit--extra': unit <= extraTime }"
 			/>
 		</transition-group>
 </template>
@@ -13,6 +14,11 @@
 		name: 'TimeoutCounter',
 		props: {
 			timeout: {
+				type: Number,
+				required: true,
+			},
+
+			extraTime: {
 				type: Number,
 				required: true,
 			},
@@ -40,6 +46,11 @@
 			width: 4px;
 			height: 3px;
 			margin-left: 1px;
+
+			&--extra {
+				border-color: blue;
+				background: blue;
+			}
 		}
 	}
 </style>

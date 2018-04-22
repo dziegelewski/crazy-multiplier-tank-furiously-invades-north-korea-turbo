@@ -24,9 +24,10 @@ class Foe extends Vehicle {
     this.score = score;
   }
 
-  throwChallenge() {
+  throwChallenge({ extraTime }) {
     return new Challenge({
       level: this.power,
+      extraTime,
       ...this,
     });
   }

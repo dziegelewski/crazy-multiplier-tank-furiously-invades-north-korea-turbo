@@ -21,4 +21,19 @@ export async function tellAStory(dispatch, story) {
   }
 }
 
-export const randomPerk = () => sample(perks);
+export const randomPerk = (state) => {
+  const provinceNumber = state ? state.province.number : 1;
+  // eslint-disable-next-line
+  const availablePerks = Object.values(perks).filter((perk) => {
+    return !perk.minProvince || provinceNumber >= perk.minProvince;
+  });
+  return sample(availablePerks);
+};
+
+const hasPerkHelper = perkName => state => state.hero.hasPerk(perkName);
+
+export const doubleShooter = hasPerkHelper('doubleShooter');
+export const foresight = hasPerkHelper('foresight');
+export const extraTime = hasPerkHelper('extraTime');
+export const swiftReload = hasPerkHelper('swiftReload');
+// export const doubleShooter = hasPerkHelper('doubleShooter');

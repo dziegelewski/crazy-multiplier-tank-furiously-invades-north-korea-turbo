@@ -14,7 +14,7 @@ const foes = require('@/data/foes');
 */
 
 const scenarios = [
-	// 'testingOn',
+	'testingOn',
 
 	// 'logScenarios',
 
@@ -23,15 +23,15 @@ const scenarios = [
 	'testKeyboard',
 	'autoBegin',
 	// 'loopExplosion',
-	// 'heroImmortal',
+	'heroImmortal',
 
 	// 'foeWontCome',
 	// 'foeWontShot',
 	// 'foeShotsFast',
 
 	{ province: 1 },
-	{ foes: [ foes.van1 ] },
-	{ perks: [ perks.doubleShooter ] },
+	// { foes: [ foes.van1 ] },
+	// { perks: [ perks.swiftReload ] },
 
 	// 'factorsTable',
 ];

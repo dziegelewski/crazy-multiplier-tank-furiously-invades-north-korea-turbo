@@ -9,6 +9,7 @@ class Challenge {
     level = 1,
     numberOfFactors = 2,
     time = 5,
+    extraTime = 0,
     factors,
     toThePowerOf,
     factorsModifiers,
@@ -16,6 +17,9 @@ class Challenge {
     this.id = challengeId++;
     this.level = level;
     this.numberOfFactors = numberOfFactors;
+
+    time += extraTime;
+    this.extraTime = extraTime;
     this.maxTimeout = time;
     this.leftTimeout = time;
 

@@ -5,7 +5,15 @@ import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
 import { oneSecond, tinyMoment, moment, longMoment } from '@/utils/waiting';
 import { putInGear } from '@/utils/gear';
-import { willPerkBeFound, randomPerk, tellAStory } from '@/store/helpers';
+import {
+  tellAStory,
+  willPerkBeFound,
+  randomPerk,
+  doubleShooter,
+  foresight,
+  extraTime,
+  swiftReload,
+} from '@/store/helpers';
 
 export default {
 
@@ -60,8 +68,9 @@ export default {
     dispatch('enterNextProvince');
   },
 
-  async getPerk(context, perk = randomPerk()) {
-    const { commit, dispatch } = context;
+  async getPerk(context, perk) {
+    const { state, commit, dispatch } = context;
+    perk = perk || randomPerk(state);
     putInGear(1);
     commit('updateIncomingPerk', perk);
     await animate.getPerk(perk);
@@ -89,9 +98,11 @@ export default {
   throwChallenge({ state, commit, dispatch }) {
     if (!state.foe) return;
 
-    const challenge = state.foe.throwChallenge();
+    const challenge = state.foe.throwChallenge({
+      extraTime: extraTime(state) ? 2 : 0,
+    });
 
-    if (state.hero.hasPerk('foresight')) {
+    if (foresight(state)) {
       challenge.addHint();
     }
 
@@ -115,7 +126,7 @@ export default {
   async challengeBeated({ commit, dispatch, state }) {
     commit('updateSummary', { hits: 1 });
     await dispatch('heroShots');
-    if (state.hero.hasPerk('doubleShooter')) {
+    if (doubleShooter(state)) {
       await wait(150);
       dispatch('heroShots');
     }
@@ -252,16 +263,24 @@ export default {
 		}
 	},
 
-  async incorrectAnswer({ commit, dispatch }) {
+  async incorrectAnswer({ state, commit, dispatch }) {
     commit('lockTyping');
     commit('restartChallenge');
 
     playSound('misfire');
-    await dispatch('displayMessage', {
-      text: 'Misfire!',
-      duration: 3000,
-      style: 'alert',
-    });
+
+    if (swiftReload(state)) {
+      await dispatch('displayMessage', {
+        text: 'Swift Reload!',
+        duration: 1000,
+      });
+    } else {
+      await dispatch('displayMessage', {
+        text: 'Misfire!',
+        duration: 3000,
+        style: 'alert',
+      });
+    }
 
     commit('unlockTyping');
   },

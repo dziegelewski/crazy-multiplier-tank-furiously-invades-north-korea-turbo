@@ -10,6 +10,7 @@
 
 		<TimeoutCounter
 			v-if="isFoe && challenge"
+			:extra-time="challenge.extraTime"
 			:timeout="challenge.leftTimeout"
 			:side="side"
 		/>
