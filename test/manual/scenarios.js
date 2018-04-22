@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import store from '@/store';
-import { findPerk } from '@/data/perks';
 import testKeyboard from './testKeyboard';
 import Challenge from "@/classes/Challenge";
 import provinces from '@/data/provinces';
@@ -59,15 +58,10 @@ if (use('haste')) window.HASTE_MODE_ENABLED = true;
 if (use('mute')) { store.state.musicEnabled = false; store.state.audioEnabled = false; }
 if (use('testKeyboard')) testKeyboard(store);
 if (use('autoBegin')) store.dispatch('beginGame');
-
 if (use('province')) store.state.startingProvince = scenarioVal('province');
-
 if (use('foes')) window.TESTED_FOES = scenarioVal('foes');
-
 if (use('heroImmortal')) store.state.hero.hurt = function() {};
-
 if (use('loopExplosion')) window.LOOP_EXPLOSION = true;
-
 if (use('foeWontCome')) store._actions.sendFoe = () => {};
 if (use('foeWontShot')) window.FOE_WONT_SHOT = true;
 if (use('foeShotsFast')) window.FOE_FAST_SHOT = true;
