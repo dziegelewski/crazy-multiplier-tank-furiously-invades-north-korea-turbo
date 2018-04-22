@@ -39,7 +39,7 @@ html {
       z-index: 1;
     }
 
-    &__animation-area {
+    &__animated-area {
       top: 30vh;
       @include screen {
         top: none;

@@ -1,5 +1,8 @@
 import random from 'lodash/random';
+import sample from 'lodash/sample';
 import { wait } from '@/utils/functions';
+import * as perks from '@/data/perks';
+
 
 export function willPerkBeFound(state) {
 	if (state.province.isFinalProvince) return false;
@@ -17,3 +20,5 @@ export async function tellAStory(dispatch, story) {
   	}
   }
 }
+
+export const randomPerk = () => sample(perks);

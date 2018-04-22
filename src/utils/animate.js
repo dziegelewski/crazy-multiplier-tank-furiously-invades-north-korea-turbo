@@ -3,9 +3,9 @@ import { wait, getElementCenter } from '@/utils/functions';
 
 let bullets = 0;
 
-function emitScore(subject, score) {
-	eventBus.$emit(`${subject}-score`, score);
-}
+// function emitScore(subject, score) {
+// 	eventBus.$emit(`${subject}-score`, score);
+// }
 
 async function emitShot(subject) {
 	const bulletId = bullets++;
@@ -30,15 +30,15 @@ function explode(selector) {
 			style="
 				width: ${explosionSize}px;
 				height: ${explosionSize}px;
-				left: ${position.left - explosionSize/2}px;
-				top: ${position.top - explosionSize/2}px;
+				left: ${position.left - explosionSize / 2}px;
+				top: ${position.top - explosionSize / 2}px;
 			"
 			onanimationend="this.parentNode.removeChild(this)"
 		/>
 		</div>
 	`;
 	document.querySelector('body').insertAdjacentHTML('beforeend', marker);
-};
+}
 
 export default {
 	async heroShots() {

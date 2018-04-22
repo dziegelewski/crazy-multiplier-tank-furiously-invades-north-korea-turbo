@@ -7,7 +7,7 @@
     <MenuMode v-if="isMenuMode" class="app__view" />
     <GameMode v-if="isGameMode" class="app__view" />
 
-    <AnimatedArea class="app__animation-area" />
+    <AnimatedArea class="app__animated-area" />
 
     <KeyboardWidget class="app__keyboard" />
     <KeyboardListener />

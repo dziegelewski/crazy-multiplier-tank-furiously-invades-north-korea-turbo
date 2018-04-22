@@ -4,8 +4,9 @@ import store from '@/store';
 import testKeyboard from './testKeyboard';
 import Challenge from "@/classes/Challenge";
 import provinces from '@/data/provinces';
+import * as perks from '@/data/perks';
+
 const foes = require('@/data/foes');
-const perks = require('@/data/perks');
 
 /*
 	Uncomment scenarios to test them.

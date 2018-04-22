@@ -59,9 +59,10 @@ export const getElementDirection = (element) => {
 		throw new Error('Element has an undefined direction');
 	}
 	return direction;
-}
+};
 
-export const smartQuerySelector = (target) => target instanceof HTMLElement ? target : document.querySelector(target);
+export const smartQuerySelector = target => target instanceof HTMLElement	? target
+	: document.querySelector(target);
 
 export const getElementCenter = (target) => {
 	const element = smartQuerySelector(target);
@@ -80,7 +81,7 @@ export const getElementCannonPosition = (target) => {
 	const element = smartQuerySelector(target);
 	const rect = element.getBoundingClientRect();
 
-	const width = element.offsetWidth;
+	// const width = element.offsetWidth;
 	const height = element.offsetHeight;
 	const direction = getElementDirection(element);
 
@@ -94,7 +95,7 @@ export const getElementCannonPosition = (target) => {
 
 
 export function createElementFromHTMLString(htmlString) {
-  var div = document.createElement('div');
+  const div = document.createElement('div');
   div.innerHTML = htmlString.trim();
-  return div.firstChild; 
+  return div.firstChild;
 }

@@ -86,13 +86,13 @@
 
 				const rushingInterval = setInterval(() => {
 					moveFoe(-30);
-				}, 10)
+				}, 10);
 
 				detectCollision(foeVehicle,	heroVehicle, 'left')
 				.then(() => {
 					clearInterval(rushingInterval);
 					eventBus.$emit('impact');
-				})
+				});
 			},
 		},
 
@@ -115,7 +115,7 @@
 		@include screen {
 			height: 0;
 			top: initial;
-			bottom: 20%;
+			bottom: 25%;
 		}
 
 		&__center {

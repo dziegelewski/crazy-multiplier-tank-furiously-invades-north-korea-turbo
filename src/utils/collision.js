@@ -1,4 +1,4 @@
-import { oppositeDirection, getElementDirection } from '@/utils/functions';
+import { oppositeDirection } from '@/utils/functions';
 
 const createPositionGetter = (element, diretion) => () => element.getBoundingClientRect()[diretion];
 

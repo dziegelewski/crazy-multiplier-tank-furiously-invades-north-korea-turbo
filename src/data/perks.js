@@ -1,5 +1,3 @@
-import sample from 'lodash/sample';
-
 export const extraLife = {
 	shortName: 'extraLife',
 	longName: 'Extra Life',
@@ -16,10 +14,10 @@ export const extraScore = {
 	},
 };
 
-export const extraTime = {
-	shortName: 'extraTime',
-	longName: 'Extra Time',
-};
+// export const extraTime = {
+// 	shortName: 'extraTime',
+// 	longName: 'Extra Time',
+// };
 
 export const foresight = {
 	shortName: 'foresight',
@@ -36,22 +34,7 @@ export const doubleShooter = {
 // 	longName: 'Counter Strike',
 // };
 
-
-
 // export const fastReload = {
 // 	shortName: 'fastReload',
 // 	longName: 'Fast Reload',
 // };
-
-const perks = [
-	extraLife,
-	extraScore,
-	extraTime,
-	foresight,
-	doubleShooter,
-	// counterStrike,
-];
-
-export const randomPerk = () => sample(perks);
-
-export default perks;

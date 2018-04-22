@@ -4,9 +4,8 @@ import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
 import { oneSecond, tinyMoment, moment, longMoment } from '@/utils/waiting';
-import { randomPerk } from '@/data/perks';
 import { putInGear } from '@/utils/gear';
-import { willPerkBeFound, tellAStory } from '@/store/helpers';
+import { willPerkBeFound, randomPerk, tellAStory } from '@/store/helpers';
 
 export default {
 

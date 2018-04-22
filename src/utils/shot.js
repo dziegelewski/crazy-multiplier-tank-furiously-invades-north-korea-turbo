@@ -1,6 +1,6 @@
 import { playSound } from '@/utils/audio';
 import eventBus from '@/utils/eventBus';
-import { byDirection, showElement, hideElement, doUntil, createElementFromHTMLString, getElementCannonPosition, getElementDirection } from '@/utils/functions';
+import { byDirection, doUntil, createElementFromHTMLString, getElementCannonPosition, getElementDirection } from '@/utils/functions';
 import { collisionDetector, elementTranslate } from '@/utils/collision';
 
 const BULLET_STARTING_POSITION = 0;
@@ -27,7 +27,7 @@ export default function shot({ bulletId, shooter, target }) {
 }
 
 function shotSuccess(bullet, bulletId) {
-	bullet.parentNode.removeChild(bullet)
+	bullet.parentNode.removeChild(bullet);
 	playSound('hit');
 	eventBus.$emit('gotcha', bulletId);
 }
@@ -41,8 +41,8 @@ function createBullet(shooter) {
 			style="
 				width: ${bulltetSize}px;
 				height: ${bulltetSize}px;
-				left: ${position.left - bulltetSize/2}px;
-				top: ${position.top - bulltetSize/2}px;
+				left: ${position.left - bulltetSize / 2}px;
+				top: ${position.top - bulltetSize / 2}px;
 			"
 		/>
 		</div>
