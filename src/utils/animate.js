@@ -56,8 +56,7 @@ export default {
 
 	async getPerk() {
 		return new Promise((resolve/* , reject */) => {
-			eventBus.$on('catched', resolve);
-			// setTimeout(reject, 5000);
+			eventBus.$on('perk-catched', resolve);
 		});
 	},
 

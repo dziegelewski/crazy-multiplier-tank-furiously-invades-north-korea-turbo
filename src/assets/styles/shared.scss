@@ -46,8 +46,6 @@ $fast-blinking-duration: .5s;
     position: absolute;
     bottom: 0;
     width: 400%;
-    animation: var(--speed) moving infinite;
-    animation-timing-function: linear;
     height: 80px;
   }
     

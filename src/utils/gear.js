@@ -33,5 +33,6 @@ function transitionSpeed(demandedSpeed) {
 
 export function putInGear(gear) {
 	const demandedSpeed = Math.max(12 - gear, 2) * 700;
+	console.log(demandedSpeed)
 	return transitionSpeed(demandedSpeed);
 }

@@ -3,13 +3,41 @@ export default function(store) {
 	document.addEventListener('keydown', e => {
 		switch(e.key) {
 			case 'a':
-				store.dispatch('heroShots');
+				shot();
 				break;
 			break;
 			case 'b':
-				store.dispatch('foeShots');
+				foeShot()
+				break;
+			case 's':
+				changeGear();
 
+				break;
+			case 'p':
+				getPerk();
+				changeGear();
 				break;
 		}
 	})
-}	
+
+	function shot() {
+		store.dispatch('heroShots');
+	}
+
+	function foeShot() {
+		store.dispatch('foeShots');
+	}
+
+	function changeGear() {
+		const userGear = parseInt(prompt('Insert gear number'), 10);
+		if (userGear) {
+			store.commit('putInGear', userGear);
+			console.log('speed: ', store.state.speed);
+		}
+	}
+
+	function getPerk() {
+		store.dispatch('getPerk');
+	}
+	
+}

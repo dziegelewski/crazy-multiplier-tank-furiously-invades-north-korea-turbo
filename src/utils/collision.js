@@ -28,7 +28,7 @@ export function detectCollision(firstElement, secondElement, diretion) {
 			requestAnimationFrame(() => {
 				if (detect()) {
 					resolve();
-				}				else {
+				}	else {
 					checkFrame();
 				}
 			});

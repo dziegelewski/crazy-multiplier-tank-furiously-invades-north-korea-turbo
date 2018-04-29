@@ -12,8 +12,9 @@
 
 <script>
 	import eventBus from '@/utils/eventBus';
-	import { detectCollision } from '@/utils/collision';
-	
+	import { detectCollision, elementTranslate } from '@/utils/collision';
+	import { mapState } from 'vuex';
+
 	export default {
 		name: 'PerkPath',
 		props: {
@@ -25,14 +26,29 @@
 			image() {
 				return require(`../assets/images/perks/${this.perk.shortName}.png`);
 			},
+			...mapState([
+				'speed',
+			]),
 		},
 		mounted() {
 			this.$nextTick(() => {
 				const perk = document.querySelector('#perk');
 				const heroTank = document.querySelector('#hero-vehicle');
+				const movePerk = elementTranslate(perk, 0);
+				let isMoving = true;
+
+				(function move(path) {
+					movePerk(-path.speed);
+					if (isMoving) {
+						requestAnimationFrame(() => move(path));
+					}
+				}(this));
 
 				detectCollision(perk, heroTank, 'left')
-					.then(() => eventBus.$emit('catched'));
+					.then(() => {
+						eventBus.$emit('perk-catched');
+						isMoving = false;
+					});
 			});
 		},
 	};

@@ -4,7 +4,6 @@ import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
 import { playSound, startMusic, stopMusic } from '@/utils/audio';
 import { oneSecond, tinyMoment, moment, longMoment } from '@/utils/waiting';
-import { putInGear } from '@/utils/gear';
 import {
   tellAStory,
   willPerkBeFound,
@@ -31,7 +30,7 @@ export default {
       stopMusic();
     }
 
-    putInGear(provinceNumber + 3);
+    commit('putInGear', provinceNumber + 3);
 
     const province = new Province(provinceNumber);
     commit('changeProvince', province);
@@ -71,7 +70,7 @@ export default {
   async getPerk(context, perk) {
     const { state, commit, dispatch } = context;
     perk = perk || randomPerk(state);
-    putInGear(1);
+    commit('putInGear', 1);
     commit('updateIncomingPerk', perk);
     await animate.getPerk(perk);
     commit('updateIncomingPerk', null);
@@ -177,7 +176,7 @@ export default {
     commit('heroLoosesHeart', 9);
     animate.heroExplodes();
     dispatch('foeDefeated');
-    await wait(5000);
+    await wait(7000);
     dispatch('gameOver');
   },
 
@@ -349,8 +348,8 @@ export default {
     commit('changeMessage', null);
   },
 
-  async heroWonGame({ dispatch }) {
-    putInGear(3);
+  async heroWonGame({ commit, dispatch }) {
+    commit('putInGear', 3);
     await wait(longMoment);
     await tellAStory(dispatch, [
       'Well done.',

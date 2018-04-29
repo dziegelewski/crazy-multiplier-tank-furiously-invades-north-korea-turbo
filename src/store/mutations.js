@@ -142,4 +142,8 @@ export default {
       state.summary[key] += value;
     });
   },
+
+  putInGear(state, gear) {
+    state.speed = gear;
+  },
 };

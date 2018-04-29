@@ -3,7 +3,6 @@ import sample from 'lodash/sample';
 import { wait } from '@/utils/functions';
 import * as perks from '@/data/perks';
 
-
 export function willPerkBeFound(state) {
 	if (state.province.isFinalProvince) return false;
   return random(0, 1) === 0;
@@ -36,4 +35,4 @@ export const doubleShooter = hasPerkHelper('doubleShooter');
 export const foresight = hasPerkHelper('foresight');
 export const extraTime = hasPerkHelper('extraTime');
 export const swiftReload = hasPerkHelper('swiftReload');
-// export const doubleShooter = hasPerkHelper('doubleShooter');
+// export const xxx = hasPerkHelper('xxx');

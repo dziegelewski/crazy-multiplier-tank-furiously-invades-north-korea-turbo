@@ -14,24 +14,24 @@ const foes = require('@/data/foes');
 */
 
 const scenarios = [
-	'testingOn',
+	// 'testingOn',
 
 	// 'logScenarios',
 
 	// 'haste',
 	'mute',
 	'testKeyboard',
-	'autoBegin',
+	// 'autoBegin',
 	// 'loopExplosion',
-	'heroImmortal',
+	// 'heroImmortal',
 
-	// 'foeWontCome',
+	'foeWontCome',
 	// 'foeWontShot',
 	// 'foeShotsFast',
 
-	{ province: 1 },
-	// { foes: [ foes.van1 ] },
-	// { perks: [ perks.swiftReload ] },
+	{ province: 7 },
+	{ foes: [ foes.hammer1, foes.cosmic1, foes.atom2 ] },
+	{ perks: [ perks.swiftReload ] },
 
 	// 'factorsTable',
 ];
@@ -58,7 +58,7 @@ if (!use()) return;
 if (use('haste')) window.HASTE_MODE_ENABLED = true;
 if (use('mute')) { store.state.musicEnabled = false; store.state.audioEnabled = false; }
 if (use('testKeyboard')) testKeyboard(store);
-if (use('autoBegin')) store.dispatch('beginGame');
+if (use('autoBegin') || use('province')) store.dispatch('beginGame');
 if (use('province')) store.state.startingProvince = scenarioVal('province');
 if (use('foes')) window.TESTED_FOES = scenarioVal('foes');
 if (use('heroImmortal')) store.state.hero.hurt = function() {};
