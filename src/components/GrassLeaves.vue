@@ -8,7 +8,7 @@
 	import sample from 'lodash/sample';
 
 	const fieldSize = 30;
-	const numberOfFields = 20;
+	const numberOfFields = 30;
 
 	export default {
 		name: 'GrassLeaves',
