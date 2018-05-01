@@ -23,7 +23,8 @@ export const generateInitialState = () => ({
 
   incomingPerk: null,
   showCurrentProvince: false,
-  speed: 7,
+  baseSpeed: 3,
+  speed: 0,
 
   highscore: retrieve('highscore', { default: 0 }),
 

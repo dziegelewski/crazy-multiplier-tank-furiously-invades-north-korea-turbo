@@ -1,22 +1,36 @@
+import { musicName } from '@/data/audioGroups';
 import store from '@/store';
 import { nonNegative } from '@/utils/functions';
 
-const MUSIC_NAME = 'vivaldi';
-const sounds = [
-	'bonus',
-	'destroy',
-	'hit',
-	'impact',
-	'misfire',
-	'nuke',
-	'shot',
-	'keydown',
-	MUSIC_NAME,
-].reduce((total, soundName) => ({
-		...total,
-		[soundName]: new Audio(require(`../assets/sounds/${soundName}.mp3`)),
-	}), {});
+const player = {};
 
+export async function loadAudio(soundsNames = []) {
+	const soundsToLoad = soundsNames.map(soundName => new Promise((resolve) => {
+		if (soundAlreadyLoaded(soundName)) resolve();
+		const sound = new Audio(require(`../assets/sounds/${soundName}.mp3`));
+
+		function onComplete() {
+			player[soundName] = sound;
+			this.removeEventListener('canplaythrough', onComplete);
+			this.removeEventListener('error', onComplete);
+			resolve();
+		}
+
+		sound.load();
+		sound.addEventListener('canplaythrough', onComplete);
+		sound.addEventListener('error', onComplete);
+	}));
+
+	return Promise.all(soundsToLoad);
+}
+
+export function audioNeedsLoading(soundNames = []) {
+	return !soundNames.every(soundAlreadyLoaded);
+}
+
+function soundAlreadyLoaded(soundName) {
+	return player[soundName] && player[soundName].readyState === 4;
+}
 
 function isAudioEnabled() {
 	return store.state.audioEnabled;
@@ -27,8 +41,8 @@ function isMusicEnabled() {
 }
 
 function rewindAndPlay(soundName) {
-	sounds[soundName].currentTime = 0;
-	sounds[soundName].play();
+	player[soundName].currentTime = 0;
+	player[soundName].play();
 }
 
 export function playSound(soundName) {
@@ -39,21 +53,19 @@ export function playSound(soundName) {
 
 export function startMusic() {
 	if (isMusicEnabled()) {
-		sounds[MUSIC_NAME].volume = 1;
-		sounds[MUSIC_NAME].loop = true;
-		rewindAndPlay(MUSIC_NAME);
+		player[musicName].volume = 1;
+		player[musicName].loop = true;
+		rewindAndPlay(musicName);
 	}
 }
 
 export function stopMusic() {
-	fadeSound(MUSIC_NAME)
-		.then(() => pauseSound(MUSIC_NAME));
+	fadeSound(musicName)
+		.then(() => pauseSound(musicName));
 }
 
-window.stopMusic = stopMusic;
-
 function pauseSound(soundName) {
-	sounds[soundName].pause();
+	player[soundName].pause();
 }
 
 function fadeSound(soundName) {
@@ -61,9 +73,9 @@ function fadeSound(soundName) {
 
 	return new Promise((resolve) => {
 		fadingInterval = setInterval(() => {
-			const soundVolume = sounds[soundName].volume;
+			const soundVolume = player[soundName].volume;
 			const soundLowerVolume = nonNegative(soundVolume - 0.1);
-			sounds[soundName].volume = soundLowerVolume;
+			player[soundName].volume = soundLowerVolume;
 
 			if (!soundLowerVolume) {
 				clearInterval(fadingInterval);

@@ -18,6 +18,10 @@ export default {
     return state.mode === 'menu';
   },
 
+  isLoadingMode(state) {
+    return state.mode === 'loading';
+  },
+
   isNukeMode(state) {
     return state.mode === 'nuke';
   },

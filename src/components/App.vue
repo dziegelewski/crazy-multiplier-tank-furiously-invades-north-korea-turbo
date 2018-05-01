@@ -6,6 +6,7 @@
 
     <MenuMode v-if="isMenuMode" class="app__view" />
     <GameMode v-if="isGameMode" class="app__view" />
+    <LoadingMode v-if="isLoadingMode" class="app__view" />
 
     <AnimatedArea class="app__animated-area" />
 
@@ -19,6 +20,7 @@
   import KeyboardListener from '@/components/KeyboardListener';
   import GameMode from '@/components/GameMode';
   import MenuMode from '@/components/MenuMode';
+  import LoadingMode from '@/components/LoadingMode';
   import AnimatedArea from '@/components/AnimatedArea';
   import { mapGetters, mapActions } from 'vuex';
 
@@ -30,11 +32,13 @@ export default {
     KeyboardListener,
     GameMode,
     MenuMode,
+    LoadingMode,
   },
 
   methods: {
     ...mapActions([
       'beginGame',
+      'startApp',
     ]),
   },
 
@@ -42,8 +46,13 @@ export default {
     ...mapGetters([
       'isMenuMode',
       'isGameMode',
+      'isLoadingMode',
       'isNukeMode',
     ]),
+  },
+
+  created() {
+    this.startApp();
   },
 };
 </script>

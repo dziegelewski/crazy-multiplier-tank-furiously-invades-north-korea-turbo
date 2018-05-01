@@ -2,7 +2,8 @@ import Province from '@/classes/Province';
 import { finalProvinceNumber } from '@/data/provinces';
 import { wait } from '@/utils/functions';
 import animate from '@/utils/animate';
-import { playSound, startMusic, stopMusic } from '@/utils/audio';
+import { menuAudio } from '@/data/audioGroups';
+import { playSound, startMusic, stopMusic, loadAudio } from '@/utils/audio';
 import { oneSecond, tinyMoment, moment, longMoment } from '@/utils/waiting';
 import {
   tellAStory,
@@ -13,6 +14,7 @@ import {
   extraTime,
   swiftReload,
 } from '@/store/helpers';
+import loadAssets from '@/store/loadAssets';
 
 export default {
 
@@ -30,7 +32,7 @@ export default {
       stopMusic();
     }
 
-    commit('putInGear', provinceNumber + 3);
+    commit('putInGear', provinceNumber);
 
     const province = new Province(provinceNumber);
     commit('changeProvince', province);
@@ -70,7 +72,7 @@ export default {
   async getPerk(context, perk) {
     const { state, commit, dispatch } = context;
     perk = perk || randomPerk(state);
-    commit('putInGear', 1);
+    commit('putInGear');
     commit('updateIncomingPerk', perk);
     await animate.getPerk(perk);
     commit('updateIncomingPerk', null);
@@ -191,11 +193,19 @@ export default {
     }
   },
 
-
   // -------
 
+  startApp({ commit }) {
+    commit('putInGear');
+    loadAudio(menuAudio);
+  },
+
+  loadAssets,
+
 	async beginGame({ state, commit, dispatch }) {
+    await dispatch('loadAssets');
     commit('resetState');
+    commit('putInGear');
     commit('changeMode', 'play');
     commit('addGame');
     await wait(moment);
@@ -349,7 +359,7 @@ export default {
   },
 
   async heroWonGame({ commit, dispatch }) {
-    commit('putInGear', 3);
+    commit('putInGear');
     await wait(longMoment);
     await tellAStory(dispatch, [
       'Well done.',

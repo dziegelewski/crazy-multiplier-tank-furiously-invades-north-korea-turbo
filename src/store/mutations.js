@@ -143,7 +143,7 @@ export default {
     });
   },
 
-  putInGear(state, gear) {
-    state.speed = gear;
+  putInGear(state, gear = 0) {
+    state.speed = state.baseSpeed + gear;
   },
 };

@@ -3,7 +3,6 @@ import provinces, { finalProvinceNumber } from '@/data/provinces';
 import provinceFoe from '@/data/foes-in-provinces';
 import { nonNegative } from '@/utils/functions';
 
-
 class Province {
   constructor(number) {
     if (!number) throw Error('province number must be equal at least 1');

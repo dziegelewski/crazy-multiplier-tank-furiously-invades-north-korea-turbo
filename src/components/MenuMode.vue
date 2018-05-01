@@ -1,8 +1,13 @@
 <template>
-	<div class="menu-view">
+	<div
+		class="menu-view"
+		v-show="isMenuVisible"
+	>
 
 	<img v-if="isFirstGame"
-		class="menu-view__logo" src="../assets/images/logo.png" alt=""
+		class="menu-view__logo"
+		src="../assets/images/logo.png" alt=""
+		@load="logoLoaded"
 	/>
 
 	<GameSummary v-else />
@@ -45,7 +50,6 @@
 	import GameSummary from '@/components/GameSummary';
 	import { mapState, mapGetters } from 'vuex';
 
-
 	export default {
 		name: 'MenuView',
 		components: {
@@ -53,6 +57,13 @@
 			MenuOption,
 			GameSummary,
 		},
+
+		data() {
+			return {
+				isLogoLoaded: false,
+			};
+		},
+
 		computed: {
 			...mapState([
 				'menuInput',
@@ -64,6 +75,16 @@
 			...mapGetters([
 				'isFirstGame',
 			]),
+
+			isMenuVisible() {
+				return this.isLogoLoaded || !this.isFirstGame;
+			},
+		},
+
+		methods: {
+			logoLoaded() {
+				this.isLogoLoaded = true;
+			},
 		},
 
 	};
