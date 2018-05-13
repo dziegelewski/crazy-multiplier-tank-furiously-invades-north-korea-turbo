@@ -2,7 +2,7 @@
 	<!-- <transition name="fade"> -->
 		<div class="the-message">
 			<p
-				v-for="line in messageText"
+				v-for="line in messageLines"
 				class="the-message__message"
 				:class="className"
 				>
@@ -30,9 +30,8 @@
 				return this.style ? `the-message__message--${this.style}` : null;
 			},
 
-			messageText() {
-				const { text } = this.message;
-				return Array.isArray(text) ? text : [text];
+			messageLines() {
+				return this.message.text.split('|');
 			},
 		},
 

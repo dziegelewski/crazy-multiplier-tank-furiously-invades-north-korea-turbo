@@ -20,7 +20,7 @@ function waitForBullet(bulletId) {
 function explode(selector) {
 	const position = getElementCenter(selector);
 	const explosionSize = 80;
-	const marker = createElementFromHTMLString(`
+	const explosion = createElementFromHTMLString(`
 		<div
 			class="explosion"
 			style="
@@ -33,8 +33,8 @@ function explode(selector) {
 		</div>
 	`);
 
-	marker.addEventListener('animationend', removeThis);
-	appendToBody(marker);
+	explosion.addEventListener('animationend', removeThis);
+	appendToBody(explosion);
 }
 
 function displayScoresCounter(scores, target) {

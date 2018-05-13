@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 import Vue from 'vue';
-import { saveData } from '@/utils/retrieve';
 import { generateInitialState } from '@/store/state';
+import { saveData } from '@/utils/retrieve';
 import forOwn from 'lodash/forOwn';
 
 export default {
@@ -21,6 +21,33 @@ export default {
     }
   },
 
+  scored(state, score) {
+    state.score += score;
+  },
+
+  currentProvinceVisibility(state, bool) {
+    state.showCurrentProvince = bool;
+  },
+
+  changeProvince(state, province) {
+    state.province = province;
+    state.lastEnteredProvince = province.number;
+  },
+
+  updateMenuInput(state, value) {
+    state.menuInput = [value];
+  },
+
+  resetMenuInput(state) {
+    state.menuInput = [null];
+  },
+
+  toggleOption(state, optionName) {
+    const valueAfterChange = !state[optionName];
+    saveData(optionName, valueAfterChange);
+    state[optionName] = valueAfterChange;
+  },
+
   updateAnswer(state, number) {
     state.challenge ?
 		state.challenge.input(number)
@@ -30,10 +57,6 @@ export default {
   undoAnswer(state) {
     state.challenge &&
 		state.challenge.undo();
-  },
-
-  scored(state, score) {
-    state.score += score;
   },
 
   updateHighscore(state, highscore) {
@@ -80,19 +103,8 @@ export default {
     state.incomingPerk = perk;
   },
 
-  currentProvinceVisibility(state, bool) {
-    state.showCurrentProvince = bool;
-  },
-
-	//
-
   looseDefender(state) {
     state.province.looseDefender();
-  },
-
-  changeProvince(state, province) {
-    state.province = province;
-    state.lastEnteredProvince = province.number;
   },
 
   changeChallenge(state, challenge) {
@@ -119,19 +131,6 @@ export default {
     state.typingLocked = false;
   },
 
-  updateMenuInput(state, value) {
-    state.menuInput = [value];
-  },
-
-  resetMenuInput(state) {
-    state.menuInput = [null];
-  },
-
-  toggleOption(state, optionName) {
-    const valueAfterChange = !state[optionName];
-    saveData(optionName, valueAfterChange);
-    state[optionName] = valueAfterChange;
-  },
 
   addGame(state) {
     state.games++;

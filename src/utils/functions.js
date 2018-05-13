@@ -115,7 +115,9 @@ export function createElementFromHTMLString(htmlString) {
 }
 
 export function removeElement(element) {
-	element.parentNode.removeChild(element);
+	if (element && element.parentNode) {
+		element.parentNode.removeChild(element);
+	}
 }
 
 export function removeThis() {

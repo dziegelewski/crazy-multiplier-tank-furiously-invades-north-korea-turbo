@@ -1,8 +1,8 @@
 import { audioNeedsLoading, loadAudio } from '@/utils/audio';
 import { gameAudio, musicAudio } from '@/data/audioGroups';
 
-export default async function loadAssets({ commit, state }) {
-	const { audioEnabled, musicEnabled } = state;
+export default async function loadAssets({ commit, rootState }) {
+	const { audioEnabled, musicEnabled } = rootState;
 
 	const assetsToLoad = [];
 

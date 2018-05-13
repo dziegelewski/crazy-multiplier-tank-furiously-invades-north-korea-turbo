@@ -3,7 +3,7 @@
 	   <button
 	   v-for="key in keys"
 	   :class="keyClass(key)"
-	   @click="keyPressed(key)">
+	   @touchstart="keyPressed(key)">
 	     {{ key }}
 	   </button>
 	</div>

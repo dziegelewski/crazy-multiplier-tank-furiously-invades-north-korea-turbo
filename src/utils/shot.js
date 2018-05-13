@@ -1,6 +1,6 @@
 import { playSound } from '@/utils/audio';
 import eventBus from '@/utils/eventBus';
-import { byDirection, doUntil, createElementFromHTMLString, getElementCannonPosition, getElementDirection } from '@/utils/functions';
+import { wait, byDirection, doUntil, createElementFromHTMLString, getElementCannonPosition, getElementDirection, appendToBody, removeElement } from '@/utils/functions';
 import { collisionDetector, elementTranslate } from '@/utils/collision';
 
 const BULLET_STARTING_POSITION = 0;
@@ -35,19 +35,23 @@ function shotSuccess(bullet, bulletId) {
 function createBullet(shooter) {
 	const position = getElementCannonPosition(shooter);
 	const bulltetSize = 10;
-	const bullet = `
+	const bullet = createElementFromHTMLString(`
 		<div
 			class="bullet"
 			style="
 				width: ${bulltetSize}px;
 				height: ${bulltetSize}px;
-				left: ${position.left - bulltetSize / 2}px;
-				top: ${position.top - bulltetSize / 2}px;
+				left: ${position.left - (bulltetSize / 2)}px;
+				top: ${position.top - (bulltetSize / 2)}px;
 			"
 		/>
 		</div>
-	`;
-	const element = createElementFromHTMLString(bullet);
-	document.querySelector('body').insertAdjacentElement('beforeend', element);
-	return element;
+	`);
+
+	appendToBody(bullet);
+
+	wait(3000)
+		.then(() => removeElement(bullet));
+
+	return bullet;
 }
