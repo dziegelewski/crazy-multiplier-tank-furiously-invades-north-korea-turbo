@@ -9,8 +9,8 @@ export const extraLife = {
 export const extraScore = {
 	shortName: 'extraScore',
 	longName: 'Extra Score',
-	effect({ commit }) {
-    commit('scored', 3000);
+	effect({ dispatch }) {
+		dispatch('getScores', { scores: 3000, target: 'hero' });
 	},
 };
 

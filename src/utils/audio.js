@@ -60,8 +60,10 @@ export function startMusic() {
 }
 
 export function stopMusic() {
-	fadeSound(musicName)
-		.then(() => pauseSound(musicName));
+	if (isMusicEnabled()) {
+		fadeSound(musicName)
+			.then(() => pauseSound(musicName));
+	}
 }
 
 function pauseSound(soundName) {

@@ -25,7 +25,7 @@
 		mounted() {
 			setTimeout(() => {
 				this.loaderVisible = true;
-			}, 500);
+			}, 300);
 		},
 	};
 </script>

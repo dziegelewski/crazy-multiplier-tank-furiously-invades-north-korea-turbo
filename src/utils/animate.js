@@ -1,11 +1,7 @@
 import eventBus from '@/utils/eventBus';
-import { wait, getElementCenter } from '@/utils/functions';
+import { wait, getElementCenter, createElementFromHTMLString, removeThis, getElementScorePositon, appendToBody } from '@/utils/functions';
 
 let bullets = 0;
-
-// function emitScore(subject, score) {
-// 	eventBus.$emit(`${subject}-score`, score);
-// }
 
 async function emitShot(subject) {
 	const bulletId = bullets++;
@@ -24,7 +20,7 @@ function waitForBullet(bulletId) {
 function explode(selector) {
 	const position = getElementCenter(selector);
 	const explosionSize = 80;
-	const marker = `
+	const marker = createElementFromHTMLString(`
 		<div
 			class="explosion"
 			style="
@@ -33,11 +29,33 @@ function explode(selector) {
 				left: ${position.left - explosionSize / 2}px;
 				top: ${position.top - explosionSize / 2}px;
 			"
-			onanimationend="this.parentNode.removeChild(this)"
 		/>
 		</div>
-	`;
-	document.querySelector('body').insertAdjacentHTML('beforeend', marker);
+	`);
+
+	marker.addEventListener('animationend', removeThis);
+	appendToBody(marker);
+}
+
+function displayScoresCounter(scores, target) {
+	const position = getElementScorePositon(target);
+	const counterId = `counter${new Date().getTime()}`;
+	const counter = createElementFromHTMLString(`
+		<div
+			class="score"
+			id="${counterId}"
+			style="
+				position: absolute;
+				left: ${position.left}px;
+				top: ${position.top}px;
+			"
+		>
+			${scores}
+		</div>
+	`);
+
+	counter.addEventListener('animationend', removeThis);
+	appendToBody(counter);
 }
 
 export default {
@@ -70,7 +88,6 @@ export default {
 		await wait(100);
 	},
 
+	displayScoresCounter,
 
 };
-
-window.explode = explode;

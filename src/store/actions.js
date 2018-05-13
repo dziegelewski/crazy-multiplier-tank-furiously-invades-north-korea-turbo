@@ -52,7 +52,6 @@ export default {
   async provinceCleared({ state, commit, dispatch }) {
     if (state.hero.isDefeated) return;
     commit('currentProvinceVisibility', false);
-		// commit('changeProvince', null);
     await wait(moment);
     commit('heroLoosesPerks');
     await dispatch('displayMessage', {
@@ -93,6 +92,7 @@ export default {
       duration: 3000,
     });
   },
+
 
   // -------
 
@@ -253,16 +253,14 @@ export default {
 	async foeDefeated({ state, commit, dispatch }) {
     playSound('destroy');
     commit('updateSummary', { foesKilled: 1 });
-		const receivedScores = state.foe.score;
-		commit('scored', receivedScores);
 
-    if (state.score > state.highscore) {
-      commit('updateSummary', { isHighscore: 1 });
-    }
-
-    animate.foeExplodes(receivedScores);
+		const scoresToGet = state.foe.score;
+    animate.foeExplodes();
 
 		commit("changeFoe", null);
+
+    await dispatch('getScores', { scores: scoresToGet, target: 'foe' });
+
     await wait(moment);
 
 		if (state.province.isCleared) {
@@ -271,6 +269,24 @@ export default {
 			dispatch("sendFoe");
 		}
 	},
+
+  async getScores({ state, commit, dispatch }, { scores, target }) {
+    commit('scored', scores);
+    animate.displayScoresCounter(scores, `#${target}-vehicle`);
+    if (state.score > state.highscore) {
+      await dispatch('newHighscore');
+    }
+  },
+
+  async newHighscore({ state, commit, dispatch }) {
+   commit('updateSummary', { isHighscore: 1 });
+      if (state.highscore > 0) {
+        await dispatch('displayMessage', {
+          text: 'New highscore!',
+          style: 'score',
+        });
+      }
+  },
 
   async incorrectAnswer({ state, commit, dispatch }) {
     commit('lockTyping');

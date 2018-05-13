@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Crazy Multiplier Tank Furiously Invades North Korea TURBO</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+     document.addEventListener('touchmove', function(event) {
+	    event = event.originalEvent || event;
+	    if(event.scale > 1) {
+	      event.preventDefault();
+	    }
+	  }, false);
+	  </script>
   </body>
 </html>

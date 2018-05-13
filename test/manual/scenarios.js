@@ -23,15 +23,15 @@ const scenarios = [
 	'testKeyboard',
 	// 'autoBegin',
 	// 'loopExplosion',
-	// 'heroImmortal',
+	'heroImmortal',
 
 	'foeWontCome',
 	// 'foeWontShot',
 	// 'foeShotsFast',
 
 	{ province: 7 },
-	{ foes: [ foes.hammer1, foes.cosmic1, foes.atom2 ] },
-	{ perks: [ perks.swiftReload ] },
+	// { foes: [ foes.hammer1, foes.cosmic1, foes.atom2 ] },
+	{ perks: [ perks.extraScore ] },
 
 	// 'factorsTable',
 ];

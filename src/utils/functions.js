@@ -53,16 +53,17 @@ export const doUntil = (config) => {
 	});
 };
 
-export const getElementDirection = (element) => {
+export const smartQuerySelector = target => target instanceof HTMLElement	? target
+	: document.querySelector(target);
+
+export const getElementDirection = (target) => {
+	const element = smartQuerySelector(target);
 	const direction = element.getAttribute('data-direction');
 	if (!direction) {
 		throw new Error('Element has an undefined direction');
 	}
 	return direction;
 };
-
-export const smartQuerySelector = target => target instanceof HTMLElement	? target
-	: document.querySelector(target);
 
 export const getElementCenter = (target) => {
 	const element = smartQuerySelector(target);
@@ -93,9 +94,34 @@ export const getElementCannonPosition = (target) => {
 	};
 };
 
+export const getElementScorePositon = (target) => {
+	const center = getElementCenter(target);
+	const direction = getElementDirection(target);
+
+	const xModifier = byDirection(60, direction);
+	const yModifier = -20;
+
+
+	return {
+		left: center.left + xModifier,
+		top: center.top + yModifier,
+	};
+};
 
 export function createElementFromHTMLString(htmlString) {
   const div = document.createElement('div');
   div.innerHTML = htmlString.trim();
   return div.firstChild;
+}
+
+export function removeElement(element) {
+	element.parentNode.removeChild(element);
+}
+
+export function removeThis() {
+	removeElement(this);
+}
+
+export function appendToBody(element) {
+	document.querySelector('body').insertAdjacentElement('beforeend', element);
 }
