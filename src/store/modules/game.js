@@ -40,7 +40,9 @@ export default {
 	    perk = perk || randomPerk(state);
 	    commit('putInGear');
 	    commit('updateIncomingPerk', perk);
+
 	    await animate.getPerk(perk);
+
 	    commit('updateIncomingPerk', null);
 	    playSound('bonus');
 
@@ -53,7 +55,6 @@ export default {
 	    commit('updateSummary', { perks: 1 });
 	    await dispatch('displayMessage', {
 	      text: perk.longName,
-	      duration: 3000,
 	    });
 	  },
 

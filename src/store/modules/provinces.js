@@ -37,6 +37,7 @@ export default {
 
 	  async provinceCleared({ rootState, commit, dispatch }) {
 	    if (rootState.hero.isDefeated) return;
+	    await wait(moment);
 	    commit('currentProvinceVisibility', false);
 	    await wait(moment);
 	    commit('heroLoosesPerks');

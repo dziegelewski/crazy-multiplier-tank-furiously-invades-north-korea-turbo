@@ -46,7 +46,7 @@ function displayScoresCounter(scores, target) {
 			style="
 				position: absolute;
 				width: ${counterWidth}px;
-				left: ${position.left - counterWidth/2}px;
+				left: ${position.left - counterWidth / 2}px;
 				top: ${position.top - 30}px;
 			"
 		>

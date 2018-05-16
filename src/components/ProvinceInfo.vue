@@ -1,7 +1,7 @@
 <template>
-	<div v-if="showCurrentProvince && province">
+	<transition name="slide" v-if="showCurrentProvince && province">
 		<p class="province-info">Stage {{ province.number }}. {{ province.name }}</p>
-	</div>
+	</transition>
 </template>
 
 <script>
@@ -26,4 +26,12 @@
 		@extend %small-font;
 	}
 
+	.slide-enter-active, .slide-leave-active {
+	  transition: transform 1.5s;
+	  transition-timing-function: linear;
+	}
+
+	.slide-enter, .slide-leave-to {
+	  transform: translateX(300px)
+	}
 </style>

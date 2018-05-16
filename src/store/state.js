@@ -5,30 +5,29 @@ import { isDeviceBig } from '@/utils/functions';
 export const generateInitialState = () => ({
 	mode: 'menu',
 
-  score: 0,
-  hero: new Hero({ hearts: 3, maxHearts: 9 }),
-  lastEnteredProvince: null,
-
-  startingProvince: 1,
   province: null,
+  startingProvince: 1,
+  lastEnteredProvince: null,
+  showCurrentProvince: false,
+
+  hero: new Hero({ hearts: 3, maxHearts: 9 }),
+
   foe: null,
   challenge: null,
 
   message: null,
   typingLocked: false,
-  menuInput: [null],
-
-  audioEnabled: retrieve('audioEnabled', { default: isDeviceBig() }),
-  musicEnabled: retrieve('musicEnabled', { default: isDeviceBig() }),
 
   incomingPerk: null,
-  showCurrentProvince: false,
   baseSpeed: 3,
   speed: 0,
 
-  highscore: retrieve('highscore', { default: 0 }),
-
+  score: 0,
   games: 0,
+  menuInput: [null],
+  highscore: retrieve('highscore', { default: 0 }),
+  audioEnabled: retrieve('audioEnabled', { default: isDeviceBig() }),
+  musicEnabled: retrieve('musicEnabled', { default: isDeviceBig() }),
   summary: {
     foesKilled: 0,
     shots: 0,

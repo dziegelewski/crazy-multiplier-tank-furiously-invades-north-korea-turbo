@@ -34,7 +34,7 @@
 	import { mapState, mapGetters } from 'vuex';
 	import eventBus from '@/utils/eventBus';
 	import shot from '@/utils/shot';
-	import { detectCollision, elementTranslate } from '@/utils/collision';
+	import { rush } from '@/utils/collision';
 
 	export default {
 		name: 'AnimatedArea',
@@ -80,18 +80,9 @@
 			},
 
 			foeRushes() {
-				const foeVehicle = this.getVehicle('foe');
-				const heroVehicle = this.getVehicle('hero');
-				const moveFoe = elementTranslate(foeVehicle);
-
-				const rushingInterval = setInterval(() => {
-					moveFoe(-30);
-				}, 10);
-
-				detectCollision(foeVehicle,	heroVehicle, 'left')
-				.then(() => {
-					clearInterval(rushingInterval);
-					eventBus.$emit('impact');
+				rush({
+					aggresor: this.getVehicle('foe'),
+					target: this.getVehicle('hero'),
 				});
 			},
 		},

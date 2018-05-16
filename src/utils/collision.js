@@ -1,4 +1,6 @@
-import { oppositeDirection } from '@/utils/functions';
+import eventBus from '@/utils/eventBus';
+import { byDirection, oppositeDirection, getElementDirection } from '@/utils/functions';
+
 
 const createPositionGetter = (element, diretion) => () => element.getBoundingClientRect()[diretion];
 
@@ -45,4 +47,20 @@ export function elementTranslate(element, initialPosition = 0) {
 		translation += translationModifier;
 		element.style.transform = `translateX(${translation}px)`;
 	};
+}
+
+export function rush({ aggresor, target, speed = 30 }) {
+	const diretion = getElementDirection(aggresor);
+	const moveAggresor = elementTranslate(aggresor);
+	const aggresorMovementDistance = byDirection(speed);
+
+	const rushingInterval = setInterval(() => {
+		moveAggresor(aggresorMovementDistance);
+	}, 10);
+
+	detectCollision(aggresor,	target, diretion)
+	.then(() => {
+		clearInterval(rushingInterval);
+		eventBus.$emit('impact');
+	});
 }

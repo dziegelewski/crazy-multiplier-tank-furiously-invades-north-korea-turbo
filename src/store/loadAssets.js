@@ -1,21 +1,27 @@
+import { imagesNeedsLoading, loadImages } from '@/utils/images';
 import { audioNeedsLoading, loadAudio } from '@/utils/audio';
 import { gameAudio, musicAudio } from '@/data/audioGroups';
 
 export default async function loadAssets({ commit, rootState }) {
 	const { audioEnabled, musicEnabled } = rootState;
 
-	const assetsToLoad = [];
+	if (imagesNeedsLoading()) {
+	  commit('changeMode', 'loading');
+		await loadImages();
+	}
+
+	const audioToLoad = [];
 
 	if (audioEnabled) {
-		assetsToLoad.push(...gameAudio);
+		audioToLoad.push(...gameAudio);
 	}
 
 	if (musicEnabled) {
-		assetsToLoad.push(...musicAudio);
+		audioToLoad.push(...musicAudio);
 	}
 
-	if (audioNeedsLoading(assetsToLoad)) {
+	if (audioNeedsLoading(audioToLoad)) {
 	  commit('changeMode', 'loading');
-		await loadAudio(assetsToLoad);
+		await loadAudio(audioToLoad);
 	}
 };
