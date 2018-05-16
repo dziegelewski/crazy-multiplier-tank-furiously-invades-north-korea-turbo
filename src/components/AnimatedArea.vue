@@ -82,7 +82,7 @@
 			foeRushes() {
 				const foeVehicle = this.getVehicle('foe');
 				const heroVehicle = this.getVehicle('hero');
-				const moveFoe = elementTranslate(foeVehicle, 0);
+				const moveFoe = elementTranslate(foeVehicle);
 
 				const rushingInterval = setInterval(() => {
 					moveFoe(-30);
@@ -135,7 +135,7 @@
 			z-index: 1;
 			position: absolute;
 			bottom: 0;
-			$vehicle-offset: -10%;
+			$vehicle-offset: 2.5%;
 
 			&[data-direction="left"] {
 				right: $vehicle-offset;

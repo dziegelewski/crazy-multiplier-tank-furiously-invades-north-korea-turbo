@@ -1,5 +1,6 @@
 html {
   font-size: $base-font;
+  font-family: sans-serif;
   @include small {
     font-size: 25px;
   }
@@ -14,7 +15,7 @@ html {
   }
 
   .app {
-    background: white;;
+    background: white;
     margin: 0 auto;
     max-width: $game-width;
     height: 100vh;
@@ -78,20 +79,21 @@ html {
 }
 
 .score {
-  $_up-position: -75px;
+  $_up-position: 50px;
   $_up-time: 800ms;
   z-index: 11;
   font-weight: bold;
+  text-align: center;
 
   color: $score-color;
   animation: up 1 $_up-time;
-  transform: translateY($_up-position);
+  transform: translateY(-$_up-position);
 
   @keyframes up {
     0% { transform: translateY(0); }
     50%,
     100%
-    { transform: translateY($_up-position); }
+    { transform: translateY(-$_up-position); }
 
   }
 }

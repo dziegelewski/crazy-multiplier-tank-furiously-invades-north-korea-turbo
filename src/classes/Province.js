@@ -27,7 +27,7 @@ class Province {
   getNumberOfDefenders() {
     return this.isFinalProvince
     ? 1
-    : Math.floor(this.number * 1.5) + 2;
+    : this.number + 4;
   }
 
   get isFinalProvince() {

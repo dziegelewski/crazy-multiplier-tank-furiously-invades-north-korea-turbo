@@ -38,7 +38,7 @@ export function detectCollision(firstElement, secondElement, diretion) {
 	});
 }
 
-export function elementTranslate(element, initialPosition) {
+export function elementTranslate(element, initialPosition = 0) {
 	let translation = initialPosition;
 
 	return (translationModifier) => {

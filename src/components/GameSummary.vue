@@ -50,7 +50,10 @@
 		margin: 5% 0;
 
 		&__inner {
-			margin: 0 auto;
+			margin: 10px;
+			@include small {
+				margin: 0 auto;
+			}
 			max-width: 500px;
 			border: 2px solid black;
 			padding: 10px 0;

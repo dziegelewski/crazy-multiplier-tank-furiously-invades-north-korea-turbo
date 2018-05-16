@@ -59,7 +59,7 @@ export default {
 	      await dispatch('displayMessage', {
 	        text: '!',
 	        duration: 3000,
-	        style: 'alert',
+	        style: 'alert-big',
 	      });
 	    }
 

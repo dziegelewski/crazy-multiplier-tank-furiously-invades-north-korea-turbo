@@ -1,5 +1,5 @@
 import eventBus from '@/utils/eventBus';
-import { wait, getElementCenter, createElementFromHTMLString, removeThis, getElementScorePositon, appendToBody } from '@/utils/functions';
+import { wait, getElementCenter, createElementFromHTMLString, removeThis, appendToBody } from '@/utils/functions';
 
 let bullets = 0;
 
@@ -38,16 +38,16 @@ function explode(selector) {
 }
 
 function displayScoresCounter(scores, target) {
-	const position = getElementScorePositon(target);
-	const counterId = `counter${new Date().getTime()}`;
+	const position = getElementCenter(target);
+	const counterWidth = 150;
 	const counter = createElementFromHTMLString(`
 		<div
 			class="score"
-			id="${counterId}"
 			style="
 				position: absolute;
-				left: ${position.left}px;
-				top: ${position.top}px;
+				width: ${counterWidth}px;
+				left: ${position.left - counterWidth/2}px;
+				top: ${position.top - 30}px;
 			"
 		>
 			${scores}

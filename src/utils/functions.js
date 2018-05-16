@@ -82,29 +82,14 @@ export const getElementCannonPosition = (target) => {
 	const element = smartQuerySelector(target);
 	const rect = element.getBoundingClientRect();
 
-	// const width = element.offsetWidth;
 	const height = element.offsetHeight;
 	const direction = getElementDirection(element);
 
-	const fromGroundToCannon = height / 5;
+	const distanceFromGroundToCannon = height / 5;
 
 	return {
 		left: rect[direction],
-		top: rect.top + fromGroundToCannon + height / 2,
-	};
-};
-
-export const getElementScorePositon = (target) => {
-	const center = getElementCenter(target);
-	const direction = getElementDirection(target);
-
-	const xModifier = byDirection(60, direction);
-	const yModifier = -20;
-
-
-	return {
-		left: center.left + xModifier,
-		top: center.top + yModifier,
+		top: rect.top + distanceFromGroundToCannon + height / 2,
 	};
 };
 

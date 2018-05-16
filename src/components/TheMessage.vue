@@ -50,9 +50,14 @@
 			@extend %medium-font;
 			line-height: 150%;
 
-			&--alert {
+			&--alert,
+			&--alert-big {
 				color: $alert-color;
 				@extend %blinking;
+			}
+
+			&--alert-big {
+				@extend %giant-font;
 			}
 
 			&--old-score {
@@ -64,6 +69,5 @@
 				color: $score-color;
 			}
 		}
-
 	}
 </style>
