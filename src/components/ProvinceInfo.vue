@@ -27,8 +27,9 @@
 	}
 
 	.slide-enter-active, .slide-leave-active {
-	  transition: transform 1.5s;
+	  transition: transform 1s;
 	  transition-timing-function: linear;
+	  transition-delay: .5s;
 	}
 
 	.slide-enter, .slide-leave-to {

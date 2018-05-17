@@ -33,7 +33,7 @@ const scenarios = [
 	{ foes: [ foes.van1 ] },
 	{ perks: [ perks.extraScore ] },
 
-	// 'factorsTable',
+	'factorsTable',
 ];
 
 

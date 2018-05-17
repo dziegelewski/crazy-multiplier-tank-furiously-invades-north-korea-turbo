@@ -28,6 +28,7 @@ export default {
 
 	  async gameOver({ commit, rootState }) {
 	    stopMusic();
+	    commit('putInGear');
 	    if (rootState.score > rootState.highscore) {
 	      commit('updateHighscore', rootState.score);
 	    }
@@ -38,7 +39,7 @@ export default {
 		 async getPerk(context, perk) {
 	    const { state, commit, dispatch } = context;
 	    perk = perk || randomPerk(state);
-	    commit('putInGear');
+	    commit('putInGear', 1);
 	    commit('updateIncomingPerk', perk);
 
 	    await animate.getPerk(perk);

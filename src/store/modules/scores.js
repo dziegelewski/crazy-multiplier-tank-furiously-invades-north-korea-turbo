@@ -2,15 +2,16 @@ import animate from '@/utils/animate';
 
 export default {
 	actions: {
-	  async getScores({ rootState, commit, dispatch }, { scores, target }) {
+	  async getScores({ rootState, commit, dispatch, }, { scores, target }) {
 	    commit('scored', scores);
 	    animate.displayScoresCounter(scores, `#${target}-vehicle`);
 	    if (rootState.score > rootState.highscore) {
-	      await dispatch('newHighscore');
+	      await dispatch('announceNewHighscore');
 	    }
 	  },
 
-	  async newHighscore({ rootState, commit, dispatch }) {
+	  async announceNewHighscore({ rootState, commit, dispatch, getters }) {
+	   if (rootState.summary.isHighscore) return;
 	   commit('updateSummary', { isHighscore: 1 });
 	      if (rootState.highscore > 0) {
 	        await dispatch('displayMessage', {

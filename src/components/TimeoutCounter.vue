@@ -48,8 +48,8 @@
 			margin-left: 1px;
 
 			&--extra {
-				border-color: blue;
-				background: blue;
+				border-color: $score-color;
+				background: $score-color;
 			}
 		}
 	}

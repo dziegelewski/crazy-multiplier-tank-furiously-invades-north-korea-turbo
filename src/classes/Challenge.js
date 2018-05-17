@@ -48,7 +48,7 @@ class Challenge {
   }
 
   get maxFactorValue() {
-    return Math.ceil(this.level * 1.5) + 4;
+    return Math.ceil(this.level * 1.25) + 2;
   }
 
   modifiedFactor(factor, factorIndex) {

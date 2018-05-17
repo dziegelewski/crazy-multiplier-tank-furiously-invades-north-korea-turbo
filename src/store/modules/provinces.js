@@ -1,7 +1,7 @@
 import Province from '@/classes/Province';
 import { finalProvinceNumber } from '@/data/provinces';
 import { wait } from '@/utils/functions';
-import { moment } from '@/utils/waiting';
+import { moment, longMoment } from '@/utils/waiting';
 import { willPerkBeFound } from '@/store/helpers';
 import { stopMusic } from '@/utils/audio';
 
@@ -39,7 +39,7 @@ export default {
 	    if (rootState.hero.isDefeated) return;
 	    await wait(moment);
 	    commit('currentProvinceVisibility', false);
-	    await wait(moment);
+	    await wait(longMoment);
 	    commit('heroLoosesPerks');
 	    await dispatch('displayMessage', {
 	      text: `${rootState.province.name} | cleared`,

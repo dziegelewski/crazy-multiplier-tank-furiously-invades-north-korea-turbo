@@ -3,13 +3,20 @@
 		<div class="game-summary__inner">
 			<p>Score: <b>{{ score }}</b>
 				<span
-				class="game-summary__highscore"
+				class="game-summary__extra-info"
 				v-if="summary.isHighscore"
 				>
-					new highscore!
+					New highscore!
 				</span>
 			</p>
-			<p>Multiplying accuracy: <b>{{ accuracyFormatted }}</b></p>
+			<p>Multiplying accuracy: <b>{{ accuracyFormatted }}</b>
+				<span
+				class="game-summary__extra-info"
+				v-if="accuracyComment"
+				>
+					{{ accuracyComment }}
+				</span>
+			</p>
 			<p>Stage reached: <b>{{ province.name }} ({{ province.number }})</b></p>
 			<p>Enemies defeated: <b>{{ summary.foesKilled }}</b></p>
 			<p>Perks collected: <b>{{ summary.perks }}</b></p>
@@ -37,6 +44,18 @@
 			accuracyFormatted() {
 				return `${Math.floor(this.accuracy)}%`;
 			},
+
+			accuracyComment() {
+				const { accuracy } = this;
+				if (accuracy === 100) {
+					return 'Perfect!'
+				} else if (accuracy >= 95) {
+					return 'Very good!'
+				} else if(accuracy >= 90) {
+					return 'Good!'
+				}
+					return null;
+			}
 		},
 
 	};
@@ -59,9 +78,8 @@
 			padding: 10px 0;
 		}
 
-		&__highscore {
+		&__extra-info {
 			color: $score-color;
-			text-transform: uppercase;
 			font-weight: 700;
 		}
 

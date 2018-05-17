@@ -10,7 +10,7 @@ export const extraScore = {
 	shortName: 'extraScore',
 	longName: 'Extra Score',
 	effect({ dispatch }) {
-		dispatch('getScores', { scores: 3000, target: 'hero' });
+		dispatch('getScores', { scores: 1000, target: 'hero' });
 	},
 };
 
