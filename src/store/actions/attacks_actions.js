@@ -4,17 +4,17 @@ import { wait } from '@/utils/functions';
 import { moment } from '@/utils/waiting';
 
 export default {
-	actions: {
-		async heroShots({ rootState, dispatch }) {
+
+		async heroShots({ state, dispatch }) {
 	    await animate.heroShots();
-	    if (rootState.foe) {
+	    if (state.foe) {
 	      dispatch('foeHit');
 	    }
 	  },
 
-	  async foeAttacks({ rootState, dispatch }) {
-	    if (rootState.hero.isDefeated) return;
-	    switch (rootState.foe.attackType) {
+	  async foeAttacks({ state, dispatch }) {
+	    if (state.hero.isDefeated) return;
+	    switch (state.foe.attackType) {
 	      case 'shot':
 	        await dispatch('foeShots');
 	        break;
@@ -50,9 +50,9 @@ export default {
 	    dispatch('gameOver');
 	  },
 
-	  async heroHit({ rootState, commit, dispatch }, damage) {
+	  async heroHit({ state, commit, dispatch }, damage) {
 	    commit('heroLoosesHeart', damage);
-	    if (rootState.hero.isDefeated) {
+	    if (state.hero.isDefeated) {
 	      playSound('destroy');
 	      animate.heroExplodes();
 	      dispatch('gameOver');
@@ -61,22 +61,22 @@ export default {
 	    }
 	  },
 
-		foeHit({ rootState, commit, dispatch }, damage = 1) {
+		foeHit({ state, commit, dispatch }, damage = 1) {
 			commit("foeLoosesHeart", damage);
 			commit("changeChallenge", null);
 
-			if (rootState.foe.isDefeated) {
+			if (state.foe.isDefeated) {
 				dispatch("foeDefeated");
 			} else {
 				dispatch("throwChallenge");
 			}
 		},
 
-		async foeDefeated({ rootState, commit, dispatch }) {
+		async foeDefeated({ state, commit, dispatch }) {
 	    playSound('destroy');
 	    commit('updateSummary', { foesKilled: 1 });
 
-			const scoresToGet = rootState.foe.score;
+			const scoresToGet = state.foe.score;
 	    animate.foeExplodes();
 
 			commit("changeFoe", null);
@@ -85,12 +85,11 @@ export default {
 
 	    await wait(moment);
 
-			if (rootState.province.isCleared) {
+			if (state.province.isCleared) {
 				dispatch("provinceCleared");
 			} else {
 				dispatch("sendFoe");
 			}
 		},
 
-	},
 };

@@ -2,6 +2,8 @@ import Hero from "@/classes/Hero";
 import retrieve from '@/utils/retrieve';
 import { isDeviceBig } from '@/utils/functions';
 
+const initialSpeed = 3;
+
 export const generateInitialState = () => ({
 	mode: 'menu',
 
@@ -19,8 +21,8 @@ export const generateInitialState = () => ({
   typingLocked: false,
 
   incomingPerk: null,
-  baseSpeed: 3,
-  speed: 0,
+  baseSpeed: initialSpeed,
+  speed: initialSpeed,
 
   score: 0,
   games: 0,

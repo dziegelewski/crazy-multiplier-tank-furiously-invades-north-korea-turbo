@@ -6,9 +6,8 @@ import { willPerkBeFound } from '@/store/helpers';
 import { stopMusic } from '@/utils/audio';
 
 export default {
-	actions: {
-		enterNextProvince({ rootState, dispatch }) {
-	    dispatch('enterProvince', rootState.lastEnteredProvince + 1);
+		enterNextProvince({ state, dispatch }) {
+	    dispatch('enterProvince', state.lastEnteredProvince + 1);
 	  },
 
 	  async enterProvince({ commit, dispatch }, provinceNumber) {
@@ -21,7 +20,7 @@ export default {
 	      stopMusic();
 	    }
 
-	    commit('putInGear', provinceNumber);
+	    dispatch('putInGear', provinceNumber);
 
 	    const province = new Province(provinceNumber);
 	    commit('changeProvince', province);
@@ -35,27 +34,27 @@ export default {
 	    dispatch('sendFoe');
 	  },
 
-	  async provinceCleared({ rootState, commit, dispatch }) {
-	    if (rootState.hero.isDefeated) return;
+	  async provinceCleared({ state, commit, dispatch }) {
+	    if (state.hero.isDefeated) return;
 	    await wait(moment);
 	    commit('currentProvinceVisibility', false);
 	    await wait(longMoment);
 	    commit('heroLoosesPerks');
 	    await dispatch('displayMessage', {
-	      text: `${rootState.province.name} | cleared`,
+	      text: `${state.province.name} | cleared`,
 	    });
 
-	    if (willPerkBeFound(rootState)) {
+	    if (willPerkBeFound(state)) {
 	      await dispatch('getPerk');
 	    }
 
 	    dispatch('enterNextProvince');
 	  },
 
-		 async sendFoe({ rootState, commit, dispatch }) {
-			if (!rootState.province || rootState.hero.isDefeated) return;
+		 async sendFoe({ state, commit, dispatch }) {
+			if (!state.province || state.hero.isDefeated) return;
 
-			const foe = rootState.province.sendFoe();
+			const foe = state.province.sendFoe();
 	    if (foe.needsWarning) {
 	      await dispatch('displayMessage', {
 	        text: '!',
@@ -68,5 +67,4 @@ export default {
 			commit("changeFoe", foe);
 			dispatch("throwChallenge");
 		},
-	},
 };

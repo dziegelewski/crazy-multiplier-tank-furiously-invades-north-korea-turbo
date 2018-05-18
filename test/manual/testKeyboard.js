@@ -31,7 +31,7 @@ export default function(store) {
 	function changeGear() {
 		const userGear = parseInt(prompt('Insert gear number'), 10);
 		if (userGear) {
-			store.commit('putInGear', userGear);
+			store.dispatch('putInGear', userGear);
 			console.log('speed: ', store.state.speed);
 		}
 	}

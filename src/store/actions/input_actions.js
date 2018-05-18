@@ -3,14 +3,13 @@ import { tinyMoment } from '@/utils/waiting';
 import { playSound } from '@/utils/audio';
 
 export default {
-	actions: {
-		userInput({ rootState, commit, getters, dispatch }, number) {
-	    if (rootState.typingLocked) return;
+		userInput({ state, commit, getters, dispatch }, number) {
+	    if (state.typingLocked) return;
 
 	    if (getters.isMenuMode) {
 	      dispatch('menuInput', number);
 	    } else {
-	      const { challenge } = rootState;
+	      const { challenge } = state;
 	      if (challenge) {
 	        commit('updateAnswer', number);
 
@@ -23,10 +22,10 @@ export default {
 	    playSound('keydown');
 	  },
 
-	  userUndo({ rootState, commit }) {
-	    if (rootState.typingLocked) return;
+	  userUndo({ state, commit }) {
+	    if (state.typingLocked) return;
 	    playSound('keydown');
-	    if (!rootState.challenge.inputFull) {
+	    if (!state.challenge.inputFull) {
 	      commit('undoAnswer');
 	    }
 	  },
@@ -61,5 +60,4 @@ export default {
 	  toggleMusic({ commit }) {
 	    commit('toggleOption', 'musicEnabled');
 	  },
-	},
 };

@@ -48,14 +48,14 @@
 			accuracyComment() {
 				const { accuracy } = this;
 				if (accuracy === 100) {
-					return 'Perfect!'
+					return 'Perfect!';
 				} else if (accuracy >= 95) {
-					return 'Very good!'
-				} else if(accuracy >= 90) {
-					return 'Good!'
+					return 'Very good!';
+				} else if (accuracy >= 90) {
+					return 'Good!';
 				}
 					return null;
-			}
+			},
 		},
 
 	};

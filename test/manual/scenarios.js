@@ -14,7 +14,7 @@ const foes = require('@/data/foes');
 */
 
 const scenarios = [
-	// 'testingOn',
+	'testingOn',
 
 	// 'logScenarios',
 
@@ -29,9 +29,9 @@ const scenarios = [
 	// 'foeWontShot',
 	// 'foeShotsFast',
 
-	{ province: 7 },
-	{ foes: [ foes.van1 ] },
-	{ perks: [ perks.extraScore ] },
+	// { province: 7 },
+	// { foes: [ foes.van1 ] },
+	// { perks: [ perks.extraScore ] },
 
 	'factorsTable',
 ];
