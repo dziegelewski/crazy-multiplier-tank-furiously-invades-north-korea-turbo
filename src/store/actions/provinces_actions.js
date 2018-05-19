@@ -6,6 +6,10 @@ import { willPerkBeFound } from '@/store/helpers';
 import { stopMusic } from '@/utils/audio';
 
 export default {
+		enterStartingProvince({ state, dispatch }) {
+	    dispatch('enterProvince', state.startingProvince);
+		},
+
 		enterNextProvince({ state, dispatch }) {
 	    dispatch('enterProvince', state.lastEnteredProvince + 1);
 	  },
@@ -36,10 +40,9 @@ export default {
 
 	  async provinceCleared({ state, commit, dispatch }) {
 	    if (state.hero.isDefeated) return;
-	    await wait(moment);
+	    commit('heroLoosesPerks');
 	    commit('currentProvinceVisibility', false);
 	    await wait(longMoment);
-	    commit('heroLoosesPerks');
 	    await dispatch('displayMessage', {
 	      text: `${state.province.name} | cleared`,
 	    });

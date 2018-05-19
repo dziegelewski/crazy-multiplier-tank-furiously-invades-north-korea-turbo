@@ -1,19 +1,19 @@
 import Foe from '@/classes/Foe';
-import provinces, { finalProvinceNumber } from '@/data/provinces';
+import { getProvinceName, finalProvinceNumber } from '@/data/provinces';
 import provinceFoe from '@/data/foes-in-provinces';
 import { nonNegative } from '@/utils/functions';
 
 class Province {
   constructor(number) {
-    if (!number) throw Error('province number must be equal at least 1');
+    if (isNaN(number)) throw Error('Incorrect province number');
 
     this.number = number;
-    this.name = provinces[number - 1];
+    this.name = getProvinceName(number);
     this.defenders = this.getNumberOfDefenders();
   }
 
   sendFoe() {
-    if (this.isCleared) return null;
+    if (this.isCleared || !this.number) return null;
     return new Foe({
       power: this.number,
       ...provinceFoe(this.number),
@@ -27,7 +27,7 @@ class Province {
   getNumberOfDefenders() {
     return this.isFinalProvince
     ? 1
-    : this.number + 4;
+    : Math.floor(this.number / 2) + 4;
   }
 
   get isFinalProvince() {

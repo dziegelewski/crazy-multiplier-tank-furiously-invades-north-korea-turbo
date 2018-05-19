@@ -33,5 +33,17 @@ export default {
 			return commit('setSpeed', newSpeed);
 		}, 100);
 	},
+
+	measureDrivenDistance({ state, commit, getters }) {
+		const updateEvery = 2500;
+		const multiplyPerUpdate = updateEvery / 1000;
+
+		const measureInterval = setInterval(() => {
+			if (!getters.isGameMode) return clearInterval(measureInterval);
+	    return commit('updateSummary', {
+	    	distance: Math.floor(state.speed * multiplyPerUpdate),
+	    });
+		}, updateEvery);
+	},
 };
 

@@ -14,7 +14,7 @@ const foes = require('@/data/foes');
 */
 
 const scenarios = [
-	'testingOn',
+	// 'testingOn',
 
 	// 'logScenarios',
 
@@ -23,17 +23,17 @@ const scenarios = [
 	'testKeyboard',
 	// 'autoBegin',
 	// 'loopExplosion',
-	'heroImmortal',
+	// 'heroImmortal',
 
 	// 'foeWontCome',
 	// 'foeWontShot',
 	// 'foeShotsFast',
 
-	// { province: 7 },
-	// { foes: [ foes.van1 ] },
-	// { perks: [ perks.extraScore ] },
+	// { province: 18 },
+	// { foes: [ foes.racer1, foes.racer2, foes.joker1 ] },
+	{ perks: [ perks.extraTime, perks.swiftReload ] },
 
-	'factorsTable',
+	// 'factorsTable',
 ];
 
 
@@ -58,7 +58,7 @@ if (!use()) return;
 if (use('haste')) window.HASTE_MODE_ENABLED = true;
 if (use('mute')) { store.state.musicEnabled = false; store.state.audioEnabled = false; }
 if (use('testKeyboard')) testKeyboard(store);
-if (use('autoBegin') || use('province')) store.dispatch('beginGame');
+if (use('autoBegin')) store.dispatch('beginGame');
 if (use('province')) store.state.startingProvince = scenarioVal('province');
 if (use('foes')) window.TESTED_FOES = scenarioVal('foes');
 if (use('heroImmortal')) store.state.hero.hurt = function() {};
@@ -68,13 +68,22 @@ if (use('foeWontShot')) window.FOE_WONT_SHOT = true;
 if (use('foeShotsFast')) window.FOE_FAST_SHOT = true;
 
 if (use('perks')) {
-	const perksToProvide = scenarioVal('perks');
+	const savedStartingProvince = store.state.startingProvince;
+	store.state.startingProvince = 0;
 
-	(async function nextPerk() {
+	const perksToProvide = scenarioVal('perks');
+	async function nextPerk() {
 		const perk = perksToProvide.shift();
 		await store.dispatch('getPerk', perk);
-		if (perksToProvide.length) nextPerk()
-	})()
+		if (perksToProvide.length) {
+			await nextPerk()
+		}
+	}
+
+	await whenGameModeBegins();
+	await nextPerk();
+	store.state.startingProvince = savedStartingProvince;
+	store.dispatch('enterStartingProvince');
 }
 
 if (use('factorsTable')) {
@@ -93,6 +102,15 @@ if (use('factorsTable')) {
 }
 
 
-
-
 })();
+
+function whenGameModeBegins() {
+	return new Promise(resolve => {
+		const interval = setInterval(() => {
+			if (store.getters.isGameMode) {
+				resolve();
+				clearInterval(interval);
+			}
+	}, 100)
+	})
+}

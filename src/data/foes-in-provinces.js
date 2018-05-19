@@ -7,11 +7,14 @@ import {
 	atom1,
 	cosmic1,
 	van2,
-	hammer1,
+  hammer1,
+  racer1,
+	racer2,
 	tank3,
 	missle2,
 	atom2,
 	cosmic2,
+  joker1,
 	chairman1,
 } from '@/data/foes';
 
@@ -56,21 +59,23 @@ const defenders = {
 
   9: {
     often: [tank1, missle1, cosmic1],
+    rare: [racer1, tank2],
   },
 
   10: {
-    often: [tank2, missle1],
+    often: [tank2, missle1, racer1],
     rare: [van2, cosmic1],
   },
 
   11: {
-    often: [missle1],
-    rare: [van2],
+    often: [missle1, racer1],
+    rare: [van2, joker1],
 
   },
 
   12: {
-    rare: [hammer1],
+    often: [tank1],
+    rare: [hammer1, atom1, joker1],
   },
 
   13: {
@@ -84,15 +89,16 @@ const defenders = {
 
   15: {
     often: [tank2, tank3, van2],
+    rare: [racer2],
   },
 
   16: {
-    often: [missle1, tank3],
+    often: [missle1, tank3, racer2],
     rare: [missle2],
   },
 
   17: {
-    often: [missle2, tank2],
+    often: [missle2, tank2, racer2, atom1],
     rare: [cosmic2],
   },
 

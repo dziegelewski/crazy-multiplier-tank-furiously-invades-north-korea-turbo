@@ -13,15 +13,19 @@ class Challenge {
     factors,
     toThePowerOf,
     factorsModifiers,
+    specials = [],
   } = {}) {
     this.id = challengeId++;
     this.level = level;
+    this.specials = specials;
     this.numberOfFactors = numberOfFactors;
 
     time += extraTime;
     this.extraTime = extraTime;
     this.maxTimeout = time;
     this.leftTimeout = time;
+    this.secretTimeout = this.specials.includes('secretTimeout');
+
 
     this.factorsModifiers = factorsModifiers;
     this.factors = factors || this.generateFactors();
@@ -90,14 +94,16 @@ class Challenge {
   }
 
   resetTimeout() {
-    this.leftTimeout = this.maxTimeout;
+    if (!this.specials.includes('noTimeRecover')) {
+      this.leftTimeout = this.maxTimeout;
+    }
   }
 
   restart() {
     this.userInput = [];
   }
 
-  secondPassed() {
+  countdown() {
     this.leftTimeout = nonNegative(this.leftTimeout - 1);
   }
 

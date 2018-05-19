@@ -11,6 +11,8 @@ export default {
       'musicEnabled',
       'highscore',
       'games',
+      'startingProvince',
+      'speed',
     ];
     const startingState = generateInitialState();
 
@@ -68,9 +70,9 @@ export default {
     state.foe.hurt(damage);
   },
 
-  secondPassed(state) {
+  challengeCountdown(state) {
     state.challenge &&
-    state.challenge.secondPassed();
+    state.challenge.countdown();
   },
 
   resetTimeout(state) {

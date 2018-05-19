@@ -1,4 +1,5 @@
-import random from 'lodash/random';
+import { more, randomModifier, multiply, always, multiplyRandomly, jokerShot } from "@/utils/foesHelpers";
+
 
 export const van1 = {
   name: "van1",
@@ -43,7 +44,7 @@ export const missle1 = {
   hearts: 1,
   numberOfFactors: 1,
   toThePowerOf: 2,
-  factorsModifiers: value => Math.ceil(value * 0.8),
+  factorsModifiers: multiply(0.8),
   attackType: 'rush',
   score: 200,
 };
@@ -59,6 +60,7 @@ export const atom1 = {
   hearts: 2,
   attackType: 'nuke',
   score: 200,
+  timeModifier: more(2),
 };
 
 
@@ -72,11 +74,11 @@ export const cosmic1 = {
   name: "cosmic1",
   hearts: 1,
   numberOfFactors: 3,
-  factorsModifiers: value => Math.ceil(value * 0.5),
+  factorsModifiers: multiply(0.4),
   attackType: 'shot',
   score: 300,
+  timeModifier: more(2),
 };
-
 
 export const cosmic2 = {
   ...cosmic1,
@@ -90,14 +92,44 @@ export const hammer1 = {
   hearts: 1,
   attackType: 'rush',
   factorsModifiers: {
-    0: () => 2,
-    1: value => value * random(20, 70),
+    0: always(2),
+    1: multiplyRandomly(20, 70),
   },
   score: 200,
+};
+
+export const joker1 = {
+  name: 'joker1',
+  hearts: 1,
+  attackType: 'shot',
+  numberOfFactors: 4,
+  factorsModifiers: jokerShot,
+  score: 200,
+};
+
+export const racer1 = {
+  name: 'racer1',
+  hearts: 1,
+  attackType: 'rush',
+  timeModifier: randomModifier(-1, 1),
+  specials: [
+    'secretTimeout',
+  ],
+  score: 200,
+};
+
+export const racer2 = {
+  ...racer1,
+  name: 'racer2',
+  timeModifier: randomModifier(-1, 0),
+  score: 300,
 };
 
 export const chairman1 = {
  name: 'chairman1',
  hearts: 9,
  score: 10000,
+ // specials: [
+ //    'stealTechniques',
+ // ],
 };

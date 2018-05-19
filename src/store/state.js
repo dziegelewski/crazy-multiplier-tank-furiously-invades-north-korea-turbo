@@ -34,9 +34,9 @@ export const generateInitialState = () => ({
     foesKilled: 0,
     shots: 0,
     hits: 0,
-    distance: 0,
     perks: 0,
     isHighscore: 0,
+    distance: 0,
   },
 });
 

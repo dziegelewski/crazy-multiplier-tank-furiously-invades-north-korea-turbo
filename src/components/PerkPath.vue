@@ -60,8 +60,13 @@
 		@extend %path;
 
 		&__perk {
-			width: 60px;
-			height: 60px;
+			width: 45px;
+			height: 45px;
+			@include screen {
+				width: 60px;
+				height: 60px;
+				
+			}
 			position: absolute;
 			bottom: 10px;
 			right: 50%;

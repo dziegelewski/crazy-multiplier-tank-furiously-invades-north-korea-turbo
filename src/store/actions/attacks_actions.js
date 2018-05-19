@@ -83,11 +83,10 @@ export default {
 
 	    await dispatch('getScores', { scores: scoresToGet, target: 'foe' });
 
-	    await wait(moment);
-
 			if (state.province.isCleared) {
 				dispatch("provinceCleared");
 			} else {
+		    await wait(moment);
 				dispatch("sendFoe");
 			}
 		},

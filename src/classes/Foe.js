@@ -1,5 +1,8 @@
 import Vehicle from "@/classes/Vehicle";
 import Challenge from "@/classes/Challenge";
+import { identity } from "@/utils/functions";
+
+const BASE_CHALLENGE_TIME = 5;
 
 class Foe extends Vehicle {
   constructor({
@@ -10,8 +13,9 @@ class Foe extends Vehicle {
     toThePowerOf = 1,
     numberOfFactors = 2,
     factorsModifiers,
-    time = 5,
+    timeModifier = identity,
     score,
+    specials = [],
   }) {
     super({ name, hearts });
 
@@ -20,7 +24,8 @@ class Foe extends Vehicle {
     this.numberOfFactors = numberOfFactors;
     this.factorsModifiers = factorsModifiers;
     this.toThePowerOf = toThePowerOf;
-    this.time = time;
+    this.time = timeModifier(BASE_CHALLENGE_TIME);
+    this.specials = specials;
     this.score = score;
   }
 

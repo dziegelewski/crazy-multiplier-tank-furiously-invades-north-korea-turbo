@@ -52,7 +52,7 @@
 	.game-mode {
 
 		&__top-bar {
-				margin-top: 2vh;
+				margin-top: 5vh;
 				display: flex;
 				justify-content: space-between;
 				padding: 0 5px;

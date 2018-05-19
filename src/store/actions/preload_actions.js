@@ -23,11 +23,11 @@ export default {
 		}
 	},
 
-	async preloadImages({ commit }) {
+	async preloadImages({ commit, getters }) {
 		if (imagesNeedsLoading()) {
 		  commit('changeMode', 'loading');
 			await loadImages();
-		  commit('changeMode', 'menu');
+		  getters.isLoadingMode && commit('changeMode', 'menu');
 		}
 	},
 };

@@ -4,6 +4,8 @@ export const wait = process.env.NODE_ENV === 'production'
 	?	time => new Promise(resolve => setTimeout(resolve, time))
 	: waitDevelopmentVersion;
 
+export const identity = val => val;
+
 export const nonNegative = value => Math.max(0, value);
 
 export const oppositeDirection = direction => direction === 'right' ? 'left' : 'right';

@@ -10,15 +10,15 @@ export default {
 	    loadAudio(menuAudio);
 	  },
 
-		async beginGame({ state, commit, dispatch }) {
+		async beginGame({ commit, dispatch }) {
 	    await dispatch('preloadAudio');
 	    commit('resetState');
-	    dispatch('driveSlowly');
-	    commit('changeMode', 'play');
 	    commit('addGame');
+	    commit('changeMode', 'play');
+	    dispatch('measureDrivenDistance');
 	    await wait(moment);
 	    startMusic();
-	    dispatch('enterProvince', state.startingProvince);
+	    dispatch('enterStartingProvince');
 	  },
 
 	  async gameOver({ dispatch, commit, state }) {

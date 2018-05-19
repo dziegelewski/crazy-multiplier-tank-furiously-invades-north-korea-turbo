@@ -1,6 +1,13 @@
 <template>
 		<transition-group class="timeout-counter" name="fade">
+			<span
+				v-if="isSecret"
+				class="timeout-counter__secret"
+				key="-1"
+			>?</span>
+
 			<div
+				v-else
 				v-for="unit in timeout"
 				:key="unit"
 				class="timeout-counter__unit"
@@ -26,6 +33,11 @@
 			side: {
 				type: String,
 			},
+
+			isSecret: {
+				type: Boolean,
+				default: false,
+			},
 		},
 
 	};
@@ -43,7 +55,7 @@
 		&__unit {
 			border: 2px solid black;
 			background: black;
-			width: 4px;
+			width: 3px;
 			height: 3px;
 			margin-left: 1px;
 
@@ -51,6 +63,11 @@
 				border-color: $score-color;
 				background: $score-color;
 			}
+		}
+
+		&__secret {
+			font-weight: bold;
+			margin: 0 20px;
 		}
 	}
 </style>

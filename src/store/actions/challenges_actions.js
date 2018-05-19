@@ -21,7 +21,20 @@ export default {
 	    }
 
 	    commit('changeChallenge', challenge);
-	    dispatch('countSecondForChallenge', challenge.id);
+	    dispatch('challengeCountdown', challenge.id);
+	  },
+
+	  async challengeCountdown({ state, commit, dispatch }, targetChallengeId) {
+	    await wait(oneSecond);
+	    const { challenge } = state;
+	    if (challenge && challenge.id === targetChallengeId) {
+	      commit('challengeCountdown');
+	      if (challenge.timeOver) {
+	        dispatch('foeAttacks');
+	        commit('resetTimeout');
+	      }
+	      dispatch('challengeCountdown', targetChallengeId);
+	    }
 	  },
 
 	  async challengeBeated({ commit, dispatch, state }) {
@@ -59,17 +72,5 @@ export default {
 	  	dispatch('foeShots');
 	  },
 
-	  async countSecondForChallenge({ state, commit, dispatch }, targetChallengeId) {
-	    await wait(oneSecond);
-	    const { challenge } = state;
-	    if (challenge && challenge.id === targetChallengeId) {
-	      commit('secondPassed');
-	      if (challenge.timeOver) {
-	        dispatch('foeAttacks');
-	        commit('resetTimeout');
-	      }
-	      dispatch('countSecondForChallenge', targetChallengeId);
-	    }
-	  },
 
 };

@@ -20,6 +20,7 @@
 			<p>Stage reached: <b>{{ province.name }} ({{ province.number }})</b></p>
 			<p>Enemies defeated: <b>{{ summary.foesKilled }}</b></p>
 			<p>Perks collected: <b>{{ summary.perks }}</b></p>
+			<p>Distance travelled: <b>{{ summary.distance }}m</b></p>
 		</div>
 	</div>
 </template>

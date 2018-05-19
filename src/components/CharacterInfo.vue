@@ -12,6 +12,7 @@
 			v-if="isFoe && challenge"
 			:extra-time="challenge.extraTime"
 			:timeout="challenge.leftTimeout"
+			:is-secret="challenge.secretTimeout"
 			:side="side"
 		/>
 

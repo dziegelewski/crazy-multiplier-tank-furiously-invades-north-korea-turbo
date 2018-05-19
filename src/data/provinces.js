@@ -23,4 +23,6 @@ const provinces = [
 
 export default provinces;
 
+export const getProvinceName = number => provinces[number - 1] || '';
+
 export const finalProvinceNumber = provinces.length;
