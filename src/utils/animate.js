@@ -67,8 +67,8 @@ export default {
 		await emitShot('foe');
 	},
 
-	async foeRushes() {
-		eventBus.$emit('foe-rushes');
+	async foeClashes() {
+		eventBus.$emit('foe-clashes');
 		await new Promise(resolve => eventBus.$on('impact', resolve));
 	},
 
@@ -86,6 +86,14 @@ export default {
 	async heroExplodes() {
 		explode('#hero-vehicle');
 		await wait(100);
+	},
+
+	async nuke() {
+		const nukedClass = 'nuked';
+		const bodyClassList = document.querySelector('body').classList;
+		bodyClassList.add(nukedClass);
+		await wait(5000);
+		bodyClassList.remove(nukedClass);
 	},
 
 	displayScoresCounter,

@@ -2,6 +2,7 @@ import animate from '@/utils/animate';
 import { playSound } from '@/utils/audio';
 import { wait } from '@/utils/functions';
 import { moment } from '@/utils/waiting';
+import { fury } from '@/store/helpers';
 
 export default {
 
@@ -18,8 +19,8 @@ export default {
 	      case 'shot':
 	        await dispatch('foeShots');
 	        break;
-	      case 'rush':
-	        await dispatch('foeRushes');
+	      case 'clash':
+	        await dispatch('foeClashes');
 	        break;
 	      case 'nuke':
 	        await dispatch('foeNukes');
@@ -33,8 +34,8 @@ export default {
 	    dispatch('heroHit');
 	  },
 
-	  async foeRushes({ dispatch }) {
-	    await animate.foeRushes();
+	  async foeClashes({ dispatch }) {
+	    await animate.foeClashes();
 	    playSound('impact');
 	    dispatch('foeHit', 9);
 	    dispatch('heroHit');
@@ -46,7 +47,7 @@ export default {
 	    commit('heroLoosesHeart', 9);
 	    animate.heroExplodes();
 	    dispatch('foeDefeated');
-	    await wait(7000);
+	    await animate.nuke();
 	    dispatch('gameOver');
 	  },
 
@@ -58,6 +59,10 @@ export default {
 	      dispatch('gameOver');
 	    } else {
 	      commit('restartChallenge');
+	    }
+
+	    if (fury(state)) {
+	    	dispatch('fury');
 	    }
 	  },
 

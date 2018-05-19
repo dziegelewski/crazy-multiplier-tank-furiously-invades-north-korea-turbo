@@ -22,10 +22,6 @@ export default {
     return state.mode === 'loading';
   },
 
-  isNukeMode(state) {
-    return state.mode === 'nuke';
-  },
-
   isFirstGame(state) {
     return state.games === 0;
   },

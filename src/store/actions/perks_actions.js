@@ -1,6 +1,7 @@
 import animate from '@/utils/animate';
 import { randomPerk } from '@/store/helpers';
 import { playSound } from '@/utils/audio';
+import { wait } from '@/utils/functions';
 
 export default {
 	 async getPerk(context, perk) {
@@ -25,4 +26,18 @@ export default {
       text: perk.longName,
     });
   },
+
+  async fury({ dispatch }) {
+    dispatch('displayMessage', {
+      text: 'Fury!',
+      duration: 1500,
+      style: 'alert',
+    });
+
+    for (let shots = 0; shots < 4; shots++) {
+      dispatch('heroShots');
+      await wait(250);
+    }
+  },
+
 };

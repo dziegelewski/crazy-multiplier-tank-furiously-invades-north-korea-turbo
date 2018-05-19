@@ -1,11 +1,14 @@
-import random from 'lodash/random';
 import sample from 'lodash/sample';
-import { wait } from '@/utils/functions';
+import { wait, chances } from '@/utils/functions';
 import * as perks from '@/data/perks';
 
 export function willPerkBeFound(state) {
 	if (state.province.isFinalProvince) return false;
-  return random(0, 1) === 0;
+  const { number: provinceNumber } = state.province;
+  if (provinceNumber <= 5) {
+    return chances(1 / 3);
+  }
+    return chances(1 / 2);
 }
 
 export async function tellAStory(dispatch, story) {
@@ -14,18 +17,19 @@ export async function tellAStory(dispatch, story) {
   	if (typeof segment === 'number') {
   		await wait(segment);
   	} else {
-	    const lines = segment.split('|');
-	    await dispatch('displayMessage', { text: [...lines], duration: 3000 });
+	    await dispatch('displayMessage', { text: segment });
   	}
   }
 }
 
 export const randomPerk = (state) => {
   const provinceNumber = state ? state.province.number : 1;
+  const allPerks = Object.values(perks);
+  const fluke = chances(1 / 15);
   // eslint-disable-next-line
-  const availablePerks = Object.values(perks).filter((perk) => {
-    return !perk.minProvince || provinceNumber >= perk.minProvince;
-  });
+  const availablePerks = fluke
+  ? allPerks
+  : allPerks.filter(perk => !perk.minProvince || (provinceNumber >= perk.minProvince));
   return sample(availablePerks);
 };
 
@@ -35,4 +39,5 @@ export const doubleShooter = hasPerkHelper('doubleShooter');
 export const foresight = hasPerkHelper('foresight');
 export const extraTime = hasPerkHelper('extraTime');
 export const swiftReload = hasPerkHelper('swiftReload');
+export const fury = hasPerkHelper('fury');
 // export const xxx = hasPerkHelper('xxx');

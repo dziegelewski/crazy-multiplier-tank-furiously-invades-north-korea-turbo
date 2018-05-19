@@ -4,17 +4,14 @@ import { more, randomModifier, multiply, always, multiplyRandomly, jokerShot } f
 export const van1 = {
   name: "van1",
   hearts: 1,
-  attackType: 'rush',
+  attackType: 'clash',
   score: 100,
 };
 
 export const van2 = {
   name: "van2",
   hearts: 4,
-  attackType: 'rush',
-  specials: [
-    'noTimeRecover',
-  ],
+  attackType: 'clash',
   score: 500,
 };
 
@@ -45,7 +42,7 @@ export const missle1 = {
   numberOfFactors: 1,
   toThePowerOf: 2,
   factorsModifiers: multiply(0.8),
-  attackType: 'rush',
+  attackType: 'clash',
   score: 200,
 };
 
@@ -90,7 +87,7 @@ export const cosmic2 = {
 export const hammer1 = {
   name: "hammer1",
   hearts: 1,
-  attackType: 'rush',
+  attackType: 'clash',
   factorsModifiers: {
     0: always(2),
     1: multiplyRandomly(20, 70),
@@ -110,7 +107,7 @@ export const joker1 = {
 export const racer1 = {
   name: 'racer1',
   hearts: 1,
-  attackType: 'rush',
+  attackType: 'clash',
   timeModifier: randomModifier(-1, 1),
   specials: [
     'secretTimeout',
@@ -129,6 +126,8 @@ export const chairman1 = {
  name: 'chairman1',
  hearts: 9,
  score: 10000,
+ attackType: 'shot',
+
  // specials: [
  //    'stealTechniques',
  // ],

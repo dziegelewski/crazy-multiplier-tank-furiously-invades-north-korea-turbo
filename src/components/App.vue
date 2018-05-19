@@ -1,7 +1,6 @@
 <template>
   <div
     class="app"
-    :class="{ 'app--nuke': isNukeMode }"
   >
 
     <MenuMode v-if="isMenuMode" class="app__view" />
@@ -47,7 +46,6 @@ export default {
       'isMenuMode',
       'isGameMode',
       'isLoadingMode',
-      'isNukeMode',
     ]),
   },
 

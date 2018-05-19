@@ -11,8 +11,6 @@ $medium-font-immutable: $base-font * 1.4;
 
 $big-font: 2rem;
 
-$giant-font: 3em;
-
 $game-width: 600px;
 
 %small-font {
@@ -26,11 +24,6 @@ $game-width: 600px;
 
 %big-font {
 	font-size: $big-font;
-	font-weight: bold;
-}
-
-%giant-font {
-	font-size: $giant-font;
 	font-weight: bold;
 }
 

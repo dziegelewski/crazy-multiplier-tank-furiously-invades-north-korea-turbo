@@ -56,10 +56,6 @@
 				@extend %blinking;
 			}
 
-			&--alert-big {
-				@extend %giant-font;
-			}
-
 			&--old-score {
 				color: $score-color;
 				opacity: 0.66;

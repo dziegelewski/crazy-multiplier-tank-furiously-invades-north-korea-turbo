@@ -34,7 +34,7 @@
 	import { mapState, mapGetters } from 'vuex';
 	import eventBus from '@/utils/eventBus';
 	import shot from '@/utils/shot';
-	import { rush } from '@/utils/collision';
+	import { clash } from '@/utils/collision';
 
 	export default {
 		name: 'AnimatedArea',
@@ -79,8 +79,8 @@
 				});
 			},
 
-			foeRushes() {
-				rush({
+			foeClashes() {
+				clash({
 					aggresor: this.getVehicle('foe'),
 					target: this.getVehicle('hero'),
 				});
@@ -90,7 +90,7 @@
 		mounted() {
 			eventBus.$on('hero-shots', bulletId => this.heroShots(bulletId));
 			eventBus.$on('foe-shots', bulletId => this.foeShots(bulletId));
-			eventBus.$on('foe-rushes', () => this.foeRushes());
+			eventBus.$on('foe-clashes', () => this.foeClashes());
 		},
 	};
 </script>

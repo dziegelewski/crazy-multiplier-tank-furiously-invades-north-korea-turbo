@@ -6,6 +6,8 @@ export const wait = process.env.NODE_ENV === 'production'
 
 export const identity = val => val;
 
+export const chances = val => Math.random() < val;
+
 export const nonNegative = value => Math.max(0, value);
 
 export const oppositeDirection = direction => direction === 'right' ? 'left' : 'right';

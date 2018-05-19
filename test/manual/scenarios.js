@@ -19,19 +19,19 @@ const scenarios = [
 	// 'logScenarios',
 
 	// 'haste',
-	'mute',
+	// 'mute',
 	'testKeyboard',
 	// 'autoBegin',
 	// 'loopExplosion',
 	// 'heroImmortal',
 
 	// 'foeWontCome',
-	'foeWontShot',
+	// 'foeWontShot',
 	// 'foeShotsFast',
 
-	{ province: 18 },
-	// { foes: [ foes.racer1, foes.racer2, foes.joker1 ] },
-	{ perks: [ perks.foresight ] },
+	{ province: 20 },
+	// { foes: [ foes.van1 ] },
+	{ perks: [ perks.fury] },
 
 	// 'factorsTable',
 ];
@@ -100,7 +100,6 @@ if (use('factorsTable')) {
 	}, []);
 	console.table(table)
 }
-
 
 })();
 

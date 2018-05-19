@@ -49,18 +49,18 @@ export function elementTranslate(element, initialPosition = 0) {
 	};
 }
 
-export function rush({ aggresor, target, speed = 30 }) {
+export function clash({ aggresor, target, speed = 30 }) {
 	const diretion = getElementDirection(aggresor);
 	const moveAggresor = elementTranslate(aggresor);
 	const aggresorMovementDistance = byDirection(speed);
 
-	const rushingInterval = setInterval(() => {
+	const clashingInterval = setInterval(() => {
 		moveAggresor(aggresorMovementDistance);
 	}, 10);
 
 	detectCollision(aggresor,	target, diretion)
 	.then(() => {
-		clearInterval(rushingInterval);
+		clearInterval(clashingInterval);
 		eventBus.$emit('impact');
 	});
 }

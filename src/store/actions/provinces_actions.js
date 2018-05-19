@@ -61,7 +61,7 @@ export default {
 	    if (foe.needsWarning) {
 	      await dispatch('displayMessage', {
 	        text: '!',
-	        duration: 3000,
+	        duration: 2000,
 	        style: 'alert-big',
 	      });
 	    }
