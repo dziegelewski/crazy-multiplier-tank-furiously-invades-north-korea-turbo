@@ -39,7 +39,6 @@
 				default: false,
 			},
 		},
-
 	};
 </script>
 
@@ -53,11 +52,18 @@
 		margin-top: 10px;
 
 		&__unit {
-			border: 2px solid black;
+			box-sizing: border-box;
 			background: black;
-			width: 3px;
-			height: 3px;
 			margin-left: 1px;
+			margin-bottom: 2px;
+			
+			border: 2px solid black;
+			width: 5px;
+			height: 4px;
+			@include small {
+				width: 8px;
+				height: 6px;
+			}
 
 			&--extra {
 				border-color: $score-color;

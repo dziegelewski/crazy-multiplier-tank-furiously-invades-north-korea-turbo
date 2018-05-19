@@ -14,7 +14,7 @@ const foes = require('@/data/foes');
 */
 
 const scenarios = [
-	// 'testingOn',
+	'testingOn',
 
 	// 'logScenarios',
 
@@ -26,12 +26,12 @@ const scenarios = [
 	// 'heroImmortal',
 
 	// 'foeWontCome',
-	// 'foeWontShot',
+	'foeWontShot',
 	// 'foeShotsFast',
 
-	// { province: 18 },
+	{ province: 18 },
 	// { foes: [ foes.racer1, foes.racer2, foes.joker1 ] },
-	{ perks: [ perks.extraTime, perks.swiftReload ] },
+	{ perks: [ perks.foresight ] },
 
 	// 'factorsTable',
 ];

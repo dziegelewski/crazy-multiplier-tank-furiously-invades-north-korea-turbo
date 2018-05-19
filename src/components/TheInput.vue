@@ -5,9 +5,9 @@
 				class="the-input__field"
 			>
 				{{ field.value }}
-				<span v-if="field.hint" class="the-input__hint">
+				<div v-if="field.hint" class="the-input__hint">
 					{{ field.hint }}
-				</span>
+				</div>
 			</div>
 	</div>
 </template>
@@ -63,6 +63,7 @@
 			color: blue;
 			opacity: 0.5;
 			z-index: -1;
+			width: inherit;
 		}
 	}
 

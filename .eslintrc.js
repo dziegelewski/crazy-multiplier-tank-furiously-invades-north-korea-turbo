@@ -22,6 +22,9 @@ module.exports = {
       }
     }
   },
+  globals: {
+    'VERSION': false
+  },
   // add your custom rules here
   rules: {
     'no-mixed-operators': 0,

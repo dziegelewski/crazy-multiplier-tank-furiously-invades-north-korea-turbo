@@ -1,4 +1,4 @@
-
+const webpack = require('webpack');
 const path = require('path');
 const utils = require('./utils');
 const config = require('../config');
@@ -89,4 +89,9 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty',
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify(require("../package.json").version)
+    })
+  ],
 };

@@ -69,13 +69,11 @@
 <style lang='scss' scoped>
 	@import 'src/assets/styles/shared';
 	.character-info {
-		display: flex;
-		flex-direction: column;
 		height: 5vh;
 		align-self: flex-end;
 
-		min-width: 20%;
-		max-width: 20%;
+		min-width: 22%;
+		max-width: 22%;
 
 		&--left > * {
 			margin-left: 5px; 			

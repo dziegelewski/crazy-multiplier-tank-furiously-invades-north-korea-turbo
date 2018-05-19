@@ -29,5 +29,6 @@
 		font-weight: bold;
 		margin-left: 10px;
 		margin-top: 10px;
+		white-space: nowrap;
 	}
 </style>

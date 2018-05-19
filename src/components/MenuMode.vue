@@ -41,6 +41,11 @@
 		class="menu-view__input"
 		style="margin-top: 20px"
 	/>
+		
+	<footer class="menu-view__about">
+		© 2018 Grzegorz Dzięgelewski. Version {{ version }}
+	</footer>
+
 	</div>
 </template>
 
@@ -79,6 +84,10 @@
 			isMenuVisible() {
 				return this.isLogoLoaded || !this.isFirstGame;
 			},
+
+			version() {
+				return VERSION;
+			},
 		},
 
 		methods: {
@@ -113,6 +122,18 @@
 		&__options {
 			display: flex;
 			justify-content: space-around;
+		}
+
+		&__about {
+			display: none;
+			@include screen {
+				display: block;
+				position: absolute;
+				right: 10px;
+				bottom: 0;
+				color: #AAA;
+				font-size: 10px;
+			}
 		}
 	}
 
