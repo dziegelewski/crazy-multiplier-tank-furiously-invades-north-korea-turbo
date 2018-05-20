@@ -14,13 +14,13 @@ const foes = require('@/data/foes');
 */
 
 const scenarios = [
-	'testingOn',
+	// 'testingOn',
 
 	// 'logScenarios',
 
 	// 'haste',
 	// 'mute',
-	'testKeyboard',
+	// 'testKeyboard',
 	// 'autoBegin',
 	// 'loopExplosion',
 	// 'heroImmortal',
@@ -29,9 +29,9 @@ const scenarios = [
 	// 'foeWontShot',
 	// 'foeShotsFast',
 
-	{ province: 20 },
+	// { province: 20 },
 	// { foes: [ foes.van1 ] },
-	{ perks: [ perks.fury] },
+	// { perks: [ perks.fury] },
 
 	// 'factorsTable',
 ];

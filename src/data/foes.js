@@ -1,5 +1,4 @@
-import { more, randomModifier, multiply, always, multiplyRandomly, jokerShot } from "@/utils/foesHelpers";
-
+import { more, less, randomModifier, multiply, always, multiplyRandomly, jokerShot } from "@/utils/foesHelpers";
 
 export const van1 = {
   name: "van1",
@@ -42,6 +41,7 @@ export const missle1 = {
   numberOfFactors: 1,
   toThePowerOf: 2,
   factorsModifiers: multiply(0.8),
+  timeModifier: less(1),
   attackType: 'clash',
   score: 200,
 };
@@ -123,12 +123,10 @@ export const racer2 = {
 };
 
 export const chairman1 = {
- name: 'chairman1',
- hearts: 9,
- score: 10000,
- attackType: 'shot',
-
- // specials: [
- //    'stealTechniques',
- // ],
+  name: 'chairman1',
+  hearts: 10,
+  score: 10000,
+  attackType: 'shot',
+  factorsModifiers: multiply(1.5),
+  timeModifier: less(1),
 };
